@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = SCRIPT_DIR.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_PATH = (
     PROJECT_ROOT
     / "scripts"
@@ -22,7 +22,7 @@ OUTPUT_PATH = (
 
 _EVAL_SPEC = importlib.util.spec_from_file_location(
     "evaluate_windowed_tbmd_qr_cs_forecasting",
-    SCRIPT_DIR / "evaluate_windowed_tbmd_qr_cs_forecasting.py",
+    PROJECT_ROOT / "scripts" / "evaluation" / "evaluate_windowed_tbmd_qr_cs_forecasting.py",
 )
 if _EVAL_SPEC is None or _EVAL_SPEC.loader is None:
     raise RuntimeError("Could not load evaluate_windowed_tbmd_qr_cs_forecasting.py")

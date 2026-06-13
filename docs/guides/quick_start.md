@@ -10,6 +10,8 @@ This guide shows the shortest path from a clean checkout to a working TBMD examp
 
 ## Installation
 
+For full installation notes, see [Installation Guide](installation.md).
+
 ```bash
 git clone https://github.com/denis-samatov/tensor_based_modal_decomposition_method.git
 cd tensor_based_modal_decomposition_method
