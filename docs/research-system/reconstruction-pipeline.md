@@ -18,4 +18,3 @@ The pipeline consists of the following steps:
 
 ## Related docs
 - [Current Architecture Decisions](../architecture/decisions.md)
-- [Digital Twin Analysis](../product/brugge-digital-twin-analysis.md)

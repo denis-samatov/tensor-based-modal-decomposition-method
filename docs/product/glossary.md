@@ -18,12 +18,10 @@ A centralized list of definitions to prevent ambiguous or contradictory use of t
 - **Sensor Placement**: The algorithmic selection of physical or virtual locations to take measurements, optimizing information gain.
 - **Reconstruction**: The process of approximating a full tensor field from sparse measurements.
 - **Brugge dataset**: A standard reservoir engineering benchmark field often used for testing dynamic simulation workflows.
-- **Digital Twin**: A high-level orchestration pipeline that combines decomposition, forecasting, and sparse reconstruction to emulate and predict a physical system's state over time.
 
 ### Standardized AI/System Terms (If Applicable)
-*(Note: TBMD focuses on numerical decomposition and forecasting, not generative AI. These terms are defined here for standardization across organizational projects).*
+*(Note: TBMD focuses on numerical decomposition, not generative AI. These terms are defined here for standardization across organizational projects).*
 
-- **Model**: A mathematical or machine learning model (e.g., an LSTM or linear forecaster) used to predict modal coefficients.
 - **Evaluation**: The process of measuring a model's accuracy or performance against a validation dataset.
 - **Production-ready**: A status indicating the code is fully validated, secure, and robust for live user traffic. **TBMD is a research codebase and is NOT production-ready by default.**
 - **Staging / Release**: Environments or phases for deploying software. TBMD does not currently define a formal release pipeline.

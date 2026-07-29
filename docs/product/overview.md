@@ -7,7 +7,7 @@ This document provides a high-level overview of the Tensor-Based Modal Decomposi
 Product managers, business readers, and technical leads who need to understand what the product does, what problems it solves, and how it is structured without diving into deep implementation details.
 
 ## Summary
-TBMD is a Python research library designed for reduced-order modeling of spatiotemporal tensor data. It reduces high-dimensional data into a compact modal representation, enabling efficient sensor placement, field reconstruction, and forecasting.
+TBMD is a Python research library designed for reduced-order modeling of spatiotemporal tensor data. It reduces high-dimensional data into a compact modal representation, enabling efficient sensor placement and field reconstruction.
 
 ## Details
 The primary focus of TBMD is to handle spatiotemporal data (such as data generated from computational fluid dynamics or reservoir-modeling experiments) and build computationally efficient representations. 
@@ -18,7 +18,6 @@ The core workflow consists of several key stages:
 3. **Modal Processing**: Building a modal basis from the decomposition outputs.
 4. **Sensor Placement**: Selecting optimal informative sensor locations using tensor QR factorization.
 5. **Reconstruction**: Using Compressive Sensing (ADMM-based solvers) to reconstruct full fields from sparse measurements.
-6. **Digital Twin Forecasting**: Training a forecaster in the modal space to predict future states based on current or historical data.
 
 The project is heavily geared towards scientific computing and should be treated as a research and engineering codebase rather than a validated production simulator.
 

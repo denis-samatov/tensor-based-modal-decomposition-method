@@ -22,7 +22,6 @@ The repository is aimed at scientific computing and reservoir-modeling experimen
 2. **Compressive Sensing assumptions**: The ADMM solver assumes that the underlying physical field can be accurately represented by a sparse combination of the learned basis modes. Highly chaotic or purely random fields will result in poor reconstruction accuracy.
 4. **Scalability Constraints**: The maximum tested grid size for the offline phase corresponds to the downscaled Brugge benchmark resolution. Processing significantly larger grids (e.g., multi-million cells) requires batched SVD approaches or memory-mapped tensors.
 
-If testing complex forecasters (like `mlp` or `lstm`), they require dataset-specific validation. Simple forecasters (like `linear` or `persistence`) are primarily for smoke tests and synthetic examples.
 
 ### Local Data Handling
 Local datasets should be stored under the `data/` directory. This directory is ignored by git because datasets can be large, private, or derived from external sources. When documenting an experiment, record the dataset name, local path convention, tensor shape, preprocessing steps, and train/test split policy.

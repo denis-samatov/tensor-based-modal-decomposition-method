@@ -18,8 +18,7 @@ TBMD avoids hidden state and environment variables for core logic. Instead, conf
 | `DecompositionConfig` | Tucker/HOSVD decomposition settings (e.g., target ranks). |
 | `SensorPlacementConfig` | Tensor QR sensor placement settings (e.g., number of sensors). |
 | `CompressiveSensingConfig` | ADMM-based reconstruction settings (e.g., iterations, tolerance). |
-| `DigitalTwinConfig` | Orchestrator settings uniting spatial/temporal mode counts and forecaster type. |
-| `ForecasterConfig` | Forecasting model parameters. |
+
 
 ### Reproducibility
 Most configuration classes inherit `seed` and `deterministic` flags from `BaseConfig`. Setting these ensures deterministic operations across runs, though behavior may still depend slightly on the specific PyTorch backend and hardware used.

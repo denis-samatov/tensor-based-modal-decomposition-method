@@ -3,10 +3,10 @@
 A Python research library for reduced-order modeling of spatiotemporal tensor data. 
 
 ## What this project does
-Tensor-Based Modal Decomposition Method (TBMD) compresses high-dimensional spatiotemporal data (such as computational fluid dynamics or reservoir-modeling datasets) into a compact modal representation. It uses these representations to select optimal sensor placements, reconstruct full fields from sparse measurements, and build digital twin pipelines for forecasting future states.
+Tensor-Based Modal Decomposition Method (TBMD) compresses high-dimensional spatiotemporal data (such as computational fluid dynamics or reservoir-modeling datasets) into a compact modal representation. It uses these representations to select optimal sensor placements and reconstruct full fields from sparse measurements.
 
 ## Who this is for
-- **ML/AI Engineers & Data Scientists**: For building and orchestrating digital twin forecasting pipelines.
+- **ML/AI Engineers & Data Scientists**: For building and orchestrating modal decomposition pipelines.
 - **Scientific Computing Researchers**: For experimenting with tensor decompositions (Tucker/HOSVD) and geometry-aware representations.
 - **Developers**: For extending and integrating the core mathematical components into larger simulation workflows.
 
@@ -16,11 +16,10 @@ Tensor-Based Modal Decomposition Method (TBMD) compresses high-dimensional spati
 - **Tensor QR-based sensor placement** to find the most informative measurement locations.
 - **Compressive sensing reconstruction** with ADMM-based solvers.
 - **Geometry-aware variants** for decomposition, reconstruction, and sensor placement on irregular grids.
-- **Digital twin orchestration** that unites decomposition, sensor placement, reconstruction, and forecasting.
 
 ## Architecture at a glance
 The library is composed of modular components built primarily on PyTorch. 
-Data flows from `(x, y, time)` tensors through a `Decomposer` to extract modal bases, which are then passed to a `Sensor Placer` to find optimal measurement locations, and optionally into a `Digital Twin` orchestrator which trains a forecaster (e.g., Linear, MLP, LSTM) to predict future states. 
+Data flows from `(x, y, time)` tensors through a `Decomposer` to extract modal bases, which are then passed to a `Sensor Placer` to find optimal measurement locations. 
 
 For more details, see the [Architecture Overview](docs/architecture/overview.md).
 
@@ -76,3 +75,21 @@ We welcome improvements! Please review the [Contribution Guidelines](CONTRIBUTIN
 
 ## License / ownership
 MIT License. See `LICENSE`.
+
+## Reproducing the Computers & Geosciences manuscript
+
+Detailed instructions for reproducing the tables and figures of the manuscript are available in the [REPRODUCIBILITY.md](REPRODUCIBILITY.md) guide.
+
+**Quick Setup:**
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+```
+
+**Smoke Test:**
+```bash
+python examples/basic/01_tucker_decomposition.py
+```
+
+**Note:** The results and figures will be generated in the `results/` folder. Ensure you download the Brugge dataset from the GitHub repository and place it in the `data/` directory before running the evaluation scripts.

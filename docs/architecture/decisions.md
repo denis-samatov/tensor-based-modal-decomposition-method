@@ -16,11 +16,11 @@ Current
 The project needs to support reusable mathematical functions while allowing researchers to rapidly iterate on field-specific experiments (e.g., Brugge Digital Twin).
 
 #### Decision
-The core algorithmic components (decomposition, forecasting, reconstruction, sensor placement) are strictly decoupled from application-specific logic. 
+The core algorithmic components (decomposition, reconstruction, sensor placement) are strictly decoupled from application-specific logic. 
 
 #### Evidence in repository
 - `src/TBMD/core/` contains generalized abstractions (e.g., `BatchModalProcessor`).
-- `examples/applications/` and orchestration classes like `DigitalTwin` handle the dataset-specific data loading, scaling, and execution.
+- `examples/applications/` handle the dataset-specific data loading, scaling, and execution.
 
 #### Consequences
 - **Pros**: Clean testability of core math; easy to apply to new datasets.

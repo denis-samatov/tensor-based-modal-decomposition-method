@@ -1,13 +1,13 @@
 # Data Flow and Lifecycle
 
 ## Purpose
-To map the lifecycle of data as it passes through the TBMD pipeline, from raw tensors to predictions.
+To map the lifecycle of data as it passes through the TBMD pipeline, from raw tensors to sensor placement and field reconstruction.
 
 ## Audience
 Developers and ML/AI engineers writing custom integration code or troubleshooting pipeline bottlenecks.
 
 ## Summary
-Data flows through the system in a linear sequence: historical tensor data is decomposed, transformed into a modal basis, used to determine sensor placements, and finally used to train a forecaster for future predictions.
+Data flows through the system in a linear sequence: historical tensor data is decomposed, transformed into a modal basis, and used to determine sensor placements. Measurements at these locations are then used to reconstruct full fields.
 
 ## Details
 
@@ -28,19 +28,10 @@ The core tensor and factor matrices are passed to `BatchModalProcessor` and `Mod
 The Modal Basis is passed to `TensorTubeQRDecomposition`.
 **Output**: Permutation matrices (`P`), orthogonal matrices (`Q`), and upper triangular matrices (`R`). The `P` matrix acts as the mask defining optimal sensor locations.
 
-### 5. Forecasting (Digital Twin)
-The temporal coefficients of the modal basis are used to train a forecaster (e.g., Linear, MLP, LSTM).
-**Output**: A trained model capable of advancing the modal coefficients forward in time.
-
-### 6. Operational Phase (Prediction & Reconstruction)
+### 5. Operational Phase (Reconstruction)
 In operational use, sparse sensor measurements are taken at locations defined by `P`.
 `TensorCompressiveSensing` reconstructs the full modal coefficients from these sparse readings.
-The forecaster predicts the next time step.
-The predicted modal coefficients are expanded back into the full spatial domain using the Factor Matrices.
-
-## Examples
-*See [Digital Twin Tutorial](../product/use-cases.md) for a complete code sequence representing this flow.*
-
+The estimated modal coefficients are expanded back into the full spatial domain using the Factor Matrices.
 ## Validation
 To test the end-to-end data flow pipeline computationally:
 ```bash

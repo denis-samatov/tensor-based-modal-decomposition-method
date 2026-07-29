@@ -7,7 +7,7 @@ This directory contains runnable examples for the TBMD package. Run commands fro
 | Directory | Contents |
 | --- | --- |
 | `basic/` | Minimal decomposition, sensor placement, reconstruction, and complete-pipeline examples. |
-| `digital_twin/` | Digital twin workflow examples. |
+
 | `geometry_aware/` | Examples for graph and mesh-aware workflows. |
 | `advanced/` | Advanced and legacy workflows. |
 | `applications/` | Dataset-specific scripts. |
@@ -20,14 +20,6 @@ python examples/basic/01_tucker_decomposition.py
 python examples/basic/02_sensor_placement.py
 python examples/basic/03_field_reconstruction.py
 python examples/basic/04_complete_pipeline.py
-```
-
-## Digital Twin Examples
-
-```bash
-python examples/digital_twin/01_digital_twin_basic.py
-python examples/digital_twin/02_digital_twin_advanced.py
-python examples/digital_twin/04_digital_twin_type_demo.py
 ```
 
 ## Geometry-Aware Examples
@@ -47,7 +39,7 @@ Application examples may require local datasets that are not included in git:
 
 ```bash
 python examples/applications/brugge_field/run_brugge_enhanced.py
-python examples/02_navier_stokes_optimal_forecasting.py
+
 ```
 
 Check each script before running it on a new machine. Keep local datasets and generated outputs out of version control.

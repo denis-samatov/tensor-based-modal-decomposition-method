@@ -21,8 +21,6 @@ python examples/applications/brugge_field/run_brugge_enhanced.py
 ```
 
 ### 3. Artifact Logging
-- Ensure the script outputs the trained decomposition basis and forecast results to a timestamped folder within `results/`.
+- Ensure the script outputs the trained decomposition basis to a timestamped folder within `results/`.
 - Save the exact configuration parameters (JSON or YAML) alongside the numerical outputs to guarantee reproducibility.
 
-## Related docs
-- [Digital Twin Analysis](../product/brugge-digital-twin-analysis.md)

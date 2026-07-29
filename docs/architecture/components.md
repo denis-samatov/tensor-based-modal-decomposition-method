@@ -7,7 +7,7 @@ To detail the specific modules and classes that implement the core functionality
 Developers modifying or extending the core mathematical operations.
 
 ## Summary
-The system comprises standard TBMD components (Tucker decomposition, ADMM reconstruction), geometry-aware extensions, and the Digital Twin orchestrator.
+The system comprises standard TBMD components (Tucker decomposition, ADMM reconstruction) and geometry-aware extensions.
 
 ## Details
 
@@ -23,9 +23,6 @@ Geometry-aware components extend standard TBMD for irregular spatial connectivit
 - **GeometryAwareTensorCS**: Reconstruction with graph-based penalties.
 - **MeshGraphBuilder & MeshGeometry**: Utilities for converting grid shapes or explicit adjacency matrices into graph Laplacian matrices for the decomposer.
 
-### Digital Twin Orchestrator
-The `DigitalTwin` class acts as a facade over the core components.
-It orchestrates the flow from `train()` (decomposition + forecaster fitting) to `predict()` and `update_from_sensors()`. Supported forecasters include linear, mlp, lstm, and persistence.
 
 ## Examples
 **Instantiating a Geometry-Aware Decomposer:**

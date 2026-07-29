@@ -105,6 +105,7 @@ walkthrough.md
 notebooks/tutorials/forecast_next_state.ipynb
 notebooks/tutorials/digital_twin.ipynb
 notebooks/experiments/exp_tbmd_4_digital_twin.ipynb
+docs/forecasting/
 
 # Additional prediction and digital twin files
 docs/examples/brugge_digital_twin_analysis.md
@@ -119,7 +120,11 @@ src/TBMD/config/forecaster/
 src/TBMD/core/forecasting/
 src/TBMD/digital_twin/
 src/TBMD/experiments/*forecasting*
+src/TBMD/experiments/t_plus_one*
 tests/unit/test_digital_twin.py
+tests/unit/test_navier_stokes_tplus1_contracts.py
+tests/unit/test_t_plus_one_evaluation.py
+
 
 # Agent files
 GEMINI.md

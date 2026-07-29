@@ -23,9 +23,4 @@ The pipeline involves sensitive hyperparameters and temporal splits. Careless co
 - **Risk**: The ADMM solver for compressive sensing may fail to converge if the penalty parameter `rho` is poorly tuned for the scale of the data.
 - **Mitigation**: Ensure data is standard-scaled before reconstruction. Monitor the ADMM residual logs.
 
-### 4. Overclaiming Accuracy
-- **Risk**: Achieving low reconstruction error on the training set does not guarantee accurate multi-step physical forecasting.
-- **Mitigation**: Always report test-set forecast errors independently of offline reconstruction errors.
 
-## Related docs
-- [Digital Twin Analysis](../product/brugge-digital-twin-analysis.md)
