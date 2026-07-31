@@ -1,26 +1,16 @@
-"""
-Configuration objects for TBMD module.
-"""
+"""Configuration objects for the public TBMD modules."""
 
 from .base import BaseConfig
 from .decomposition import DecompositionConfig, GeometryAwareDecompositionConfig
-from .sensor_placement import SensorPlacementConfig, GeometricSensorConfig
-from .reconstruction import (
-    ReconstructionConfig, 
-    CompressiveSensingConfig, 
-    ExtensionCompressiveSensingConfig, 
-    GeometryAwareReconstructionConfig
-)
-
 from .experiments import ExperimentConfig
 from .modal_processor import ModalProcessorConfig
-from .forecaster import (
-    LatentModalForecasterConfig,
-    LinearForecasterConfig,
-    MLPForecasterConfig,
-    LSTMForecasterConfig,
-    MultiResolutionTBMDConfig,
+from .reconstruction import (
+    CompressiveSensingConfig,
+    ExtensionCompressiveSensingConfig,
+    GeometryAwareReconstructionConfig,
+    ReconstructionConfig,
 )
+from .sensor_placement import GeometricSensorConfig, SensorPlacementConfig
 
 __all__ = [
     "BaseConfig",
@@ -34,11 +24,6 @@ __all__ = [
     "GeometryAwareReconstructionConfig",
     "ExperimentConfig",
     "ModalProcessorConfig",
-    "LatentModalForecasterConfig",
-    "LinearForecasterConfig",
-    "MLPForecasterConfig",
-    "LSTMForecasterConfig",
-    "MultiResolutionTBMDConfig",
 ]
 
 # Instantiate default configs for quick access

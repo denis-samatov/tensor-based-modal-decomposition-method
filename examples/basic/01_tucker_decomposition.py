@@ -162,8 +162,6 @@ try:
     # Error vs rank.
     ranks_list = sorted(results.keys())
     errors = [results[r].reconstruction_errors for r in ranks_list]
-    # Energy retained not directly available in new API, skipping
-    # energies = [results[r].energy_retained for r in ranks_list]
 
     ax1 = axes[1, 2]
     ax1.plot(ranks_list, errors, "o-", color="red", linewidth=2, label="Error")
@@ -171,11 +169,6 @@ try:
     ax1.set_ylabel("Reconstruction Error", color="red")
     ax1.tick_params(axis="y", labelcolor="red")
     ax1.grid(True, alpha=0.3)
-
-    # ax2 = ax1.twinx()
-    # ax2.plot(ranks_list, energies, 's-', color='blue', linewidth=2, label='Energy')
-    # ax2.set_ylabel('Energy Retained', color='blue')
-    # ax2.tick_params(axis='y', labelcolor='blue')
 
     axes[1, 2].set_title("Error vs Rank")
 

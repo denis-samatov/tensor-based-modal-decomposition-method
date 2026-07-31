@@ -22,6 +22,12 @@ python examples/basic/03_field_reconstruction.py
 python examples/basic/04_complete_pipeline.py
 ```
 
+The complete-pipeline example uses deterministic generated data and the current
+public v2 API. It verifies decomposition, modal processing, Tensor Tube QR
+placement, and sparse reconstruction without downloading a dataset. See
+[`REPRODUCIBILITY.md`](../REPRODUCIBILITY.md) for the boundary between this
+software check and the non-public Brugge experiment artifacts.
+
 ## Geometry-Aware Examples
 
 ```bash

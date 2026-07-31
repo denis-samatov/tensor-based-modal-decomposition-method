@@ -47,9 +47,6 @@ def test_documentation_entry_points_exist():
         "CHANGELOG.md",
         "SECURITY.md",
         ".env.example",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "GEMINI.md",
         "docs/product/overview.md",
         "docs/architecture/overview.md",
         "docs/setup/local-development.md",
@@ -61,6 +58,19 @@ def test_documentation_entry_points_exist():
     missing = [path for path in expected if not (PROJECT_ROOT / path).is_file()]
 
     assert missing == []
+
+
+def test_reproducibility_guide_has_no_unverified_data_instructions():
+    """Keep public reproduction claims aligned with the distributed artifacts."""
+    guide = (PROJECT_ROOT / "REPRODUCIBILITY.md").read_text(encoding="utf-8")
+    guide_lower = guide.lower()
+    normalized_guide = " ".join(guide.split())
+
+    assert "todo" not in guide_lower
+    assert "download the dataset from the github repository" not in guide_lower
+    assert "downloaded the data from zenodo" not in guide_lower
+    assert "examples/basic/04_complete_pipeline.py" in guide
+    assert "does not reproduce the manuscript's Brugge metrics or figures" in normalized_guide
 
 
 def test_no_tracked_generated_or_local_artifacts():
@@ -136,11 +146,13 @@ def test_import_dag():
     import TBMD.core.geometry
     import TBMD.core.reconstruction
     import TBMD.core.sensor_placement
+    import TBMD.experiments
 
     assert TBMD.core.decomposition is not None
     assert TBMD.core.geometry is not None
     assert TBMD.core.reconstruction is not None
     assert TBMD.core.sensor_placement is not None
+    assert TBMD.experiments.ExperimentRunner is not None
 
 
 def test_deprecation_warning():

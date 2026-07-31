@@ -78,7 +78,9 @@ MIT License. See `LICENSE`.
 
 ## Reproducing the Computers & Geosciences manuscript
 
-Detailed instructions for reproducing the tables and figures of the manuscript are available in the [REPRODUCIBILITY.md](REPRODUCIBILITY.md) guide.
+The [reproducibility guide](REPRODUCIBILITY.md) distinguishes public software
+checks from the unavailable local artifacts used for the manuscript's Brugge
+numerical results.
 
 **Quick Setup:**
 ```bash
@@ -87,9 +89,19 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
-**Smoke Test:**
+**Synthetic end-to-end smoke test:**
 ```bash
-python examples/basic/01_tucker_decomposition.py
+python examples/basic/04_complete_pipeline.py \
+  --spatial-points 40 \
+  --time-steps 12 \
+  --n-modes 8 \
+  --n-sensors 6 \
+  --solver admm
 ```
 
-**Note:** The results and figures will be generated in the `results/` folder. Ensure you download the Brugge dataset from the GitHub repository and place it in the `data/` directory before running the evaluation scripts.
+This command generates its data in memory and exercises Tucker decomposition,
+modal processing, Tensor Tube QR sensor placement, and sparse reconstruction.
+It does not reproduce the manuscript's Brugge metrics or figures. The exact
+processed Brugge tensors, simulator outputs, experiment orchestration, and run
+metadata are not distributed in this repository; no GitHub or Zenodo dataset
+download is claimed.

@@ -1,366 +1,489 @@
 #!/usr/bin/env python3
-"""
-Complete TBMD Pipeline Example
+"""Run the public synthetic TBMD end-to-end pipeline.
 
-Complete pipeline: decomposition -> placement -> reconstruction.
+The example exercises the current v2 API:
+
+1. Tucker/HOSVD decomposition.
+2. Time-insensitive modal-basis construction.
+3. Tensor Tube QR sensor placement.
+4. Sparse full-field reconstruction.
+
+The synthetic data are intended as a deterministic software smoke test. They
+do not reproduce the Brugge benchmark or the manuscript's reported metrics.
 """
+
+from __future__ import annotations
 
 import argparse
+from typing import Any
 
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
-from TBMD.config import DecompositionConfig, ReconstructionConfig, SensorPlacementConfig
+from TBMD.config import CompressiveSensingConfig, DecompositionConfig, SensorPlacementConfig
 from TBMD.core import TensorCompressiveSensing, TensorTubeQRDecomposition, TuckerDecomposer
+from TBMD.core.modal_processor.modes import ModalProcessorConfig, ModalTensorProcessor
 
 
-def parse_args():
-    parser = argparse.ArgumentParser(description="TBMD Complete Pipeline")
-    parser.add_argument("--n-modes", type=int, default=20, help="Number of spatial modes")
-    parser.add_argument("--n-sensors", type=int, default=40, help="Number of sensors")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="TBMD synthetic complete pipeline")
+    parser.add_argument(
+        "--n-modes",
+        type=int,
+        default=20,
+        help="Number of modes in the reconstruction dictionary",
+    )
+    parser.add_argument(
+        "--n-sensors",
+        type=int,
+        default=12,
+        help="Number of spatial-variable sensor locations",
+    )
     parser.add_argument(
         "--solver",
-        type=str,
+        choices=("least_squares", "admm", "ista"),
         default="admm",
-        choices=["least_squares", "admm", "ista"],
-        help="Reconstruction solver",
+        help="Coefficient-recovery solver",
     )
-    parser.add_argument("--visualize", action="store_true", help="Create visualization")
+    parser.add_argument("--spatial-points", type=int, default=200)
+    parser.add_argument("--time-steps", type=int, default=50)
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--visualize", action="store_true", help="Save a diagnostic PNG")
     return parser.parse_args()
 
 
-def create_synthetic_reservoir_data(I=200, J=3, T=50, seed=42):
-    """Create synthetic reservoir data.
+def create_synthetic_reservoir_data(
+    I: int = 200,
+    J: int = 3,
+    T: int = 50,
+    seed: int = 42,
+) -> torch.Tensor:
+    """Create deterministic reservoir-like fields for a software smoke test.
 
-    Variables:
-    - J=0: pressure
-    - J=1: oil saturation
-    - J=2: temperature
+    The three variables are pressure, oil saturation, and temperature. The
+    fields are analytic patterns with additive Gaussian noise; they are not
+    derived from the Brugge benchmark.
     """
+    if I < 2:
+        raise ValueError("I must be at least 2")
+    if J != 3:
+        raise ValueError("This synthetic generator requires J=3 variables")
+    if T < 2:
+        raise ValueError("T must be at least 2")
+
     torch.manual_seed(seed)
     np.random.seed(seed)
 
-    # Spatial grid.
     x = torch.linspace(0, 1, I)
-
-    # Time grid.
     time = torch.linspace(0, 1, T)
-
     data = torch.zeros(I, J, T)
 
-    # Pressure: exponential decay with spatial heterogeneity.
-    pressure_base = 1.0 - 0.5 * x  # Pressure gradient.
+    pressure_base = 1.0 - 0.5 * x
     for ti, t in enumerate(time):
         decay = torch.exp(-0.5 * t)
         data[:, 0, ti] = pressure_base * decay + 0.1 * torch.sin(5 * x) * decay
 
-    # Saturation: wavefront.
     for ti, t in enumerate(time):
         wavefront = torch.sigmoid(10 * (x - 0.5 * t - 0.2))
         data[:, 1, ti] = wavefront + 0.05 * torch.sin(3 * x)
 
-    # Temperature: diffusion.
     temp_center = I // 2
     for ti, t in enumerate(time):
         spread = 0.1 + 0.3 * t
         data[:, 2, ti] = torch.exp(-((x - x[temp_center]) ** 2) / spread)
 
-    # Add realistic noise.
     data += 0.02 * torch.randn_like(data)
 
-    # Normalize each variable.
-    for j in range(J):
-        data[:, j, :] = (data[:, j, :] - data[:, j, :].mean()) / (data[:, j, :].std() + 1e-8)
+    for variable in range(J):
+        variable_data = data[:, variable, :]
+        data[:, variable, :] = (variable_data - variable_data.mean()) / (
+            variable_data.std() + 1e-8
+        )
 
     return data
 
 
-def run_tbmd_pipeline(data, n_modes, n_sensors, solver="admm"):
-    """Run the complete TBMD pipeline."""
-
-    results = {}
-
-    # Step 1: Decomposition
-    print("\n" + "=" * 60)
-    print("Step 1: Tucker Decomposition")
-    print("=" * 60)
-
-    decomp_config = DecompositionConfig(
-        ranks=[n_modes, n_modes // 2], backend="torch", verbose=True
-    )
-
-    decomposer = TuckerDecomposer(decomp_config)
-    decomp_result = decomposer.decompose(data)
-
-    results["decomposition"] = decomp_result
-
-    print("Decomposition complete:")
-    print(f"   - Spatial modes: {decomp_result.spatial_modes.shape}")
-    print(f"   - Temporal modes: {decomp_result.temporal_modes.shape}")
-    print(f"   - Core tensor: {decomp_result.core.shape}")
-    print(f"   - Energy retained: {decomp_result.energy_retained:.2%}")
-    print(f"   - Reconstruction error: {decomp_result.reconstruction_error:.4f}")
-
-    # Step 2: Sensor placement
-    print("\n" + "=" * 60)
-    print("Step 2: Sensor Placement")
-    print("=" * 60)
-
-    sensor_config = SensorPlacementConfig(n_sensors=n_sensors, backend="torch", verbose=True)
-
-    sensor_placer = TensorTubeQRDecomposition(sensor_config)
-    sensor_result = sensor_placer.place_sensors(decomp_result.spatial_modes)
-
-    results["sensors"] = sensor_result
-
-    print("Sensor placement complete:")
-    print(f"   - Number of sensors: {len(sensor_result.sensor_indices)}")
-    print(f"   - Coverage score: {sensor_result.coverage_score:.4f}")
-    print(f"   - Measurement matrix: {sensor_result.measurement_matrix.shape}")
-
-    # Step 3: Reconstruction
-    print("\n" + "=" * 60)
-    print("Step 3: Field Reconstruction")
-    print("=" * 60)
-
-    recon_config = ReconstructionConfig(
-        solver=solver, max_iterations=100, lambda_reg=0.01, backend="torch", verbose=True
-    )
-
-    reconstructor = TensorCompressiveSensing(recon_config)
-
-    # Reconstruct every time step.
-    I, J, T = data.shape
-    reconstructed_data = torch.zeros_like(data)
-    reconstruction_errors = []
-
-    for ti in range(T):
-        field = data[:, :, ti]
-        measurements = sensor_result.measurement_matrix @ field.reshape(-1)
-
-        recon_result = reconstructor.reconstruct(
-            dictionary=decomp_result.spatial_modes,
-            measurements=measurements.unsqueeze(1),
-            measurement_matrix=sensor_result.measurement_matrix,
+def _validate_pipeline_parameters(
+    data: torch.Tensor,
+    n_modes: int,
+    n_sensors: int,
+    solver: str,
+) -> None:
+    if data.ndim != 3:
+        raise ValueError(f"data must have shape (space, variables, time), got {data.shape}")
+    if not torch.isfinite(data).all():
+        raise ValueError("data contains NaN or infinite values")
+    if n_modes < 1 or n_modes > min(data.shape[0], data.shape[-1]):
+        raise ValueError(
+            "n_modes must be between 1 and min(spatial_points, time_steps), "
+            f"got {n_modes}"
         )
+    if n_sensors < 1 or n_sensors > n_modes:
+        raise ValueError(
+            "n_sensors must be between 1 and n_modes because Tensor Tube QR "
+            f"can select at most one sensor per modal tube; got {n_sensors}"
+        )
+    if solver not in {"least_squares", "admm", "ista"}:
+        raise ValueError(f"Unsupported solver: {solver}")
 
-        reconstructed = recon_result.reconstructed_field.reshape(I, J)
-        reconstructed_data[:, :, ti] = reconstructed
 
-        error = torch.norm(field - reconstructed) / torch.norm(field)
-        reconstruction_errors.append(error.item())
+def _recover_coefficients(
+    modal_basis: torch.Tensor,
+    sensor_mask: torch.Tensor,
+    field: torch.Tensor,
+    solver: str,
+    max_iterations: int,
+) -> tuple[torch.Tensor, dict[str, Any]]:
+    """Recover modal coefficients from one sparse field observation."""
+    sampled_basis = modal_basis[sensor_mask]
+    sampled_values = field[sensor_mask]
 
-    results["reconstruction"] = {
-        "data": reconstructed_data,
-        "errors": reconstruction_errors,
-        "mean_error": np.mean(reconstruction_errors),
-        "std_error": np.std(reconstruction_errors),
+    if solver == "least_squares":
+        solution = torch.linalg.lstsq(sampled_basis, sampled_values.unsqueeze(1)).solution
+        return solution.squeeze(1), {"iterations": 1, "converged": True}
+
+    if solver == "ista":
+        lipschitz = torch.linalg.matrix_norm(sampled_basis, ord=2).square().clamp_min(1e-8)
+        step_size = 1.0 / lipschitz
+        l1_weight = 1e-2
+        coefficients = torch.zeros(modal_basis.shape[-1], dtype=modal_basis.dtype)
+
+        for _ in range(max_iterations):
+            gradient = sampled_basis.T @ (sampled_basis @ coefficients - sampled_values)
+            update = coefficients - step_size * gradient
+            threshold = step_size * l1_weight
+            coefficients = torch.sign(update) * torch.clamp(torch.abs(update) - threshold, min=0)
+
+        return coefficients, {"iterations": max_iterations, "converged": False}
+
+    config = CompressiveSensingConfig(
+        max_iter=max_iterations,
+        tol=1e-4,
+        epsilon_l1=1e-2,
+        device="cpu",
+        dtype=modal_basis.dtype,
+    )
+    reconstructor = TensorCompressiveSensing(
+        modal_basis,
+        sensor_mask,
+        field,
+        core_cfg=config,
+    )
+    coefficients, metrics = reconstructor.solve()
+    return coefficients, {
+        "iterations": metrics.iterations,
+        "converged": metrics.converged,
+        "primal_residual": metrics.primal_residual,
+        "dual_residual": metrics.dual_residual,
     }
 
-    print("Reconstruction complete:")
-    print(f"   - Mean error: {results['reconstruction']['mean_error']:.4f}")
-    print(f"   - Std error: {results['reconstruction']['std_error']:.4f}")
-    print(f"   - Min error: {min(reconstruction_errors):.4f}")
-    print(f"   - Max error: {max(reconstruction_errors):.4f}")
 
-    # Step 4: Analysis
-    print("\n" + "=" * 60)
-    print("Step 4: Analysis")
-    print("=" * 60)
+def run_tbmd_pipeline(
+    data: torch.Tensor,
+    n_modes: int,
+    n_sensors: int,
+    solver: str = "admm",
+    *,
+    max_iterations: int = 100,
+    verbose: bool = True,
+) -> dict[str, Any]:
+    """Run decomposition, modal processing, placement, and reconstruction."""
+    _validate_pipeline_parameters(data, n_modes, n_sensors, solver)
 
-    compression_ratio = (I * J * T) / (
-        decomp_result.spatial_modes.numel()
-        + decomp_result.temporal_modes.numel()
-        + decomp_result.core.numel()
+    spatial_points, n_variables, time_steps = data.shape
+    ranks = [n_modes, n_variables, n_modes]
+
+    if verbose:
+        print("\n" + "=" * 60)
+        print("Step 1: Tucker decomposition")
+        print("=" * 60)
+
+    decomp_config = DecompositionConfig(
+        ranks=ranks,
+        backend="torch",
+        random_state=42,
+        verbose=verbose,
+    )
+    decomposer = TuckerDecomposer(data, config=decomp_config)
+    decomposer.decompose()
+    decomposer.reconstruct()
+
+    core = decomposer.cores
+    factors = decomposer.factors
+    decomposition_error = float(decomposer.reconstruction_errors)
+    retained_energy = max(0.0, 1.0 - decomposition_error**2)
+
+    modal_processor = ModalTensorProcessor(
+        ModalProcessorConfig(
+            device="cpu",
+            return_numpy=False,
+            enable_progress_logging=False,
+        )
+    )
+    modal_basis = modal_processor.process_single_subject(core, factors)
+
+    compressed_size = core.numel() + sum(factor.numel() for factor in factors)
+    decomposition_result = {
+        "core": core,
+        "factors": factors,
+        "relative_error": decomposition_error,
+        "retained_energy": retained_energy,
+        "compressed_size": compressed_size,
+    }
+
+    if verbose:
+        print(f"Core tensor: {tuple(core.shape)}")
+        print(f"Factor matrices: {[tuple(factor.shape) for factor in factors]}")
+        print(f"Modal basis: {tuple(modal_basis.shape)}")
+        print(f"Relative decomposition error: {decomposition_error:.4f}")
+        print(f"Retained energy estimate: {retained_energy:.2%}")
+
+        print("\n" + "=" * 60)
+        print("Step 2: Tensor Tube QR sensor placement")
+        print("=" * 60)
+
+    sensor_config = SensorPlacementConfig(
+        n_sensors=n_sensors,
+        random_state=42,
+        backend="torch",
+        verbose=verbose,
+    )
+    sensor_placer = TensorTubeQRDecomposition(modal_basis, config=sensor_config)
+    sensor_mask_int, q_factor, r_factor = sensor_placer.factorize()
+    sensor_mask = sensor_mask_int.bool()
+    sensor_indices = torch.nonzero(sensor_mask, as_tuple=False)
+    actual_sensors = int(sensor_mask.sum().item())
+    factorization_valid, factorization_error, factorization_metrics = (
+        sensor_placer.check_factorization(tol=1e-4)
     )
 
-    sensing_ratio = n_sensors / (I * J)
+    if actual_sensors != n_sensors:
+        raise RuntimeError(
+            f"Tensor Tube QR placed {actual_sensors} of {n_sensors} requested sensors"
+        )
+    if not factorization_valid:
+        raise RuntimeError(
+            "Tensor Tube QR validation failed with relative factorization error "
+            f"{factorization_error:.3e}"
+        )
 
-    print("Compression analysis:")
-    print(f"   - Original size: {I * J * T} elements")
-    print(
-        f"   - Compressed size: {decomp_result.spatial_modes.numel() + decomp_result.temporal_modes.numel() + decomp_result.core.numel()} elements"
-    )
-    print(f"   - Compression ratio: {compression_ratio:.2f}x")
-    print("\nSensing analysis:")
-    print(f"   - Sensors needed: {n_sensors} / {I * J} = {sensing_ratio:.2%}")
-    print(f"   - Data reduction: {(1 - sensing_ratio) * 100:.1f}%")
+    sensor_result = {
+        "mask": sensor_mask,
+        "indices": sensor_indices,
+        "q_factor": q_factor,
+        "r_factor": r_factor,
+        "requested": n_sensors,
+        "actual": actual_sensors,
+        "sampling_ratio": actual_sensors / (spatial_points * n_variables),
+        "factorization_valid": factorization_valid,
+        "factorization_error": factorization_error,
+        "factorization_metrics": factorization_metrics,
+    }
 
-    return results
+    if verbose:
+        print(f"Placed sensors: {actual_sensors}")
+        print(f"Sensor mask: {tuple(sensor_mask.shape)}")
+        print(f"Sampling ratio: {sensor_result['sampling_ratio']:.2%}")
+        print(f"QR relative factorization error: {factorization_error:.3e}")
+
+        print("\n" + "=" * 60)
+        print(f"Step 3: Sparse reconstruction ({solver})")
+        print("=" * 60)
+
+    reconstructed_data = torch.zeros_like(data)
+    reconstruction_errors: list[float] = []
+    solver_diagnostics: list[dict[str, Any]] = []
+
+    for time_index in range(time_steps):
+        field = data[:, :, time_index]
+        coefficients, diagnostics = _recover_coefficients(
+            modal_basis,
+            sensor_mask,
+            field,
+            solver,
+            max_iterations,
+        )
+        reconstructed = modal_basis @ coefficients
+        reconstructed_data[:, :, time_index] = reconstructed
+        relative_error = torch.linalg.vector_norm(field - reconstructed) / torch.linalg.vector_norm(
+            field
+        )
+        reconstruction_errors.append(float(relative_error.item()))
+        solver_diagnostics.append(diagnostics)
+
+    reconstruction_result = {
+        "data": reconstructed_data,
+        "errors": reconstruction_errors,
+        "mean_error": float(np.mean(reconstruction_errors)),
+        "std_error": float(np.std(reconstruction_errors)),
+        "solver": solver,
+        "diagnostics": solver_diagnostics,
+    }
+
+    if verbose:
+        print(f"Mean relative error: {reconstruction_result['mean_error']:.4f}")
+        print(f"Standard deviation: {reconstruction_result['std_error']:.4f}")
+        print(f"Minimum error: {min(reconstruction_errors):.4f}")
+        print(f"Maximum error: {max(reconstruction_errors):.4f}")
+
+        print("\n" + "=" * 60)
+        print("Step 4: Size and sampling summary")
+        print("=" * 60)
+        original_size = data.numel()
+        print(f"Original tensor: {original_size} elements")
+        print(f"Tucker representation: {compressed_size} elements")
+        print(f"Representation ratio: {original_size / compressed_size:.2f}x")
+        print(
+            f"Sensors: {actual_sensors} / {spatial_points * n_variables} "
+            f"({sensor_result['sampling_ratio']:.2%})"
+        )
+
+    return {
+        "decomposition": decomposition_result,
+        "modal_basis": modal_basis,
+        "sensor_mask": sensor_mask,
+        "sensors": sensor_result,
+        "reconstruction": reconstruction_result,
+    }
 
 
-def visualize_results(data, results, args):
-    """Create result visualizations."""
+def visualize_results(
+    data: torch.Tensor,
+    results: dict[str, Any],
+    args: argparse.Namespace,
+) -> str:
+    """Save a compact diagnostic plot and return its filename."""
+    spatial_points, n_variables, time_steps = data.shape
+    modal_basis = results["modal_basis"].detach().cpu()
+    sensor_mask = results["sensor_mask"].detach().cpu()
+    reconstruction = results["reconstruction"]
+    reconstructed_data = reconstruction["data"].detach().cpu()
 
-    I, J, T = data.shape
-    decomp = results["decomposition"]
-    sensors = results["sensors"]
-    recon = results["reconstruction"]
+    fig = plt.figure(figsize=(18, 10))
+    grid = fig.add_gridspec(3, 4, hspace=0.35, wspace=0.35)
 
-    fig = plt.figure(figsize=(20, 12))
-    gs = fig.add_gridspec(4, 4, hspace=0.35, wspace=0.35)
+    for mode_index in range(3):
+        axis = fig.add_subplot(grid[0, mode_index])
+        axis.plot(modal_basis[:, :, mode_index].mean(dim=1).numpy(), linewidth=2)
+        axis.set_title(f"Modal basis vector {mode_index + 1}")
+        axis.set_xlabel("Spatial point")
+        axis.grid(True, alpha=0.3)
 
-    # Row 1: first 3 spatial modes.
-    for i in range(3):
-        ax = fig.add_subplot(gs[0, i])
-        mode = decomp.spatial_modes[:, i].reshape(I, J).mean(dim=1)
-        ax.plot(mode.numpy(), linewidth=2)
-        ax.set_title(f"Spatial Mode {i + 1}")
-        ax.set_xlabel("Spatial Points")
-        ax.grid(True, alpha=0.3)
+    axis = fig.add_subplot(grid[0, 3])
+    axis.imshow(sensor_mask.numpy(), aspect="auto", cmap="Greys")
+    axis.set_title(f"Sensor mask ({int(sensor_mask.sum())} locations)")
+    axis.set_xlabel("Variable")
+    axis.set_ylabel("Spatial point")
 
-    # Row 1, Col 4: mode energy.
-    ax = fig.add_subplot(gs[0, 3])
-    mode_energies = torch.norm(decomp.spatial_modes, dim=0)[:15]
-    ax.bar(range(len(mode_energies)), mode_energies.numpy())
-    ax.set_title("Mode Energies")
-    ax.set_xlabel("Mode Index")
-    ax.set_ylabel("Energy")
-    ax.grid(True, alpha=0.3, axis="y")
-
-    # Row 2: sensor placement by variable.
-    sensor_indices = sensors.sensor_indices
-    sensor_i = sensor_indices // J
-    sensor_j = sensor_indices % J
-
-    for j in range(J):
-        ax = fig.add_subplot(gs[1, j])
-        var_sensors = sensor_i[sensor_j == j]
-        ax.hist(var_sensors.numpy(), bins=20, alpha=0.7, edgecolor="black")
-        ax.set_title(f"Sensor Distribution - Variable {j}")
-        ax.set_xlabel("Spatial Position")
-        ax.set_ylabel("Count")
-        ax.grid(True, alpha=0.3)
-
-    # Row 2, Col 4: coverage score.
-    ax = fig.add_subplot(gs[1, 3])
-    ax.text(
-        0.5,
-        0.5,
-        f"Coverage Score\n{sensors.coverage_score:.4f}\n\n"
-        f"Sensors: {len(sensor_indices)}\n"
-        f"Ratio: {len(sensor_indices) / (I * J):.2%}",
-        ha="center",
-        va="center",
-        fontsize=14,
-        bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.5),
-    )
-    ax.axis("off")
-
-    # Row 3: reconstruction vs original.
-    t_sample = T // 2
-    for j in range(3):
-        ax = fig.add_subplot(gs[2, j])
-        ax.plot(data[:, j, t_sample].numpy(), label="Original", linewidth=2)
-        ax.plot(
-            recon["data"][:, j, t_sample].numpy(),
+    sample_time = time_steps // 2
+    for variable in range(n_variables):
+        axis = fig.add_subplot(grid[1, variable])
+        axis.plot(data[:, variable, sample_time].numpy(), label="Original", linewidth=2)
+        axis.plot(
+            reconstructed_data[:, variable, sample_time].numpy(),
             label="Reconstructed",
             linestyle="--",
             linewidth=2,
         )
-        # Mark sensors.
-        var_sensors = sensor_i[sensor_j == j]
-        if len(var_sensors) > 0:
-            ax.scatter(
-                var_sensors.numpy(), data[var_sensors, j, t_sample].numpy(), c="red", s=50, zorder=5
-            )
-        ax.set_title(f"Variable {j} (T={t_sample})")
-        ax.set_xlabel("Spatial Points")
-        ax.legend()
-        ax.grid(True, alpha=0.3)
-
-    # Row 3, Col 4: reconstruction error over time.
-    ax = fig.add_subplot(gs[2, 3])
-    ax.plot(recon["errors"], linewidth=2)
-    ax.axhline(
-        y=recon["mean_error"], color="red", linestyle="--", label=f"Mean: {recon['mean_error']:.4f}"
-    )
-    ax.fill_between(
-        range(T),
-        recon["mean_error"] - recon["std_error"],
-        recon["mean_error"] + recon["std_error"],
-        alpha=0.3,
-        color="red",
-    )
-    ax.set_title("Reconstruction Error Over Time")
-    ax.set_xlabel("Time Step")
-    ax.set_ylabel("Relative Error")
-    ax.legend()
-    ax.grid(True, alpha=0.3)
-
-    # Row 4: heatmaps for one variable.
-    var_idx = 0
-    for idx, (data_slice, title) in enumerate(
-        [
-            (data[:, var_idx, :], "Original (Variable 0)"),
-            (recon["data"][:, var_idx, :], "Reconstructed (Variable 0)"),
-            (torch.abs(data[:, var_idx, :] - recon["data"][:, var_idx, :]), "Absolute Error"),
-            (
-                torch.abs(
-                    (data[:, var_idx, :] - recon["data"][:, var_idx, :])
-                    / (data[:, var_idx, :] + 1e-8)
-                ),
-                "Relative Error",
-            ),
-        ]
-    ):
-        ax = fig.add_subplot(gs[3, idx])
-        im = ax.imshow(
-            data_slice.numpy(),
-            aspect="auto",
-            cmap="viridis" if idx < 2 else "Reds",
-            interpolation="bilinear",
+        variable_sensors = torch.nonzero(sensor_mask[:, variable], as_tuple=False).flatten()
+        axis.scatter(
+            variable_sensors.numpy(),
+            data[variable_sensors, variable, sample_time].numpy(),
+            color="red",
+            s=35,
+            zorder=5,
         )
-        ax.set_title(title)
-        ax.set_xlabel("Time")
-        ax.set_ylabel("Spatial Points")
-        plt.colorbar(im, ax=ax)
+        axis.set_title(f"Variable {variable}, time {sample_time}")
+        axis.legend()
+        axis.grid(True, alpha=0.3)
 
-    plt.suptitle(
-        f"TBMD Complete Pipeline Results\n"
-        f"Modes={args.n_modes}, Sensors={args.n_sensors}, Solver={args.solver}",
-        fontsize=16,
-        y=0.995,
+    axis = fig.add_subplot(grid[1, 3])
+    axis.plot(reconstruction["errors"], linewidth=2)
+    axis.axhline(
+        reconstruction["mean_error"],
+        color="red",
+        linestyle="--",
+        label=f"Mean {reconstruction['mean_error']:.3f}",
+    )
+    axis.set_title("Relative reconstruction error")
+    axis.set_xlabel("Time step")
+    axis.legend()
+    axis.grid(True, alpha=0.3)
+
+    for column, (field, title) in enumerate(
+        (
+            (data[:, 0, :], "Original pressure-like field"),
+            (reconstructed_data[:, 0, :], "Reconstructed pressure-like field"),
+            (torch.abs(data[:, 0, :] - reconstructed_data[:, 0, :]), "Absolute error"),
+        )
+    ):
+        axis = fig.add_subplot(grid[2, column])
+        image = axis.imshow(field.numpy(), aspect="auto", cmap="viridis")
+        axis.set_title(title)
+        axis.set_xlabel("Time")
+        axis.set_ylabel("Spatial point")
+        plt.colorbar(image, ax=axis)
+
+    axis = fig.add_subplot(grid[2, 3])
+    axis.axis("off")
+    axis.text(
+        0.05,
+        0.95,
+        "Synthetic smoke test\n"
+        f"Modes: {args.n_modes}\n"
+        f"Sensors: {args.n_sensors}\n"
+        f"Solver: {args.solver}\n"
+        f"Mean error: {reconstruction['mean_error']:.4f}",
+        va="top",
+        fontsize=12,
     )
 
-    filename = f"tbmd_complete_pipeline_{args.n_modes}modes_{args.n_sensors}sensors.png"
-    plt.savefig(filename, dpi=150, bbox_inches="tight")
-    print(f"\nVisualization saved: {filename}")
+    fig.suptitle("TBMD synthetic end-to-end pipeline", fontsize=16)
+    filename = (
+        f"tbmd_complete_pipeline_{args.n_modes}modes_"
+        f"{args.n_sensors}sensors_{args.solver}.png"
+    )
+    fig.savefig(filename, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    return filename
 
 
-def main():
+def main() -> dict[str, Any]:
     args = parse_args()
 
     print("=" * 60)
-    print("TBMD - Complete Pipeline Example")
+    print("TBMD - Synthetic Complete Pipeline")
     print("=" * 60)
-    print("Parameters:")
-    print(f"  - Spatial modes: {args.n_modes}")
-    print(f"  - Sensors: {args.n_sensors}")
-    print(f"  - Solver: {args.solver}")
+    print(f"Modes: {args.n_modes}")
+    print(f"Sensors: {args.n_sensors}")
+    print(f"Solver: {args.solver}")
+    print(f"Seed: {args.seed}")
 
-    # Create data.
-    print("\nGenerating synthetic reservoir data...")
-    data = create_synthetic_reservoir_data()
-    I, J, T = data.shape
-    print(f"Data generated: {data.shape}")
-    print(f"   - Spatial points: {I}")
-    print(f"   - Variables: {J} (pressure, oil saturation, temperature)")
-    print(f"   - Time steps: {T}")
+    print("\nGenerating synthetic reservoir-like data...")
+    data = create_synthetic_reservoir_data(
+        I=args.spatial_points,
+        J=3,
+        T=args.time_steps,
+        seed=args.seed,
+    )
+    print(f"Data shape: {tuple(data.shape)}")
 
-    # Run pipeline.
-    results = run_tbmd_pipeline(data, args.n_modes, args.n_sensors, args.solver)
+    results = run_tbmd_pipeline(
+        data,
+        args.n_modes,
+        args.n_sensors,
+        args.solver,
+    )
 
-    # Visualization.
     if args.visualize:
-        print("\nCreating visualization...")
-        visualize_results(data, results, args)
+        filename = visualize_results(data, results, args)
+        print(f"\nVisualization saved: {filename}")
 
     print("\n" + "=" * 60)
-    print("TBMD Complete Pipeline completed successfully.")
+    print("TBMD synthetic complete pipeline completed successfully.")
     print("=" * 60)
-
+    print("This smoke test does not reproduce manuscript benchmark metrics.")
     return results
 
 
