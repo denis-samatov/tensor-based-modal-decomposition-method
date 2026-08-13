@@ -1,5 +1,6 @@
 import ast
 import re
+import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -66,6 +67,23 @@ def _project_version(project_root: Path) -> str:
     raise AssertionError("pyproject.toml must define a quoted [project].version")
 
 
+def _is_vcs_pip_install(command: str) -> bool:
+    """Return whether an executable line invokes pip to install a VCS URL."""
+    try:
+        tokens = shlex.split(command)
+    except ValueError:
+        return False
+
+    for index, token in enumerate(tokens):
+        if re.fullmatch(r"pip(?:\d+(?:\.\d+)*)?", Path(token).name) is None:
+            continue
+        return "install" in tokens[index + 1 :] and any(
+            "git+" in argument for argument in tokens[index + 1 :]
+        )
+
+    return False
+
+
 def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> None:
     """Validate one ordered, executable, revision-pinned Bash workflow."""
     project_version = _project_version(project_root)
@@ -90,11 +108,18 @@ def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> N
         )
         for block in bash_blocks
     ]
+    vcs_install_commands = [
+        command
+        for workflow in executable_workflows
+        for command in workflow
+        if _is_vcs_pip_install(command)
+    ]
 
     assert "github.com/organization" not in guide
     assert "@v1.0.0" not in guide
     assert "@v2.0.0" not in guide
     assert expected_workflow in executable_workflows
+    assert vcs_install_commands == [expected_workflow[1]]
 
 
 def test_documentation_entry_points_exist():
@@ -169,6 +194,38 @@ def test_release_workflow_rejects_malformed_commands(old: str, new: str):
     assert malformed_guide != guide
     with pytest.raises(AssertionError):
         _assert_release_workflow(malformed_guide)
+
+
+@pytest.mark.parametrize(
+    "extra_install",
+    [
+        pytest.param(
+            'python -m pip install "git+https://github.com/denis-samatov/'
+            'tensor_based_modal_decomposition_method.git@main"',
+            id="same-repository-main-branch",
+        ),
+        pytest.param(
+            'pip3 install --no-deps "git+ssh://git@github.com/denis-samatov/'
+            'tensor_based_modal_decomposition_method.git@feature"',
+            id="alternate-pip-and-vcs-url",
+        ),
+        pytest.param(
+            "python -m pip --disable-pip-version-check install "
+            '"git+https://github.com/denis-samatov/'
+            'tensor_based_modal_decomposition_method.git@development"',
+            id="pip-global-option-before-install",
+        ),
+    ],
+)
+def test_release_workflow_rejects_additional_vcs_install_blocks(extra_install: str):
+    """Reject mutable VCS installs in separate Bash workflows."""
+    guide = (PROJECT_ROOT / "docs/development/release-process.md").read_text(
+        encoding="utf-8"
+    )
+    guide_with_extra_install = f"{guide.rstrip()}\n\n```bash\n{extra_install}\n```\n"
+
+    with pytest.raises(AssertionError):
+        _assert_release_workflow(guide_with_extra_install)
 
 
 def test_release_workflow_uses_project_metadata_version(tmp_path: Path):
