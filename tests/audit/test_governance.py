@@ -68,7 +68,7 @@ def _project_version(project_root: Path) -> str:
 
 def _bash_executable_commands(block: str) -> tuple[str, ...]:
     """Return logical executable commands from a fenced Bash block."""
-    logical_block = re.sub(r"\\\r?\n[ \t]*", " ", block)
+    logical_block = re.sub(r"\\\r?\n[ \t]*", "", block)
     return tuple(
         line.strip()
         for line in logical_block.splitlines()
@@ -205,6 +205,12 @@ def test_release_workflow_rejects_malformed_commands(old: str, new: str):
             '  "git+ssh://git@github.com/denis-samatov/'
             'tensor_based_modal_decomposition_method.git@main"',
             id="backslash-continued-install",
+        ),
+        pytest.param(
+            'pip3 install "git\\\n'
+            "+https://github.com/denis-samatov/"
+            'tensor_based_modal_decomposition_method.git@main"',
+            id="backslash-continued-vcs-token",
         ),
     ],
 )
