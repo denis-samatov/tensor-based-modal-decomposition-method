@@ -73,6 +73,20 @@ def test_reproducibility_guide_has_no_unverified_data_instructions():
     assert "does not reproduce the manuscript's Brugge metrics or figures" in normalized_guide
 
 
+def test_release_instructions_use_resolvable_public_repository():
+    """Keep public installation instructions resolvable and revision-pinned."""
+    guide = (PROJECT_ROOT / "docs/development/release-process.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "github.com/organization" not in guide
+    assert "REMOTE_SHA=$(git ls-remote" in guide
+    assert "tensor_based_modal_decomposition_method.git@${REMOTE_SHA}" in guide
+    assert "python -c \"import TBMD; assert TBMD.__version__ == '2.0.0'\"" in guide
+    assert "@v1.0.0" not in guide
+    assert "@v2.0.0" not in guide
+
+
 def test_no_tracked_generated_or_local_artifacts():
     """Generated outputs, local data, and local environment files must stay untracked."""
     forbidden_prefixes = (

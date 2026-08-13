@@ -15,7 +15,10 @@ As a research codebase, releases are primarily internal checkpoints for reproduc
 3. **No Artifacts**: Ensure no raw data or `.npz` files are accidentally included in the tagged commit.
 
 ### Distribution Strategy
-The repository is distributed as a source-only GitHub package. Users and collaborators can install tagged versions directly using pip:
+The repository is distributed as a source-only GitHub package. Resolve the public `main` branch before installation so that `REMOTE_SHA` contains the immutable commit revision passed to pip. This process does not assume that a version tag exists.
+
 ```bash
-pip install git+https://github.com/organization/tensor-based-modal-decomposition-method.git@v1.0.0
+REMOTE_SHA=$(git ls-remote https://github.com/denis-samatov/tensor_based_modal_decomposition_method.git refs/heads/main | awk '{print $1}')
+python -m pip install "git+https://github.com/denis-samatov/tensor_based_modal_decomposition_method.git@${REMOTE_SHA}"
+python -c "import TBMD; assert TBMD.__version__ == '2.0.0'"
 ```
