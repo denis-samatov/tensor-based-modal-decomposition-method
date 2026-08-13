@@ -1,7 +1,7 @@
+import ast
 import re
 import subprocess
 import sys
-import tomllib
 from pathlib import Path
 
 import pytest
@@ -43,12 +43,27 @@ def _repository_files() -> list[str]:
 
 def _project_version(project_root: Path) -> str:
     """Read the public package version from project metadata."""
-    project_metadata = tomllib.loads(
-        (project_root / "pyproject.toml").read_text(encoding="utf-8")
+    in_project_table = False
+    version_pattern = re.compile(
+        r'''^version\s*=\s*(?:"([^"\r\n]+)"|'([^'\r\n]+)')\s*(?:#.*)?$'''
     )
-    project_version = project_metadata["project"]["version"]
-    assert isinstance(project_version, str)
-    return project_version
+    project_table_pattern = re.compile(r"\[\s*project\s*\](?:\s*#.*)?")
+
+    for raw_line in (project_root / "pyproject.toml").read_text(
+        encoding="utf-8"
+    ).splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("["):
+            in_project_table = project_table_pattern.fullmatch(line) is not None
+            continue
+        if in_project_table:
+            match = version_pattern.fullmatch(line)
+            if match is not None:
+                return match.group(1) or match.group(2)
+
+    raise AssertionError("pyproject.toml must define a quoted [project].version")
 
 
 def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> None:
@@ -160,7 +175,9 @@ def test_release_workflow_uses_project_metadata_version(tmp_path: Path):
     """Build the documented version assertion from project metadata."""
     metadata_version = "9.9.9"
     (tmp_path / "pyproject.toml").write_text(
-        f'[project]\nversion = "{metadata_version}"\n', encoding="utf-8"
+        '[tool.example]\nversion = "0.0.1"\n\n'
+        f'[project]\nversion = "{metadata_version}"\n',
+        encoding="utf-8",
     )
     guide = (PROJECT_ROOT / "docs/development/release-process.md").read_text(
         encoding="utf-8"
@@ -170,6 +187,24 @@ def test_release_workflow_uses_project_metadata_version(tmp_path: Path):
     )
 
     _assert_release_workflow(guide_with_metadata_version, project_root=tmp_path)
+
+
+def test_governance_helpers_use_python_310_standard_library():
+    """Keep governance helpers importable on every supported Python version."""
+    module = ast.parse(Path(__file__).read_text(encoding="utf-8"))
+    imports = {
+        alias.name.partition(".")[0]
+        for node in ast.walk(module)
+        if isinstance(node, ast.Import)
+        for alias in node.names
+    }
+    imports.update(
+        node.module.partition(".")[0]
+        for node in ast.walk(module)
+        if isinstance(node, ast.ImportFrom) and node.module is not None
+    )
+
+    assert imports.isdisjoint({"tomli", "tomllib"})
 
 
 def test_no_tracked_generated_or_local_artifacts():
