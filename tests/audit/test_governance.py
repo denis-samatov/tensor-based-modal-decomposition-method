@@ -1,6 +1,5 @@
 import ast
 import re
-import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -67,21 +66,14 @@ def _project_version(project_root: Path) -> str:
     raise AssertionError("pyproject.toml must define a quoted [project].version")
 
 
-def _is_vcs_pip_install(command: str) -> bool:
-    """Return whether an executable line invokes pip to install a VCS URL."""
-    try:
-        tokens = shlex.split(command)
-    except ValueError:
-        return False
-
-    for index, token in enumerate(tokens):
-        if re.fullmatch(r"pip(?:\d+(?:\.\d+)*)?", Path(token).name) is None:
-            continue
-        return "install" in tokens[index + 1 :] and any(
-            "git+" in argument for argument in tokens[index + 1 :]
-        )
-
-    return False
+def _bash_executable_commands(block: str) -> tuple[str, ...]:
+    """Return logical executable commands from a fenced Bash block."""
+    logical_block = re.sub(r"\\\r?\n[ \t]*", " ", block)
+    return tuple(
+        line.strip()
+        for line in logical_block.splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    )
 
 
 def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> None:
@@ -100,26 +92,19 @@ def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> N
     bash_blocks = re.findall(
         r"^```bash[ \t]*\n(.*?)^```[ \t]*$", guide, flags=re.MULTILINE | re.DOTALL
     )
-    executable_workflows = [
-        tuple(
-            line.strip()
-            for line in block.splitlines()
-            if line.strip() and not line.lstrip().startswith("#")
-        )
-        for block in bash_blocks
-    ]
-    vcs_install_commands = [
+    executable_workflows = [_bash_executable_commands(block) for block in bash_blocks]
+    vcs_commands = [
         command
         for workflow in executable_workflows
         for command in workflow
-        if _is_vcs_pip_install(command)
+        if "git+" in command
     ]
 
     assert "github.com/organization" not in guide
     assert "@v1.0.0" not in guide
     assert "@v2.0.0" not in guide
     assert expected_workflow in executable_workflows
-    assert vcs_install_commands == [expected_workflow[1]]
+    assert vcs_commands == [expected_workflow[1]]
 
 
 def test_documentation_entry_points_exist():
@@ -214,6 +199,12 @@ def test_release_workflow_rejects_malformed_commands(old: str, new: str):
             '"git+https://github.com/denis-samatov/'
             'tensor_based_modal_decomposition_method.git@development"',
             id="pip-global-option-before-install",
+        ),
+        pytest.param(
+            "pip3 install \\\n"
+            '  "git+ssh://git@github.com/denis-samatov/'
+            'tensor_based_modal_decomposition_method.git@main"',
+            id="backslash-continued-install",
         ),
     ],
 )
