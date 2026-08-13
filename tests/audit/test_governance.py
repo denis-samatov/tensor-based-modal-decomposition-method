@@ -1,5 +1,7 @@
+import re
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -37,6 +39,47 @@ def _repository_files() -> list[str]:
     files = set(_git_files("--cached", "--others", "--exclude-standard"))
     deleted = set(_git_files("--deleted"))
     return sorted(files - deleted)
+
+
+def _project_version(project_root: Path) -> str:
+    """Read the public package version from project metadata."""
+    project_metadata = tomllib.loads(
+        (project_root / "pyproject.toml").read_text(encoding="utf-8")
+    )
+    project_version = project_metadata["project"]["version"]
+    assert isinstance(project_version, str)
+    return project_version
+
+
+def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> None:
+    """Validate one ordered, executable, revision-pinned Bash workflow."""
+    project_version = _project_version(project_root)
+    repository_url = (
+        "https://github.com/denis-samatov/"
+        "tensor_based_modal_decomposition_method.git"
+    )
+    expected_workflow = (
+        f"REMOTE_SHA=$(git ls-remote {repository_url} refs/heads/main "
+        "| awk '{print $1}')",
+        f'python -m pip install "git+{repository_url}@${{REMOTE_SHA}}"',
+        f'python -c "import TBMD; assert TBMD.__version__ == \'{project_version}\'"',
+    )
+    bash_blocks = re.findall(
+        r"^```bash[ \t]*\n(.*?)^```[ \t]*$", guide, flags=re.MULTILINE | re.DOTALL
+    )
+    executable_workflows = [
+        tuple(
+            line.strip()
+            for line in block.splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        )
+        for block in bash_blocks
+    ]
+
+    assert "github.com/organization" not in guide
+    assert "@v1.0.0" not in guide
+    assert "@v2.0.0" not in guide
+    assert expected_workflow in executable_workflows
 
 
 def test_documentation_entry_points_exist():
@@ -79,12 +122,54 @@ def test_release_instructions_use_resolvable_public_repository():
         encoding="utf-8"
     )
 
-    assert "github.com/organization" not in guide
-    assert "REMOTE_SHA=$(git ls-remote" in guide
-    assert "tensor_based_modal_decomposition_method.git@${REMOTE_SHA}" in guide
-    assert "python -c \"import TBMD; assert TBMD.__version__ == '2.0.0'\"" in guide
-    assert "@v1.0.0" not in guide
-    assert "@v2.0.0" not in guide
+    _assert_release_workflow(guide)
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    [
+        pytest.param(
+            "https://github.com/denis-samatov",
+            "https://example.com/denis-samatov",
+            id="wrong-host",
+        ),
+        pytest.param(" refs/heads/main ", " ", id="missing-main-ref"),
+        pytest.param(
+            'python -m pip install "git+https://github.com/denis-samatov/'
+            'tensor_based_modal_decomposition_method.git@${REMOTE_SHA}"',
+            'python -m pip install "git+https://github.com/denis-samatov/'
+            'tensor_based_modal_decomposition_method.git@v9.9.9"\n'
+            "# tensor_based_modal_decomposition_method.git@${REMOTE_SHA}",
+            id="literal-tag-with-decoy-comment",
+        ),
+    ],
+)
+def test_release_workflow_rejects_malformed_commands(old: str, new: str):
+    """Reject malformed commands even when expected tokens remain elsewhere."""
+    guide = (PROJECT_ROOT / "docs/development/release-process.md").read_text(
+        encoding="utf-8"
+    )
+    malformed_guide = guide.replace(old, new)
+
+    assert malformed_guide != guide
+    with pytest.raises(AssertionError):
+        _assert_release_workflow(malformed_guide)
+
+
+def test_release_workflow_uses_project_metadata_version(tmp_path: Path):
+    """Build the documented version assertion from project metadata."""
+    metadata_version = "9.9.9"
+    (tmp_path / "pyproject.toml").write_text(
+        f'[project]\nversion = "{metadata_version}"\n', encoding="utf-8"
+    )
+    guide = (PROJECT_ROOT / "docs/development/release-process.md").read_text(
+        encoding="utf-8"
+    )
+    guide_with_metadata_version = guide.replace(
+        _project_version(PROJECT_ROOT), metadata_version
+    )
+
+    _assert_release_workflow(guide_with_metadata_version, project_root=tmp_path)
 
 
 def test_no_tracked_generated_or_local_artifacts():
