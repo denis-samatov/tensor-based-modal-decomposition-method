@@ -55,6 +55,29 @@ pytest tests/audit -q
 ```
 For more information, see the [Testing Guide](docs/development/testing.md).
 
+## Benchmarks
+
+Runtime and peak memory for each pipeline stage, measured by
+[`measure_brugge_runtime.py`](measure_brugge_runtime.py) on a local development machine
+(Apple Silicon, arm64, macOS, Python 3.12.12), averaged over 3 runs after a cold-start
+warm-up run was discarded. Input is the local, untracked Brugge experiment dataset — see
+[Known limitations](#known-limitations) and [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md):
+this profiles pipeline performance, it is not a reproduction of the manuscript's Brugge
+numerical results.
+
+| Stage | Wall time | Peak memory (RSS delta) | Absolute peak RSS |
+|---|---|---|---|
+| TBMD (Tucker/HOSVD decomposition) | ~0.20 s | ~32 MB | ~392 MB |
+| QR sensor placement (pivoted QR) | ~0.001 s | ~0.2 MB | ~392 MB |
+| CS recovery (ADMM) | ~0.003 s | ~1.1 MB | ~393 MB |
+
+Input tensor shape for this run: `(139, 48, 2, 133)` (space × space × field × time),
+decomposed with `epsilon=1e-2`. The QR/CS stages here run on a `(13344, 8)` dictionary,
+so their timings are near the process's scheduling-resolution floor — read them as an
+order-of-magnitude signal for this problem size, not a precise micro-benchmark. Peak
+memory is dominated by loading the ~140 MB HDF5 source file and constructing the
+`(space, space, field, time)` tensor in memory, not by the decomposition itself.
+
 ### Map of documentation
 
 - **Product & Concepts**: [`docs/product/overview.md`](docs/product/overview.md)
