@@ -6,7 +6,6 @@ import torch
 from TBMD.config import (
     BaseConfig,
     DecompositionConfig,
-
     GeometryAwareDecompositionConfig,
     ReconstructionConfig,
     SensorPlacementConfig,
