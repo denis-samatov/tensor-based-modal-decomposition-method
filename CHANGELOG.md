@@ -2,8 +2,15 @@
 
 All notable changes should be recorded here.
 
-## Unreleased
+## 2.0.0 - 2026-08-30
 
+- Added `CITATION.cff` and a README Citation section for arXiv:2607.09687
+  (Samatov, Merzlikin, Shishaev). Set repository homepage to the paper.
+- Eliminated bare `except:` clauses in the numerical decomposition path;
+  re-enabled `E722` and `F401` in the ruff lint configuration.
+- Expanded the top-level `TBMD` public API to re-export the primary
+  decomposition, sensor-placement, reconstruction, and modal-processing
+  classes instead of only `geometry`.
 - Standardized public repository documentation in English.
 - Added repository governance files.
 - Documented configuration, testing, data, and model artifact handling.
@@ -12,8 +19,5 @@ All notable changes should be recorded here.
 - Normalized documentation filenames to match lowercase links.
 - Removed tracked generated experiment artifacts from `scripts/plots/`.
 - Expanded audit tests for repository hygiene checks.
-
-## 2.0.0
-
-- Version declared in `pyproject.toml`.
-- Historical release notes were not available in the repository at cleanup time.
+- Historical release notes prior to this entry were not available in the
+  repository at cleanup time.
