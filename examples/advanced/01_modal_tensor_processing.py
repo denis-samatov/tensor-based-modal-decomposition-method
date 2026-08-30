@@ -310,7 +310,7 @@ def create_visualization(modal_tensor: np.ndarray, title: str = "Modal Tensor An
     # Show if in interactive environment
     try:
         plt.show()
-    except:
+    except Exception:
         logger.info("Non-interactive environment, plot saved only")
 
 

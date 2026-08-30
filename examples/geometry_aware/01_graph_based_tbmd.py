@@ -75,15 +75,15 @@ def generate_synthetic_field_data(
     # Base field.
     base_field = 100 * np.exp(-((X - 0.5) ** 2 + (Y - 0.5) ** 2) / 0.2)
 
-    for i, time in enumerate(t):
+    for i, t_val in enumerate(t):
         # Several spatial modes.
-        mode1 = np.sin(2 * np.pi * X) * np.cos(2 * np.pi * Y) * np.cos(2 * time)
-        mode2 = np.cos(3 * np.pi * X) * np.sin(np.pi * Y) * np.sin(time)
-        mode3 = np.sin(np.pi * X) * np.cos(4 * np.pi * Y) * np.cos(3 * time)
+        mode1 = np.sin(2 * np.pi * X) * np.cos(2 * np.pi * Y) * np.cos(2 * t_val)
+        mode2 = np.cos(3 * np.pi * X) * np.sin(np.pi * Y) * np.sin(t_val)
+        mode3 = np.sin(np.pi * X) * np.cos(4 * np.pi * Y) * np.cos(3 * t_val)
 
         # Local hot spots, used as a simple well-like proxy.
-        hotspot1 = 20 * np.exp(-50 * ((X - 0.3) ** 2 + (Y - 0.3) ** 2)) * np.sin(time)
-        hotspot2 = -15 * np.exp(-50 * ((X - 0.7) ** 2 + (Y - 0.7) ** 2)) * np.cos(1.5 * time)
+        hotspot1 = 20 * np.exp(-50 * ((X - 0.3) ** 2 + (Y - 0.3) ** 2)) * np.sin(t_val)
+        hotspot2 = -15 * np.exp(-50 * ((X - 0.7) ** 2 + (Y - 0.7) ** 2)) * np.cos(1.5 * t_val)
 
         # Combined field.
         field = base_field + 10 * mode1 + 5 * mode2 + 3 * mode3 + hotspot1 + hotspot2
