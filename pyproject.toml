@@ -49,7 +49,13 @@ dev = [
     "jupyter_core>=5.7",
     "nbformat>=5.10",
     "ruff>=0.4.0",
+    "mypy>=1.10",
 ]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+warn_unused_ignores = false
 
 [project.urls]
 Homepage = "https://github.com/denis-samatov/tensor_based_modal_decomposition_method"

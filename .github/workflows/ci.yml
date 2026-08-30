@@ -40,3 +40,11 @@ jobs:
     - name: Run test suite
       run: |
         pytest
+
+    # Informational only -- src/TBMD/core has 129 pre-existing type errors.
+    # Runs so regressions are visible; not yet part of the merge gate.
+    - name: Type check core with mypy (non-blocking)
+      if: matrix.python-version == '3.12'
+      continue-on-error: true
+      run: |
+        mypy src/TBMD/core
