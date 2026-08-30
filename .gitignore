@@ -130,3 +130,6 @@ tests/unit/test_t_plus_one_evaluation.py
 GEMINI.md
 AGENTS.md
 CLAUDE.md
+docs/superpowers/
+.superpowers/
+.jules/
