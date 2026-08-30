@@ -243,7 +243,12 @@ class GeometryAwareTuckerCore:
             try:
                 U, _, _ = torch.linalg.svd(unfolding, full_matrices=False)
                 factor = U[:, : ranks[mode]]
-            except:
+            except torch.linalg.LinAlgError:
+                logger.warning(
+                    "SVD did not converge for mode %d factor initialization; "
+                    "falling back to a random orthogonal factor.",
+                    mode,
+                )
                 # Fallback to random initialization
                 factor = torch.randn(
                     unfolding.shape[0], ranks[mode], device=tensor.device, dtype=tensor.dtype
@@ -278,7 +283,12 @@ class GeometryAwareTuckerCore:
         try:
             U, S, Vh = torch.linalg.svd(unfolding, full_matrices=False)
             U_new = U[:, :rank]
-        except:
+        except torch.linalg.LinAlgError:
+            logger.warning(
+                "SVD did not converge while updating factor for mode %d; "
+                "falling back to a random orthogonal factor.",
+                mode,
+            )
             # Fallback: QR decomposition of random initialization
             U_new = torch.randn(unfolding.shape[0], rank, device=tensor.device, dtype=tensor.dtype)
             U_new, _ = torch.linalg.qr(U_new)
@@ -440,9 +450,12 @@ class GeometryAwareTuckerCore:
                     u_j = self._solve_sparse_regularized(
                         L_torch, g_j_norm_sq, self.geo_config.alpha, rhs_j
                     )
-            except:
+            except torch.linalg.LinAlgError:
                 # Fallback to pseudoinverse
                 if LTL_dense is not None:
+                    logger.warning(
+                        "Regularized solve failed for mode column %d, using pseudoinverse", j
+                    )
                     u_j = torch.linalg.pinv(lhs) @ rhs_j
                 else:
                     # Last resort: ignore regularization

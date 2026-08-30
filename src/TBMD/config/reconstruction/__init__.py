@@ -11,8 +11,8 @@ References:
 - Boyd et al. (2011): Distributed Optimization and Statistical Learning via ADMM
 """
 
-from dataclasses import dataclass, field
-from typing import List, Literal, Optional, Union
+from dataclasses import dataclass
+from typing import Literal, Optional, Union
 
 import torch
 

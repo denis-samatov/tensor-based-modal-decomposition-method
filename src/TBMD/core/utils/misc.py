@@ -472,7 +472,7 @@ def set_seed(seed: int) -> None:
     # TensorLy seed
     try:
         tl.set_random_state(seed)
-    except:
+    except (AttributeError, TypeError):
         pass  # TensorLy may not support set_random_state
 
 

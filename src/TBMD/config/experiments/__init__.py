@@ -2,8 +2,8 @@
 Configuration for TBMD Experiments
 """
 
-from dataclasses import dataclass, field
-from typing import Dict, List, Literal, Optional, Tuple, Union
+from dataclasses import dataclass
+from typing import Dict, List, Optional, Tuple, Union
 
 import numpy as np
 

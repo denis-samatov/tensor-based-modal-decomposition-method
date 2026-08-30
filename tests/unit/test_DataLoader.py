@@ -26,7 +26,7 @@ from unittest.mock import MagicMock
 try:
     import numpy as np
     import pandas as pd
-    import tqdm
+    import tqdm  # noqa: F401 -- availability probe
     from PIL import Image
 
     HAS_DEPS = True

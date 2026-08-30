@@ -1,7 +1,7 @@
 import unittest
 
 try:
-    import numpy as np
+    import numpy as np  # noqa: F401 -- availability probe
     import torch
 
     DEPS_AVAILABLE = True

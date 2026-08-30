@@ -16,7 +16,7 @@ except ImportError:
     HAS_TORCH = False
 
 try:
-    import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt  # noqa: F401 -- availability probe
 
     HAS_MATPLOTLIB = True
 except ImportError:
