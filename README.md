@@ -99,6 +99,26 @@ We welcome improvements! Please review the [Contribution Guidelines](CONTRIBUTIN
 ## License / ownership
 MIT License. See `LICENSE`.
 
+## Citation
+
+This repository implements the method described in:
+
+> D. Samatov, B. Merzlikin, and G. Shishaev, "Tensor-Based Modal Decomposition and
+> Sparse Sensor Placement for the Brugge Field Simulation Model," arXiv:2607.09687, 2026.
+> https://arxiv.org/abs/2607.09687
+
+```bibtex
+@article{samatov2026tbmd,
+  title   = {Tensor-Based Modal Decomposition and Sparse Sensor Placement for the Brugge Field Simulation Model},
+  author  = {Samatov, D. and Merzlikin, B. and Shishaev, G.},
+  journal = {arXiv preprint arXiv:2607.09687},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2607.09687}
+}
+```
+
+See [`CITATION.cff`](CITATION.cff) for citing this software directly.
+
 ## Reproducing the Computers & Geosciences manuscript
 
 The [reproducibility guide](REPRODUCIBILITY.md) distinguishes public software

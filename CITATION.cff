@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper below."
+title: "TBMD: Tensor-Based Modal Decomposition Method"
+type: software
+version: 2.0.0
+date-released: "2026-08-30"
+license: MIT
+repository-code: "https://github.com/denis-samatov/tensor_based_modal_decomposition_method"
+authors:
+  - family-names: Samatov
+    given-names: D.
+  - family-names: Merzlikin
+    given-names: B.
+  - family-names: Shishaev
+    given-names: G.
+preferred-citation:
+  type: article
+  title: "Tensor-Based Modal Decomposition and Sparse Sensor Placement for the Brugge Field Simulation Model"
+  authors:
+    - family-names: Samatov
+      given-names: D.
+    - family-names: Merzlikin
+      given-names: B.
+    - family-names: Shishaev
+      given-names: G.
+  year: 2026
+  month: 6
+  journal: arXiv
+  identifiers:
+    - type: other
+      value: "arXiv:2607.09687"
+      description: "arXiv preprint"
+  url: "https://arxiv.org/abs/2607.09687"
