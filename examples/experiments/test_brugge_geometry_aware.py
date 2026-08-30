@@ -33,30 +33,29 @@ plt.rcParams["figure.dpi"] = 100
 # === TBMD imports ===
 try:
     # Standard modules
-    from TBMD.utils.tbmd_utils import compute_reconstruction_metrics, set_seed
-
     from TBMD.config import SEED
-    from TBMD.modules.GeometryAwareTensorCS import GeometryAwareCSConfig, GeometryAwareTensorCS
+    from TBMD.config import SensorPlacementConfig as TensorQRConfig
+    from TBMD.core.data.loaders import DataLoader
 
     # Geometry-aware modules
-    from TBMD.modules.GeometryAwareTensorHOSVD import (
+    from TBMD.core.decomposition.geometry_aware import (
         GeometryAwareConfig,
         GeometryAwareTuckerDecomposer,
     )
-    from TBMD.modules.GeometryAwareTensorQR import GeometricQRConfig, GeometryAwareTensorQR
-    from TBMD.modules.TensorBasedCompressiveSensing import (
+    from TBMD.core.decomposition.hosvd import TuckerDecomposer
+
+    # Utils
+    from TBMD.core.geometry import MeshGeometry, MeshGraphBuilder
+    from TBMD.core.reconstruction.geometry_aware import GeometryAwareCSConfig, GeometryAwareTensorCS
+    from TBMD.core.reconstruction.tensor_compressive_sensing import (
         CompressiveSensingConfig,
         TensorCompressiveSensing,
     )
-    from TBMD.modules.TensorBasedTubeFiberPivotQRFactorization import (
-        TensorQRConfig,
+    from TBMD.core.sensor_placement.geometry_aware import GeometricQRConfig, GeometryAwareTensorQR
+    from TBMD.core.sensor_placement.tensor_qr_factorization import (
         TensorTubeQRDecomposition,
     )
-    from TBMD.modules.TensorHOSVD import TuckerDecomposer
-    from TBMD.utils.DataLoader import DataLoader
-
-    # Utils
-    from TBMD.utils.geometry import MeshGeometry, MeshGraphBuilder
+    from TBMD.core.utils.misc import compute_reconstruction_metrics, set_seed
 
     set_seed(SEED)
     print(f"TBMD modules loaded. Seed: {SEED}\n")

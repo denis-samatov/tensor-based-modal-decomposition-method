@@ -24,6 +24,8 @@ __all__ = [
     "GeometryAwareReconstructionConfig",
     "ExperimentConfig",
     "ModalProcessorConfig",
+    "SEED",
+    "SET_BACKEND",
 ]
 
 # Instantiate default configs for quick access
@@ -31,3 +33,8 @@ _decomposition_config = DecompositionConfig()
 _sensor_placement_config = SensorPlacementConfig()
 _reconstruction_config = ReconstructionConfig()
 _experiment_config = ExperimentConfig()
+
+# Default seed and TensorLy backend, derived from BaseConfig so they never
+# drift from the values every *Config class already uses.
+SEED = BaseConfig.__dataclass_fields__["seed"].default
+SET_BACKEND = BaseConfig.__dataclass_fields__["backend"].default

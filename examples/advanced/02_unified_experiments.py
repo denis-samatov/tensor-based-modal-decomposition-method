@@ -5,7 +5,8 @@ Shows automatic analysis-mode selection and several usage patterns.
 
 import numpy as np
 import torch
-from TBMD.analytics.analytics import ExperimentConfig, ExperimentRunner, plot_analytics
+
+from TBMD.experiments import ExperimentConfig, ExperimentRunner, plot_analytics
 
 
 def create_sample_data():

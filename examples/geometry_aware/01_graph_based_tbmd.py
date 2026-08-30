@@ -27,7 +27,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import torch
-from TBMD.utils.tbmd_utils import compute_reconstruction_metrics, set_seed
 
 from TBMD.config import SEED
 from TBMD.core.decomposition import GeometryAwareDecompositionConfig as GeometryAwareConfig
@@ -44,6 +43,7 @@ from TBMD.core.sensor_placement import (
     GeometryAwareTensorQR,
     TensorTubeQRDecomposition,
 )
+from TBMD.core.utils.misc import compute_reconstruction_metrics, set_seed
 
 # Configuration.
 set_seed(SEED)

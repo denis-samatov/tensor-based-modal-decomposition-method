@@ -6,7 +6,8 @@ ValueError: N must be a positive integer, got 1
 
 import numpy as np
 import torch
-from TBMD.analytics.analytics import (
+
+from TBMD.experiments import (
     ExperimentConfig,
     ExperimentRunner,
     ensure_sensor_values_are_int,
