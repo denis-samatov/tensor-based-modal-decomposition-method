@@ -1,37 +1,37 @@
 # Core scientific computing
-numpy==1.26.4
-scipy==1.11.4
-matplotlib==3.8.4
+numpy==2.2.6
+scipy==1.15.3
+matplotlib==3.10.9
 
 # Machine learning
-scikit-learn==1.5.2
-torch==2.3.1
+scikit-learn==1.7.2
+torch==2.13.0
 hdbscan>=0.8.39  # requires numpy<2.0
 
 # Tensor operations
 tensorly==0.9.0
 
 # Data processing
-pandas==2.2.2
+pandas==2.3.3
 h5py>=3.12.1
 
 # Jupyter notebook support
-ipykernel==6.29.5
-ipython==8.30.0
-jupyter_client==8.6.3
-jupyter_core==5.7.2
-nbformat==5.10.4
+ipykernel==7.3.0
+ipython==8.39.0
+jupyter_client==8.9.1
+jupyter_core==5.9.1
+nbformat==5.11.1
 
 # Visualization
-pillow==11.0.0
+pillow==12.3.0
 
 # JSON schema validation (if needed for data validation)
-jsonschema==4.23.0
+jsonschema==4.26.0
 
 # Image processing
-scikit-image==0.23.2
+scikit-image==0.25.2
 
 # Progress bars
-tqdm==4.66.4
+tqdm==4.70.0
 
 seaborn
