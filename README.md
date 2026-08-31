@@ -1,5 +1,10 @@
 # Tensor-Based Modal Decomposition Method
 
+[![CI](https://github.com/denis-samatov/tensor_based_modal_decomposition_method/actions/workflows/ci.yml/badge.svg)](https://github.com/denis-samatov/tensor_based_modal_decomposition_method/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)
+[![arXiv](https://img.shields.io/badge/arXiv-2607.09687-b31b1b.svg)](https://arxiv.org/abs/2607.09687)
+
 A Python research library for reduced-order modeling of spatiotemporal tensor data. 
 
 ## What this project does
