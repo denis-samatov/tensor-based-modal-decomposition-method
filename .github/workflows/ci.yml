@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -16,10 +19,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
       with:
         python-version: ${{ matrix.python-version }}
         cache: 'pip'
@@ -41,10 +44,9 @@ jobs:
       run: |
         pytest
 
-    # Informational only -- src/TBMD/core has 129 pre-existing type errors.
-    # Runs so regressions are visible; not yet part of the merge gate.
-    - name: Type check core with mypy (non-blocking)
+    # Modules with known type debt are explicitly listed in pyproject.toml.
+    # All other core modules are enforced as a blocking merge gate.
+    - name: Type check core with mypy
       if: matrix.python-version == '3.12'
-      continue-on-error: true
       run: |
-        mypy src/TBMD/core
+        python -m mypy src/TBMD/core

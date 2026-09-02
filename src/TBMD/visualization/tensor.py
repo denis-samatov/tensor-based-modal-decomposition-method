@@ -38,6 +38,14 @@ def visualize_tensor(
                              * simple coordinate list [(x1, y1), ...] used for all frames
       - frame_step (int): Frame display step. frame_step=10 displays every 10th frame.
     """
+    # Matplotlib expects NumPy-compatible image data. Convert PyTorch tensors once,
+    # before slicing, to avoid relying on its deprecated implicit ``__array__`` path.
+    if hasattr(tensor, "detach"):
+        tensor = tensor.detach()
+    if hasattr(tensor, "cpu"):
+        tensor = tensor.cpu()
+    tensor = np.asarray(tensor)
+
     # Ensure tensor has either 3 or 4 dimensions.
     if tensor.ndim not in (3, 4):
         raise ValueError(f"Expected tensor with 3 or 4 dimensions, got shape {tensor.shape}.")
