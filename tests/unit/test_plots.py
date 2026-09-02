@@ -37,12 +37,18 @@ class TestPlots(unittest.TestCase):
     )
     @patch("matplotlib.pyplot.show")
     @patch("matplotlib.pyplot.savefig")
-    def test_visualize_tensor_torch(self, mock_savefig, mock_show):
+    @patch("matplotlib.axes.Axes.imshow")
+    def test_visualize_tensor_torch(self, mock_imshow, mock_savefig, mock_show):
         tensor = torch.rand((10, 10, 10))
         try:
             visualize_tensor(tensor)
         except Exception as e:
             self.fail(f"visualize_tensor raised an exception: {e}")
+
+        self.assertEqual(mock_imshow.call_count, tensor.shape[-1])
+        self.assertTrue(
+            all(isinstance(call.args[0], np.ndarray) for call in mock_imshow.call_args_list)
+        )
 
     @unittest.skipUnless(
         HAS_NUMPY and HAS_PLOTS and HAS_MATPLOTLIB, "Requires numpy, plots and matplotlib"
