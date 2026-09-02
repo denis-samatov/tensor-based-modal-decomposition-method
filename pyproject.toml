@@ -55,6 +55,9 @@ dev = [
 [tool.mypy]
 python_version = "3.10"
 ignore_missing_imports = true
+# Check TBMD against its minimum Python version without parsing version-specific
+# stubs from whichever dependency releases happen to be installed by a CI runner.
+no_site_packages = true
 warn_unused_ignores = false
 
 # Explicit type-debt baseline. Remove modules from this list as their annotations are repaired;
@@ -75,13 +78,6 @@ module = [
     "TBMD.core.utils.misc",
 ]
 ignore_errors = true
-
-# NumPy releases installed on newer CI interpreters can publish stubs that use
-# syntax newer than this project's minimum supported Python version. Treat NumPy
-# as an external boundary so those stubs do not prevent checking TBMD itself.
-[[tool.mypy.overrides]]
-module = ["numpy", "numpy.*"]
-follow_imports = "skip"
 
 [project.urls]
 Homepage = "https://github.com/denis-samatov/tensor_based_modal_decomposition_method"
