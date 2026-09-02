@@ -11,16 +11,16 @@ Experiments should be run via standardized scripts, logging configuration metada
 
 ## Details
 ### 1. Preparation
-- Ensure local datasets are placed in `data/` and not tracked by git.
-- Verify that `TBMD.config` parameters are correctly set for the experiment.
+- Install the project from `pyproject.toml`.
+- Verify that `TBMD.config` parameters are correct for the experiment.
 
 ### 2. Execution
 Run the experiment script:
 ```bash
-python examples/applications/brugge_field/run_brugge_enhanced.py
+python examples/basic/04_complete_pipeline.py
 ```
 
 ### 3. Artifact Logging
-- Ensure the script outputs the trained decomposition basis to a timestamped folder within `results/`.
-- Save the exact configuration parameters (JSON or YAML) alongside the numerical outputs to guarantee reproducibility.
-
+- When adapting the example, write generated artifacts to an ignored directory such as `results/`.
+- Save exact configuration parameters alongside numerical outputs. RANS/URANS forecasting
+  runs use the standalone `tbmd-forecasting` project and its structured output contract.

@@ -16,7 +16,7 @@ figures.
 | Manuscript Brugge tables and field figures | Not reproducible from this repository alone | The processed tensors, simulator outputs, exact experiment orchestration, and complete run metadata are not distributed here. |
 
 The repository is currently distributed through
-[GitHub](https://github.com/denis-samatov/tensor_based_modal_decomposition_method)
+[GitHub](https://github.com/denis-samatov/tensor-based-modal-decomposition-method)
 under the MIT License. This guide does not claim a Zenodo deposit or DOI.
 
 ## Environment

@@ -32,5 +32,5 @@ python examples/geometry_aware/06_geometry_aware_run.py
 
 ## Documentation
 
-- [Geometry-aware TBMD guide](../../docs/guides/geometry_aware_tbmd.md)
-- [API reference](../../docs/api/api_reference.md)
+- [Architecture overview](../../docs/architecture/overview.md)
+- [Python API](../../docs/interfaces/python-api.md)

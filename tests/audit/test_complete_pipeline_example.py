@@ -37,4 +37,5 @@ def test_complete_pipeline_runs_with_current_public_api():
     assert results["sensors"]["factorization_valid"] is True
     assert results["reconstruction"]["data"].shape == data.shape
     assert torch.isfinite(results["reconstruction"]["data"]).all()
-    assert results["reconstruction"]["mean_error"] >= 0.0
+    assert 0.0 <= results["decomposition"]["relative_error"] < 0.1
+    assert 0.0 <= results["reconstruction"]["mean_error"] < 0.2

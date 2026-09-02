@@ -41,17 +41,13 @@ python examples/geometry_aware/06_geometry_aware_run.py
 
 ## Dataset-Specific Examples
 
-Application examples may require local datasets that are not included in git:
-
-```bash
-python examples/applications/brugge_field/run_brugge_enhanced.py
-
-```
-
-Check each script before running it on a new machine. Keep local datasets and generated outputs out of version control.
+Dataset-specific forecasting experiments are maintained in the separate
+`tbmd-forecasting` repository. This repository keeps only reusable TBMD examples
+and deterministic synthetic smoke tests. Keep local datasets and generated
+outputs out of version control.
 
 ## Additional Documentation
 
-- [Quick start](../docs/guides/quick_start.md)
-- [API reference](../docs/api/api_reference.md)
-- [Model and data guide](../docs/guides/data_and_models.md)
+- [Quick start](../README.md)
+- [Python API](../docs/interfaces/python-api.md)
+- [Input and output tensors](../docs/interfaces/input-output-tensors.md)

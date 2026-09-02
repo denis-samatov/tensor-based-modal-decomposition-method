@@ -30,5 +30,5 @@ Run legacy scripts only when validating backward compatibility.
 
 ## Related Documentation
 
-- [Quick start](../../docs/guides/quick_start.md)
-- [API reference](../../docs/api/api_reference.md)
+- [Quick start](../../README.md)
+- [Python API](../../docs/interfaces/python-api.md)

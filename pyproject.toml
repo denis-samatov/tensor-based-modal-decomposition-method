@@ -7,7 +7,8 @@ name = "tbmd"
 version = "2.0.0"
 description = "Tensor-Based Modal Decomposition Method for reduced-order modeling, sensor placement, and field reconstruction"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 authors = [
     {name = "Denis Samatov"},
@@ -16,7 +17,6 @@ keywords = ["tensor", "modal-decomposition", "ROM", "sensor-placement"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -80,8 +80,8 @@ module = [
 ignore_errors = true
 
 [project.urls]
-Homepage = "https://github.com/denis-samatov/tensor_based_modal_decomposition_method"
-Documentation = "https://github.com/denis-samatov/tensor_based_modal_decomposition_method/tree/main/docs"
+Homepage = "https://github.com/denis-samatov/tensor-based-modal-decomposition-method"
+Documentation = "https://github.com/denis-samatov/tensor-based-modal-decomposition-method/tree/main/docs"
 
 [tool.setuptools.packages.find]
 where = ["src"]

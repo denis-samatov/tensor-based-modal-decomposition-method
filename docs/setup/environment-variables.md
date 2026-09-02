@@ -12,13 +12,9 @@ The TBMD project is a numerical library and does not require extensive environme
 ## Details
 There are no mandatory environment variables for the core library.
 
-If you are running the Digital Twin examples that require external datasets, you may optionally specify local dataset paths via an `.env` file to avoid hardcoding paths in scripts.
-
-Example `.env` format:
-```env
-BRUGGE_DATA_PATH=/path/to/local/data/brugge/
-```
-*(This is purely conventional for scripts and is not parsed by the core `TBMD` library).*
+Dataset-specific orchestration may define its own environment variables, but the core `TBMD`
+library does not parse an `.env` file. RANS/URANS forecasting configuration belongs to the
+separate `tbmd-forecasting` repository.
 
 ## Validation
 Ensure `.env` files are not tracked by git.
