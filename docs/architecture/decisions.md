@@ -13,14 +13,15 @@ Maintainers and core contributors who need to understand why the repository is s
 Current
 
 #### Context
-The project needs to support reusable mathematical functions while allowing researchers to rapidly iterate on field-specific experiments (e.g., Brugge Digital Twin).
+The project needs to support reusable mathematical functions while allowing researchers to build field-specific experiments in separate orchestration projects.
 
 #### Decision
 The core algorithmic components (decomposition, reconstruction, sensor placement) are strictly decoupled from application-specific logic. 
 
 #### Evidence in repository
 - `src/TBMD/core/` contains generalized abstractions (e.g., `BatchModalProcessor`).
-- `examples/applications/` handle the dataset-specific data loading, scaling, and execution.
+- `examples/basic/` demonstrates the public library API with deterministic synthetic data.
+- Dataset-specific forecasting orchestration is maintained in the separate `tbmd-forecasting` repository.
 
 #### Consequences
 - **Pros**: Clean testability of core math; easy to apply to new datasets.
@@ -59,12 +60,12 @@ Reconstructing full high-dimensional tensor states from a sparse set of sensor m
 The repository implements the Alternating Direction Method of Multipliers (ADMM) to solve the sparse reconstruction problem.
 
 #### Evidence in repository
-- `src/TBMD/core/reconstruction/admm.py` contains the ADMM solver loops.
+- `src/TBMD/core/reconstruction/tensor_compressive_sensing.py` contains the ADMM solver loops.
 - `ReconstructionConfig` contains ADMM hyperparameters (rho, iterations).
 
 #### Consequences
 - **Pros**: Robust convergence for convex optimization formulations.
-- **Cons**: Iterative nature can be slow for real-time digital twin scenarios; requires tuning the penalty parameter (rho).
+- **Cons**: Iterative reconstruction can be slow and requires tuning the penalty parameter (rho).
 
 ---
 

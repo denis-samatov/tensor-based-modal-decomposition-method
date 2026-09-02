@@ -34,4 +34,5 @@ Configurations are defined using `dataclasses` in `src/TBMD/config/`:
 - `FullPipelineConfig`
 
 ## Examples
-See the Python scripts in `examples/applications/` for end-to-end usage of these classes.
+See `examples/basic/04_complete_pipeline.py` for end-to-end usage of these classes.
+Forecasting-specific APIs are documented in the separate `tbmd-forecasting` repository.

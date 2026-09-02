@@ -81,7 +81,7 @@ def _assert_release_workflow(guide: str, project_root: Path = PROJECT_ROOT) -> N
     project_version = _project_version(project_root)
     repository_url = (
         "https://github.com/denis-samatov/"
-        "tensor_based_modal_decomposition_method.git"
+        "tensor-based-modal-decomposition-method.git"
     )
     expected_workflow = (
         f"REMOTE_SHA=$(git ls-remote {repository_url} refs/heads/main "
@@ -128,6 +128,29 @@ def test_documentation_entry_points_exist():
     assert missing == []
 
 
+def test_relative_markdown_links_resolve():
+    """Prevent tracked documentation from pointing at missing local files."""
+    markdown_link = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+    broken: list[str] = []
+
+    for relative_path in _repository_files():
+        path = PROJECT_ROOT / relative_path
+        if path.suffix.lower() != ".md":
+            continue
+        for target in markdown_link.findall(path.read_text(encoding="utf-8")):
+            target_path = target.partition("#")[0]
+            if (
+                not target_path
+                or "://" in target_path
+                or target_path.startswith("mailto:")
+            ):
+                continue
+            if not (path.parent / target_path).resolve().exists():
+                broken.append(f"{relative_path}: {target}")
+
+    assert broken == []
+
+
 def test_reproducibility_guide_has_no_unverified_data_instructions():
     """Keep public reproduction claims aligned with the distributed artifacts."""
     guide = (PROJECT_ROOT / "REPRODUCIBILITY.md").read_text(encoding="utf-8")
@@ -161,10 +184,10 @@ def test_release_instructions_use_resolvable_public_repository():
         pytest.param(" refs/heads/main ", " ", id="missing-main-ref"),
         pytest.param(
             'python -m pip install "git+https://github.com/denis-samatov/'
-            'tensor_based_modal_decomposition_method.git@${REMOTE_SHA}"',
+            'tensor-based-modal-decomposition-method.git@${REMOTE_SHA}"',
             'python -m pip install "git+https://github.com/denis-samatov/'
-            'tensor_based_modal_decomposition_method.git@v9.9.9"\n'
-            "# tensor_based_modal_decomposition_method.git@${REMOTE_SHA}",
+            'tensor-based-modal-decomposition-method.git@v9.9.9"\n'
+            "# tensor-based-modal-decomposition-method.git@${REMOTE_SHA}",
             id="literal-tag-with-decoy-comment",
         ),
     ],
@@ -186,30 +209,30 @@ def test_release_workflow_rejects_malformed_commands(old: str, new: str):
     [
         pytest.param(
             'python -m pip install "git+https://github.com/denis-samatov/'
-            'tensor_based_modal_decomposition_method.git@main"',
+            'tensor-based-modal-decomposition-method.git@main"',
             id="same-repository-main-branch",
         ),
         pytest.param(
             'pip3 install --no-deps "git+ssh://git@github.com/denis-samatov/'
-            'tensor_based_modal_decomposition_method.git@feature"',
+            'tensor-based-modal-decomposition-method.git@feature"',
             id="alternate-pip-and-vcs-url",
         ),
         pytest.param(
             "python -m pip --disable-pip-version-check install "
             '"git+https://github.com/denis-samatov/'
-            'tensor_based_modal_decomposition_method.git@development"',
+            'tensor-based-modal-decomposition-method.git@development"',
             id="pip-global-option-before-install",
         ),
         pytest.param(
             "pip3 install \\\n"
             '  "git+ssh://git@github.com/denis-samatov/'
-            'tensor_based_modal_decomposition_method.git@main"',
+            'tensor-based-modal-decomposition-method.git@main"',
             id="backslash-continued-install",
         ),
         pytest.param(
             'pip3 install "git\\\n'
             "+https://github.com/denis-samatov/"
-            'tensor_based_modal_decomposition_method.git@main"',
+            'tensor-based-modal-decomposition-method.git@main"',
             id="backslash-continued-vcs-token",
         ),
     ],
