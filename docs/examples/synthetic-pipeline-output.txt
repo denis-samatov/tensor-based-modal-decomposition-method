@@ -1,0 +1,60 @@
+/workspace/scratch/78d2874ba218/tensor-based-modal-decomposition-method/.venv/lib/python3.12/site-packages/tensorly/solvers/nnls.py:18: SyntaxWarning: invalid escape sequence '\l'
+  """
+/workspace/scratch/78d2874ba218/tensor-based-modal-decomposition-method/.venv/lib/python3.12/site-packages/tensorly/solvers/admm.py:27: SyntaxWarning: invalid escape sequence '\_'
+  """
+============================================================
+TBMD - Synthetic Complete Pipeline
+============================================================
+Modes: 8
+Sensors: 6
+Solver: admm
+Seed: 42
+
+Generating synthetic reservoir-like data...
+Data shape: (40, 3, 12)
+
+============================================================
+Step 1: Tucker decomposition
+============================================================
+Core tensor: (8, 3, 8)
+Factor matrices: [(40, 8), (3, 3), (12, 8)]
+Modal basis: (40, 3, 8)
+Relative decomposition error: 0.0618
+Retained energy estimate: 99.62%
+
+============================================================
+Step 2: Tensor Tube QR sensor placement
+============================================================
+Warning: Tensor may be numerically rank-deficient
+QR Factorization completed:
+  Requested sensors: 6
+  Actual rank: 6
+  Success rate: 100.0%
+  Early stops: 0
+Placed sensors: 6
+Sensor mask: (40, 3)
+Sampling ratio: 5.00%
+QR relative factorization error: 2.135e-07
+
+============================================================
+Step 3: Sparse reconstruction (admm)
+============================================================
+Mean relative error: 0.0747
+Standard deviation: 0.0081
+Minimum error: 0.0544
+Maximum error: 0.0856
+
+============================================================
+Step 4: Size and sampling summary
+============================================================
+Original tensor: 1440 elements
+Tucker representation: 617 elements
+Representation ratio: 2.33x
+Sensors: 6 / 120 (5.00%)
+
+Visualization saved: tbmd_complete_pipeline_8modes_6sensors_admm.png
+
+============================================================
+TBMD synthetic complete pipeline completed successfully.
+============================================================
+This smoke test does not reproduce manuscript benchmark metrics.
