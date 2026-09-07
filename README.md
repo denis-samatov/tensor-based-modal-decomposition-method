@@ -5,10 +5,26 @@
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 [![arXiv](https://img.shields.io/badge/arXiv-2607.09687-b31b1b.svg)](https://arxiv.org/abs/2607.09687)
 
-A Python research library for reduced-order modeling of spatiotemporal tensor data. 
+A Python research library for reduced-order modeling of spatiotemporal tensor data.
+
+## Reproduce the public example
+
+The repository includes a synthetic end-to-end example and software tests. **The exact Brugge manuscript tables and figures cannot currently be regenerated from this repository alone**: processed data, simulator outputs, orchestration, and complete run metadata are not distributed here. See the [reproducibility matrix](REPRODUCIBILITY.md#public-reproducibility-scope).
+
+After installation, run:
+
+```bash
+python examples/basic/04_complete_pipeline.py --spatial-points 40 --time-steps 12 --n-modes 8 --n-sensors 6 --solver admm --visualize
+```
+
+This generates analytic fields with seed 42, selects six spatial-variable sensor locations, reconstructs the fields, and writes `tbmd_complete_pipeline_8modes_6sensors_admm.png`. Expected completion: `TBMD synthetic complete pipeline completed successfully.` This is a software demonstration on generated data, not a held-out Brugge evaluation.
+
+![Synthetic TBMD: modal basis, selected sensors, reconstructed fields, and errors](docs/examples/synthetic-pipeline.png)
+
+[Captured run and environment](docs/examples/synthetic-run.md). The modal basis and reconstruction in this smoke test use the same generated sequence; the displayed error is not a held-out generalization metric.
 
 ## What this project does
-Tensor-Based Modal Decomposition Method (TBMD) compresses high-dimensional spatiotemporal data (such as computational fluid dynamics or reservoir-modeling datasets) into a compact modal representation. It uses these representations to select optimal sensor placements and reconstruct full fields from sparse measurements.
+Tensor-Based Modal Decomposition Method (TBMD) compresses high-dimensional spatiotemporal data (such as computational fluid dynamics or reservoir-modeling datasets) into a compact modal representation. It uses these representations to select sensor placements with a QR-based method and reconstruct full fields from sparse measurements.
 
 ## Who this is for
 - **ML/AI Engineers & Data Scientists**: For building and orchestrating modal decomposition pipelines.
@@ -23,8 +39,8 @@ Tensor-Based Modal Decomposition Method (TBMD) compresses high-dimensional spati
 - **Geometry-aware variants** for decomposition, reconstruction, and sensor placement on irregular grids.
 
 ## Architecture at a glance
-The library is composed of modular components built primarily on PyTorch. 
-Data flows from `(x, y, time)` tensors through a `Decomposer` to extract modal bases, which are then passed to a `Sensor Placer` to find optimal measurement locations. 
+The library is composed of modular components built primarily on PyTorch.
+The synthetic example uses a `(space, variable, time)` tensor. Tucker decomposition produces factors and a core; modal processing builds a basis; Tensor Tube QR selects spatial-variable locations; a coefficient solver reconstructs the field from those measurements. Manuscript inputs use a separate four-dimensional reservoir representation.
 
 For more details, see the [Architecture Overview](docs/architecture/overview.md).
 
