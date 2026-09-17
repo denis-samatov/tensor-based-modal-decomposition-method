@@ -5,6 +5,7 @@ type: software
 version: 2.1.0
 date-released: "2026-09-17"
 license: MIT
+doi: "10.5281/zenodo.22814377"
 repository-code: "https://github.com/denis-samatov/tensor-based-modal-decomposition-method"
 abstract: >-
   Python library for tensor-based modal decomposition, sparse sensor placement and field

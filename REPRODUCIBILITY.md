@@ -19,7 +19,9 @@ figures.
 
 The repository is currently distributed through
 [GitHub](https://github.com/denis-samatov/tensor-based-modal-decomposition-method)
-under the MIT License. This guide does not claim a Zenodo deposit or DOI.
+under the MIT License. Release v2.1.0, which contains the Brugge study package, is archived on
+Zenodo: https://doi.org/10.5281/zenodo.22814377. The archive contains code and result files only,
+not the Brugge simulation inputs.
 
 ## Environment
 

@@ -152,4 +152,5 @@ change trailing digits.
 Code in this directory: MIT (repository `LICENSE`). The result files in `outputs/` and `figures/`
 are statistics and figures derived from simulations of the TNO-owned Brugge model; when using them,
 acknowledge TNO as requested in its data-use agreement. The Brugge data themselves are not covered by
-the MIT licence. Cite the article and the software release (repository `CITATION.cff`).
+the MIT licence. Cite the article and the software release v2.1.0, https://doi.org/10.5281/zenodo.22814377
+(repository `CITATION.cff`).
