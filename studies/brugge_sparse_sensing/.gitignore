@@ -1,0 +1,11 @@
+# Study outputs are small, derived, and intended to be versioned.
+!*.csv
+!*.json
+!outputs/
+!run_logs/
+!*.log
+rerun_verification/
+!*.npz
+outputs/parts/
+*.pkl
+.claude/

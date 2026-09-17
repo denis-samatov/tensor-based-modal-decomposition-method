@@ -1,0 +1,34 @@
+{
+  "fold": "P2-run1",
+  "rank": 16,
+  "train_shape": [
+    9900,
+    1197
+  ],
+  "test_snapshots": 133,
+  "offline_pod_svd_s": 1.1763833750155754,
+  "offline_tbmd_tucker_s": 8.882621209020726,
+  "tbmd_storage_floats": 101860,
+  "basis_matrix_floats": 158400,
+  "snapshot_tensor_floats_train": 11850300,
+  "offline_qr_r_s": 0.002060541999526322,
+  "offline_qr_dg_300_s": 0.999640416004695,
+  "offline_block_dg_30wells_s": 0.0031784170132596046,
+  "online_ls_grid30_s_per_snapshot": 6.660376587896643e-07,
+  "online_l1_grid30_s_per_snapshot": 2.3273496426417862e-05,
+  "online_synthesis_s_per_snapshot": 4.755323218825952e-06,
+  "online_ls_wells30_s_per_snapshot": 8.30202956887004e-07,
+  "online_l1_wells30_s_per_snapshot": 3.1653819456906584e-05,
+  "hardware": {
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.12",
+    "numpy": "2.5.2",
+    "system_profiler": [
+      "Model Name: MacBook Pro",
+      "Chip: Apple M2 Pro",
+      "Total Number of Cores: 12 (8 Performance and 4 Efficiency)",
+      "Memory: 16 GB"
+    ]
+  }
+}

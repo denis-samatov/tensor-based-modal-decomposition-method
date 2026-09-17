@@ -1,0 +1,26 @@
+\begin{table}[tbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\caption{Oil-saturation RMSE ($\times10^{-3}$) in protocol P2; layout as Table~2 of the main text. For pressure-only wells, $S_o$ is inferred through the joint basis.}
+\label{tab:S_So}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{Grid-wide channels} & \multicolumn{2}{c}{Wells ($p$, $S_o$)} & Wells ($p$) \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}\cmidrule(l){7-7}
+Method & $N=10$ & $N=30$ & $N=100$ & $N=10$ & $N=30$ & $N=30$ \\
+\midrule
+No measurements (prior) & 839\,$\pm$\,213 & 839\,$\pm$\,213 & 839\,$\pm$\,213 & 839\,$\pm$\,213 & 839\,$\pm$\,213 & 839\,$\pm$\,213 \\
+Prior + IDW (POD-E sites) & 2241\,$\pm$\,1500 & 2336\,$\pm$\,901 & 2041\,$\pm$\,702 & 1643\,$\pm$\,528 & 780\,$\pm$\,197 & 839\,$\pm$\,213 \\
+POD, LS & 260237\,$\pm$\,3452 & 833\,$\pm$\,187 & 720\,$\pm$\,123 & 861\,$\pm$\,318 & 745\,$\pm$\,187 & 44023\,$\pm$\,25078 \\
+POD, $\ell_1$ & 262436\,$\pm$\,5936 & 18164\,$\pm$\,3401 & 5102\,$\pm$\,1784 & 22641\,$\pm$\,2213 & 6358\,$\pm$\,1465 & 63565\,$\pm$\,8719 \\
+POD-E, LS & 1158\,$\pm$\,355 & 804\,$\pm$\,179 & 719\,$\pm$\,122 & 822\,$\pm$\,185 & 745\,$\pm$\,187 & 44023\,$\pm$\,25078 \\
+POD-E, $\ell_1$ & 2089\,$\pm$\,449 & 1318\,$\pm$\,178 & 797\,$\pm$\,138 & 1076\,$\pm$\,202 & 869\,$\pm$\,123 & 13268\,$\pm$\,3951 \\
+TBMD $(48,48,2)$, LS & 6570\,$\pm$\,298 & 4733\,$\pm$\,294 & 4561\,$\pm$\,83 & 4508\,$\pm$\,183 & 4242\,$\pm$\,32 & 96362\,$\pm$\,58820 \\
+TBMD $(48,48,2)$, $\ell_1$ & 6707\,$\pm$\,596 & 4677\,$\pm$\,266 & 4575\,$\pm$\,81 & 4353\,$\pm$\,63 & 4251\,$\pm$\,24 & 15550\,$\pm$\,6471 \\
+Random sites, POD-E, LS & 2251\,$\pm$\,584 & 2579\,$\pm$\,699 & 847\,$\pm$\,132 & 1699\,$\pm$\,445 & 745\,$\pm$\,187 & 44023\,$\pm$\,25078 \\
+Configured wells, POD-E, LS & -- & -- & -- & 2787\,$\pm$\,1517 & 745\,$\pm$\,187 & 44023\,$\pm$\,25078 \\
+Configured wells, TBMD, $\ell_1$ & -- & -- & -- & 4686\,$\pm$\,98 & 4251\,$\pm$\,24 & 15550\,$\pm$\,6471 \\
+\bottomrule
+\end{tabular}
+\end{table}

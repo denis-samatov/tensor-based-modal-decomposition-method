@@ -1,0 +1,20 @@
+{
+  "dataset": "data_exp_4_.h5",
+  "wells": "all_wells_exp_4.json",
+  "train_fraction_p1": 0.8,
+  "energy_threshold": 0.999999,
+  "tbmd_spatial_ranks": [48, 48, 2],
+  "tucker": {"init": "svd", "n_iter_max": 100, "tol": 1e-8},
+  "l1": {"epsilon": 0.01, "delta": 1.0, "relax": 0.95, "max_iter": 5000, "tol": 1e-7},
+  "ls_rcond": 1e-10,
+  "idw_power": 2.0,
+  "grid_budgets": [2, 5, 10, 16, 20, 30, 50, 75, 100, 150, 200, 300],
+  "well_budgets": [1, 2, 3, 5, 7, 10, 15, 20, 25, 30],
+  "random_seeds": 20,
+  "noise_pressure_bar": [0.0, 0.1, 0.5, 1.0, 2.0],
+  "noise_draws": 10,
+  "rank_sweep": [2, 5, 10, 16, 20, 30, 50],
+  "spatial_rank_sweep": [12, 24, 48, 96, 139],
+  "l1_epsilon_sweep": [0.0001, 0.001, 0.01, 0.1],
+  "master_seed": 20260917
+}

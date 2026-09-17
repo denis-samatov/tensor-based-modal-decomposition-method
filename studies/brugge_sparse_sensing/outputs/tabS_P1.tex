@@ -1,0 +1,26 @@
+\begin{table}[tbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\caption{As Table~2 of the main text, for protocol P1 (within-scenario temporal hold-out; prior = persistence).}
+\label{tab:S_P1}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{Grid-wide channels} & \multicolumn{2}{c}{Wells ($p$, $S_o$)} & Wells ($p$) \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}\cmidrule(l){7-7}
+Method & $N=10$ & $N=30$ & $N=100$ & $N=10$ & $N=30$ & $N=30$ \\
+\midrule
+No measurements (prior) & 0.19\,$\pm$\,0.03 & 0.19\,$\pm$\,0.03 & 0.19\,$\pm$\,0.03 & 0.19\,$\pm$\,0.03 & 0.19\,$\pm$\,0.03 & 0.19\,$\pm$\,0.03 \\
+Prior + IDW (POD-E sites) & 0.07\,$\pm$\,0.02 & 0.07\,$\pm$\,0.02 & 0.07\,$\pm$\,0.01 & 0.07\,$\pm$\,0.02 & 0.04\,$\pm$\,0.01 & 0.04\,$\pm$\,0.01 \\
+POD, LS & 0.02\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 & 0.03\,$\pm$\,0.01 & 0.03\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 \\
+POD, $\ell_1$ & 3.64\,$\pm$\,0.50 & 1.38\,$\pm$\,0.17 & 0.60\,$\pm$\,0.08 & 1.67\,$\pm$\,0.17 & 0.75\,$\pm$\,0.11 & 2.89\,$\pm$\,1.05 \\
+POD-E, LS & 0.02\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 & 0.03\,$\pm$\,0.01 & 0.03\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 \\
+POD-E, $\ell_1$ & 0.12\,$\pm$\,0.04 & 0.08\,$\pm$\,0.03 & 0.05\,$\pm$\,0.01 & 0.12\,$\pm$\,0.03 & 0.08\,$\pm$\,0.03 & 0.11\,$\pm$\,0.03 \\
+TBMD $(48,48,2)$, LS & 0.47\,$\pm$\,0.14 & 0.36\,$\pm$\,0.07 & 0.31\,$\pm$\,0.04 & 0.39\,$\pm$\,0.08 & 0.34\,$\pm$\,0.03 & 0.32\,$\pm$\,0.03 \\
+TBMD $(48,48,2)$, $\ell_1$ & 0.50\,$\pm$\,0.14 & 0.37\,$\pm$\,0.06 & 0.31\,$\pm$\,0.04 & 0.42\,$\pm$\,0.07 & 0.32\,$\pm$\,0.04 & 0.31\,$\pm$\,0.03 \\
+Random sites, POD-E, LS & 0.17\,$\pm$\,0.07 & 0.04\,$\pm$\,0.02 & 0.02\,$\pm$\,0.00 & 0.05\,$\pm$\,0.01 & 0.03\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 \\
+Configured wells, POD-E, LS & -- & -- & -- & 0.05\,$\pm$\,0.03 & 0.03\,$\pm$\,0.01 & 0.02\,$\pm$\,0.01 \\
+Configured wells, TBMD, $\ell_1$ & -- & -- & -- & 0.31\,$\pm$\,0.03 & 0.32\,$\pm$\,0.04 & 0.31\,$\pm$\,0.03 \\
+\bottomrule
+\end{tabular}
+\end{table}

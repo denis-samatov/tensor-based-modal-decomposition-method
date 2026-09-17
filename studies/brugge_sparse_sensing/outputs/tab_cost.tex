@@ -1,0 +1,21 @@
+\begin{table}[tbp]
+\centering
+\small
+\caption{Single-thread wall time (median of repeated runs) for P2 fold 1; online times are per snapshot, amortised over the 133 held-out snapshots of the fold solved jointly ($M=9{,}900$ channels, 1{,}197 training snapshots, $r=16$). Hardware: MacBook Pro, Apple M2 Pro, 12 (8 performance, 4 efficiency) cores, 16 GB memory; Python 3.12.12, NumPy 2.5.2.}
+\label{tab:cost}
+\begin{tabular}{@{}llr@{}}
+\toprule
+Step & Stage & Time \\
+\midrule
+POD basis (thin SVD) & offline & 1.18 s \\
+TBMD basis (Tucker/HOOI, ranks (48,48,2,16)) & offline & 8.9 s \\
+QR placement, $N=r$ & offline & 2.1 ms \\
+QR + DG placement, $N=300$ & offline & 1.00 s \\
+DG ranking of 30 wells & offline & 3.2 ms \\
+LS estimate, 30 wells & online, per snapshot & 0.8 \si{\micro\second} \\
+$\ell_1$ (ADMM) estimate, 30 wells & online, per snapshot & 32 \si{\micro\second} \\
+LS estimate, 30 grid channels & online, per snapshot & 0.7 \si{\micro\second} \\
+$\ell_1$ (ADMM) estimate, 30 grid channels & online, per snapshot & 23 \si{\micro\second} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -9,7 +9,7 @@ A Python research library for reduced-order modeling of spatiotemporal tensor da
 
 ## Reproduce the public example
 
-The repository includes a synthetic end-to-end example and software tests. **The exact Brugge manuscript tables and figures cannot currently be regenerated from this repository alone**: processed data, simulator outputs, orchestration, and complete run metadata are not distributed here. See the [reproducibility matrix](REPRODUCIBILITY.md#public-reproducibility-scope).
+The repository includes a synthetic end-to-end example and software tests. The Brugge study of the revised manuscript is in [`studies/brugge_sparse_sensing`](studies/brugge_sparse_sensing/README.md): its tables, statistics, number macros and figures can be verified from the committed result files, but a full re-run needs the Brugge simulation outputs, which are not redistributed here (TNO data-use agreement). The arXiv:2607.09687 results of the earlier version are **not** reproducible and are superseded by that study. See the [reproducibility matrix](REPRODUCIBILITY.md#public-reproducibility-scope).
 
 After installation, run:
 
@@ -82,26 +82,10 @@ For more information, see the [Testing Guide](docs/development/testing.md).
 
 ## Benchmarks
 
-Runtime and peak memory for each pipeline stage, measured by
-[`measure_brugge_runtime.py`](measure_brugge_runtime.py) on a local development machine
-(Apple Silicon, arm64, macOS, Python 3.12.12), averaged over 3 runs after a cold-start
-warm-up run was discarded. Input is the local, untracked Brugge experiment dataset — see
-[Known limitations](#known-limitations) and [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md):
-this profiles pipeline performance, it is not a reproduction of the manuscript's Brugge
-numerical results.
-
-| Stage | Wall time | Peak memory (RSS delta) | Absolute peak RSS |
-|---|---|---|---|
-| TBMD (Tucker/HOSVD decomposition) | ~0.20 s | ~32 MB | ~392 MB |
-| QR sensor placement (pivoted QR) | ~0.001 s | ~0.2 MB | ~392 MB |
-| CS recovery (ADMM) | ~0.003 s | ~1.1 MB | ~393 MB |
-
-Input tensor shape for this run: `(139, 48, 2, 133)` (space × space × field × time),
-decomposed with `epsilon=1e-2`. The QR/CS stages here run on a `(13344, 8)` dictionary,
-so their timings are near the process's scheduling-resolution floor — read them as an
-order-of-magnitude signal for this problem size, not a precise micro-benchmark. Peak
-memory is dominated by loading the ~140 MB HDF5 source file and constructing the
-`(space, space, field, time)` tensor in memory, not by the decomposition itself.
+Measured stage costs for the Brugge study (single thread, one leave-one-scenario-out fold) are in
+[`studies/brugge_sparse_sensing/outputs/e6_cost.json`](studies/brugge_sparse_sensing/outputs/e6_cost.json)
+and Table 2 of the revised manuscript. Earlier timings produced by `measure_brugge_runtime.py` timed
+QR placement on a random matrix and are not used.
 
 ### Map of documentation
 
@@ -142,22 +126,34 @@ This repository implements the method described in:
 }
 ```
 
+The numerical results of that preprint could not be reproduced (see the Brugge study below); the revised
+manuscript *"Sparse-sensor reconstruction of reservoir states with tensor-based and matrix modal bases: a
+reproducible benchmark on the Brugge model"* replaces them.
+
 See [`CITATION.cff`](CITATION.cff) for citing this software directly.
 
-## Reproducing the Computers & Geosciences manuscript
+## Reproducing the Brugge sparse-sensing study (revised manuscript)
 
-The [reproducibility guide](REPRODUCIBILITY.md) distinguishes public software
-checks from the unavailable local artifacts used for the manuscript's Brugge
-numerical results.
+All numbers, tables and figures of the revised manuscript *"Sparse-sensor reconstruction of
+reservoir states with tensor-based and matrix modal bases: a reproducible benchmark on the Brugge
+model"* are produced by the study package in
+[`studies/brugge_sparse_sensing`](studies/brugge_sparse_sensing/README.md):
 
-**Quick Setup:**
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
+python -m pip install -r studies/brugge_sparse_sensing/requirements-lock.txt
+python -m pip install -e .
+cd studies/brugge_sparse_sensing
+TBMD_DATA_DIR=/path/to/data ./run_all.sh 8
 ```
 
-**Synthetic end-to-end smoke test:**
+The two input files (`data_exp_4_.h5`, `all_wells_exp_4.json`) are identified by SHA-256 checksums in
+the study README. They are simulations of the TNO Brugge benchmark model, whose data-use agreement does
+not permit redistribution, so they are not in this repository; `./verify_outputs.sh` checks all tables,
+statistics and figures without them. The study also contains an audit
+(`scripts/e0_*`) showing that the numerical results of the earlier Computers & Geosciences submission
+(CAGEO-D-26-01439, arXiv:2607.09687) could not be reproduced with this library.
+
+**Synthetic end-to-end smoke test (no external data):**
 ```bash
 python examples/basic/04_complete_pipeline.py \
   --spatial-points 40 \
@@ -167,9 +163,5 @@ python examples/basic/04_complete_pipeline.py \
   --solver admm
 ```
 
-This command generates its data in memory and exercises Tucker decomposition,
-modal processing, Tensor Tube QR sensor placement, and sparse reconstruction.
-It does not reproduce the manuscript's Brugge metrics or figures. The exact
-processed Brugge tensors, simulator outputs, experiment orchestration, and run
-metadata are not distributed in this repository; no GitHub or Zenodo dataset
-download is claimed.
+This command generates its data in memory and exercises Tucker decomposition, modal processing,
+Tensor Tube QR sensor placement, and sparse reconstruction.

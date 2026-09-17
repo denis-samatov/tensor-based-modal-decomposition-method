@@ -1,0 +1,1104 @@
+OMP: Warning #179: Function Can't set size of /tmp file failed:
+Experiments processed:   0%|          | 0/10 [00:00<?, ?it/s]Experiments processed: 100%|██████████| 10/10 [00:00<00:00, 134865.08it/s]
+Processing subjects:   0%|          | 0/10 [00:00<?, ?it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 385.15it/s]
+case1: (139, 48, 106)
+case2: (139, 48, 106)
+case3: (139, 48, 106)
+case4: (139, 48, 106)
+case5: (139, 48, 106)
+case6: (139, 48, 106)
+case7: (139, 48, 106)
+case8: (139, 48, 106)
+case9: (139, 48, 106)
+case10: (139, 48, 106)
+Processing subjects:   0%|          | 0/10 [00:00<?, ?it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 1550.35it/s]
+case1: (139, 48, 27)
+case2: (139, 48, 27)
+case3: (139, 48, 27)
+case4: (139, 48, 27)
+case5: (139, 48, 27)
+case6: (139, 48, 27)
+case7: (139, 48, 27)
+case8: (139, 48, 27)
+case9: (139, 48, 27)
+case10: (139, 48, 27)
+Single slice experiments (slice 10):   0%|          | 0/36 [00:00<?, ?it/s]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):   3%|▎         | 1/36 [00:01<00:44,  1.26s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):   6%|▌         | 2/36 [00:02<00:43,  1.27s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):   8%|▊         | 3/36 [00:03<00:41,  1.27s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  11%|█         | 4/36 [00:05<00:40,  1.28s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  14%|█▍        | 5/36 [00:06<00:40,  1.32s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  17%|█▋        | 6/36 [00:07<00:40,  1.35s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  19%|█▉        | 7/36 [00:09<00:40,  1.38s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  22%|██▏       | 8/36 [00:10<00:39,  1.40s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  25%|██▌       | 9/36 [00:12<00:38,  1.42s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+QR Factorization completed:
+  Requested sensors: 1
+  Actual rank: 1
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+QR Factorization completed:
+  Requested sensors: 11
+  Actual rank: 11
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+QR Factorization completed:
+  Requested sensors: 21
+  Actual rank: 21
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 2.69e-04)
+QR Factorization completed:
+  Requested sensors: 31
+  Actual rank: 31
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.74e-04)
+QR Factorization completed:
+  Requested sensors: 41
+  Actual rank: 41
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 4.73e-04)
+QR Factorization completed:
+  Requested sensors: 51
+  Actual rank: 51
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 4.73e-04)
+QR Factorization completed:
+  Requested sensors: 61
+  Actual rank: 61
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 4.73e-04)
+QR Factorization completed:
+  Requested sensors: 71
+  Actual rank: 71
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 4.79e-03)
+QR Factorization completed:
+  Requested sensors: 81
+  Actual rank: 81
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 6.10e-03)
+QR Factorization completed:
+  Requested sensors: 91
+  Actual rank: 91
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  28%|██▊       | 10/36 [00:13<00:37,  1.43s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  31%|███       | 11/36 [00:15<00:36,  1.45s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  33%|███▎      | 12/36 [00:16<00:35,  1.46s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  36%|███▌      | 13/36 [00:18<00:34,  1.48s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  39%|███▉      | 14/36 [00:19<00:32,  1.49s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  42%|████▏     | 15/36 [00:21<00:31,  1.51s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  44%|████▍     | 16/36 [00:22<00:30,  1.52s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  47%|████▋     | 17/36 [00:24<00:29,  1.53s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  50%|█████     | 18/36 [00:25<00:27,  1.54s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 7.47e-03)
+QR Factorization completed:
+  Requested sensors: 101
+  Actual rank: 101
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 7.47e-03)
+QR Factorization completed:
+  Requested sensors: 111
+  Actual rank: 111
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 1.01e-02)
+QR Factorization completed:
+  Requested sensors: 121
+  Actual rank: 121
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 1.01e-02)
+QR Factorization completed:
+  Requested sensors: 131
+  Actual rank: 131
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.43e-02)
+QR Factorization completed:
+  Requested sensors: 141
+  Actual rank: 141
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.58e-02)
+QR Factorization completed:
+  Requested sensors: 151
+  Actual rank: 151
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 5.41e-02)
+QR Factorization completed:
+  Requested sensors: 161
+  Actual rank: 161
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 5.41e-02)
+QR Factorization completed:
+  Requested sensors: 171
+  Actual rank: 171
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 6.28e-02)
+QR Factorization completed:
+  Requested sensors: 181
+  Actual rank: 181
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  53%|█████▎    | 19/36 [00:27<00:26,  1.55s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  56%|█████▌    | 20/36 [00:29<00:25,  1.57s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  58%|█████▊    | 21/36 [00:30<00:23,  1.59s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  61%|██████    | 22/36 [00:32<00:22,  1.60s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  64%|██████▍   | 23/36 [00:33<00:20,  1.60s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  67%|██████▋   | 24/36 [00:35<00:19,  1.61s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  69%|██████▉   | 25/36 [00:37<00:17,  1.62s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+<venv>/site-packages/skimage/metrics/_structural_similarity.py:251: RuntimeWarning: overflow encountered in multiply
+  uxx = filter_func(im1 * im1, **filter_args)
+<venv>/site-packages/skimage/metrics/_structural_similarity.py:254: RuntimeWarning: overflow encountered in multiply
+  vx = cov_norm * (uxx - ux * ux)
+<venv>/site-packages/skimage/metrics/_structural_similarity.py:254: RuntimeWarning: invalid value encountered in subtract
+  vx = cov_norm * (uxx - ux * ux)
+<venv>/site-packages/skimage/metrics/_structural_similarity.py:265: RuntimeWarning: overflow encountered in square
+  ux**2 + uy**2 + C1,
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  72%|███████▏  | 26/36 [00:38<00:16,  1.63s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  75%|███████▌  | 27/36 [00:40<00:14,  1.64s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  78%|███████▊  | 28/36 [00:42<00:13,  1.64s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+
+Warning: Final Q matrix not orthogonal (deviation: 1.26e-01)
+QR Factorization completed:
+  Requested sensors: 191
+  Actual rank: 191
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 1.31e-01)
+QR Factorization completed:
+  Requested sensors: 201
+  Actual rank: 201
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 1.31e-01)
+QR Factorization completed:
+  Requested sensors: 211
+  Actual rank: 211
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 1.31e-01)
+QR Factorization completed:
+  Requested sensors: 221
+  Actual rank: 221
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 2.02e-01)
+QR Factorization completed:
+  Requested sensors: 231
+  Actual rank: 231
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 2.51e-01)
+QR Factorization completed:
+  Requested sensors: 241
+  Actual rank: 241
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 2.51e-01)
+QR Factorization completed:
+  Requested sensors: 251
+  Actual rank: 251
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 2.67e-01)
+QR Factorization completed:
+  Requested sensors: 261
+  Actual rank: 261
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.10e-01)
+QR Factorization completed:
+  Requested sensors: 271
+  Actual rank: 271
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.10e-01)
+QR Factorization completed:
+  Requested sensors: 281
+  Actual rank: 281
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  81%|████████  | 29/36 [00:43<00:11,  1.66s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  83%|████████▎ | 30/36 [00:45<00:10,  1.67s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  86%|████████▌ | 31/36 [00:47<00:08,  1.68s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  89%|████████▉ | 32/36 [00:49<00:06,  1.68s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  92%|█████████▏| 33/36 [00:50<00:05,  1.69s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  94%|█████████▍| 34/36 [00:52<00:03,  1.70s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10):  97%|█████████▋| 35/36 [00:54<00:01,  1.70s/it]SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+SSIM mask ignored: upgrade scikit-image ≥ 0.20 for masked SSIM
+Single slice experiments (slice 10): 100%|██████████| 36/36 [00:55<00:00,  1.71s/it]Single slice experiments (slice 10): 100%|██████████| 36/36 [00:55<00:00,  1.55s/it]
+
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.10e-01)
+QR Factorization completed:
+  Requested sensors: 291
+  Actual rank: 291
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.12e-01)
+QR Factorization completed:
+  Requested sensors: 301
+  Actual rank: 301
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.12e-01)
+QR Factorization completed:
+  Requested sensors: 311
+  Actual rank: 311
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.12e-01)
+QR Factorization completed:
+  Requested sensors: 321
+  Actual rank: 321
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.12e-01)
+QR Factorization completed:
+  Requested sensors: 331
+  Actual rank: 331
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.12e-01)
+QR Factorization completed:
+  Requested sensors: 341
+  Actual rank: 341
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Warning: Final Q matrix not orthogonal (deviation: 3.80e-01)
+QR Factorization completed:
+  Requested sensors: 351
+  Actual rank: 351
+  Success rate: 100.0%
+  Early stops: 0
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+Reconstructed tensor shape: torch.Size([139, 48]), mode used: 2
+{
+  "subject": "case3",
+  "train_shape": [
+    139,
+    48,
+    106
+  ],
+  "test_shape": [
+    139,
+    48,
+    27
+  ],
+  "minmax": [
+    0.0,
+    171.8720422674243
+  ],
+  "core_shape": [
+    48,
+    48,
+    48
+  ],
+  "A_shape": [
+    139,
+    48,
+    480
+  ],
+  "decomp_seconds": 0.27923104199999216,
+  "torch": "2.14.0"
+}
+    sensors  error_mean  ssim_mean  psnr_mean  num_samples
+0         1    0.067723   0.996733  28.391188           11
+1        11    0.037325   0.998552  32.582790           11
+2        21    0.031384   0.998815  34.495083           11
+3        31    0.030483   0.998925  35.096451           11
+4        41    0.021652   0.999397  37.217056           11
+5        51    0.020955   0.999339  37.899334           11
+6        61    0.021412   0.999391  37.246845           11
+7        71    0.017033   0.999541  39.184460           11
+8        81    0.015951   0.999555  39.908276           11
+9        91    0.017204   0.999549  39.319096           11
+10      101    0.019281   0.999469  38.604427           11
+11      111    0.016884   0.999548  39.692394           11
+12      121    0.013546   0.999648  41.266407           11
+13      131    0.012873   0.999641  41.663834           11
+14      141    0.012900   0.999674  41.840332           11
+15      151    0.012956   0.999679  41.471287           11
+16      161    0.013486   0.999687  41.219242           11
+17      171    0.013943   0.999679  41.157597           11
+18      181    0.013386   0.999683  41.386452           11
+19      191    0.014403   0.999671  40.797081           11
+20      201    0.014497   0.999676  40.330868           11
+21      211    0.013584   0.999699  41.081703           11
+22      221    0.012523   0.999735  41.667263           11
+23      231    0.013088   0.999710  41.357143           11
+24      241    0.012259   0.999728  41.839577           11
+25      251    0.191701        NaN  39.316292           11
+26      261    0.191409        NaN  39.500591           11
+27      271         NaN        NaN        NaN           11
+28      281         NaN        NaN        NaN           11
+29      291         NaN        NaN        NaN           11
+30      301    0.012968   0.999649  41.273178           11
+31      311    0.189942        NaN  40.385517           11
+32      321         NaN        NaN        NaN           11
+33      331         NaN        NaN        NaN           11
+34      341         NaN        NaN        NaN           11
+35      351    0.188789   0.825323  41.204922           11

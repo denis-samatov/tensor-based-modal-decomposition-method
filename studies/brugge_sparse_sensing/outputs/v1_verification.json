@@ -1,0 +1,15 @@
+{
+  "fold": "P2-run1",
+  "rank": 16,
+  "qr_pivots_equal_as_sets": true,
+  "qr_n": 16,
+  "admm_iterations_ours": 110,
+  "admm_iterations_lib": 84,
+  "lasso_objective_ours": 0.004312194184493408,
+  "lasso_objective_lib": 0.004312194192595622,
+  "relative_state_difference": 2.758906108840207e-08,
+  "prop1_singular_value_max_rel_diff": 1.7902784492855216e-14,
+  "prop1_subspace_distance": 6.137859085766005e-14,
+  "prop1_rotation_orthogonality_error": 3.8161740279526923e-13,
+  "prop1_qr_pivots_equal_first_r": true
+}

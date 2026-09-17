@@ -1,0 +1,21 @@
+OMP: Warning #179: Function Can't set size of /tmp file failed:
+QR Factorization completed:
+  Requested sensors: 16
+  Actual rank: 16
+  Success rate: 100.0%
+  Early stops: 0
+{
+  "fold": "P2-run1",
+  "rank": 16,
+  "qr_pivots_equal_as_sets": true,
+  "qr_n": 16,
+  "admm_iterations_ours": 110,
+  "admm_iterations_lib": 84,
+  "lasso_objective_ours": 0.004312194184493459,
+  "lasso_objective_lib": 0.004312194192595685,
+  "relative_state_difference": 2.7589060974435493e-08,
+  "prop1_singular_value_max_rel_diff": 1.0560250021485384e-14,
+  "prop1_subspace_distance": 6.543245483395764e-14,
+  "prop1_rotation_orthogonality_error": 4.4293399989695205e-13,
+  "prop1_qr_pivots_equal_first_r": true
+}

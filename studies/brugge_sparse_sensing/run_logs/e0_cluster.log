@@ -1,0 +1,38 @@
+OMP: Warning #179: Function Can't set size of /tmp file failed:
+Experiments processed:   0%|          | 0/10 [00:00<?, ?it/s]Experiments processed: 100%|██████████| 10/10 [00:00<00:00, 138884.24it/s]
+Processing subjects:   0%|          | 0/10 [00:00<?, ?it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 90.68it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 90.55it/s]
+case1: (139, 48, 2, 106)
+case2: (139, 48, 2, 106)
+case3: (139, 48, 2, 106)
+case4: (139, 48, 2, 106)
+case5: (139, 48, 2, 106)
+case6: (139, 48, 2, 106)
+case7: (139, 48, 2, 106)
+case8: (139, 48, 2, 106)
+case9: (139, 48, 2, 106)
+case10: (139, 48, 2, 106)
+joint [2, 2, 2, 2] [139, 48, 2, 20]
+Experiments processed:   0%|          | 0/10 [00:00<?, ?it/s]Experiments processed: 100%|██████████| 10/10 [00:00<00:00, 384798.53it/s]
+Processing subjects:   0%|          | 0/10 [00:00<?, ?it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 414.01it/s]
+case1: (139, 48, 106)
+case2: (139, 48, 106)
+case3: (139, 48, 106)
+case4: (139, 48, 106)
+case5: (139, 48, 106)
+case6: (139, 48, 106)
+case7: (139, 48, 106)
+case8: (139, 48, 106)
+case9: (139, 48, 106)
+case10: (139, 48, 106)
+Warning: Final Q matrix not orthogonal (deviation: 3.41e-01)
+QR Factorization completed:
+  Requested sensors: 300
+  Actual rank: 300
+  Success rate: 100.0%
+  Early stops: 0
+   cluster  area_frac  n_sensors  P_C_given_S  density  total_inside  total_selected
+0        0      0.088         56        0.189    0.129           297             300
+1        1      0.201        101        0.340    0.102           297             300
+2        2      0.167         37        0.125    0.045           297             300
+3        3      0.306         39        0.131    0.026           297             300
+4        4      0.239         64        0.215    0.054           297             300

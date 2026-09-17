@@ -1,0 +1,26 @@
+\begin{table}[tbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\caption{Pressure RMSE (bar) in protocol P2, mean\,$\pm$\,standard deviation over the ten held-out control scenarios. Placement is QR (grid) or DG (wells) on the basis of the same row unless stated; $r=16$ in every fold. The prior row uses no measurements and is repeated across columns. Random: per-fold median over 20 placements.}
+\label{tab:main}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{Grid-wide channels} & \multicolumn{2}{c}{Wells ($p$, $S_o$)} & Wells ($p$) \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}\cmidrule(l){7-7}
+Method & $N=10$ & $N=30$ & $N=100$ & $N=10$ & $N=30$ & $N=30$ \\
+\midrule
+No measurements (prior) & 1.15\,$\pm$\,0.56 & 1.15\,$\pm$\,0.56 & 1.15\,$\pm$\,0.56 & 1.15\,$\pm$\,0.56 & 1.15\,$\pm$\,0.56 & 1.15\,$\pm$\,0.56 \\
+Prior + IDW (POD-E sites) & 0.65\,$\pm$\,0.35 & 0.53\,$\pm$\,0.27 & 0.50\,$\pm$\,0.26 & 0.58\,$\pm$\,0.24 & 0.31\,$\pm$\,0.16 & 0.31\,$\pm$\,0.16 \\
+POD, LS & 29\,$\pm$\,1 & 0.12\,$\pm$\,0.04 & 0.09\,$\pm$\,0.02 & 0.70\,$\pm$\,0.30 & 0.18\,$\pm$\,0.09 & 0.23\,$\pm$\,0.09 \\
+POD, $\ell_1$ & 31\,$\pm$\,1 & 2.01\,$\pm$\,0.27 & 0.78\,$\pm$\,0.13 & 11\,$\pm$\,3 & 1.04\,$\pm$\,0.24 & 5.04\,$\pm$\,0.70 \\
+POD-E, LS & 0.32\,$\pm$\,0.18 & 0.12\,$\pm$\,0.04 & 0.09\,$\pm$\,0.02 & 0.78\,$\pm$\,0.45 & 0.18\,$\pm$\,0.09 & 0.23\,$\pm$\,0.09 \\
+POD-E, $\ell_1$ & 0.40\,$\pm$\,0.18 & 0.19\,$\pm$\,0.03 & 0.11\,$\pm$\,0.02 & 0.35\,$\pm$\,0.10 & 0.19\,$\pm$\,0.03 & 0.21\,$\pm$\,0.08 \\
+TBMD $(48,48,2)$, LS & 0.54\,$\pm$\,0.08 & 0.42\,$\pm$\,0.06 & 0.38\,$\pm$\,0.06 & 1.27\,$\pm$\,0.38 & 0.43\,$\pm$\,0.05 & 0.48\,$\pm$\,0.05 \\
+TBMD $(48,48,2)$, $\ell_1$ & 0.59\,$\pm$\,0.12 & 0.45\,$\pm$\,0.07 & 0.38\,$\pm$\,0.06 & 0.64\,$\pm$\,0.13 & 0.43\,$\pm$\,0.06 & 0.43\,$\pm$\,0.06 \\
+Random sites, POD-E, LS & 0.45\,$\pm$\,0.12 & 0.59\,$\pm$\,0.13 & 0.16\,$\pm$\,0.03 & 0.84\,$\pm$\,0.27 & 0.18\,$\pm$\,0.09 & 0.23\,$\pm$\,0.09 \\
+Configured wells, POD-E, LS & -- & -- & -- & 2.50\,$\pm$\,1.55 & 0.18\,$\pm$\,0.09 & 0.23\,$\pm$\,0.09 \\
+Configured wells, TBMD, $\ell_1$ & -- & -- & -- & 0.47\,$\pm$\,0.07 & 0.43\,$\pm$\,0.06 & 0.43\,$\pm$\,0.06 \\
+\bottomrule
+\end{tabular}
+\end{table}

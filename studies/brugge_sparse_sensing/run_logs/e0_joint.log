@@ -1,0 +1,55 @@
+OMP: Warning #179: Function Can't set size of /tmp file failed:
+Experiments processed:   0%|          | 0/10 [00:00<?, ?it/s]Experiments processed: 100%|██████████| 10/10 [00:00<00:00, 151418.92it/s]
+Processing subjects:   0%|          | 0/10 [00:00<?, ?it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 94.07it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 93.93it/s]
+case1: (139, 48, 2, 106)
+case2: (139, 48, 2, 106)
+case3: (139, 48, 2, 106)
+case4: (139, 48, 2, 106)
+case5: (139, 48, 2, 106)
+case6: (139, 48, 2, 106)
+case7: (139, 48, 2, 106)
+case8: (139, 48, 2, 106)
+case9: (139, 48, 2, 106)
+case10: (139, 48, 2, 106)
+Processing subjects:   0%|          | 0/10 [00:00<?, ?it/s]Processing subjects: 100%|██████████| 10/10 [00:00<00:00, 348.25it/s]
+case1: (139, 48, 2, 27)
+case2: (139, 48, 2, 27)
+case3: (139, 48, 2, 27)
+case4: (139, 48, 2, 27)
+case5: (139, 48, 2, 27)
+case6: (139, 48, 2, 27)
+case7: (139, 48, 2, 27)
+case8: (139, 48, 2, 27)
+case9: (139, 48, 2, 27)
+case10: (139, 48, 2, 27)
+Single slice wells experiments (slice 10):   0%|          | 0/30 [00:00<?, ?it/s]Single slice wells experiments (slice 10):   0%|          | 0/30 [00:00<?, ?it/s]
+[[54, 27]]
+1
+Traceback (most recent call last):
+  File "<repo>/studies/brugge_sparse_sensing/scripts/e0_reproduce_archived.py", line 105, in <module>
+    main()
+  File "<repo>/studies/brugge_sparse_sensing/scripts/e0_reproduce_archived.py", line 88, in main
+    df = runner.run_single_slice_wells_experiments(A, te, subject, 10, list(range(1, 31)))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/src/TBMD/experiments/runner.py", line 425, in run_single_slice_wells_experiments
+    Y_mats = build_Y_matrices(
+             ^^^^^^^^^^^^^^^^^
+  File "<repo>/src/TBMD/core/utils/misc.py", line 376, in build_Y_matrices
+    raise e
+  File "<repo>/src/TBMD/core/utils/misc.py", line 372, in build_Y_matrices
+    subject, Y = future.result()
+                 ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/src/TBMD/core/utils/misc.py", line 359, in _process_subject
+    raise e
+  File "<repo>/src/TBMD/core/utils/misc.py", line 351, in _process_subject
+    raise ValueError(
+ValueError: Sensor mask shape torch.Size([139, 48]) does not match spatial dimensions torch.Size([139, 48, 2]) for subject 'case3'.
+E0 joint wells failed as documented (shape mismatch in public helper)
