@@ -2,17 +2,32 @@ cff-version: 1.2.0
 message: "If you use this software, please cite both the software and the paper below."
 title: "TBMD: Tensor-Based Modal Decomposition Method"
 type: software
-version: 2.0.0
-date-released: "2026-08-30"
+version: 2.1.0
+date-released: "2026-09-17"
 license: MIT
 repository-code: "https://github.com/denis-samatov/tensor-based-modal-decomposition-method"
+abstract: >-
+  Python library for tensor-based modal decomposition, sparse sensor placement and field
+  reconstruction. Release 2.1.0 adds the Brugge sparse-sensing study package
+  (studies/brugge_sparse_sensing) that generates every number, table and figure of the manuscript
+  "Sparse-sensor reconstruction of reservoir states with tensor-based and matrix modal bases: a
+  reproducible benchmark on the Brugge model". The Brugge simulation inputs are not included.
+keywords:
+  - reservoir monitoring
+  - sensor placement
+  - proper orthogonal decomposition
+  - Tucker decomposition
+  - compressive sensing
 authors:
   - family-names: Samatov
-    given-names: D.
+    given-names: Denis
+    affiliation: National Research Tomsk Polytechnic University
   - family-names: Merzlikin
-    given-names: B.
+    given-names: Boris
+    affiliation: National Research Tomsk Polytechnic University
   - family-names: Shishaev
-    given-names: G.
+    given-names: Gleb
+    affiliation: National Research Tomsk Polytechnic University
 preferred-citation:
   type: article
   title: "Tensor-Based Modal Decomposition and Sparse Sensor Placement for the Brugge Field Simulation Model"

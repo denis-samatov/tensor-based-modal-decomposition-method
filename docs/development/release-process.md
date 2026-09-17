@@ -20,5 +20,5 @@ The repository is distributed as a source-only GitHub package. Resolve the publi
 ```bash
 REMOTE_SHA=$(git ls-remote https://github.com/denis-samatov/tensor-based-modal-decomposition-method.git refs/heads/main | awk '{print $1}')
 python -m pip install "git+https://github.com/denis-samatov/tensor-based-modal-decomposition-method.git@${REMOTE_SHA}"
-python -c "import TBMD; assert TBMD.__version__ == '2.0.0'"
+python -c "import TBMD; assert TBMD.__version__ == '2.1.0'"
 ```
