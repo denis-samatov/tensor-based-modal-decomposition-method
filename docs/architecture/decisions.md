@@ -21,7 +21,8 @@ The core algorithmic components (decomposition, reconstruction, sensor placement
 #### Evidence in repository
 - `src/TBMD/core/` contains generalized abstractions (e.g., `BatchModalProcessor`).
 - `examples/basic/` demonstrates the public library API with deterministic synthetic data.
-- Dataset-specific forecasting orchestration is maintained in the separate `tbmd-forecasting` repository.
+- Dataset-specific forecasting orchestration is maintained in the separate
+  [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting) repository.
 
 #### Consequences
 - **Pros**: Clean testability of core math; easy to apply to new datasets.

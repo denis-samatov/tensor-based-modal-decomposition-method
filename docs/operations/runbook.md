@@ -23,4 +23,6 @@ python examples/basic/04_complete_pipeline.py
 ### 3. Artifact Logging
 - When adapting the example, write generated artifacts to an ignored directory such as `results/`.
 - Save exact configuration parameters alongside numerical outputs. RANS/URANS forecasting
-  runs use the standalone `tbmd-forecasting` project and its structured output contract.
+  runs use the standalone
+  [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting) project and its
+  structured output contract.

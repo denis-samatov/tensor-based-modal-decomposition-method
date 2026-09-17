@@ -35,7 +35,8 @@ python -m compileall src tests examples
 ### Dataset-Dependent Checks
 The tracked examples use deterministic synthetic data and run from a clean clone.
 Dataset-specific forecasting experiments and their local RANS/URANS inputs live in
-the separate `tbmd-forecasting` repository.
+the separate [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting)
+repository.
 
 ## Examples
 N/A

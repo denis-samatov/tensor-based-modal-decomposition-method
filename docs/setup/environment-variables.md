@@ -14,7 +14,7 @@ There are no mandatory environment variables for the core library.
 
 Dataset-specific orchestration may define its own environment variables, but the core `TBMD`
 library does not parse an `.env` file. RANS/URANS forecasting configuration belongs to the
-separate `tbmd-forecasting` repository.
+separate [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting) repository.
 
 ## Validation
 Ensure `.env` files are not tracked by git.

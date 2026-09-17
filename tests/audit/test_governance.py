@@ -151,6 +151,29 @@ def test_relative_markdown_links_resolve():
     assert broken == []
 
 
+def test_forecasting_boundary_docs_link_canonical_repository():
+    """Keep every forecasting boundary statement actionable and unambiguous."""
+    canonical = "https://github.com/denis-samatov/tbmd-forecasting"
+    boundary_docs = (
+        "README.md",
+        "docs/architecture/decisions.md",
+        "docs/development/testing.md",
+        "docs/interfaces/python-api.md",
+        "docs/operations/runbook.md",
+        "docs/setup/environment-variables.md",
+        "examples/README.md",
+    )
+
+    missing = [
+        relative_path
+        for relative_path in boundary_docs
+        if canonical
+        not in (PROJECT_ROOT / relative_path).read_text(encoding="utf-8")
+    ]
+
+    assert missing == []
+
+
 def test_reproducibility_guide_has_no_unverified_data_instructions():
     """Keep public reproduction claims aligned with the distributed artifacts."""
     guide = (PROJECT_ROOT / "REPRODUCIBILITY.md").read_text(encoding="utf-8")

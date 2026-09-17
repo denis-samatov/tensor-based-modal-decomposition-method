@@ -44,6 +44,10 @@ The synthetic example uses a `(space, variable, time)` tensor. Tucker decomposit
 
 For more details, see the [Architecture Overview](docs/architecture/overview.md).
 
+Dataset-specific one-step forecasting, including the local OpenFOAM URANS workflow, is maintained
+in the separate [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting)
+repository. This repository remains the reusable TBMD library and synthetic-example source.
+
 ## Quick start
 1. Clone the repository:
 ```bash

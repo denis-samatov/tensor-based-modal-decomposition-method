@@ -42,9 +42,9 @@ python examples/geometry_aware/06_geometry_aware_run.py
 ## Dataset-Specific Examples
 
 Dataset-specific forecasting experiments are maintained in the separate
-`tbmd-forecasting` repository. This repository keeps only reusable TBMD examples
-and deterministic synthetic smoke tests. Keep local datasets and generated
-outputs out of version control.
+[`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting) repository. This
+repository keeps only reusable TBMD examples and deterministic synthetic smoke tests. Keep local
+datasets and generated outputs out of version control.
 
 ## Additional Documentation
 
