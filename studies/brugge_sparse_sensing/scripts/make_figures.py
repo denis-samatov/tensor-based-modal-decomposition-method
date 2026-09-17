@@ -237,7 +237,7 @@ for k, sensing in enumerate(("grid", "wells-joint")):
     ax[k].set(xscale="log", yscale="log", xlabel="$\\ell_1$ weight $\\varepsilon$", ylabel="Pressure RMSE (bar)",
               title=f"({'ab'[k]}) P2, {'grid-wide QR' if sensing=='grid' else 'DG-selected wells'}")
 for a in ax:
-    a.legend(frameon=False, fontsize=5.5, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.25))
+    a.legend(frameon=False, fontsize=5.5, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.36))
 fig.tight_layout()
 save(fig, "figS1_l1_sensitivity")
 

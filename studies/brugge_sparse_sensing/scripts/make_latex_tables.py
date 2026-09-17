@@ -1,6 +1,6 @@
 """LaTeX tables for the manuscript and supplement, generated from outputs/key_numbers.json and
-outputs/e6_cost.json. Outputs: outputs/tab_main.tex (Table 2, P2 pressure), outputs/tab_cost.tex
-(Table 3), outputs/tabS_P1.tex, outputs/tabS_So.tex (supplement)."""
+outputs/e6_cost.json. Outputs: outputs/tab_main.tex (Table 1, P2 pressure), outputs/tab_cost.tex
+(Table 2), outputs/tabS_P1.tex, outputs/tabS_So.tex (supplement)."""
 import json
 import sys
 from pathlib import Path
@@ -32,7 +32,7 @@ def fmt(v, sd, scale=1.0):
 def table(P, metric, scale, caption, label):
     lines = ["\\begin{table}[tbp]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{2.5pt}",
              f"\\caption{{{caption}}}", f"\\label{{{label}}}",
-             "\\begin{tabular}{@{}lcccccc@{}}", "\\toprule",
+             "\\begin{adjustbox}{max width=\\linewidth}", "\\begin{tabular}{@{}lcccccc@{}}", "\\toprule",
              " & \\multicolumn{3}{c}{Grid-wide channels} & \\multicolumn{2}{c}{Wells ($p$, $S_o$)} & Wells ($p$) \\\\",
              "\\cmidrule(lr){2-4}\\cmidrule(lr){5-6}\\cmidrule(l){7-7}",
              "Method & $N=10$ & $N=30$ & $N=100$ & $N=10$ & $N=30$ & $N=30$ \\\\", "\\midrule"]
@@ -47,7 +47,7 @@ def table(P, metric, scale, caption, label):
             else:
                 cells.append("--")
         lines.append(name + " & " + " & ".join(cells) + " \\\\")
-    lines += ["\\bottomrule", "\\end{tabular}", "\\end{table}"]
+    lines += ["\\bottomrule", "\\end{tabular}", "\\end{adjustbox}", "\\end{table}"]
     return "\n".join(lines) + "\n"
 
 
@@ -59,10 +59,10 @@ def table(P, metric, scale, caption, label):
     "tab:main"))
 (OUT / "tabS_P1.tex").write_text(table(
     "P1", "rmse_p", 1.0,
-    "As Table~2 of the main text, for protocol P1 (within-scenario temporal hold-out; prior = persistence).", "tab:S_P1"))
+    "As Table~1 of the main text, for protocol P1 (within-scenario temporal hold-out; prior = persistence).", "tab:S_P1"))
 (OUT / "tabS_So.tex").write_text(table(
     "P2", "rmse_so", 1e3,
-    "Oil-saturation RMSE ($\\times10^{-3}$) in protocol P2; layout as Table~2 of the main text. For pressure-only wells, "
+    "Oil-saturation RMSE ($\\times10^{-3}$) in protocol P2; layout as Table~1 of the main text. For pressure-only wells, "
     "$S_o$ is inferred through the joint basis.", "tab:S_So"))
 c = cost
 rows = [("POD basis (thin SVD)", "offline", f"{c['offline_pod_svd_s']:.2f} s"),
