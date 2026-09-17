@@ -7,9 +7,8 @@ This directory contains runnable examples for the TBMD package. Run commands fro
 | Directory | Contents |
 | --- | --- |
 | `basic/` | Minimal decomposition, sensor placement, reconstruction, and complete-pipeline examples. |
-
-| `geometry_aware/` | Examples for graph and mesh-aware workflows. |
-| `advanced/` | Advanced and legacy workflows. |
+| [geometry_aware/](geometry_aware/README.md) | Examples for graph and mesh-aware workflows. |
+| [advanced/](advanced/README.md) | Advanced and compatibility workflows. |
 | `applications/` | Dataset-specific scripts. |
 | `experiments/` | Experimental visualization and validation scripts. |
 

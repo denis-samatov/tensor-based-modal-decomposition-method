@@ -1,23 +1,25 @@
-# Experiment Orchestration
+# Experiment orchestration
 
-## Purpose
-Describes how the pipeline orchestrates data flow between the core mathematical components.
+Reusable components are composed by the synthetic examples, `TBMD.experiments` helpers and the
+separate Brugge study scripts. There is no documented universal `FullPipelineConfig` that
+normalizes arbitrary reservoir data automatically.
 
-## Audience
-Developers and ML Engineers setting up new experiments or benchmarks.
+Each experiment owns:
 
-## Summary
-The orchestration layer manages the lifecycle of offline model training and state reconstruction, allowing researchers to run full end-to-end benchmarks on datasets like Brugge.
+- Data loading, axis order, units, missing-data and normalization rules.
+- Training/validation/test split and protection against target leakage.
+- Ranks, dictionary construction, sensor constraints and solver configuration.
+- Metrics, baselines, provenance and artifact destinations.
 
-## Details
-### Orchestration Flow
-1. **Configuration**: The pipeline receives a `FullPipelineConfig` that groups `DecompositionConfig`, `SensorPlacementConfig`, and `ReconstructionConfig`.
-2. **Data Ingestion**: The pipeline accepts raw tensors (e.g., `[features, x, y, time]`) and handles normalization.
-3. **Offline Phase**: Calls the decomposer to extract the spatial basis and temporal modes.
-4. **Reconstruction**: Integrates sparse measurements to project the state back into the original high-dimensional space.
+Follow [examples/basic/04_complete_pipeline.py](../../examples/basic/04_complete_pipeline.py) for
+synthetic API composition, and the [Brugge study](../../studies/brugge_sparse_sensing/README.md) for
+its dataset-specific benchmark. Forecasting is a separate project.
 
-### Interfaces
-The orchestration scripts expose methods to standardize evaluation.
+## Validation
 
-## Related docs
-- [Current Architecture Decisions](../architecture/decisions.md)
+```bash
+MPLBACKEND=Agg python -m pytest tests/unit/test_experiment_plotting.py -q
+```
+
+This tests experiment plotting behavior, not the entire scientific benchmark.
+[Architecture decisions](../architecture/decisions.md) · [Runbook](../operations/runbook.md)

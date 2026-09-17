@@ -1,25 +1,23 @@
-# Experiment Monitoring
+# Experiment diagnostics
 
-## Purpose
-Explains how to monitor the health and performance of the mathematical algorithms during an experiment run.
+Monitoring means observing numerical execution, not service uptime.
+`TensorCompressiveSensing.solve()` returns `CompressiveSensingMetrics` containing convergence,
+iteration count, final primal/dual residuals, objective, penalty, optional history and elapsed time.
 
-## Audience
-Researchers running the TBMD pipeline.
+- Inspect `converged` together with the stopping policy and iteration limit.
+- Compare measurement fit and field error separately from residual convergence.
+- Use the optional `hook` to record per-iteration primal/dual residuals and objective when needed.
+- Residuals are not guaranteed to decrease strictly at every iteration.
+- Record sampled-dictionary conditioning and sensor count for sparse recovery diagnostics.
+- Rank/energy diagnostics describe a representation; they do not establish held-out prediction skill.
 
-## Summary
-The TBMD project is not a web service; it does not use Prometheus or Grafana. Monitoring refers to tracking the convergence of iterative solvers and the decay of singular values during decomposition.
-
-## Details
-
-### Tracking ADMM Convergence
-The `ADMMReconstructor` iteratively minimizes a loss function.
-- **What to monitor**: The primal and dual residuals at each iteration.
-- **Expected behavior**: Residuals should strictly decrease. If they plateau early or diverge, the penalty parameter `rho` needs adjustment or the tensor rank is misaligned with the measurement count.
-
-### Tracking Tensor Truncation
-When computing the HOSVD:
-- **What to monitor**: Singular value decay across the unfolded tensor modes.
-- **Expected behavior**: A sharp drop-off (scree plot) indicates that the chosen truncation rank is appropriate. If the values do not decay, the system dynamics are too complex for low-rank approximations.
+Save diagnostics with the exact configuration, input provenance and source revision.
+The [Python API example](../interfaces/python-api.md) prints actual solver metrics.
 
 ## Validation
-Always output these metrics (e.g., residual history, singular values) to logs or local artifacts during script execution for post-analysis.
+
+```bash
+MPLBACKEND=Agg python -m pytest tests/unit/test_reconstruction.py -q
+```
+
+[Runbook](runbook.md) · [Troubleshooting](troubleshooting.md)

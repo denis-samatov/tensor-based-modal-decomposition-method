@@ -23,6 +23,7 @@ from TBMD.core.decomposition import (
     GeometryAwareTuckerDecomposer,
 )
 from TBMD.core.geometry import MeshGraphBuilder
+from TBMD.core.metrics.metrics import compute_metrics
 from TBMD.core.reconstruction import (
     CompressiveSensingConfig,
     TensorCompressiveSensing,
@@ -31,7 +32,6 @@ from TBMD.core.sensor_placement import (
     GeometricQRConfig,
     GeometryAwareTensorQR,
 )
-from TBMD.utils.metrics import compute_metrics
 
 # ---------------------------------------------------------------------------
 # Synthetic dataset

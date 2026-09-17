@@ -1,89 +1,42 @@
-# Current Architecture Decisions
+# Architecture decisions
 
-## Purpose
-This document logs the core architectural and methodological decisions embedded in the TBMD codebase.
+## Reusable library and experiments
 
-## Audience
-Maintainers and core contributors who need to understand why the repository is structured the way it is.
+Reusable algorithms live in `src/TBMD/core/`. Synthetic examples and the Brugge study compose these
+algorithms without treating a dataset-specific workflow as a universal API. Physical URANS and
+`t+1` forecasting live in the separate
+[tbmd-forecasting repository](https://github.com/denis-samatov/tbmd-forecasting).
 
-## Current Decisions
+## Explicit tensor representation
 
-### ADR-001: Separation of Research Scripts and Core Modules
-#### Status
-Current
+Tucker decomposition produces a core and mode factors. Tensor Tube QR works on a modal dictionary,
+and sparse reconstruction recovers its coefficient vector. Axis order and flattening decisions
+belong in each experiment's contract. A tensor representation does not guarantee a more accurate
+result than a matrix baseline; comparisons require the same split and sensor budget.
 
-#### Context
-The project needs to support reusable mathematical functions while allowing researchers to build field-specific experiments in separate orchestration projects.
+## ADMM reconstruction
 
-#### Decision
-The core algorithmic components (decomposition, reconstruction, sensor placement) are strictly decoupled from application-specific logic. 
+`TensorCompressiveSensing` implements an iterative coefficient solver with configurable penalties,
+linear-solver and stopping policies. Its metrics describe the executed optimization; convergence,
+measurement fit and held-out field accuracy are separate checks.
 
-#### Evidence in repository
-- `src/TBMD/core/` contains generalized abstractions (e.g., `BatchModalProcessor`).
-- `examples/basic/` demonstrates the public library API with deterministic synthetic data.
-- Dataset-specific forecasting orchestration is maintained in the separate
-  [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting) repository.
+## Data and artifacts
 
-#### Consequences
-- **Pros**: Clean testability of core math; easy to apply to new datasets.
-- **Cons**: Requires mapping local data formats (e.g., NumPy/HDF5) to the required PyTorch tensor formats in the orchestration layer.
+Local datasets and exploratory run artifacts are ignored. Curated synthetic documentation assets
+and Brugge study results/generators are intentionally tracked for reproducibility. The policy is
+not a blanket prohibition on every generated file. Inspect `.gitignore`,
+[REPRODUCIBILITY.md](../../REPRODUCIBILITY.md) and the study README before adding artifacts.
 
----
+## Compatibility
 
-### ADR-002: Tensor-Based Modal Decomposition (Tucker) as the Core Method
-#### Status
-Current
+Deprecated `TBMD.modules` and `TBMD.utils` paths remain compatibility wrappers. Current examples
+use the core API; explicitly named legacy examples demonstrate compatibility. Removing wrappers
+requires an API migration, not a filesystem cleanup.
 
-#### Context
-Handling multi-dimensional spatiotemporal data (e.g., 3D space + 1D time) efficiently requires preserving the tensor structure rather than flattening it into matrices.
+## Validation
 
-#### Decision
-The primary dimensionality reduction method is Tucker Decomposition (specifically HOSVD-based approaches).
+```bash
+MPLBACKEND=Agg python -m pytest tests/audit -q
+```
 
-#### Evidence in repository
-- `src/TBMD/core/decomposition/` implements `TuckerDecomposer` and `GeometryAwareTuckerDecomposer`.
-- Configuration objects explicitly define tensor ranks for core tensors.
-
-#### Consequences
-- **Pros**: Exploits spatial correlation across multiple dimensions efficiently.
-- **Cons**: Requires tuning of multi-dimensional rank configurations, which can be computationally expensive to optimize.
-
----
-
-### ADR-003: Compressive Sensing via ADMM
-#### Status
-Current
-
-#### Context
-Reconstructing full high-dimensional tensor states from a sparse set of sensor measurements is an ill-posed inverse problem.
-
-#### Decision
-The repository implements the Alternating Direction Method of Multipliers (ADMM) to solve the sparse reconstruction problem.
-
-#### Evidence in repository
-- `src/TBMD/core/reconstruction/tensor_compressive_sensing.py` contains the ADMM solver loops.
-- `ReconstructionConfig` contains ADMM hyperparameters (rho, iterations).
-
-#### Consequences
-- **Pros**: Robust convergence for convex optimization formulations.
-- **Cons**: Iterative reconstruction can be slow and requires tuning the penalty parameter (rho).
-
----
-
-### ADR-004: Local Artifacts Ignored in Version Control
-#### Status
-Current
-
-#### Context
-Research experiments generate large files: trained model weights (`.npz`, `.pt`), raw datasets, and analytical plots.
-
-#### Decision
-All generated artifacts and local datasets are strictly excluded from git version control.
-
-#### Evidence in repository
-- `.gitignore` (inferred from repository hygiene policies) excludes `data/`, `results/`, and `scripts/plots/`.
-- The `test_no_tracked_generated_or_local_artifacts` test in `tests/audit/test_governance.py` enforces this.
-
-#### Consequences
-- **Pros**: Keeps the repository lightweight and prevents accidental data leaks.
-- **Cons**: Reproducing experiments requires out-of-band data sharing.
+[Architecture overview](overview.md) · [Brugge study](../../studies/brugge_sparse_sensing/README.md)

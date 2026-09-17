@@ -1,24 +1,24 @@
-# Exceptions and Errors
+# Exceptions and errors
 
-## Purpose
-Documents common errors encountered when interfacing with the core library.
+The decomposition module defines `TensorDecompositionError`, `InvalidRankError`, `StateError` and
+`ValidationError`. Source: [hosvd.py](../../src/TBMD/core/decomposition/hosvd.py).
 
-## Audience
-Developers troubleshooting their scripts.
+| Failure | Check |
+|---|---|
+| Result accessed before decomposition/reconstruction | Call `decompose()` or `reconstruct()` before reading the corresponding properties |
+| Invalid ranks or dimensions | Record input shape and verify ranks against every mode |
+| Sparse solver shape mismatch | Verify `P.shape == Y.shape == A.shape[:-1]` |
+| Empty sensor mask | Confirm QR selected the requested count; do not infer success from method completion |
+| Non-finite values or linear algebra failure | Inspect input validity, sampled-dictionary rank/conditioning, dtype and regularization |
+| Memory exhaustion | Reduce problem size or use a documented data strategy; modal batching alone does not make dense SVD out-of-core |
 
-## Details
+Do not suppress failures by changing the physical data meaning or silently switching to synthetic
+inputs. Exact exception text can depend on the component and numerical-library version.
 
-### 1. Shape Mismatch Errors
-- **Symptom**: `RuntimeError: The size of tensor a (X) must match the size of tensor b (Y) at non-singleton dimension N`
-- **Cause**: The input tensor shape does not align with the rank configuration provided in `DecompositionConfig`, or the features dimension is misaligned.
-- **Resolution**: Verify the input data shape.
+## Validation
 
-### 2. Ill-Conditioned Matrix Inversions
-- **Symptom**: `torch.linalg.LinAlgError: Matrix is not invertible`
-- **Cause**: This can occur during the ADMM reconstruction or pseudo-inverse steps if the selected tensor ranks are too large, leading to rank deficiency.
-- **Resolution**: Reduce the truncation ranks in the configuration or add regularization.
+```bash
+MPLBACKEND=Agg python -m pytest tests/unit/test_decomposition.py tests/unit/test_TensorValidator.py tests/unit/test_reconstruction.py -q
+```
 
-### 3. Out of Memory (OOM)
-- **Symptom**: `CUDA out of memory` or script killed by the OS.
-- **Cause**: Core tensor contractions (e.g., in HOSVD) require significant memory. Unfolding large high-dimensional tensors can easily exceed VRAM/RAM limits.
-- **Resolution**: Use `BatchModalProcessor` if available, or downsample the spatial grid before decomposition.
+[Troubleshooting](../operations/troubleshooting.md) · [Tensor contracts](input-output-tensors.md)

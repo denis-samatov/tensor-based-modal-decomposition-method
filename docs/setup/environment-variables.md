@@ -1,20 +1,24 @@
-# Environment Variables
+# Environment variables
 
-## Purpose
-Documents the environment variables used by the project.
+The core library requires no credentials and does not parse an `.env` file. Runtime settings are
+passed through Python configuration objects.
 
-## Audience
-Developers configuring their local environment.
+| Variable | Scope |
+|---|---|
+| `MPLBACKEND=Agg` | Headless Matplotlib in tests and batch examples |
+| `TBMD_DATA_DIR` | Brugge study data location, documented by the study runner |
+| `OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS` | Numerical-library thread controls; use explicit settings when comparing timing results |
+| `MPLCONFIGDIR` | Optional writable Matplotlib configuration/cache directory |
 
-## Summary
-The TBMD project is a numerical library and does not require extensive environment variable configuration. 
-
-## Details
-There are no mandatory environment variables for the core library.
-
-Dataset-specific orchestration may define its own environment variables, but the core `TBMD`
-library does not parse an `.env` file. RANS/URANS forecasting configuration belongs to the
-separate [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting) repository.
+These variables belong to tools and experiment execution, not an implicit core configuration
+service. Physical URANS configuration belongs to
+[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting).
 
 ## Validation
-Ensure `.env` files are not tracked by git.
+
+```bash
+python -c "import TBMD; print(TBMD.__version__)"
+```
+
+Never commit credentials or personal `.env` files.
+[Configuration](configuration.md) · [Brugge study](../../studies/brugge_sparse_sensing/README.md)

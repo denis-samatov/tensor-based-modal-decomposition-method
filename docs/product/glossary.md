@@ -1,34 +1,24 @@
-# Glossary and Terminology
+# Glossary
 
-## Purpose
-To provide a unified dictionary of terms used across the TBMD documentation and codebase.
+| Term | Meaning in this project |
+|---|---|
+| Tensor | Multidimensional numerical array with an explicitly documented axis order |
+| Tucker decomposition | Core tensor and mode-factor representation |
+| Modal dictionary | Array used to expand a coefficient vector into a field; coefficients occupy its final axis |
+| Sensor mask | Binary/boolean array selecting entries of a field-shaped measurement array |
+| Reconstruction | Recovering coefficients from measurements and expanding them into the field |
+| Decomposition reconstruction error | Error when representing the decomposed input; not a held-out prediction metric |
+| ADMM convergence | Satisfaction of configured numerical stopping criteria |
+| Brugge study | Reservoir-state benchmark with restricted inputs and curated reproducibility outputs |
+| Synthetic example | Generated-data software demonstration |
+| Qualification | Evidence that a specified scientific/physical/deployment contract is satisfied |
 
-## Audience
-All audiences (Product, Developer, ML/AI engineer, Maintainer) who need clarity on specific terminology.
-
-## Summary
-A centralized list of definitions to prevent ambiguous or contradictory use of terms across the project.
-
-## Details
-
-### Core TBMD Terms
-- **Tensor**: A multi-dimensional array of data (e.g., spatiotemporal data).
-- **Modal Basis / Modal Tensor**: A reduced representation of the original tensor after decomposition.
-- **Decomposition**: The process of factoring a high-dimensional tensor into a core tensor and factor matrices (e.g., Tucker/HOSVD).
-- **Sensor Placement**: The algorithmic selection of physical or virtual locations to take measurements, optimizing information gain.
-- **Reconstruction**: The process of approximating a full tensor field from sparse measurements.
-- **Brugge dataset**: A standard reservoir engineering benchmark field often used for testing dynamic simulation workflows.
-
-### Standardized AI/System Terms (If Applicable)
-*(Note: TBMD focuses on numerical decomposition, not generative AI. These terms are defined here for standardization across organizational projects).*
-
-- **Evaluation**: The process of measuring a model's accuracy or performance against a validation dataset.
-- **Production-ready**: A status indicating the code is fully validated, secure, and robust for live user traffic. **TBMD is a research codebase and is NOT production-ready by default.**
-- **Staging / Release**: Environments or phases for deploying software. TBMD does not currently define a formal release pipeline.
+Use these distinctions in new documentation. Release tags, successful tests and directories named
+`production` are not qualification by themselves.
 
 ## Validation
-Ensure that when writing new documentation, the terms used align with the definitions listed here. If a new term is introduced, add it to this file.
 
-## Related docs
-- [Product Overview](overview.md)
-- [Architecture Overview](../architecture/overview.md)
+Compare terminology with the [tensor contracts](../interfaces/input-output-tensors.md) and
+[study definitions](../../studies/brugge_sparse_sensing/README.md).
+
+[Overview](overview.md) · [Architecture](../architecture/overview.md)

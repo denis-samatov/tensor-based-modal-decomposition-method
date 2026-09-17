@@ -84,19 +84,15 @@ For more information, see the [Testing Guide](docs/development/testing.md).
 
 Measured stage costs for the Brugge study (single thread, one leave-one-scenario-out fold) are in
 [`studies/brugge_sparse_sensing/outputs/e6_cost.json`](studies/brugge_sparse_sensing/outputs/e6_cost.json)
-and Table 2 of the revised manuscript. Earlier timings produced by `measure_brugge_runtime.py` timed
-QR placement on a random matrix and are not used.
+and Table 2 of the revised manuscript. Earlier random-matrix timing estimates are superseded by
+these stage measurements.
 
-### Map of documentation
+### Documentation
 
-- **Product & Concepts**: [`docs/product/overview.md`](docs/product/overview.md)
-- **Architecture**: [`docs/architecture/overview.md`](docs/architecture/overview.md)
-- **Mathematical & Research Pipeline**: [`docs/research-system/reconstruction-pipeline.md`](docs/research-system/reconstruction-pipeline.md)
-- **Interfaces & Python Usage**: [`docs/interfaces/python-api.md`](docs/interfaces/python-api.md)
-- **Installation & Setup**: [`docs/setup/local-development.md`](docs/setup/local-development.md)
-- **Running Experiments**: [`docs/operations/runbook.md`](docs/operations/runbook.md)
-- **Contributing & Code Style**: [`docs/development/contribution-guide.md`](docs/development/contribution-guide.md)
-- **Operations & Runbooks**: [`docs/operations/runbook.md`](docs/operations/runbook.md)
+The [documentation index](docs/index.md) is the canonical map for setup, architecture, tensor
+contracts, Python usage, research workflows and contributor guidance. Start with the
+[Python API](docs/interfaces/python-api.md) for a complete decomposition/sparse-recovery snippet,
+or the [Brugge study](studies/brugge_sparse_sensing/README.md) for revised manuscript reproduction.
 
 
 ## Known limitations

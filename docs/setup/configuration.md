@@ -1,48 +1,39 @@
 # Configuration
 
-## Purpose
-To detail how TBMD is configured at runtime.
+General configuration dataclasses are exported by [TBMD.config](../../src/TBMD/config/__init__.py).
+Pass the relevant object to the component; there is no single `FullPipelineConfig` contract.
 
-## Audience
-Developers and users initializing TBMD models or running experiments.
+| Class | Responsibility |
+|---|---|
+| `BaseConfig` | TensorLy backend, dtype, device, seed, deterministic settings and logging |
+| `DecompositionConfig` | Ranks, energy thresholds and decomposition/numerical options |
+| `SensorPlacementConfig` | Sensor count, reproducibility and placement options |
+| `CompressiveSensingConfig` | Core ADMM coefficient-solver settings |
+| `ExtensionCompressiveSensingConfig` | Linear-solver/stopping/history extension options |
+| `ReconstructionConfig` | Higher-level reconstruction settings; `to_core_config()` adapts the core solver configuration |
+| `ExperimentConfig`, `ModalProcessorConfig` | Experiment and modal-processing settings |
 
-## Summary
-TBMD avoids hidden state and environment variables for core logic. Instead, configuration is explicitly defined via Python dataclasses located in `TBMD.config`.
+For `TensorCompressiveSensing`, use `core_cfg=CompressiveSensingConfig(...)` and optional `ext_cfg`.
+Some geometry modules define their own configuration dataclasses; import the class documented by
+that module rather than substituting a similarly named class.
 
-## Details
-
-### Main Configuration Classes
-| Class | Purpose |
-| --- | --- |
-| `BaseConfig` | Shared backend, dtype, device, seed, and logging options. |
-| `DecompositionConfig` | Tucker/HOSVD decomposition settings (e.g., target ranks). |
-| `SensorPlacementConfig` | Tensor QR sensor placement settings (e.g., number of sensors). |
-| `CompressiveSensingConfig` | ADMM-based reconstruction settings (e.g., iterations, tolerance). |
-
-
-### Reproducibility
-Most configuration classes inherit `seed` and `deterministic` flags from `BaseConfig`. Setting these ensures deterministic operations across runs, though behavior may still depend slightly on the specific PyTorch backend and hardware used.
-
-## Examples
-**Instantiating a configuration object:**
 ```python
 from TBMD.config import DecompositionConfig
-
 config = DecompositionConfig(
-    ranks=[20, 20, 10],
-    device="cpu",
-    dtype="float32",
-    verbose=True,
+    ranks=[4, 2, 4], backend="pytorch", device="cpu", dtype="float32",
+    seed=42, random_state=42, verbose=False,
 )
 ```
 
-## Validation
-Ensure that configurations are type-correct by running the unit tests:
-```bash
-pytest tests/unit -q
-```
-Expected result: Tests pass, confirming that the default initialization of configuration objects is valid and properly processed by the core algorithms.
+Creating a base-derived configuration can seed numerical libraries and enable deterministic
+PyTorch operations. Seeds do not guarantee bitwise equality across platforms and library versions.
+Consult constructor/source behavior rather than assuming every inherited option changes every
+algorithm path.
 
-## Related docs
-- [Environment Variables](environment-variables.md)
-- [Architecture Components](../architecture/components.md)
+## Validation
+
+```bash
+python -m pytest tests/unit/test_config.py -q
+```
+
+[Python API](../interfaces/python-api.md) · [Environment variables](environment-variables.md)

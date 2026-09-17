@@ -1,52 +1,35 @@
 # Testing
 
-## Purpose
-To explain how to validate changes made to the codebase.
+Run commands from the installed checkout root. Headless plotting avoids depending on an interactive
+Matplotlib backend.
 
-## Audience
-Developers and Maintainers.
-
-## Summary
-The project uses `pytest` for unit testing and repository audit checks. A syntax smoke test is also available using `compileall`.
-
-## Details
-
-### Default Test Suite
-Run all tests:
 ```bash
-pytest
+MPLBACKEND=Agg python -m pytest tests -q
 ```
 
-### Targeted Tests
-Run only unit tests or audit tests for faster feedback:
-```bash
-pytest tests/unit -q
-pytest tests/audit -q
-pytest tests/unit/test_decomposition.py -q
-```
-*Note: Audit tests check repository hygiene, documentation entry points, tracked generated artifacts, and compatibility imports.*
+## Focused checks
 
-### Syntax and Import Smoke Check
-Catch syntax errors without running logic:
 ```bash
+MPLBACKEND=Agg python -m pytest tests/audit -q
+MPLBACKEND=Agg python -m pytest tests/unit -q
+MPLBACKEND=Agg python -m pytest tests/unit/test_decomposition.py -q
 python -m compileall src tests examples
+python -m ruff check src tests examples
+python -m mypy src/TBMD/core
 ```
 
-### Dataset-Dependent Checks
-The tracked examples use deterministic synthetic data and run from a clean clone.
-Dataset-specific forecasting experiments and their local RANS/URANS inputs live in
-the separate [`tbmd-forecasting`](https://github.com/denis-samatov/tbmd-forecasting)
-repository.
+`pyproject.toml` records Ruff settings and existing mypy type-debt exclusions. A passing mypy command
+covers its configured scope; it does not prove that excluded modules have no type errors.
+Audit tests cover repository hygiene, local links, installation instructions and public boundaries.
+Compileall checks syntax rather than numerical behavior.
 
-## Examples
-N/A
+## Scientific checks
 
-## Validation
-To verify testing is set up correctly:
-```bash
-pytest tests/unit -q
-```
-Expected result: The unit tests pass seamlessly.
+The software suite uses synthetic fixtures. Run Brugge-specific verification using the
+[study instructions](../../studies/brugge_sparse_sensing/README.md).
+Dataset-specific URANS/forecasting tests belong to
+[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting).
+Software PASS does not establish physical forecast skill, field qualification or article readiness.
 
-## Related docs
-- [Contribution Guide](contribution-guide.md)
+[Contribution guide](contribution-guide.md) · [Code style](code-style.md) ·
+[Release process](release-process.md)

@@ -1,25 +1,18 @@
-# Contribution Guide
+# Contribution guide
 
-## Purpose
-To outline how developers can contribute to the repository.
+[CONTRIBUTING.md](../../CONTRIBUTING.md) defines the development workflow. Keep changes focused,
+preserve scientific provenance and add tests when public behavior changes.
 
-## Audience
-External contributors and internal developers.
-
-## Summary
-The primary contribution guidelines are maintained in the root `CONTRIBUTING.md` file.
-
-## Details
-Please see the [CONTRIBUTING.md](../../CONTRIBUTING.md) at the root of the repository for full details on:
-- Submitting Pull Requests
-- Running validations
-- Code Style expectations
-
-## Examples
-N/A
+Document required inputs, outputs, axis contracts and whether a command needs private data.
+Current user instructions belong in operational documentation; dated run reports retain their
+original results and scope.
 
 ## Validation
-N/A
 
-## Related docs
-- [Testing](testing.md)
+```bash
+MPLBACKEND=Agg python -m pytest tests/audit -q
+python -m ruff check src tests examples
+```
+
+For code changes, also run the affected unit tests and the broader checks justified by the change.
+[Testing](testing.md) · [Code style](code-style.md) · [Release process](release-process.md)

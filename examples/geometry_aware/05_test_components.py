@@ -455,7 +455,7 @@ def visualize_mesh_and_sensors():
     axes[0].set_title("Field (t=0)")
 
     # Gradients
-    from TBMD.utils.geometry import GeometricWeightComputer
+    from TBMD.core.geometry import GeometricWeightComputer
 
     computer = GeometricWeightComputer(mesh)
     gradients = computer.compute_gradient_weights(tensor[..., 0].ravel(), method="graph")

@@ -102,3 +102,8 @@ CLAUDE.md
 docs/superpowers/
 .superpowers/
 .jules/
+
+# Local Tensors agent tooling and generated knowledge graph
+/.agents/
+/.codex/
+/graphify-out/

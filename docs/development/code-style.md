@@ -1,22 +1,19 @@
-# Code Style
+# Code style
 
-## Purpose
-Establishes the code style rules for contributing to the repository.
+Follow the surrounding implementation and the actual configuration in `pyproject.toml`.
+Ruff targets Python 3.10 with a 100-character line length and the configured error/import rules.
+Public docstrings should describe arguments, return values, tensor axes and failure conditions.
+Preserve established interfaces and avoid unrelated formatting or algorithm refactors.
 
-## Audience
-Developers and Researchers modifying the `src/` directory.
-
-## Summary
-The project follows standard Python data science guidelines, emphasizing readability, type hinting, and consistent docstrings.
-
-## Details
-- **Formatting**: Use standard formatters (like `black` or `ruff`) if available.
-- **Type Hinting**: All functions in `src/TBMD/` should have type hints (e.g., `Tensor`, `np.ndarray`).
-- **Docstrings**: Use Google-style docstrings. Document the expected shapes of all tensor inputs and outputs.
-- **Imports**: Organize imports logically. Absolute imports are preferred over relative imports for external modules.
+Type-checking uses explicit existing debt exclusions. Add accurate annotations without weakening
+the configured checks. Use Google-style docstrings for new public interfaces.
 
 ## Validation
-Always ensure the code passes compilation checks before committing:
+
 ```bash
-python -m compileall .
+python -m ruff check src tests examples
+python -m mypy src/TBMD/core
+python -m compileall src tests examples
 ```
+
+[Contribution guide](contribution-guide.md) · [Testing](testing.md)

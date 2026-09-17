@@ -1,54 +1,34 @@
-# System Components
+# Components
 
-## Purpose
-To detail the specific modules and classes that implement the core functionality of TBMD.
+Use the public classes exposed by [TBMD.core](../../src/TBMD/core/__init__.py).
 
-## Audience
-Developers modifying or extending the core mathematical operations.
+| Component | Interface | Result |
+|---|---|---|
+| `TuckerDecomposer` | `decompose()`, then `reconstruct()` | `cores`, `factors`, `reconstructed_tensors`, `reconstruction_errors` |
+| `ModalTensorProcessor` | `process_single_subject(core, factors)` | Time-insensitive modal dictionary; final axis indexes coefficients |
+| `BatchModalProcessor` | `process_multiple_subjects(cores, factors)` | Modal dictionaries for a collection of decompositions |
+| `ModalTensorStacker` | `stack_modal_tensors(...)` | Combined modal dictionaries; inspect configuration and source before stacking |
+| `TensorTubeQRDecomposition` | `factorize()` | Binary placement tensor `P` and factorization diagnostics `Q`, `R` |
+| `TensorCompressiveSensing` | `solve()` | Coefficient vector and `CompressiveSensingMetrics` |
 
-## Summary
-The system comprises standard TBMD components (Tucker decomposition, ADMM reconstruction) and geometry-aware extensions.
+The modal-processing classes are in [core/modal_processor/modes.py](../../src/TBMD/core/modal_processor/modes.py).
+The [Python API](../interfaces/python-api.md) provides a complete minimal example.
 
-## Details
+## Geometry extensions
 
-### Standard Core Components
-1. **TuckerDecomposer**: Uses HOSVD to approximate tensors. Driven by `DecompositionConfig` which specifies target ranks. Stores `cores` and `factors`.
-2. **Modal Processing**: `BatchModalProcessor` and `ModalTensorStacker` prepare the modal basis required by placement and reconstruction tools.
-3. **TensorTubeQRDecomposition**: Implements tensor QR factorization to identify the most mathematically informative spatial indices for sensor placement.
-4. **TensorCompressiveSensing**: Reconstructs modal coefficients from sparse spatial measurements using Alternating Direction Method of Multipliers (ADMM).
+`GeometryAwareTuckerDecomposer`, `GeometryAwareTensorQR` and `GeometryAwareTensorCS` use mesh/graph
+information for their respective stages. Mesh-node ordering must match the spatial tensor mode.
+Geometry-aware decomposition takes `tensor`, `mesh`, `geo_config` and `ranks`; its
+`GeometryAwareConfig` is defined in [geometry_aware.py](../../src/TBMD/core/decomposition/geometry_aware.py),
+not the identically named general configuration namespace.
 
-### Geometry-Aware Extensions
-Geometry-aware components extend standard TBMD for irregular spatial connectivity, active-cell reservoir grids, or masked domains.
-- **GeometryAwareTuckerDecomposer**: Applies graph Laplacian regularization during decomposition. Controlled by `alpha` (regularization strength) and `spatial_modes`.
-- **GeometryAwareTensorCS**: Reconstruction with graph-based penalties.
-- **MeshGraphBuilder & MeshGeometry**: Utilities for converting grid shapes or explicit adjacency matrices into graph Laplacian matrices for the decomposer.
-
-
-## Examples
-**Instantiating a Geometry-Aware Decomposer:**
-```python
-from TBMD.core.decomposition.geometry_aware import GeometryAwareConfig, GeometryAwareTuckerDecomposer
-from TBMD.core.geometry import MeshGraphBuilder
-
-builder = MeshGraphBuilder(connectivity_type="grid")
-mesh = builder.build_from_shape(spatial_shape=(100, 100))
-
-geo_config = GeometryAwareConfig(alpha=0.1, spatial_modes=[0], laplacian_type="normalized")
-
-decomposer = GeometryAwareTuckerDecomposer(
-    tensor=data_tensor,
-    mesh=mesh,
-    geo_config=geo_config,
-    ranks=[20, 10],
-)
-```
+See [geometry examples](../../examples/geometry_aware/README.md) for the actual constructors.
+Geometry regularization does not establish physical fidelity by itself.
 
 ## Validation
-To verify component integrity individually:
-```bash
-pytest tests/unit/ -q
-```
-Expected result: Unit tests testing shape contracts, exceptions, and isolated logic for each component pass successfully.
 
-## Related docs
-- [Data Flow](data-flow.md)
+```bash
+MPLBACKEND=Agg python -m pytest tests/unit/test_decomposition.py tests/unit/test_geometry.py -q
+```
+
+[Data flow](data-flow.md) · [Python API](../interfaces/python-api.md)

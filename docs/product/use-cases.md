@@ -1,36 +1,23 @@
-# Use Cases and Quick Start
+# Use cases
 
-## Purpose
-To outline the primary use cases for the TBMD library and provide a quick starting point to run minimal examples.
-
-## Audience
-Product readers evaluating the library's capabilities and developers looking to quickly test out core functionality.
-
-## Summary
-TBMD supports several use cases: Tucker Decomposition, Sensor Placement, and Compressive Sensing Reconstruction. This document provides minimal working examples for each.
-
-## Details
-
-### 1. Tucker Decomposition
-Reduces high-dimensional tensor data into a smaller core tensor and factor matrices.
-
-### 2. Sensor Placement
-Finds the most informative locations to place sensors using tensor QR decomposition on the modal basis.
-
-### 3. Reconstruction From Measurements
-Reconstructs the full tensor field from sparse sensor measurements.
-
+| Task | Starting point |
+|---|---|
+| Factor a tensor into a core and mode factors | [Tucker example](../../examples/basic/01_tucker_decomposition.py) |
+| Select sparse spatial-variable measurements | [Sensor-placement example](../../examples/basic/02_sensor_placement.py) |
+| Recover a field from selected measurements | [Reconstruction example](../../examples/basic/03_field_reconstruction.py) |
+| Compose the complete synthetic workflow | [Complete example](../../examples/basic/04_complete_pipeline.py) |
+| Reproduce revised reservoir benchmark claims | [Brugge study](../../studies/brugge_sparse_sensing/README.md) |
+| Explore mesh-aware regularization | [Geometry examples](../../examples/geometry_aware/README.md) |
 
 ## Validation
-To run the included example scripts and verify they execute successfully, run:
-```bash
-python examples/basic/01_tucker_decomposition.py
-python examples/basic/02_sensor_placement.py
-python examples/basic/03_field_reconstruction.py
-python examples/basic/04_complete_pipeline.py
-```
-Expected result: The scripts will execute and print tensor shapes or metrics to the console without errors.
 
-## Related docs
-- [Product Overview](overview.md)
-- [Local Development Setup](../setup/local-development.md)
+From the installed checkout root:
+
+```bash
+MPLBACKEND=Agg python examples/basic/04_complete_pipeline.py --spatial-points 40 --time-steps 12 --n-modes 8 --n-sensors 6 --solver admm
+```
+
+This checks a generated-data demonstration. To adapt it to physical data, define the tensor axes,
+units, normalization, split, sensor constraints and evaluation baseline explicitly.
+
+[Overview](overview.md) · [Python API](../interfaces/python-api.md) · [Setup](../setup/local-development.md)

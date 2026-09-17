@@ -1,39 +1,29 @@
-# Architecture Overview
+# Architecture overview
 
-## Purpose
-To provide a high-level view of how the TBMD library is structured and how its major subsystems interact.
+TBMD is a Python research library for decomposition, modal-basis construction, sensor placement and
+sparse-field reconstruction. Dataset-specific forecasting belongs to the separate
+[tbmd-forecasting repository](https://github.com/denis-samatov/tbmd-forecasting).
 
-## Audience
-Developers and technical contributors looking to understand the overall design and system boundaries before modifying code.
+| Layer | Source | Responsibility |
+|---|---|---|
+| Configuration | `src/TBMD/config/` | Explicit dataclasses for computation, decomposition, sensors and reconstruction |
+| Core algorithms | `src/TBMD/core/` | Decomposition, modal processing, geometry, placement, reconstruction, data and metrics |
+| Experiment helpers | `src/TBMD/experiments/`, `src/TBMD/visualization/` | Experiment composition and diagnostic plotting |
+| Examples | `examples/` | Synthetic demonstrations and explicit compatibility/geometry examples |
+| Brugge study | `studies/brugge_sparse_sensing/` | Dataset-specific benchmark, curated results and manuscript generators |
+| Compatibility | `src/TBMD/modules/`, `src/TBMD/utils/` | Deprecated import paths retained for existing callers |
 
-## Summary
-The TBMD architecture is designed as a series of composable mathematical modules: Decomposition, Modal Processing, Sensor Placement, and Reconstruction. These can be used independently or composed together.
-
-## Details
-The codebase is structured into clear, decoupled layers:
-
-1. **Configuration (`TBMD.config`)**: Standardized Python dataclasses define the runtime parameters for each component. No environment variables or external credential managers are required.
-2. **Core Components (`TBMD.core`)**: Contains the core mathematical operations.
-   - **Decomposition**: Implements Tucker/HOSVD.
-   - **Modal Processor**: Reshapes decomposition outputs into a modal basis.
-   - **Sensor Placement**: Implements Tensor Tube QR algorithms.
-   - **Reconstruction**: Implements ADMM-based Compressive Sensing.
-   - **Geometry**: Provides graph/mesh awareness for non-Euclidean data.
-3. **Experiments and Visualization**: Isolated scripts for running specific benchmarks, tuning hyper-parameters, and generating plots.
-
-### Architectural Principles
-- **Composability**: Core components should remain usable as standalone utilities.
-- **Statelessness**: Decomposition and reconstruction instances store the results of their computation, but do not secretly mutate external state.
-- **Separation of Data**: The repository source code and the execution artifacts (models, plots, data) are strictly separated. Data and results are isolated in `.gitignore`d directories.
+Algorithm instances retain computed results. Configuration seeding can change random-library and
+PyTorch deterministic settings; this is not a stateless service. Dataset provenance, split policy
+and held-out evaluation are responsibilities of the experiment, not automatic library guarantees.
 
 ## Validation
-To verify the structural integrity of the project (ensuring no unexpected cross-dependencies or structural violations), run the audit tests:
-```bash
-pytest tests/audit -q
-```
-Expected result: The audit tests complete without failing, meaning file structure and basic import conventions match the expected architecture.
 
-## Related docs
-- [Data Flow](data-flow.md)
-- [Components](components.md)
-- [Architecture Decisions](decisions.md)
+From the installed checkout root:
+
+```bash
+MPLBACKEND=Agg python -m pytest tests/audit -q
+```
+
+[Data flow](data-flow.md) · [Components](components.md) · [Decisions](decisions.md) ·
+[Documentation index](../index.md)

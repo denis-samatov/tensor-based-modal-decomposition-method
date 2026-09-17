@@ -1,20 +1,26 @@
-# Reconstruction Pipeline
+# Sparse reconstruction workflow
 
-## Purpose
-Explains the mathematical and computational workflow used to reconstruct full high-dimensional spatiotemporal fields from sparse sensor measurements.
+The [synthetic complete example](../../examples/basic/04_complete_pipeline.py) composes:
 
-## Audience
-ML/AI Engineers and Researchers studying compressive sensing applied to tensor decomposition.
+1. `TuckerDecomposer`: factor the tensor and retain a reduced representation.
+2. `ModalTensorProcessor`: form the time-insensitive dictionary.
+3. `TensorTubeQRDecomposition`: select entries of the spatial-variable field.
+4. `TensorCompressiveSensing`: recover coefficients from measurements at the selected entries.
+5. Dictionary expansion: compute `basis @ coefficients` to recover the field.
 
-## Summary
-The reconstruction pipeline leverages the Tucker decomposition basis learned during the offline phase. During the online phase, real-time measurements from sparsely placed sensors are combined with the offline basis to solve an inverse problem using the Alternating Direction Method of Multipliers (ADMM).
+The public solver consumes a field-shaped `Y` plus a mask, not only a sensor-value vector.
+The caller supplies the representation and measurement semantics. Any held-out protocol must fit
+its representation and preprocessing on training data only and freeze the sensor design as required
+by the experiment. The synthetic example itself does not establish that held-out protocol.
 
-## Details
-The pipeline consists of the following steps:
-1. **Offline Training**: `TuckerDecomposer` factorizes the historical reservoir state tensor into core tensors and spatial/temporal factor matrices.
-2. **Sensor Placement**: `QRBasedSensorPlacement` determines optimal grid locations for physical or virtual sensors using pivoted QR factorization on the spatial basis matrices.
-3. **Online Measurement**: The system receives a sparse vector of measurements at the predetermined sensor locations.
-4. **ADMM Reconstruction**: `ADMMReconstructor` formulates the compressive sensing problem as an optimization task, balancing data fidelity (matching the sensor readings) with a structural penalty (e.g., sparsity in the core tensor), solving it iteratively.
+The [Brugge study](../../studies/brugge_sparse_sensing/README.md) defines its own benchmark, splits,
+noise treatment and matrix/tensor baseline comparison. Do not substitute the synthetic ADMM example
+for that numerical evaluation.
 
-## Related docs
-- [Current Architecture Decisions](../architecture/decisions.md)
+## Validation
+
+```bash
+MPLBACKEND=Agg python -m pytest tests/unit/test_reconstruction.py -q
+```
+
+[Python API](../interfaces/python-api.md) · [Experiment orchestration](experiment-orchestration.md)

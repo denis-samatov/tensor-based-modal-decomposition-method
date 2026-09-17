@@ -29,26 +29,25 @@ python -m pip install -e ".[dev]"
 - **Links**: Keep documentation links case-correct so they work on GitHub and Linux file systems.
 
 ### Code Style
-The project does not currently define a strict formatter or linter configuration. Follow the surrounding style, keep public docstrings clear, and avoid broad refactors unless they are needed for the change.
-
-## Examples
-*(See Validation commands below for typical workflows).*
+Ruff and mypy settings are declared in `pyproject.toml`. Follow the surrounding style, document tensor contracts, preserve configured type-debt exclusions and avoid unrelated refactors.
 
 ## Validation
 Before opening a Pull Request, run the relevant checks:
 ```bash
 # Run the full test suite
-pytest
+MPLBACKEND=Agg python -m pytest tests -q
 
 # Ensure syntax is correct
 python -m compileall src tests examples scripts
+python -m ruff check src tests examples
+python -m mypy src/TBMD/core
 ```
 
 For documentation or repository-structure changes, also run:
 ```bash
-pytest tests/audit -q
+MPLBACKEND=Agg python -m pytest tests/audit -q
 ```
-Expected result: All tests pass without warnings.
+Record actual results and any warnings. A successful software suite is not scientific or production qualification.
 
 ## Related docs
 - [Testing Guide](docs/development/testing.md)

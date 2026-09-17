@@ -15,7 +15,7 @@ import logging
 import matplotlib.pyplot as plt
 import numpy as np
 
-from TBMD.modules.TensorTimeInsensitiveModes import (
+from TBMD.core.modal_processor.modes import (
     BatchModalProcessor,
     ModalProcessorConfig,
     ModalTensorProcessor,
