@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Data-free verification: rebuild all tables, statistics, number macros and figures from the
 # committed result files in outputs/ and compare them with the committed versions.
-# Does not need the simulation data. Usage: ./verify_outputs.sh [manuscript_dir]
+# Steps 0, 1 and 3 do not need the simulation data; figures are regenerated only when the inputs
+# are available. Usage: ./verify_outputs.sh [manuscript_dir]
 set -euo pipefail
 cd "$(dirname "$0")"
 if [ -z "${PYTHON:-}" ]; then
@@ -23,10 +24,15 @@ status=0
 for f in outputs/table_*.csv outputs/stats_wilcoxon.csv outputs/key_numbers.json outputs/numbers.tex outputs/tab_main.tex outputs/tab_cost.tex outputs/tabS_P1.tex outputs/tabS_So.tex; do
   if cmp -s "$f" "$BSS_OUT/$(basename "$f")"; then echo "  identical  $(basename "$f")"; else echo "  DIFFERENT  $(basename "$f")"; status=1; fi
 done
-echo "2. figures (written to $BSS_FIG for visual comparison with figures/)"
-"$PYTHON" scripts/make_figures.py > "$TMP/figures.log"
-"$PYTHON" scripts/make_graphical_abstract.py >> "$TMP/figures.log"
-ls "$BSS_FIG"/*.pdf | wc -l | xargs echo "  PDF figures regenerated:"
+echo "2. figures"
+"$PYTHON" scripts/make_graphical_abstract.py > "$TMP/figures.log"
+if "$PYTHON" scripts/verify_inputs.py > "$TMP/inputs.log" 2>&1; then
+  "$PYTHON" scripts/make_figures.py >> "$TMP/figures.log"
+  echo "  all figures regenerated into $BSS_FIG (compare with figures/)"
+else
+  echo "  graphical abstract regenerated into $BSS_FIG; Figs. 2-7 and S1-S2 also plot simulated fields"
+  echo "  and need the input files (README section 2) - skipped"
+fi
 if [ -n "${1:-}" ]; then
   echo "3. manuscript numbers"
   "$PYTHON" scripts/check_claims.py "$1" || status=1

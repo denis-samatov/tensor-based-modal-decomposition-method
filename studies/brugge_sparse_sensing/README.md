@@ -7,7 +7,7 @@ Every number, table and figure of the manuscript and its supplement is computed 
 directory; numbers enter the LaTeX source only through the generated macro file `outputs/numbers.tex`.
 
 Workflow: **environment → data → `run_all.sh` → verification → tables/figures.** If you do not have
-the simulation data, section 4.1 verifies all tables, statistics, macros and figures from the
+the simulation data, section 4.1 verifies all tables, statistics and number macros from the
 committed result files.
 
 ## Contents
@@ -117,7 +117,8 @@ measures wall-clock time and should run on an otherwise idle machine.
 1. checks `outputs/` and `figures/` against `SHA256SUMS`;
 2. rebuilds all tables, Wilcoxon statistics, `key_numbers.json`, `numbers.tex` and the LaTeX tables
    from the committed result files in a temporary directory and requires them to be byte-identical;
-3. regenerates all figures into the temporary directory;
+3. regenerates the graphical abstract, and all figures if the input files are available (the figure
+   script also plots simulated fields);
 4. if the manuscript LaTeX directory is given, runs `scripts/check_claims.py` on it.
 
 ### 4.2 After a full re-run

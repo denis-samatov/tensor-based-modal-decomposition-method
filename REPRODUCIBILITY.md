@@ -13,7 +13,7 @@ figures.
 | Package installation and imports | Reproducible from a clean clone | Install the package and run `pytest tests/audit -q`. |
 | Tucker decomposition | Reproducible with generated data | Run `examples/basic/01_tucker_decomposition.py`. |
 | Decomposition → modal basis → Tensor Tube QR → sparse reconstruction | Reproducible with generated data | Run `examples/basic/04_complete_pipeline.py` as shown below. |
-| Revised-manuscript Brugge tables, statistics, number macros and figures | Verifiable from committed result files | Run `studies/brugge_sparse_sensing/verify_outputs.sh`. |
+| Revised-manuscript Brugge tables, statistics and number macros | Verifiable from committed result files | Run `studies/brugge_sparse_sensing/verify_outputs.sh`. |
 | Revised-manuscript Brugge experiments from simulation outputs | Requires the two input files, which are not redistributed | Obtain the files (study README, section 2), then run `studies/brugge_sparse_sensing/run_all.sh`. |
 | Brugge results of the earlier version (arXiv:2607.09687) | Not reproducible | Audited in `studies/brugge_sparse_sensing/scripts/e0_*` and Supplementary Section S2 of the revised manuscript. |
 
@@ -115,7 +115,8 @@ authorized copies belong under ignored paths such as `data/brugge/`; the study v
 before running.
 
 Without the inputs, `studies/brugge_sparse_sensing/verify_outputs.sh` rebuilds every table,
-statistic, number macro and figure from the committed result files and checks them byte for byte.
+statistic and number macro from the committed result files and checks them byte for byte; the
+figures also plot simulated fields and need the inputs.
 
 ## Troubleshooting
 

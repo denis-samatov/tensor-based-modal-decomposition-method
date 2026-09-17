@@ -9,7 +9,7 @@ A Python research library for reduced-order modeling of spatiotemporal tensor da
 
 ## Reproduce the public example
 
-The repository includes a synthetic end-to-end example and software tests. The Brugge study of the revised manuscript is in [`studies/brugge_sparse_sensing`](studies/brugge_sparse_sensing/README.md): its tables, statistics, number macros and figures can be verified from the committed result files, but a full re-run needs the Brugge simulation outputs, which are not redistributed here (TNO data-use agreement). The arXiv:2607.09687 results of the earlier version are **not** reproducible and are superseded by that study. See the [reproducibility matrix](REPRODUCIBILITY.md#public-reproducibility-scope).
+The repository includes a synthetic end-to-end example and software tests. The Brugge study of the revised manuscript is in [`studies/brugge_sparse_sensing`](studies/brugge_sparse_sensing/README.md): its tables, statistics and number macros can be verified from the committed result files, but figures and a full re-run needs the Brugge simulation outputs, which are not redistributed here (TNO data-use agreement). The arXiv:2607.09687 results of the earlier version are **not** reproducible and are superseded by that study. See the [reproducibility matrix](REPRODUCIBILITY.md#public-reproducibility-scope).
 
 After installation, run:
 
@@ -149,7 +149,7 @@ TBMD_DATA_DIR=/path/to/data ./run_all.sh 8
 The two input files (`data_exp_4_.h5`, `all_wells_exp_4.json`) are identified by SHA-256 checksums in
 the study README. They are simulations of the TNO Brugge benchmark model, whose data-use agreement does
 not permit redistribution, so they are not in this repository; `./verify_outputs.sh` checks all tables,
-statistics and figures without them. The study also contains an audit
+statistics and number macros without them. The study also contains an audit
 (`scripts/e0_*`) showing that the numerical results of the earlier Computers & Geosciences submission
 (CAGEO-D-26-01439, arXiv:2607.09687) could not be reproduced with this library.
 
