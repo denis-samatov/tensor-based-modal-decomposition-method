@@ -1,0 +1,50 @@
+{
+  "selection_rule": "fixed before outer evaluation",
+  "outer_fold": 1,
+  "test_run": 1,
+  "time_index": 132,
+  "capacity_regime": "equal_total",
+  "geometry": "wells",
+  "budget": 15,
+  "selected_pair": {
+    "capacity_regime": "equal_total",
+    "geometry": "wells",
+    "budget": 15,
+    "three_d_variant": "3D-independent",
+    "four_d_variant": "4D-B",
+    "candidate_3d": "3D-independent-7db5f3bc9ad5",
+    "candidate_4d": "4D-B-2828b82824ed",
+    "solver": "ridge(alpha_relative=1e-06)",
+    "pair_inner_loss": 0.32611108725286964
+  },
+  "snapshot_scores": {
+    "Independent 3D": {
+      "relative_frobenius_p": 0.0008948512022183098,
+      "anomaly_relative_frobenius_p": 0.2294384269141739,
+      "rmse_p": 0.14201804325044848,
+      "train_range_nrmse_p": 0.0034301610796863735,
+      "ssim_p": 0.9993559715149233,
+      "anomaly_ssim_p": 0.9373451882883022,
+      "relative_frobenius_so": 0.0077122596970805165,
+      "anomaly_relative_frobenius_so": 1.8105774053290344,
+      "rmse_so": 0.00204035369846637,
+      "train_range_nrmse_so": 0.0031198020344718807,
+      "ssim_so": 0.9995605904304696,
+      "anomaly_ssim_so": 0.7836275744889283
+    },
+    "Optimized 4D-B": {
+      "relative_frobenius_p": 0.0018028720893759802,
+      "anomaly_relative_frobenius_p": 0.4622535401287647,
+      "rmse_p": 0.28612619140400974,
+      "train_range_nrmse_p": 0.006910804452516837,
+      "ssim_p": 0.996952075536587,
+      "anomaly_ssim_p": 0.9496985311123427,
+      "relative_frobenius_so": 0.0029446207910740953,
+      "anomaly_relative_frobenius_so": 0.6912972437376681,
+      "rmse_so": 0.0007790282171026165,
+      "train_range_nrmse_so": 0.0011911727944299867,
+      "ssim_so": 0.9998938479024275,
+      "anomaly_ssim_so": 0.8423238794285135
+    }
+  }
+}

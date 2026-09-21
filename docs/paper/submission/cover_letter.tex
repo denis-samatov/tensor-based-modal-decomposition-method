@@ -1,0 +1,28 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{url}
+\setlength{\emergencystretch}{3em}
+\input{../../../studies/brugge_sparse_sensing/outputs/numbers.tex}
+\begin{document}
+\noindent \today\\[2mm]
+The Editors, \emph{Applied Computing and Geosciences}\\[2mm]
+\textbf{Article Transfer Service: CAGEO-D-26-01439}\\[2mm]
+Dear Editors,
+
+We submit ``Nested optimization of tensor-based modal decomposition for sparse reservoir-state reconstruction: accuracy--compression regimes on Brugge", following the transfer invitation for our earlier \emph{Computers \& Geosciences} manuscript, ``Tensor-Based Modal Decomposition and Sparse Sensor Placement for the Brugge Field Simulation Model". The revised study evaluates sparse reconstruction of pressure and oil saturation across ten Brugge control scenarios.
+
+The computational contribution is a controlled separation of spatial tensor truncation, property coupling, sensor placement and coefficient recovery. Nested scenario validation compares tensor representations with POD, energy-weighted POD (POD-E), ensemble priors and interpolation. A matched-capacity experiment shows that jointly estimated spatial factors with property-specific coefficients can improve anomaly reconstruction and structural similarity. The original rigid joint model remains inferior; POD-E retains the lowest errors at all existing joint-property wells. We make no claim of universal tensor superiority or of a new decomposition family.
+
+\textbf{Why this manuscript fits Applied Computing and Geosciences.} The paper evaluates reproducible computational methods for reconstructing subsurface reservoir states from sparse observations. Its practical contribution is evidence for choosing representations and measurement budgets according to property-specific error, spatial fidelity and storage, rather than tensor order alone. The documented benchmark connects tensor reduction, sparse sensing and reservoir monitoring while stating the limits of a fixed-geology simulation ensemble.
+
+\textbf{Reproducibility.} Checksummed transformed HDF5/JSON inputs feed the scripted experiments, frozen outer refits and generated tables, figures and numerical macros. The inputs are available from the corresponding author upon reasonable request, subject to applicable institutional data-use and access conditions; institutional conditions prevent public deposition. The original t-Navigator deck, exporter and vertical-reduction settings are not recoverable; no physical pressure-unit conversion is assumed. The current revision includes E8/V3, nested optimization and E9; the earlier public v2.1.0 release does not. Final code publication remains pending.
+
+The earlier preprint arXiv:2607.09687v1 contains superseded claims. The manuscript includes funding, CRediT, competing-interest and AI-use declarations. It is not currently under consideration by another journal. All authors have approved this revision and its declarations.
+
+\medskip
+Yours sincerely,\\
+Denis Samatov, corresponding author, on behalf of Boris Merzlikin and Gleb Shishaev\\
+National Research Tomsk Polytechnic University, Tomsk, Russia\\
+dss53@tpu.ru
+\end{document}

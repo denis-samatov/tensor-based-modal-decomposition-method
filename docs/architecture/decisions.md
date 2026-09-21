@@ -30,7 +30,7 @@ not a blanket prohibition on every generated file. Inspect `.gitignore`,
 ## Compatibility
 
 Deprecated `TBMD.modules` and `TBMD.utils` paths remain compatibility wrappers. Current examples
-use the core API; explicitly named legacy examples demonstrate compatibility. Removing wrappers
+use the core API; historical notebooks are archived as provenance, not runnable benchmarks. Removing wrappers
 requires an API migration, not a filesystem cleanup.
 
 ## Validation

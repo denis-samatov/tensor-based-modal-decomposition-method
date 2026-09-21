@@ -53,16 +53,16 @@ def table(P, metric, scale, caption, label):
 
 (OUT / "tab_main.tex").write_text(table(
     "P2", "rmse_p", 1.0,
-    "Pressure RMSE (bar) in protocol P2, mean\\,$\\pm$\\,standard deviation over the ten held-out control scenarios. "
+    "Pressure RMSE ($u_p$, the supplied export unit) in protocol P2, mean\\,$\\pm$\\,standard deviation over the ten held-out control scenarios. "
     "Placement is QR (grid) or DG (wells) on the basis of the same row unless stated; $r=16$ in every fold. "
     "The prior row uses no measurements and is repeated across columns. Random: per-fold median over 20 placements.",
     "tab:main"))
 (OUT / "tabS_P1.tex").write_text(table(
     "P1", "rmse_p", 1.0,
-    "As Table~1 of the main text, for protocol P1 (within-scenario temporal hold-out; prior = persistence).", "tab:S_P1"))
+    "As Table~\\ref{tab:main}, for protocol P1 (within-scenario temporal hold-out; prior = persistence).", "tab:S_P1"))
 (OUT / "tabS_So.tex").write_text(table(
     "P2", "rmse_so", 1e3,
-    "Oil-saturation RMSE ($\\times10^{-3}$) in protocol P2; layout as Table~1 of the main text. For pressure-only wells, "
+    "Oil-saturation RMSE ($\\times10^{-3}$) in protocol P2; layout as Table~\\ref{tab:main}. For pressure-only wells, "
     "$S_o$ is inferred through the joint basis.", "tab:S_So"))
 c = cost
 rows = [("POD basis (thin SVD)", "offline", f"{c['offline_pod_svd_s']:.2f} s"),
@@ -83,7 +83,7 @@ if isinstance(sp, list):
 else:
     hw = c["hardware"]["machine"]
 lines = ["\\begin{table}[tbp]", "\\centering", "\\small",
-         f"\\caption{{Single-thread wall time (median of repeated runs) for P2 fold 1; online times are per snapshot, amortised over the 133 held-out snapshots of the fold solved jointly ($M=9{{,}}900$ channels, 1{{,}}197 training snapshots, $r={c['rank']}$). Hardware: {hw}; Python {c['hardware']['python']}, NumPy {c['hardware']['numpy']}.}}",
+         f"\\caption{{Single-thread wall time (median of repeated runs) for P2 fold 1. Placement timings use TBMD; online times measure POD-E coefficient estimation, include solver setup, and exclude full-state synthesis and inverse scaling. They are amortised over 133 jointly solved held-out snapshots ($M=9{{,}}900$ channels, 1{{,}}197 training snapshots, $r={c['rank']}$). Hardware: {hw}; Python {c['hardware']['python']}, NumPy {c['hardware']['numpy']}.}}",
          "\\label{tab:cost}", "\\begin{tabular}{@{}llr@{}}", "\\toprule", "Step & Stage & Time \\\\", "\\midrule"]
 lines += [f"{a} & {b} & {t} \\\\" for a, b, t in rows]
 lines += ["\\bottomrule", "\\end{tabular}", "\\end{table}"]

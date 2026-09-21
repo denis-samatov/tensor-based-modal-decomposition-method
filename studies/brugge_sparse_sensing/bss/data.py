@@ -10,7 +10,7 @@ from pathlib import Path
 import h5py
 import numpy as np
 
-PROPS = ("pressure", "soil")  # property index k=0 pressure [bar], k=1 oil saturation [-]
+PROPS = ("pressure", "soil")  # k=0 pressure [supplied export unit u_p], k=1 oil saturation [-]
 
 
 def data_dir() -> Path:
@@ -28,7 +28,7 @@ def sha256(path: Path) -> str:
 
 @dataclass
 class Brugge:
-    fields: np.ndarray          # (runs, 2, n_active, T) physical units
+    fields: np.ndarray          # (runs, 2, n_active, T), supplied export convention
     active: np.ndarray          # (I, J) bool
     ij: np.ndarray              # (n_active, 2) grid indices of active cells (i along 139, j along 48)
     wells: np.ndarray           # (30, 2) configured well order, grid indices

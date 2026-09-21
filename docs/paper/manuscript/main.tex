@@ -1,0 +1,77 @@
+\documentclass[preprint,12pt]{elsarticle}
+% Applied Computing & Geosciences: numbered references (Guide for Authors, "Reference style").
+\biboptions{numbers,sort&compress}
+
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{lineno}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usetikzlibrary{arrows.meta,positioning}
+\newtheorem{proposition}{Proposition}
+
+% All numbers quoted in the text are generated from the study outputs:
+% studies/brugge_sparse_sensing/scripts/make_numbers_tex.py -> numbers.tex
+\input{../../../studies/brugge_sparse_sensing/outputs/numbers.tex}
+\input{../../../studies/brugge_sparse_sensing/outputs/optimization/optimization_numbers.tex}
+\input{../../../studies/brugge_sparse_sensing/outputs/e9_property_mode/e9_numbers.tex}
+% DOI and size of the archived code release (single place to update)
+\input{release_metadata.tex}
+
+% Layout: allow slightly looser lines instead of overfull boxes; drop the elsarticle
+% "Preprint submitted to" first-page footer, which collides with the corresponding-author footnote.
+\setlength{\emergencystretch}{2em}
+\makeatletter
+\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty\let\@oddfoot\@empty\let\@evenfoot\@empty}
+\makeatother
+\journal{Applied Computing and Geosciences}
+
+\begin{document}
+\linenumbers
+
+\begin{frontmatter}
+
+\title{Nested optimization of tensor-based modal decomposition for sparse reservoir-state reconstruction: accuracy--compression regimes on Brugge}
+
+\author[inst1]{Denis Samatov\corref{cor1}}
+\ead{dss53@tpu.ru}
+\author[inst1]{Boris Merzlikin}
+\author[inst1]{Gleb Shishaev}
+\affiliation[inst1]{organization={National Research Tomsk Polytechnic University},
+  addressline={30 Lenina Avenue}, city={Tomsk}, postcode={634050}, country={Russia}}
+\cortext[cor1]{Corresponding author.}
+
+\input{sections/abstract.tex}
+
+\begin{keyword}
+Reservoir monitoring \sep Sensor placement \sep Proper orthogonal decomposition \sep Tucker decomposition \sep Compressive sensing \sep Brugge
+\end{keyword}
+
+\end{frontmatter}
+
+\input{sections/intro.tex}
+\input{sections/related.tex}
+\input{sections/methods.tex}
+\input{sections/experiments.tex}
+\input{sections/results.tex}
+\input{sections/optimization.tex}
+\input{sections/e9_property_mode.tex}
+\input{sections/discussion.tex}
+\input{sections/conclusions.tex}
+\input{sections/backmatter.tex}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}

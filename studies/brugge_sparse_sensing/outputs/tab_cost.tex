@@ -1,7 +1,7 @@
 \begin{table}[tbp]
 \centering
 \small
-\caption{Single-thread wall time (median of repeated runs) for P2 fold 1; online times are per snapshot, amortised over the 133 held-out snapshots of the fold solved jointly ($M=9{,}900$ channels, 1{,}197 training snapshots, $r=16$). Hardware: MacBook Pro, Apple M2 Pro, 12 (8 performance, 4 efficiency) cores, 16 GB memory; Python 3.12.12, NumPy 2.5.2.}
+\caption{Single-thread wall time (median of repeated runs) for P2 fold 1. Placement timings use TBMD; online times measure POD-E coefficient estimation, include solver setup, and exclude full-state synthesis and inverse scaling. They are amortised over 133 jointly solved held-out snapshots ($M=9{,}900$ channels, 1{,}197 training snapshots, $r=16$). Hardware: MacBook Pro, Apple M2 Pro, 12 (8 performance, 4 efficiency) cores, 16 GB memory; Python 3.12.12, NumPy 2.5.2.}
 \label{tab:cost}
 \begin{tabular}{@{}llr@{}}
 \toprule

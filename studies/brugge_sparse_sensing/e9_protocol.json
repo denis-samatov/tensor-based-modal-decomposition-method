@@ -1,0 +1,118 @@
+{
+  "protocol_id": "E9-property-mode-v1",
+  "frozen_on": "2026-09-21",
+  "status": "frozen-before-e9-outer-evaluation",
+  "seed": 20260921,
+  "hypotheses": {
+    "H1": "Matched-capacity joint 4D TBMD lowers property-wise anomaly-relative Frobenius reconstruction error versus independent 3D TBMD.",
+    "H2": "Matched-capacity joint 4D TBMD raises property-wise anomaly mask-aware SSIM versus independent 3D TBMD.",
+    "H3": "The paired 4D-minus-3D effect changes with sensor budget.",
+    "H4": "The paired effect is larger when train-only pressure-saturation anomaly coupling is stronger.",
+    "H5": "A 4D model may improve spatial structure even when physical-unit RMSE is worse."
+  },
+  "outer_protocol": {
+    "name": "P2 leave-one-scenario-out",
+    "folds": 10,
+    "test_scenarios_per_fold": 1,
+    "evaluation_timestamps": "all 133 stored report steps",
+    "outer_use": "single evaluation after all fold-specific choices are frozen"
+  },
+  "inner_protocol": {
+    "folds": 3,
+    "grouping": "scenario",
+    "selection_timestamps": "12 deterministic indices from 0 through 132 inclusive",
+    "selection_loss": "0.5*mean(property anomaly-relative Frobenius)+0.5*mean(property DSSIM), where DSSIM=(1-anomaly SSIM)/2"
+  },
+  "headline_metrics": {
+    "reconstruction": "property-wise anomaly-relative Frobenius error in inverse-scaled physical fields, using the outer-training ensemble mean at each cell and timestamp",
+    "structure": "property-wise mask-aware local Gaussian SSIM of anomalies, using train-only anomaly range",
+    "ssim": {
+      "window": 7,
+      "sigma": 1.5,
+      "minimum_active_fraction": 0.5,
+      "k1": 0.01,
+      "k2": 0.03,
+      "aggregation": "mean over valid active-centred windows, then timestamps, then fold"
+    }
+  },
+  "diagnostic_metrics": [
+    "raw relative Frobenius error",
+    "raw mask-aware SSIM",
+    "train-range NRMSE",
+    "physical-unit RMSE"
+  ],
+  "capacity_regimes": {
+    "equal_total": {
+      "total_coefficients": 32,
+      "independent_3d": "16 pressure + 16 saturation",
+      "joint_4d": "32 total"
+    },
+    "equal_per_property": {
+      "total_coefficients": 64,
+      "independent_3d": "32 pressure + 32 saturation",
+      "joint_4d": "64 total"
+    }
+  },
+  "representation_search": {
+    "spatial_ranks": [[64, 48], [80, 48]],
+    "preprocessing": [
+      "raw_minmax",
+      "mean_centered",
+      "ensemble_anomaly",
+      "standardized_anomaly"
+    ],
+    "property_ranks": [1, 2],
+    "variants": {
+      "3D-independent": "separate space-space-time tensor factors and coefficients",
+      "4D-A": "joint property tensor with shared spatial factors and coefficients",
+      "4D-B": "shared spatial factors and separate property coefficients",
+      "4D-C": "weighted joint property objective",
+      "4D-D": "shared spatial factors plus property-specific spatial residual factors",
+      "4D-E": "joint property modes plus independent property residual modes"
+    },
+    "historical_comparator": "E8 fixed (48,48,2) current joint 4D retained separately"
+  },
+  "sensing": {
+    "well_geometry": {
+      "placement": "configured existing-well order shared by every method",
+      "budgets": [5, 10, 15, 20, 30],
+      "channels_per_well": 2
+    },
+    "grid_geometry": {
+      "placement": "common train-only QR-DG order from a rank-64 POD-E basis of standardized ensemble anomalies",
+      "budgets": [30, 100, 300],
+      "channels_per_sensor": 1
+    },
+    "noise": "none in the primary E9 comparison"
+  },
+  "recovery_search": [
+    {"name": "least_squares", "rcond": 1e-10},
+    {"name": "ridge", "alpha_relative": 1e-08},
+    {"name": "ridge", "alpha_relative": 1e-06},
+    {"name": "ridge", "alpha_relative": 0.0001},
+    {"name": "ridge", "alpha_relative": 0.01}
+  ],
+  "sensitivity_recovery": [
+    {"name": "lasso", "l1": 0.001, "scope": "frozen final 3D and 4D configurations only"}
+  ],
+  "pre_outer_amendments": [
+    {
+      "date": "2026-09-21",
+      "change": "LASSO moved from the exhaustive inner Cartesian search to a frozen-final sensitivity analysis.",
+      "reason": "The first interrupted train-only fold showed ADMM iteration cost dominated the study. No E9 outer result existed or was inspected; all LS/ridge candidates and all preregistered representations, metrics, folds, budgets, and decision rules are unchanged."
+    },
+    {
+      "date": "2026-09-21",
+      "change": "Recovery solver and regularisation are selected jointly for each matched 3D-4D pair, using the mean inner-validation loss of both methods.",
+      "reason": "This enforces the preregistered identical-solver requirement literally. No E9 outer result existed or was inspected; the complete train-only solver registries permit deterministic reselection without rerunning or changing any candidate."
+    }
+  ],
+  "selection_and_reporting": {
+    "method": "select representation per method from inner folds, then select one common recovery solver and regularisation for each matched 3D-4D pair by their mean inner-validation loss, within capacity, geometry, and budget",
+    "paired_unit": "outer held-out scenario with identical rows and timestamps",
+    "summaries": ["fold values", "mean", "median", "sample standard deviation", "IQR", "paired differences", "two-sided Wilcoxon descriptive p-value"],
+    "advantage_rule": "A metric-specific empirical advantage requires a favourable median paired difference and a favourable result in at least 7 of 10 folds at matched coefficient and sensor budgets.",
+    "central_claim_rule": "A broad 4D claim additionally requires the advantage in both capacity regimes or at two adjacent sensor budgets, with storage reported and no outer-driven retuning.",
+    "structural_only_rule": "If only SSIM satisfies the rule, the claim is limited to structural fidelity and must disclose RMSE and reconstruction-error losses."
+  }
+}

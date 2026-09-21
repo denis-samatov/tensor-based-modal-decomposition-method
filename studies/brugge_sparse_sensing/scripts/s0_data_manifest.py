@@ -35,6 +35,9 @@ for r in range(b.n_runs):
     persist.append([float(np.sqrt(np.mean((P[r, :, t] - last) ** 2))) for t in range(n_tr, b.T)])
 man = {
     "files": data.manifest(cfg["dataset"], cfg["wells"]),
+    **cfg["provenance"],
+    "pressure_unit_status": "unconfirmed; HDF5 stores no unit attribute",
+    "pressure_value_unit_label": "u_p (supplied export unit; no conversion applied)",
     "runs": b.n_runs, "grid": list(b.active.shape), "n_active": int(b.n_active),
     "n_inactive": int((~b.active).sum()), "time_steps": b.T,
     "p1_train_snapshots": n_tr, "p1_test_snapshots": b.T - n_tr,

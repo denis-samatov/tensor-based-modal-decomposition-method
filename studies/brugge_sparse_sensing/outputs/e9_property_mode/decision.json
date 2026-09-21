@@ -1,0 +1,457 @@
+{
+  "decision_rule": "median paired improvement > 0 and at least 7/10 favourable folds",
+  "headline_comparisons": 72,
+  "headline_advantages": 56,
+  "advantage_records": [
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "full",
+      "budget": 9900,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.0018414126134078494
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "full",
+      "budget": 9900,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.00015977151353829822
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.5850083992901227
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 8,
+      "median_improvement": 0.28179635047224094
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.27507421876912636
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.058954566093930794
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 100,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 7,
+      "median_improvement": 0.012046515027207334
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 100,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 7,
+      "median_improvement": 0.01657132416915813
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 100,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.02067533035903868
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 8,
+      "median_improvement": 0.013752535368904101
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.004613918311155707
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 9,
+      "median_improvement": 0.012207016223621303
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.0793782924674023
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 10,
+      "median_improvement": 1.1040722830976064
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.06751344804183262
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.11135745219914667
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 10,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.05022333864644804
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 10,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.04763525661138551
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 15,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.020071639128994456
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 15,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 7,
+      "median_improvement": 0.018933095695145896
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.02717282699484865
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 7,
+      "median_improvement": 0.08702796706433169
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.016244705885422428
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 8,
+      "median_improvement": 0.012547391296578447
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.02549315262935485
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 9,
+      "median_improvement": 0.12564126077555582
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 30,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.010424489505635959
+    },
+    {
+      "capacity_regime": "equal_per_property",
+      "geometry": "wells",
+      "budget": 30,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 9,
+      "median_improvement": 0.01950603549998109
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "full",
+      "budget": 9900,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.005901092070556252
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "full",
+      "budget": 9900,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.0014157121138423379
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.5923050975304971
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.3574314830044557
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.21835088217944196
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 30,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.07179649098866053
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 100,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 7,
+      "median_improvement": 0.021672571853584448
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 100,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 7,
+      "median_improvement": 0.011270163020737578
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 100,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 9,
+      "median_improvement": 0.02045283314008728
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.05052958212492881
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 7,
+      "median_improvement": 0.02967865277419454
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.02713917684489414
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "grid",
+      "budget": 300,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.01819796228460635
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 8,
+      "median_improvement": 0.06475392621515545
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 10,
+      "median_improvement": 1.036788096336324
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 8,
+      "median_improvement": 0.06534997324726016
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 5,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 10,
+      "median_improvement": 0.10300747354955342
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 10,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 10,
+      "median_improvement": 0.05295641013865343
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 10,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 7,
+      "median_improvement": 0.016919255179104697
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 15,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 7,
+      "median_improvement": 0.06191537560719029
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 15,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 9,
+      "median_improvement": 0.023340811132633976
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 15,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 8,
+      "median_improvement": 0.02798161212136041
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 7,
+      "median_improvement": 0.022463978112731216
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_relative_frobenius_so",
+      "four_d_wins": 9,
+      "median_improvement": 0.07621421899171493
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_ssim_p",
+      "four_d_wins": 8,
+      "median_improvement": 0.01646646752506853
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 20,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 9,
+      "median_improvement": 0.016696946804624857
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 30,
+      "metric": "anomaly_relative_frobenius_p",
+      "four_d_wins": 8,
+      "median_improvement": 0.03280999709925841
+    },
+    {
+      "capacity_regime": "equal_total",
+      "geometry": "wells",
+      "budget": 30,
+      "metric": "anomaly_ssim_so",
+      "four_d_wins": 7,
+      "median_improvement": 0.019538753866226333
+    }
+  ],
+  "ranking_difference_regimes": 4,
+  "ranking_regimes_total": 36
+}

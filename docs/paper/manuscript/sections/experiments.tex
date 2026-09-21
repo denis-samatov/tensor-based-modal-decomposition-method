@@ -1,0 +1,45 @@
+\section{Experimental design}
+\label{sec:experiments}
+
+\subsection{Research questions}
+\label{sec:rqs}
+\begin{enumerate}[label=RQ\arabic*,leftmargin=*]
+\item How does spatial tensor truncation affect representational accuracy relative to matrix modal bases?
+\item Can train-selected tensor/property/modal ranks recover useful accuracy while retaining meaningful compression?
+\item Which sensor-placement and coefficient-recovery strategies are effective for TBMD under sparse observations, and how much of the loss is associated with conditioning?
+\item How stable are TBMD-based rankings of the \NWells{} existing wells, and does corrected cluster-constrained placement improve reconstruction?
+\item Where does TBMD lie on the accuracy--compression--measurement-cost frontier relative to POD-E and non-modal references?
+\item What is gained by retaining an explicit property mode instead of fitting pressure and saturation independently, when reconstruction error, spatial structure, capacity and measurements are matched?
+\end{enumerate}
+
+\subsection{Evaluation protocols and leakage control}
+\label{sec:protocols}
+\textbf{P1 (within-scenario temporal hold-out).} For each scenario, the first \NTrainPOne{} snapshots (80\,\%) fit the normalisation, bases and sensor sets; the last \NTestPOne{} are reconstructed. The prior is persistence of the last training snapshot.
+
+\textbf{P2 (leave-one-scenario-out).} For each scenario $q$, normalisation, bases and sensor sets are fitted on all \NT{} snapshots of the other nine scenarios, and every snapshot of scenario $q$ is reconstructed. P2 represents monitoring of an operating schedule that is not part of the simulated ensemble. The prior is the ensemble mean of the nine training scenarios at the same snapshot index; it assumes that time-aligned ensemble trajectories have been computed before monitoring. Figure~\ref{fig:workflow} summarises the workflow.
+
+\input{sections/fig1_workflow.tex}
+
+The optimization study treats P2 as the outer protocol. For each held-out scenario, the other nine scenario identifiers are divided deterministically into three inner folds. Stage A selects representation, ranks, scaling and property architecture; Stage B selects recovery; Stage C selects placement; Stage D rechecks a bounded set of placement--solver combinations. The selected configuration is then refitted on all nine outer-training scenarios and evaluated once on the held-out scenario. The outer data never change a configuration within this run. Because earlier versions of the Brugge benchmark were inspected before this nested study, the design is post-development rather than a preregistered external validation.
+
+\subsection{Experiment hierarchy}
+\label{sec:exp_list}
+The fixed-rank E1--E8 benchmark diagnoses representation, sensor budgets, noise, regularization, stability, cost and rigid property coupling. It includes POD, POD-E, TBMD, no-measurement priors and prior plus inverse-distance weighting; its full inventory and results are retained in Supplementary Sections~S4 and S9. V1/V3 verify the mathematical implementation. The nested optimization tests representation, recovery and placement using \OptValidationRecords{} sparse validation records and \OptOuterRecords{} outer records (Section~\ref{sec:optimization}). E9 then compares independent 3D with five 4D architectures at two coefficient capacities, with identical measurements and a common recovery solver (Section~\ref{sec:e9}). All comparisons retain ten P2 outer folds; random placements use 20 orders per fold.
+
+\subsection{Metrics and statistics}
+\label{sec:metrics}
+All metrics use active cells after inverse transformation. Here $\mathbf X_k$ and $\widehat{\mathbf X}_k$ are the true and reconstructed active-cell-by-time matrices for property $k$. The broad E1--E8 benchmark retains export-unit $\mathrm{RMSE}_p$ (supplied export unit $u_p$) and $\mathrm{RMSE}_{S_o}$ ($-$). E9 adds two preregistered headline endpoints, separately for each property $k$. With outer-training ensemble mean $\boldsymbol\mu_{k,\mathrm{tr}}$ at the same cells and report steps,
+\begin{equation}
+E'_k=\frac{\lVert\widehat{\mathbf X}_k-\mathbf X_k\rVert_F}{\lVert\mathbf X_k-\boldsymbol\mu_{k,\mathrm{tr}}\rVert_F}.\label{eq:anomaly_error}
+\end{equation}
+Equation~\eqref{eq:anomaly_error}'s anomaly-relative denominator prevents the pressure datum from diluting error. Raw relative Frobenius error, train-range NRMSE and RMSE remain mandatory diagnostics.
+
+E9 structural similarity is a mask-aware Gaussian SSIM of the same train-referenced anomalies. In every $7\times7$ window, Gaussian weights (standard deviation in grid-index units) are renormalised over active cells before the local mean, variance and covariance are computed. The centre must be active and active cells must contain at least half of the in-domain Gaussian weight. We use Gaussian standard deviation $1.5$, $K_1=0.01$, $K_2=0.03$ and a property-specific anomaly range fitted on outer training data. Inactive values therefore cannot increase the score. Local population moments use zero weight outside the array; scores are averaged over valid centres and report steps. Inner selection fits a separate reference and range on inner training only. Raw-field SSIM diagnoses ceiling effects; PSNR is omitted because it is a monotone transform of MSE under a fixed range.
+
+Metrics are retained per outer fold and reported as mean, median, sample standard deviation and IQR. Paired comparisons use identical measurements and report steps, the number of favourable folds, and a two-sided Wilcoxon signed-rank diagnostic. E9 declares an empirical advantage only when the paired median is favourable and at least 7 of 10 folds improve. The related fixed-geology folds are not independent reservoir samples; unadjusted p-values are descriptive rather than population-level significance evidence.
+
+\subsection{Implementation}
+\label{sec:implementation}
+All experiments use Python~3.12, NumPy, SciPy and TensorLy \cite{harris2020numpy,virtanen2020scipy,kossaifi2019}. On P2 fold 1, the first $r$ QR selections match the authors' public TBMD library as sets; ADMM differs by \VerStateDiff{} relatively on the first test snapshot (V1). This does not compare against Zhong et al.'s reference code. V3 checks explicit contractions, single-property reduction, active-cell ordering, measurement operators and rank-deficient least-squares invariance. Generated macros or tables supply every numerical claim.
+
+AI-assisted tools supported the final audit of validation scripts, bibliography metadata and publication generators. Changes were checked by deterministic tests and regeneration from the retained outputs; final scientific interpretation and approval remain the authors' responsibility.

@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Evolution of TBMD. Validation gain is relative reduction of the train-only representation objective from the original basis; outer errors use 30 joint wells.}
+\label{tab:tbmd_evolution}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}p{0.20\linewidth}p{0.27\linewidth}rrrr@{}}
+\toprule
+TBMD version & Key change & \shortstack{Validation\\gain} & \shortstack{Pressure\\RMSE ($u_p$)} & \shortstack{$S_o$\\RMSE} & \shortstack{Stored\\floats} \\
+\midrule
+Original TBMD & Fixed HOOI ranks (48,48,2), fixed L1 & 0.0\% & 0.4323 & 0.004251 & 101.9k \\
+Original basis + optimized sensing & Nested placement/recovery & 0.0\% & 0.4289 & 0.004235 & 101.9k \\
+Rank-optimized joint TBMD & Spatial/modal rank expansion & 89.8\% & 0.0892 & 0.000643 & 259.2k \\
+TBMD + residual & Low-rank POD residual & 86.8\% & 0.2117 & 0.000788 & 188.7k \\
+Compressed independent TBMD & Independent properties; 5\% validation tolerance & 93.1\% & 0.1754 & 0.000651 & 120.7k \\
+Accuracy-selected independent TBMD & Independent properties; minimum validation loss & 93.2\% & 0.1787 & 0.000644 & 149.7k \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -7,6 +7,7 @@ from TBMD.core.modal_processor.modes import (
     ModalProcessorConfig,
     ModalTensorStacker,
     ProcessingStrategy,
+    TimeInsensitiveModeComputer,
 )
 
 
@@ -46,6 +47,25 @@ class TestTensorTimeInsensitiveModes(unittest.TestCase):
         stacker = ModalTensorStacker(self.config)
         A_tensor = stacker.stack_modal_tensors(modal_tensors)
         self.assertEqual(A_tensor.shape, (10, 10, 5, 10))
+
+    def test_fourth_order_mode_matches_explicit_three_factor_contraction(self):
+        """The 4D path must retain both spatial modes and the property mode."""
+        factors = [
+            torch.randn(4, 2),
+            torch.randn(5, 3),
+            torch.randn(2, 2),
+        ]
+        core_slice = torch.randn(2, 3, 2)
+
+        actual = TimeInsensitiveModeComputer(self.config).compute_single_mode(
+            factors, core_slice
+        )
+        expected = torch.einsum(
+            "ia,jb,kc,abc->ijk", factors[0], factors[1], factors[2], core_slice
+        )
+
+        self.assertEqual(actual.shape, (4, 5, 2))
+        torch.testing.assert_close(actual, expected)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Error metrics on active cells in physical units."""
+"""Error metrics on active cells after inverse scaling, in supplied export units."""
 from __future__ import annotations
 
 import numpy as np

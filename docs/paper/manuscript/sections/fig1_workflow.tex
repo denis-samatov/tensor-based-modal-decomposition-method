@@ -1,0 +1,28 @@
+\begin{figure}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\small,>=Latex,node distance=4mm and 6mm,
+  box/.style={draw,rounded corners=2pt,align=center,inner sep=3pt,minimum height=11mm,text width=27mm},
+  ref/.style={box,dashed},
+  arr/.style={->,thick}]
+\node[box] (data) {Training states\\(P1: first 80\,\% of one scenario;\\P2: nine other scenarios)};
+\node[box,right=of data] (norm) {Scaling and centring\\fitted on active\\training cells only};
+\node[box,right=of norm,text width=32mm] (basis) {Bases of depth $r$\\POD $\mathbf{U}_r$ \;|\; POD-E $\mathbf{U}_r\boldsymbol{\Sigma}_r$\\TBMD (Tucker modes)};
+\node[box,right=of basis,text width=30mm] (place) {Placement\\QR / DG on basis,\\configured wells, random};
+\node[box,below=9mm of place,text width=30mm] (meas) {Point measurements\\of held-out states\\(grid channels or wells)};
+\node[box,left=of meas,text width=32mm] (est) {Recovery\\LS / ridge / $\ell_1$ /\\elastic net};
+\node[box,left=of est] (eval) {Errors on active cells\\RMSE; anomaly error;\\mask-aware SSIM;\\fold-level statistics};
+\node[ref,below=5mm of est,text width=32mm] (refs) {References without a basis:\\prior (persistence / ensemble\\mean), prior + IDW};
+\draw[arr] (data) -- (norm);
+\draw[arr] (norm) -- (basis);
+\draw[arr] (basis) -- (place);
+\draw[arr] (place) -- (meas);
+\draw[arr] (meas) -- (est);
+\draw[arr] (basis.south) -- (basis.south |- est.north);
+\draw[arr] (meas.south) |- (refs.east);
+\draw[arr] (est) -- (eval);
+\draw[arr] (refs.west) -| (eval.south);
+\end{tikzpicture}}
+\caption{Evaluation workflow. Nested runs select architecture, scaling, placement and recovery using scenario-grouped inner validation; E9 uses common measurements and a common paired solver. Everything above the measurement step is fitted on training states only; the held-out states enter only through the selected measurement rows and the final error computation. Dashed: references that use no reduced basis.}
+\label{fig:workflow}
+\end{figure}

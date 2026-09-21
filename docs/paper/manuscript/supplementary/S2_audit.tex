@@ -1,0 +1,33 @@
+\section{Legacy benchmark lineage (experiment E0)}
+\label{sec:S_audit}
+Historical notebooks (preserved with original paths and checksums in \path{docs/paper/audit/historical_notebooks.zip}) were re-executed with the public TBMD library by \texttt{scripts/e0\_reproduce\_archived.py} and \texttt{scripts/e0\_cluster\_table.py}. This establishes why the present benchmark uses newly generated results rather than inheriting numbers from the earlier manuscript. The repeat uses the library sources included in this revision, not Zhong et al.'s reference implementation. Table~\ref{tab:S_audit} records the consequential differences. None of the historical quantitative claims enters the present results. Repeated executions of the legacy workflow are not bit-for-bit deterministic: well-budget metrics agree to the quoted precision, but QR cluster counts and the budgets at which grid-wide ADMM fails can differ. The current workflow separately verifies deterministic scientific outputs and treats execution times as non-deterministic (Supplementary Section~S6).
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{Provenance of the protocol statements and numerical claims of the reviewed version.}
+\label{tab:S_audit}
+\begin{tabular}{@{}p{0.29\linewidth}p{0.42\linewidth}p{0.19\linewidth}@{}}
+\toprule
+Statement in reviewed version & Finding from code and data & Status \\
+\midrule
+Tensor $139\times48\times2\times134$; 107/27 split & Stored tensors have 133 steps; split 106/27 & Corrected \\
+Each scenario processed independently, $W=480$ & One dictionary pooled over the ten scenarios (10 $\times$ 48 modes) & Unsupported \\
+Joint Tucker ranks $[48,48,2,48]$ & Default ranks give $[2,2,2,2]$ for the joint tensor & Unsupported \\
+$\epsilon=10^{-2}$ selects ranks by error & $\epsilon$ is the HOOI convergence tolerance & Unsupported \\
+QR pivoting by $\ell_1$ residual norm & Euclidean norm & Corrected \\
+SSIM with $11\times11$ window; PSNR with MAX $=1$ & $7\times7$ window with non-standard constants; MAX $=$ data range & Corrected \\
+Metrics on normalised held-out fields & Arguments of the metric swapped; inactive cells included; reconstructions rounded to 3 decimals & Defect \\
+Curves aggregate ten scenarios and all held-out snapshots & One scenario (\texttt{case3}), one held-out snapshot, 1 clean + 10 noisy measurement draws & Unsupported \\
+Wells, single property: error $0.62\to0.17$, SSIM $0.47\to0.90$, PSNR $27\to34.5$\,dB ($N=1\to10$) & Re-execution: error $\EZeroErrOne\to\EZeroErrTen$, SSIM $\EZeroSsimOne\to\EZeroSsimTen$, PSNR $\EZeroPsnrOne\to\EZeroPsnrTen$\,dB & Not reproducible \\
+Wells, joint: error $0.57\to0.20$ (0.11 at $N=20$), SSIM $0.47\to0.88$ & Execution fails (mask/tensor shape mismatch) & Not reproducible \\
+Grid-wide curves up to $N=299$ & ADMM returns NaN or errors above 0.1 at several budgets above about 200; which budgets fail changes between repeated executions & Not reproducible \\
+Cluster area fractions (Table S1 of reviewed version) & Identical & Verified \\
+Sensors per cluster 53/104/35/39/68 (299 in active cells) & Two executions gave 53/101/38/41/64 and 56/101/37/39/64 (297 in active cells; three selected cells inactive) & Not reproducible \\
+$k=5$ chosen by silhouette and Gap statistic & No such computation in the code; $k=5$ hard-coded & Unsupported \\
+Runtime/memory table & QR timed on a random matrix; CS on a dummy problem & Replaced by E6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Why the held-out window needs a no-measurement reference} In the reviewed protocol the last 20\,\% of snapshots were reconstructed. Over that window the state changes slowly: persistence of the last training snapshot, which uses no measurements, has a pressure RMSE between \PersistFirst{} and \PersistLast{} $u_p$ (Fig.~\ref{fig:data}b), which is comparable to or below the full-observation error floor of the documented TBMD configuration (Section~\ref{sec:res_representation}). A reconstruction method can therefore appear accurate on this window without extracting information from the measurements. Protocol P2 in the main text was introduced for this reason.

@@ -1,6 +1,6 @@
 """E7 -- Spatial structure of the scenario-specific pressure deviation and of the TBMD truncation
 error (protocol P2; supports Discussion Sec. 6.1). For each fold and every snapshot:
-deviation D = reference - ensemble-mean prior (bar); spatial mean and SD of D; Pearson correlation
+deviation D = reference - ensemble-mean prior (supplied export unit u_p); spatial mean and SD of D; Pearson correlation
 between |D - mean(D)| and distance to the nearest well. Full-observation TBMD (48,48,2) and POD
 projection errors per cell (RMSE over snapshots) near wells (<= 2 cells) and far (> 10 cells).
 Output: outputs/e7_spatial_structure.csv"""
@@ -27,6 +27,8 @@ for f in data.folds_p2(b):
     sd = D.std(axis=0)
     corr = [np.corrcoef(np.abs(D[:, t] - mu[t]), dwell)[0, 1] for t in range(1, b.T)]
     r = bases.pod(f.train, threshold=cfg["energy_threshold"]).extra["rank"]
+    # ``_bar`` columns are retained only for compatibility with the released
+    # result schema; the array unit is unconfirmed and is reported as u_p.
     rec = dict(fold=f.name, dev_abs_spatial_mean_bar=float(np.mean(np.abs(mu[1:]))),
                dev_spatial_sd_bar=float(np.mean(sd[1:])), corr_absdev_distance=float(np.mean(corr)))
     for name, B in (("TBMD", bases.tbmd(f.train, b.ij, r, spatial_ranks=cfg["tbmd_spatial_ranks"], **cfg["tucker"]).B),

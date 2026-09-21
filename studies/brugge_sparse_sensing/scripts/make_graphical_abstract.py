@@ -1,47 +1,96 @@
-"""Graphical abstract (ACG: >= 1328 x 531 px, readable at 13 x 5 cm), drawn from outputs/key_numbers.json.
-Output: figures/graphical_abstract.pdf and .png (2656 x 1062 px)."""
-import json
+"""ACG graphical abstract generated from the E9 summary; no generated imagery."""
+
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-import matplotlib  # noqa: E402
+import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
+import pandas as pd
+from bss import FIG, OUT
+from matplotlib.patches import FancyBboxPatch
 
-from bss import FIG, OUT  # noqa: E402
-
-K = json.loads((OUT / "key_numbers.json").read_text())
-def k(label, s, N):
-    return K[f"P2|{label}|{s}|{N}|rmse_p|mean"]
-bars = [("No measurements\n(ensemble mean)", k("No measurements (prior)", "wells-joint", 30), "#6B6B6B"),
-        ("Prior + IDW\n(30 wells)", k("Prior + IDW residual", "wells-joint", 30), "#AA3377"),
-        ("TBMD (48,48,2) $\\ell_1$\n(30 wells)", k("TBMD (48,48,2), l1 [original]", "wells-joint", 30), "#D55E00"),
-        ("POD-E $\\ell_1$\n(30 wells)", k("POD-E, l1", "wells-joint", 30), "#009E73"),
-        ("POD-E LS\n(30 QR channels)", k("POD-E, LS", "grid", 30), "#0072B2")]
-plt.rcParams.update({"font.size": 11, "axes.spines.top": False, "axes.spines.right": False, "pdf.fonttype": 42})
+plt.rcParams.update(
+    {
+        "font.family": "DejaVu Sans",
+        "font.size": 12,
+        "pdf.fonttype": 42,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+    }
+)
 fig = plt.figure(figsize=(8.853, 3.541), dpi=300)
-ax0 = fig.add_axes([0.02, 0.04, 0.33, 0.92]); ax0.axis("off")
-ax0.text(0, 0.97, "Brugge: 10 control scenarios", fontsize=12, weight="bold", va="top")
-lines = ["Leave-one-scenario-out evaluation",
-         "Bases: POD, energy-weighted POD, TBMD",
-         "Sensors: QR/greedy, wells, random",
-         "Estimators: least squares, $\\ell_1$",
-         "",
-         "Untruncated TBMD = rotated POD-E",
-         "Spatial truncation: error floor",
-         "Energy weighting: stable for N < r"]
-for i, t in enumerate(lines):
-    ax0.text(0, 0.83 - i * 0.105, t, fontsize=10, va="top", weight="bold" if i >= 5 else "normal")
-ax = fig.add_axes([0.60, 0.14, 0.37, 0.72])
-y = list(range(len(bars)))[::-1]
-ax.barh(y, [b[1] for b in bars], color=[b[2] for b in bars], height=0.62)
-for yy, b in zip(y, bars):
-    ax.text(b[1] + 0.02, yy, f"{b[1]:.2f}", va="center", fontsize=10)
-ax.set_yticks(y); ax.set_yticklabels([b[0].replace("\n", " ") for b in bars], fontsize=9)
-ax.set_xlabel("Pressure RMSE (bar)")
-ax.set_xlim(0, max(b[1] for b in bars) * 1.2)
-ax.set_title("Held-out scenario, mean of 10 folds", fontsize=10.5)
-fig.savefig(FIG / "graphical_abstract.pdf"); fig.savefig(FIG / "graphical_abstract.png", dpi=300)
-print("graphical abstract written")
+flow = fig.add_axes([0.02, 0.69, 0.96, 0.28])
+flow.axis("off")
+boxes = [
+    "Brugge ensemble\n10 control scenarios",
+    "Nested TBMD\nand POD-E",
+    "Sparse point\nobservations",
+    "Pressure / saturation\nreconstruction",
+]
+for i, label in enumerate(boxes):
+    x = i * 0.255
+    flow.add_patch(
+        FancyBboxPatch(
+            (x, 0.16),
+            0.225,
+            0.66,
+            boxstyle="round,pad=0.01",
+            facecolor="#eef3f7",
+            edgecolor="#37556c",
+            linewidth=1,
+            clip_on=False,
+        )
+    )
+    flow.text(x + 0.1125, 0.49, label, ha="center", va="center", fontsize=11)
+    if i < 3:
+        flow.annotate(
+            "", (x + 0.25, 0.49), (x + 0.229, 0.49), arrowprops={"arrowstyle": "->", "lw": 1.3}
+        )
+ax = fig.add_axes([0.10, 0.20, 0.40, 0.43])
+df = pd.read_csv(OUT / "e9_property_mode/outer_summary.csv")
+subset = df[
+    (df.capacity_regime == "equal_total") & (df.geometry == "grid") & (df.budget == 30)
+].set_index("model_label")
+for offset, method, color, hatch, label in [
+    (-0.18, "3D optimized", "#4477aa", "//", "Independent 3D"),
+    (0.18, "4D optimized", "#228833", "", "Selected 4D"),
+]:
+    values = [subset.loc[method, "anomaly_relative_frobenius_" + p + "_mean"] for p in ["p", "so"]]
+    ax.bar(
+        [offset, 1 + offset],
+        values,
+        width=0.34,
+        color=color,
+        hatch=hatch,
+        edgecolor="black",
+        linewidth=0.6,
+        label=label,
+    )
+    for x, v in zip([offset, 1 + offset], values):
+        ax.text(x, v + 0.035, f"{v:.2f}", ha="center", fontsize=10)
+ax.set_xticks([0, 1], ["Pressure", "Oil saturation"])
+ax.set_ylim(0, 1.45)
+ax.set_ylabel("Anomaly-relative error", fontsize=10)
+ax.set_title("Matched E9: 30 grid channels", fontsize=11)
+ax.legend(fontsize=9, frameon=False, ncol=2, loc="upper center", bbox_to_anchor=(0.5, -0.19))
+text = fig.add_axes([0.55, 0.16, 0.43, 0.48])
+text.axis("off")
+text.text(0, 0.97, "Partial sharing helps sparse recovery", weight="bold", fontsize=11, va="top")
+text.text(0, 0.72, "Shared spatial factors;\nproperty-specific coefficients", fontsize=11, va="top")
+text.text(
+    0,
+    0.36,
+    "POD-E retains the lowest errors\nat all existing joint-property wells",
+    fontsize=11,
+    va="top",
+)
+FIG.mkdir(parents=True, exist_ok=True)
+fig.savefig(FIG / "graphical_abstract.pdf")
+fig.savefig(FIG / "graphical_abstract.png", dpi=300)
+plt.close(fig)
+print(
+    "Graphical abstract: deterministic Matplotlib vector PDF and PNG", fig.canvas.get_width_height()
+)

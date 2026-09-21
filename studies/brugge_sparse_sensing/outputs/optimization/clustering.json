@@ -1,0 +1,2822 @@
+{
+  "1": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45681418905907145,
+          "silhouette": 0.3568141890590714,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178854,
+          "silhouette": 0.3580342249065795,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480585,
+          "silhouette": 0.38799855091665786,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804979,
+          "silhouette": 0.417341176084121,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49409208829136964,
+          "silhouette": 0.3954471073173769,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45681418905907145,
+          "silhouette": 0.3568141890590714,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178854,
+          "silhouette": 0.3580342249065795,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480585,
+          "silhouette": 0.38799855091665786,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804979,
+          "silhouette": 0.417341176084121,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49409208829136964,
+          "silhouette": 0.3954471073173769,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4568141890590699,
+          "silhouette": 0.3568141890590699,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178615,
+          "silhouette": 0.3580342249065771,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480347,
+          "silhouette": 0.38799855091665547,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804962,
+          "silhouette": 0.41734117608411925,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.494092088291368,
+          "silhouette": 0.3954471073173753,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45681418905906945,
+          "silhouette": 0.3568141890590694,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178576,
+          "silhouette": 0.3580342249065767,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4872221186048034,
+          "silhouette": 0.3879985509166554,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804957,
+          "silhouette": 0.4173411760841188,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.494092088291368,
+          "silhouette": 0.3954471073173753,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45681418905907145,
+          "silhouette": 0.3568141890590714,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178854,
+          "silhouette": 0.3580342249065795,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480585,
+          "silhouette": 0.38799855091665786,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804979,
+          "silhouette": 0.417341176084121,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49409208829136964,
+          "silhouette": 0.3954471073173769,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45681418905907145,
+          "silhouette": 0.3568141890590714,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178854,
+          "silhouette": 0.3580342249065795,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480585,
+          "silhouette": 0.38799855091665786,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804979,
+          "silhouette": 0.417341176084121,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49409208829136964,
+          "silhouette": 0.3954471073173769,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4568141890590699,
+          "silhouette": 0.3568141890590699,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178615,
+          "silhouette": 0.3580342249065771,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480347,
+          "silhouette": 0.38799855091665547,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804962,
+          "silhouette": 0.41734117608411925,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.494092088291368,
+          "silhouette": 0.3954471073173753,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45681418905907145,
+          "silhouette": 0.3568141890590714,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45406717207178854,
+          "silhouette": 0.3580342249065795,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48722211860480585,
+          "silhouette": 0.38799855091665786,
+          "stability": 0.9922356768814797
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171302069804979,
+          "silhouette": 0.417341176084121,
+          "stability": 0.9978903089637693
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49409208829136964,
+          "silhouette": 0.3954471073173769,
+          "stability": 0.9864498097399269
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "10": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611644,
+          "silhouette": 0.35688988629448587,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118486,
+          "silhouette": 0.35662376376595195,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673594937,
+          "silhouette": 0.38844653062066675,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639875,
+          "silhouette": 0.4169573362639875,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4946222730427528,
+          "silhouette": 0.3951751381591641,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611644,
+          "silhouette": 0.35688988629448587,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118486,
+          "silhouette": 0.35662376376595195,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673594937,
+          "silhouette": 0.38844653062066675,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639875,
+          "silhouette": 0.4169573362639875,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4946222730427528,
+          "silhouette": 0.3951751381591641,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611655,
+          "silhouette": 0.356889886294487,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118736,
+          "silhouette": 0.35662376376595445,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673595104,
+          "silhouette": 0.3884465306206684,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639891,
+          "silhouette": 0.4169573362639891,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49462227304275486,
+          "silhouette": 0.39517513815916616,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611655,
+          "silhouette": 0.356889886294487,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118736,
+          "silhouette": 0.35662376376595445,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673595104,
+          "silhouette": 0.3884465306206684,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639891,
+          "silhouette": 0.4169573362639891,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49462227304275486,
+          "silhouette": 0.39517513815916616,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611644,
+          "silhouette": 0.35688988629448587,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118486,
+          "silhouette": 0.35662376376595195,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673594937,
+          "silhouette": 0.38844653062066675,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639875,
+          "silhouette": 0.4169573362639875,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4946222730427528,
+          "silhouette": 0.3951751381591641,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611644,
+          "silhouette": 0.35688988629448587,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118486,
+          "silhouette": 0.35662376376595195,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673594937,
+          "silhouette": 0.38844653062066675,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639875,
+          "silhouette": 0.4169573362639875,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4946222730427528,
+          "silhouette": 0.3951751381591641,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611655,
+          "silhouette": 0.356889886294487,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118736,
+          "silhouette": 0.35662376376595445,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673595104,
+          "silhouette": 0.3884465306206684,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639891,
+          "silhouette": 0.4169573362639891,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49462227304275486,
+          "silhouette": 0.39517513815916616,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564581346611644,
+          "silhouette": 0.35688988629448587,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43585433690118486,
+          "silhouette": 0.35662376376595195,
+          "stability": 0.7923057313523291
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48051913673594937,
+          "silhouette": 0.38844653062066675,
+          "stability": 0.9207260611528261
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169573362639875,
+          "silhouette": 0.4169573362639875,
+          "stability": 1.0
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4946222730427528,
+          "silhouette": 0.3951751381591641,
+          "stability": 0.9944713488358867
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "2": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545424,
+          "silhouette": 0.3566882034354542,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4580978277839801,
+          "silhouette": 0.3580978277839801,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48715872420225304,
+          "silhouette": 0.38796673424234385,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579729,
+          "silhouette": 0.41739086754088567,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026346,
+          "silhouette": 0.3957631544525335,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545424,
+          "silhouette": 0.3566882034354542,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4580978277839801,
+          "silhouette": 0.3580978277839801,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48715872420225304,
+          "silhouette": 0.38796673424234385,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579729,
+          "silhouette": 0.41739086754088567,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026346,
+          "silhouette": 0.3957631544525335,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545347,
+          "silhouette": 0.35668820343545343,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45809782778397967,
+          "silhouette": 0.35809782778397964,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4871587242022532,
+          "silhouette": 0.387966734242344,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579723,
+          "silhouette": 0.4173908675408851,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026347,
+          "silhouette": 0.3957631544525337,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4566882034354539,
+          "silhouette": 0.35668820343545393,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4580978277839799,
+          "silhouette": 0.35809782778397986,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48715872420225287,
+          "silhouette": 0.3879667342423437,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579726,
+          "silhouette": 0.4173908675408855,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026346,
+          "silhouette": 0.3957631544525335,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545424,
+          "silhouette": 0.3566882034354542,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4580978277839801,
+          "silhouette": 0.3580978277839801,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48715872420225304,
+          "silhouette": 0.38796673424234385,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579729,
+          "silhouette": 0.41739086754088567,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026346,
+          "silhouette": 0.3957631544525335,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545424,
+          "silhouette": 0.3566882034354542,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4580978277839801,
+          "silhouette": 0.3580978277839801,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48715872420225304,
+          "silhouette": 0.38796673424234385,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579729,
+          "silhouette": 0.41739086754088567,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026346,
+          "silhouette": 0.3957631544525335,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545347,
+          "silhouette": 0.35668820343545343,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45809782778397967,
+          "silhouette": 0.35809782778397964,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4871587242022532,
+          "silhouette": 0.387966734242344,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579723,
+          "silhouette": 0.4173908675408851,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026347,
+          "silhouette": 0.3957631544525337,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668820343545424,
+          "silhouette": 0.3566882034354542,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4580978277839801,
+          "silhouette": 0.3580978277839801,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48715872420225304,
+          "silhouette": 0.38796673424234385,
+          "stability": 0.9919198995990919
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173473598579729,
+          "silhouette": 0.41739086754088567,
+          "stability": 0.9995649231708716
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4942344118026346,
+          "silhouette": 0.3957631544525335,
+          "stability": 0.9847125735010106
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "3": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4565650561437919,
+          "silhouette": 0.35694291943443596,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4583228221609753,
+          "silhouette": 0.3583228221609753,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546123,
+          "silhouette": 0.388195766157232,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.516695366815295,
+          "silhouette": 0.4171700568990901,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49560005828361486,
+          "silhouette": 0.3956728479136213,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4565650561437919,
+          "silhouette": 0.35694291943443596,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4583228221609753,
+          "silhouette": 0.3583228221609753,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546123,
+          "silhouette": 0.388195766157232,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.516695366815295,
+          "silhouette": 0.4171700568990901,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49560005828361486,
+          "silhouette": 0.3956728479136213,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45656505614379156,
+          "silhouette": 0.3569429194344356,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45832282216097464,
+          "silhouette": 0.3583228221609746,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546046,
+          "silhouette": 0.3881957661572312,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5166953668152945,
+          "silhouette": 0.41717005689908954,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4956000582836142,
+          "silhouette": 0.3956728479136206,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45656505614379334,
+          "silhouette": 0.3569429194344374,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4583228221609771,
+          "silhouette": 0.3583228221609771,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4876549448054627,
+          "silhouette": 0.38819576615723345,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5166953668152965,
+          "silhouette": 0.41717005689909153,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4956000582836158,
+          "silhouette": 0.3956728479136222,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4565650561437919,
+          "silhouette": 0.35694291943443596,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4583228221609753,
+          "silhouette": 0.3583228221609753,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546123,
+          "silhouette": 0.388195766157232,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.516695366815295,
+          "silhouette": 0.4171700568990901,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49560005828361486,
+          "silhouette": 0.3956728479136213,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4565650561437919,
+          "silhouette": 0.35694291943443596,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4583228221609753,
+          "silhouette": 0.3583228221609753,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546123,
+          "silhouette": 0.388195766157232,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.516695366815295,
+          "silhouette": 0.4171700568990901,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49560005828361486,
+          "silhouette": 0.3956728479136213,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45656505614379156,
+          "silhouette": 0.3569429194344356,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45832282216097464,
+          "silhouette": 0.3583228221609746,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546046,
+          "silhouette": 0.3881957661572312,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5166953668152945,
+          "silhouette": 0.41717005689908954,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4956000582836142,
+          "silhouette": 0.3956728479136206,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4565650561437919,
+          "silhouette": 0.35694291943443596,
+          "stability": 0.9962213670935594
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4583228221609753,
+          "silhouette": 0.3583228221609753,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48765494480546123,
+          "silhouette": 0.388195766157232,
+          "stability": 0.9945917864822925
+        },
+        {
+          "k": 5,
+          "selection_score": 0.516695366815295,
+          "silhouette": 0.4171700568990901,
+          "stability": 0.9952530991620493
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49560005828361486,
+          "silhouette": 0.3956728479136213,
+          "stability": 0.9992721036999356
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "4": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45649136349491304,
+          "silhouette": 0.35697698057730526,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4537304259364574,
+          "silhouette": 0.35769747877124836,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48746423143553813,
+          "silhouette": 0.3879052171632195,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348194,
+          "silhouette": 0.417161628451821,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49483577549671254,
+          "silhouette": 0.3954862133721581,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45649136349491304,
+          "silhouette": 0.35697698057730526,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4537304259364574,
+          "silhouette": 0.35769747877124836,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48746423143553813,
+          "silhouette": 0.3879052171632195,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348194,
+          "silhouette": 0.417161628451821,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49483577549671254,
+          "silhouette": 0.3954862133721581,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564913634949124,
+          "silhouette": 0.35697698057730465,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45373042593645657,
+          "silhouette": 0.3576974787712475,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4874642314355373,
+          "silhouette": 0.3879052171632187,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348188,
+          "silhouette": 0.4171616284518204,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.494835775496712,
+          "silhouette": 0.3954862133721575,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564913634949124,
+          "silhouette": 0.35697698057730465,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45373042593645657,
+          "silhouette": 0.3576974787712475,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4874642314355373,
+          "silhouette": 0.3879052171632187,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348188,
+          "silhouette": 0.4171616284518204,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.494835775496712,
+          "silhouette": 0.3954862133721575,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45649136349491304,
+          "silhouette": 0.35697698057730526,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4537304259364574,
+          "silhouette": 0.35769747877124836,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48746423143553813,
+          "silhouette": 0.3879052171632195,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348194,
+          "silhouette": 0.417161628451821,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49483577549671254,
+          "silhouette": 0.3954862133721581,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45649136349491304,
+          "silhouette": 0.35697698057730526,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4537304259364574,
+          "silhouette": 0.35769747877124836,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48746423143553813,
+          "silhouette": 0.3879052171632195,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348194,
+          "silhouette": 0.417161628451821,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49483577549671254,
+          "silhouette": 0.3954862133721581,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4564913634949124,
+          "silhouette": 0.35697698057730465,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45373042593645657,
+          "silhouette": 0.3576974787712475,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4874642314355373,
+          "silhouette": 0.3879052171632187,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348188,
+          "silhouette": 0.4171616284518204,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.494835775496712,
+          "silhouette": 0.3954862133721575,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45649136349491304,
+          "silhouette": 0.35697698057730526,
+          "stability": 0.9951438291760776
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4537304259364574,
+          "silhouette": 0.35769747877124836,
+          "stability": 0.9603294716520905
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48746423143553813,
+          "silhouette": 0.3879052171632195,
+          "stability": 0.9955901427231862
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5171066553348194,
+          "silhouette": 0.417161628451821,
+          "stability": 0.999450268829984
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49483577549671254,
+          "silhouette": 0.3954862133721581,
+          "stability": 0.9934956212455445
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "5": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45661231037698363,
+          "silhouette": 0.3566663563827481,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882779056,
+          "silhouette": 0.3563557315193803,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737604,
+          "silhouette": 0.3877991030115302,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728269,
+          "silhouette": 0.41693157889782,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791653,
+          "silhouette": 0.3953926331774738,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45661231037698363,
+          "silhouette": 0.3566663563827481,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882779056,
+          "silhouette": 0.3563557315193803,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737604,
+          "silhouette": 0.3877991030115302,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728269,
+          "silhouette": 0.41693157889782,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791653,
+          "silhouette": 0.3953926331774738,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4566123103769824,
+          "silhouette": 0.35666635638274685,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882778934,
+          "silhouette": 0.3563557315193791,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737595,
+          "silhouette": 0.38779910301152937,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728256,
+          "silhouette": 0.4169315788978188,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791603,
+          "silhouette": 0.3953926331774733,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4566123103769824,
+          "silhouette": 0.35666635638274685,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882778934,
+          "silhouette": 0.3563557315193791,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737595,
+          "silhouette": 0.38779910301152937,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728256,
+          "silhouette": 0.4169315788978188,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791603,
+          "silhouette": 0.3953926331774733,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45661231037698363,
+          "silhouette": 0.3566663563827481,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882779056,
+          "silhouette": 0.3563557315193803,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737604,
+          "silhouette": 0.3877991030115302,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728269,
+          "silhouette": 0.41693157889782,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791653,
+          "silhouette": 0.3953926331774738,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45661231037698363,
+          "silhouette": 0.3566663563827481,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882779056,
+          "silhouette": 0.3563557315193803,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737604,
+          "silhouette": 0.3877991030115302,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728269,
+          "silhouette": 0.41693157889782,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791653,
+          "silhouette": 0.3953926331774738,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4566123103769824,
+          "silhouette": 0.35666635638274685,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882778934,
+          "silhouette": 0.3563557315193791,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737595,
+          "silhouette": 0.38779910301152937,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728256,
+          "silhouette": 0.4169315788978188,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791603,
+          "silhouette": 0.3953926331774733,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45661231037698363,
+          "silhouette": 0.3566663563827481,
+          "stability": 0.9994595399423556
+        },
+        {
+          "k": 3,
+          "selection_score": 0.43622252882779056,
+          "silhouette": 0.3563557315193803,
+          "stability": 0.7986679730841025
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4867588512737604,
+          "silhouette": 0.3877991030115302,
+          "stability": 0.9895974826223016
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5165463690728269,
+          "silhouette": 0.41693157889782,
+          "stability": 0.9961479017500685
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49435662207791653,
+          "silhouette": 0.3953926331774738,
+          "stability": 0.9896398890044272
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "6": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655564,
+          "silhouette": 0.3571120665098771,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4582868854368044,
+          "silhouette": 0.35828688543680437,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.487747677606929,
+          "silhouette": 0.38822447971418095,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026953,
+          "silhouette": 0.4170866900907118,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887121,
+          "silhouette": 0.39551874832597433,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655564,
+          "silhouette": 0.3571120665098771,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4582868854368044,
+          "silhouette": 0.35828688543680437,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.487747677606929,
+          "silhouette": 0.38822447971418095,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026953,
+          "silhouette": 0.4170866900907118,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887121,
+          "silhouette": 0.39551874832597433,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655475,
+          "silhouette": 0.3571120665098762,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45828688543680296,
+          "silhouette": 0.3582868854368029,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48774767760692767,
+          "silhouette": 0.3882244797141796,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026942,
+          "silhouette": 0.4170866900907107,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887112,
+          "silhouette": 0.39551874832597345,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655497,
+          "silhouette": 0.3571120665098764,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45828688543680296,
+          "silhouette": 0.3582868854368029,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4877476776069274,
+          "silhouette": 0.38822447971417934,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026943,
+          "silhouette": 0.4170866900907108,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49478545798871093,
+          "silhouette": 0.39551874832597317,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655564,
+          "silhouette": 0.3571120665098771,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4582868854368044,
+          "silhouette": 0.35828688543680437,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.487747677606929,
+          "silhouette": 0.38822447971418095,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026953,
+          "silhouette": 0.4170866900907118,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887121,
+          "silhouette": 0.39551874832597433,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655564,
+          "silhouette": 0.3571120665098771,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4582868854368044,
+          "silhouette": 0.35828688543680437,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.487747677606929,
+          "silhouette": 0.38822447971418095,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026953,
+          "silhouette": 0.4170866900907118,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887121,
+          "silhouette": 0.39551874832597433,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655475,
+          "silhouette": 0.3571120665098762,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.45828688543680296,
+          "silhouette": 0.3582868854368029,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48774767760692767,
+          "silhouette": 0.3882244797141796,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026942,
+          "silhouette": 0.4170866900907107,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887112,
+          "silhouette": 0.39551874832597345,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45668031487655564,
+          "silhouette": 0.3571120665098771,
+          "stability": 0.9956824836667856
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4582868854368044,
+          "silhouette": 0.35828688543680437,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.487747677606929,
+          "silhouette": 0.38822447971418095,
+          "stability": 0.9952319789274805
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5164988456026953,
+          "silhouette": 0.4170866900907118,
+          "stability": 0.9941215551198347
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4947854579887121,
+          "silhouette": 0.39551874832597433,
+          "stability": 0.9926670966273777
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "7": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263797,
+          "silhouette": 0.3569215899482951,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987348,
+          "silhouette": 0.3581210576987348,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298846,
+          "silhouette": 0.3879457438986453,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827293,
+          "silhouette": 0.41718289111406176,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4945878607387203,
+          "silhouette": 0.3954347904957743,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263797,
+          "silhouette": 0.3569215899482951,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987348,
+          "silhouette": 0.3581210576987348,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298846,
+          "silhouette": 0.3879457438986453,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827293,
+          "silhouette": 0.41718289111406176,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4945878607387203,
+          "silhouette": 0.3954347904957743,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263785,
+          "silhouette": 0.35692158994829387,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987328,
+          "silhouette": 0.35812105769873276,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298635,
+          "silhouette": 0.38794574389864317,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827277,
+          "silhouette": 0.4171828911140602,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49458786073871885,
+          "silhouette": 0.39543479049577285,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263785,
+          "silhouette": 0.35692158994829387,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987328,
+          "silhouette": 0.35812105769873276,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298635,
+          "silhouette": 0.38794574389864317,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827277,
+          "silhouette": 0.4171828911140602,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49458786073871885,
+          "silhouette": 0.39543479049577285,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263797,
+          "silhouette": 0.3569215899482951,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987348,
+          "silhouette": 0.3581210576987348,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298846,
+          "silhouette": 0.3879457438986453,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827293,
+          "silhouette": 0.41718289111406176,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4945878607387203,
+          "silhouette": 0.3954347904957743,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263797,
+          "silhouette": 0.3569215899482951,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987348,
+          "silhouette": 0.3581210576987348,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298846,
+          "silhouette": 0.3879457438986453,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827293,
+          "silhouette": 0.41718289111406176,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4945878607387203,
+          "silhouette": 0.3954347904957743,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263785,
+          "silhouette": 0.35692158994829387,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987328,
+          "silhouette": 0.35812105769873276,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298635,
+          "silhouette": 0.38794574389864317,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827277,
+          "silhouette": 0.4171828911140602,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49458786073871885,
+          "silhouette": 0.39543479049577285,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4563821305263797,
+          "silhouette": 0.3569215899482951,
+          "stability": 0.9946054057808463
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4581210576987348,
+          "silhouette": 0.3581210576987348,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48782180656298846,
+          "silhouette": 0.3879457438986453,
+          "stability": 0.9987606266434318
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5168016178827293,
+          "silhouette": 0.41718289111406176,
+          "stability": 0.9961872676866745
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4945878607387203,
+          "silhouette": 0.3954347904957743,
+          "stability": 0.9915307024294598
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "8": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.458628209936066,
+          "silhouette": 0.358628209936066,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465494,
+          "silhouette": 0.3885586255903868,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875483,
+          "silhouette": 0.4177066583745835,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125325,
+          "silhouette": 0.396183917627501,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.458628209936066,
+          "silhouette": 0.358628209936066,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465494,
+          "silhouette": 0.3885586255903868,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875483,
+          "silhouette": 0.4177066583745835,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125325,
+          "silhouette": 0.396183917627501,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4586282099360658,
+          "silhouette": 0.3586282099360658,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465492,
+          "silhouette": 0.38855862559038656,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875482,
+          "silhouette": 0.41770665837458343,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125314,
+          "silhouette": 0.3961839176275009,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4586282099360658,
+          "silhouette": 0.3586282099360658,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465492,
+          "silhouette": 0.38855862559038656,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875482,
+          "silhouette": 0.41770665837458343,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125314,
+          "silhouette": 0.3961839176275009,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.458628209936066,
+          "silhouette": 0.358628209936066,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465494,
+          "silhouette": 0.3885586255903868,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875483,
+          "silhouette": 0.4177066583745835,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125325,
+          "silhouette": 0.396183917627501,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.458628209936066,
+          "silhouette": 0.358628209936066,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465494,
+          "silhouette": 0.3885586255903868,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875483,
+          "silhouette": 0.4177066583745835,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125325,
+          "silhouette": 0.396183917627501,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4586282099360658,
+          "silhouette": 0.3586282099360658,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465492,
+          "silhouette": 0.38855862559038656,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875482,
+          "silhouette": 0.41770665837458343,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125314,
+          "silhouette": 0.3961839176275009,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4575694369713895,
+          "silhouette": 0.35756943697138954,
+          "stability": 1.0
+        },
+        {
+          "k": 3,
+          "selection_score": 0.458628209936066,
+          "silhouette": 0.358628209936066,
+          "stability": 1.0
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4878782280465494,
+          "silhouette": 0.3885586255903868,
+          "stability": 0.9931960245616263
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5173721752875483,
+          "silhouette": 0.4177066583745835,
+          "stability": 0.9966551691296481
+        },
+        {
+          "k": 6,
+          "selection_score": 0.49501017474125325,
+          "silhouette": 0.396183917627501,
+          "stability": 0.9882625711375225
+        }
+      ],
+      "selected_k": 5
+    }
+  },
+  "9": {
+    "POD": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211969,
+          "silhouette": 0.3574782969316492,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571404,
+          "silhouette": 0.38876035303627443,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763366,
+          "silhouette": 0.4170850645596,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988784,
+          "silhouette": 0.39545424047040295,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "POD-E": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211969,
+          "silhouette": 0.3574782969316492,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571404,
+          "silhouette": 0.38876035303627443,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763366,
+          "silhouette": 0.4170850645596,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988784,
+          "silhouette": 0.39545424047040295,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_accuracy": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211959,
+          "silhouette": 0.3574782969316482,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571393,
+          "silhouette": 0.3887603530362733,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763356,
+          "silhouette": 0.41708506455959893,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988775,
+          "silhouette": 0.39545424047040206,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "final_pareto": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.45699273232119586,
+          "silhouette": 0.3574782969316481,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.44586094355901984,
+          "silhouette": 0.34849378890860255,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.48856277885713767,
+          "silhouette": 0.3887603530362717,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.516959590676335,
+          "silhouette": 0.41708506455959843,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988764,
+          "silhouette": 0.39545424047040095,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "hybrid": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211969,
+          "silhouette": 0.3574782969316492,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571404,
+          "silhouette": 0.38876035303627443,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763366,
+          "silhouette": 0.4170850645596,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988784,
+          "silhouette": 0.39545424047040295,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "original_tbmd": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211969,
+          "silhouette": 0.3574782969316492,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571404,
+          "silhouette": 0.38876035303627443,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763366,
+          "silhouette": 0.4170850645596,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988784,
+          "silhouette": 0.39545424047040295,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "property_decoupled": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211959,
+          "silhouette": 0.3574782969316482,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571393,
+          "silhouette": 0.3887603530362733,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763356,
+          "silhouette": 0.41708506455959893,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988775,
+          "silhouette": 0.39545424047040206,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    },
+    "rank_optimized_joint": {
+      "diagnostics": [
+        {
+          "k": 2,
+          "selection_score": 0.4569927323211969,
+          "silhouette": 0.3574782969316492,
+          "stability": 0.9951443538954775
+        },
+        {
+          "k": 3,
+          "selection_score": 0.4458609435590213,
+          "silhouette": 0.348493788908604,
+          "stability": 0.973671546504173
+        },
+        {
+          "k": 4,
+          "selection_score": 0.4885627788571404,
+          "silhouette": 0.38876035303627443,
+          "stability": 0.9980242582086595
+        },
+        {
+          "k": 5,
+          "selection_score": 0.5169595906763366,
+          "silhouette": 0.4170850645596,
+          "stability": 0.9987452611673661
+        },
+        {
+          "k": 6,
+          "selection_score": 0.4952040697988784,
+          "silhouette": 0.39545424047040295,
+          "stability": 0.9974982932847541
+        }
+      ],
+      "selected_k": 5
+    }
+  }
+}

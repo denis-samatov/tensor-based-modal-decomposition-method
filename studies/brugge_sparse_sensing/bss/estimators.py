@@ -3,6 +3,7 @@
 B_S : (m, r) measured rows of the basis; Y : (m, T) measurements (normalised scale).
 Return coefficients X : (r, T); the state is B @ X.
 """
+
 from __future__ import annotations
 
 import numpy as np
@@ -15,16 +16,27 @@ def least_squares(BS: np.ndarray, Y: np.ndarray, rcond: float = 1e-10) -> np.nda
     return X
 
 
-def l1_admm(BS: np.ndarray, Y: np.ndarray, epsilon=1e-2, delta=1.0, relax=0.95,
-            max_iter=5000, tol=1e-7) -> tuple[np.ndarray, int]:
+def ridge(BS: np.ndarray, Y: np.ndarray, alpha: float) -> np.ndarray:
+    """Ridge coefficients for ``0.5||BS x-y||² + 0.5 alpha ||x||²``."""
+    if alpha < 0:
+        raise ValueError("alpha must be non-negative")
+    gram = BS.T @ BS + alpha * np.eye(BS.shape[1])
+    return np.linalg.solve(gram, BS.T @ Y)
+
+
+def l1_admm(
+    BS: np.ndarray, Y: np.ndarray, epsilon=1e-2, delta=1.0, relax=0.95, max_iter=5000, tol=1e-7
+) -> tuple[np.ndarray, int]:
     """min_x  0.5 ||B_S x - y||^2 + epsilon ||x||_1  (TBMD compressive sensing objective),
-    solved by over-relaxed ADMM (Boyd et al., 2011) with a fixed penalty delta; vectorised over
+    solved by relaxed ADMM (Boyd et al., 2011) with a fixed penalty delta; vectorised over
     snapshots. The penalty schedule affects convergence speed only, not the minimiser."""
     r = BS.shape[1]
     T = Y.shape[1]
     L = sla.cho_factor(BS.T @ BS + delta * np.eye(r))
     AtY = BS.T @ Y
-    x = np.zeros((r, T)); d = np.zeros((r, T)); p = np.zeros((r, T))
+    x = np.zeros((r, T))
+    d = np.zeros((r, T))
+    p = np.zeros((r, T))
     kappa = epsilon / delta
     it = 0
     for it in range(1, max_iter + 1):
@@ -42,13 +54,55 @@ def l1_admm(BS: np.ndarray, Y: np.ndarray, epsilon=1e-2, delta=1.0, relax=0.95,
     return d, it
 
 
+def elastic_net_admm(
+    BS: np.ndarray,
+    Y: np.ndarray,
+    l1: float,
+    l2: float,
+    delta: float = 1.0,
+    relax: float = 1.0,
+    max_iter: int = 5000,
+    tol: float = 1e-7,
+) -> tuple[np.ndarray, int]:
+    """Elastic-net coefficients, vectorised over snapshots, solved by ADMM."""
+    if min(l1, l2) < 0 or delta <= 0:
+        raise ValueError("l1/l2 must be non-negative and delta must be positive")
+    r = BS.shape[1]
+    factor = sla.cho_factor(BS.T @ BS + (l2 + delta) * np.eye(r))
+    aty = BS.T @ Y
+    x = np.zeros((r, Y.shape[1]))
+    z = np.zeros_like(x)
+    dual = np.zeros_like(x)
+    threshold = l1 / delta
+    iteration = 0
+    for iteration in range(1, max_iter + 1):
+        x = sla.cho_solve(factor, aty + delta * (z - dual))
+        relaxed = relax * x + (1.0 - relax) * z
+        previous = z
+        shifted = relaxed + dual
+        z = np.sign(shifted) * np.maximum(np.abs(shifted) - threshold, 0.0)
+        dual = dual + relaxed - z
+        if iteration % 10 == 0:
+            primal_residual = np.linalg.norm(x - z, axis=0).max()
+            dual_residual = delta * np.linalg.norm(z - previous, axis=0).max()
+            if max(primal_residual, dual_residual) < tol:
+                break
+    return z, iteration
+
+
 def lasso_objective(BS, Y, X, epsilon):
     R = BS @ X - Y
     return 0.5 * np.sum(R**2, axis=0) + epsilon * np.sum(np.abs(X), axis=0)
 
 
-def idw_residual(prior: np.ndarray, rows: np.ndarray, Y: np.ndarray, xy: np.ndarray,
-                 n_active: int, power: float = 2.0) -> np.ndarray:
+def idw_residual(
+    prior: np.ndarray,
+    rows: np.ndarray,
+    Y: np.ndarray,
+    xy: np.ndarray,
+    n_active: int,
+    power: float = 2.0,
+) -> np.ndarray:
     """prior (2n, T) normalised; rows are stacked indices of measured channels; Y (m, T).
     The residual y - prior is interpolated per property by inverse-distance weighting in the
     grid-index plane; properties without measurements keep the prior."""
@@ -64,5 +118,5 @@ def idw_residual(prior: np.ndarray, rows: np.ndarray, Y: np.ndarray, xy: np.ndar
         exact = dist < 1e-9
         w[exact.any(axis=1)] = exact[exact.any(axis=1)].astype(float)
         w /= w.sum(axis=1, keepdims=True)
-        out[k * n_active:(k + 1) * n_active] += w @ res
+        out[k * n_active : (k + 1) * n_active] += w @ res
     return out

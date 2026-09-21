@@ -1,0 +1,138 @@
+{
+  "canonical_rows": 2080,
+  "identity_mismatches": {
+    "architecture": 0,
+    "candidate": 0,
+    "capacity_regime": 0,
+    "geometry": 0,
+    "order": 0,
+    "pair_3d_variant": 0,
+    "pair_4d_variant": 0,
+    "pair_role": 0,
+    "preprocessing": 0,
+    "property_weights": 0,
+    "solver": 0,
+    "spatial_ranks": 0,
+    "variant": 0
+  },
+  "numeric_comparisons": {
+    "anomaly_relative_frobenius_p": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "anomaly_relative_frobenius_so": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "anomaly_ssim_p": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "anomaly_ssim_so": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "budget": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "channels": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "coefficient_budget": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "condition_number": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "iterations": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "outer_fold": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "pair_inner_loss": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "property_rank": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "relative_frobenius_p": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "relative_frobenius_so": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "rmse_p": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "rmse_so": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "selection_loss": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "ssim_p": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "ssim_so": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "storage_floats": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "test_run": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "train_range_nrmse_p": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    },
+    "train_range_nrmse_so": {
+      "atol": 1e-10,
+      "matches": true,
+      "max_absolute_difference": 0.0
+    }
+  },
+  "reproduced_rows": 2080,
+  "runtime_columns_compared": false,
+  "status": "pass"
+}

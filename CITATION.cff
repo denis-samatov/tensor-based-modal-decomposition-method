@@ -2,17 +2,17 @@ cff-version: 1.2.0
 message: "If you use this software, please cite both the software and the paper below."
 title: "TBMD: Tensor-Based Modal Decomposition Method"
 type: software
-version: 2.1.0
-date-released: "2026-09-17"
+version: 2.2.0
 license: MIT
-doi: "10.5281/zenodo.22814377"
 repository-code: "https://github.com/denis-samatov/tensor-based-modal-decomposition-method"
+# Prepared version: no release date or DOI is asserted before archival publication.
 abstract: >-
-  Python library for tensor-based modal decomposition, sparse sensor placement and field
-  reconstruction. Release 2.1.0 adds the Brugge sparse-sensing study package
-  (studies/brugge_sparse_sensing) that generates every number, table and figure of the manuscript
-  "Sparse-sensor reconstruction of reservoir states with tensor-based and matrix modal bases: a
-  reproducible benchmark on the Brugge model". The Brugge simulation inputs are not included.
+  Python research library and Brugge benchmark for tensor-based modal decomposition,
+  sparse sensing and field reconstruction. Version 2.2.0 includes nested optimization,
+  matched independent-3D/joint-4D E9 comparisons, frozen selections, stored derived results,
+  environment lock, claim checks and generators for the current manuscript.
+  Restricted simulation inputs are not included. The earlier v2.1.0 DOI does not identify
+  this revision.
 keywords:
   - reservoir monitoring
   - sensor placement
@@ -22,12 +22,15 @@ keywords:
 authors:
   - family-names: Samatov
     given-names: Denis
+    orcid: "https://orcid.org/0009-0000-1821-323X"
     affiliation: National Research Tomsk Polytechnic University
   - family-names: Merzlikin
     given-names: Boris
+    orcid: "https://orcid.org/0000-0001-8545-9491"
     affiliation: National Research Tomsk Polytechnic University
   - family-names: Shishaev
     given-names: Gleb
+    orcid: "https://orcid.org/0000-0003-2387-9217"
     affiliation: National Research Tomsk Polytechnic University
 preferred-citation:
   type: article
@@ -45,5 +48,5 @@ preferred-citation:
   identifiers:
     - type: other
       value: "arXiv:2607.09687"
-      description: "arXiv preprint"
+      description: "Public arXiv v1; superseded by the locally revised manuscript pending author-approved replacement"
   url: "https://arxiv.org/abs/2607.09687"

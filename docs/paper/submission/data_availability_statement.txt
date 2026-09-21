@@ -1,0 +1,10 @@
+Data availability
+
+The t-Navigator simulations analysed in this study are represented by two supplied, transformed inputs for ten Brugge well-control scenarios: data_exp_4_.h5 (pressure and oil-saturation arrays) and all_wells_exp_4.json (well coordinates). The current archive contains neither the original simulator deck nor the exporter and vertical-reduction configuration; consequently, the path from the original Brugge model to these HDF5 arrays is not reproducible from the archive. The HDF5 file has no unit attributes, so pressure values are reported without conversion in the supplied export unit u_p.
+
+The transformed data supporting the findings of this study are available from the corresponding author upon reasonable request, subject to the applicable data-use and access conditions. The files are not distributed under an open licence or under the code repository's MIT licence and are excluded from the public release candidate.
+
+The input identities are fixed by SHA-256 and verified before computation:
+  data_exp_4_.h5        141,982,268 bytes  SHA-256 d55ae5e5f6a45167b67251ab21af6b864334a97c68051754f50dc7566813227e
+  all_wells_exp_4.json  3,151 bytes        SHA-256 e3b8c99688efcbff4d41ba36b9714f6a32cf0d23df3933465b20387af8e425e7
+The reviewed release candidate contains the fold-level performance metrics, statistics, tables, number macros and figures needed to check the article. The existing v2.1.0 archive predates E8 and V3; the present revision is prepared locally for archival as v2.2.0. The transformed input files cannot be deposited publicly because of institutional access conditions. Requests should be directed to the corresponding author and will be considered under those conditions.

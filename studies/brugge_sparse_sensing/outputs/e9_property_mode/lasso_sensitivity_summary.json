@@ -1,0 +1,9 @@
+{
+  "records": 320,
+  "paired_comparisons": 160,
+  "fixed_lambda": 0.001,
+  "max_iter": 20000,
+  "convergence_cap_hits": 50,
+  "median_iterations": 3605.0,
+  "selection_use": "sensitivity_only_not_used_for_model_selection"
+}

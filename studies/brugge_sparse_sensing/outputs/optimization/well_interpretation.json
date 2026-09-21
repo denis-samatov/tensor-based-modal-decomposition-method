@@ -1,0 +1,21 @@
+{
+  "all_wells_pressure_variability_mean": 4.074122258618992,
+  "all_wells_saturation_variability_mean": 0.006500712367647873,
+  "method": "final_accuracy",
+  "placement": "condition_pressure",
+  "rank_pressure_variability_correlation": -0.6241105294240732,
+  "top_ten_configured_well_indices": [
+    18,
+    14,
+    21,
+    20,
+    12,
+    26,
+    17,
+    29,
+    13,
+    9
+  ],
+  "top_ten_pressure_variability_mean": 5.0252571010909834,
+  "top_ten_saturation_variability_mean": 0.005622013170842219
+}
