@@ -1,0 +1,352 @@
+{
+  "synthetic_checks": "PASS",
+  "real_fold_partition_and_scaling_checks": "PASS",
+  "public_library_is_authors_implementation_not_Zhong_reference_code": true,
+  "rank_deficient_tbmd_pode_rotation_invariance": "PASS",
+  "rank_deficient_pod_pode_equivalence_counterexample": "PASS",
+  "max_explicit_contraction_difference": 2.220446049250313e-15,
+  "max_public_contraction_difference": 2.220446049250313e-15,
+  "active_cells": 4950,
+  "shapes": [
+    {
+      "fold": "P1-run1",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run2",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run3",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run4",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run5",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run6",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run7",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run8",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run9",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P1-run10",
+      "train": [
+        9900,
+        106
+      ],
+      "test": [
+        9900,
+        27
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        106
+      ]
+    },
+    {
+      "fold": "P2-run1",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run2",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run3",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run4",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run5",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run6",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run7",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run8",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run9",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    },
+    {
+      "fold": "P2-run10",
+      "train": [
+        9900,
+        1197
+      ],
+      "test": [
+        9900,
+        133
+      ],
+      "grid": [
+        139,
+        48,
+        2,
+        1197
+      ]
+    }
+  ]
+}

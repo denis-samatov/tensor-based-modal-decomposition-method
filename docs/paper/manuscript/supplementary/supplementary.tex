@@ -1,0 +1,49 @@
+\documentclass[preprint,12pt]{elsarticle}
+\biboptions{numbers,sort&compress}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage[htt]{hyphenat}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{siunitx}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{../}}
+\input{../../../../studies/brugge_sparse_sensing/outputs/numbers.tex}
+\input{../../../../studies/brugge_sparse_sensing/outputs/optimization/optimization_numbers.tex}
+\input{../../../../studies/brugge_sparse_sensing/outputs/e9_property_mode/e9_numbers.tex}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thealgorithm}{S\arabic{algorithm}}
+% Layout: allow slightly looser lines instead of overfull boxes; drop the elsarticle
+% "Preprint submitted to" first-page footer, which collides with the corresponding-author footnote.
+\setlength{\emergencystretch}{2em}
+\makeatletter
+\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty\let\@oddfoot\@empty\let\@evenfoot\@empty}
+\makeatother
+\journal{Applied Computing and Geosciences}
+\begin{document}
+\begin{frontmatter}
+\title{Supplementary material for ``Nested optimization of tensor-based modal decomposition for sparse reservoir-state reconstruction: accuracy--compression regimes on Brugge''}
+\author{Denis Samatov, Boris Merzlikin, Gleb Shishaev}
+\end{frontmatter}
+\input{S1_data.tex}
+\input{S2_audit.tex}
+\input{S3_algorithms.tex}
+\input{S4_results.tex}
+\input{S5_novelty.tex}
+\input{S6_reproducibility.tex}
+\input{S7_optimization.tex}
+\input{S8_e9.tex}
+\input{S9_legacy.tex}
+\clearpage
+\bibliographystyle{elsarticle-num}
+\bibliography{../references}
+\end{document}

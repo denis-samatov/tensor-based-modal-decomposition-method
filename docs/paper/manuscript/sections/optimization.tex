@@ -1,0 +1,16 @@
+\section{Nested TBMD optimization and Pareto regimes}
+\label{sec:optimization}
+Train-only rank selection reduces the original full-state pressure and saturation RMSE from \OptRepOriginalPressure/\allowbreak\OptRepOriginalSaturation{} to \OptRepJointPressure/\allowbreak\OptRepJointSaturation{} for joint ranks $(80,48,2,32)$. Independent property factors yield a lower equal-property normalized objective, but POD-E remains better for pressure alone. The accuracy and compression TBMD representations store \OptAccuracyCompression{} and \OptCompressionCompression{} times fewer values than rank-32 POD-E. Detailed rank, conditioning and ablation curves are in Supplementary Section~S7.
+
+At all 30 existing joint wells, POD-E retains the lowest pressure and saturation errors (Table~\ref{tab:optimization_main}). Optimizing recovery on the original basis cannot remove its representation floor. Independent property models become poorly conditioned under sparse joint-well sensing, so their full-observation advantage does not imply a sparse advantage. Pressure-only measurements favour TBMD for pressure (\OptPressureWellThirtyCompressionPressure{} versus \OptPressureWellThirtyPodePressure{} $u_p$), while the independent saturation coefficients remain unobserved.
+
+\input{../../../studies/brugge_sparse_sensing/outputs/optimization/tab_optimization_main.tex}
+
+At 100 grid channels, optimized independent TBMD lowers the normalized joint error to \OptGridHundredAccuracyJoint{} from POD-E's \OptGridHundredPodeJoint. At 300 channels, the compressed model reaches \OptGridThreeHundredCompressionJoint{} versus \OptGridThreeHundredPodeJoint, with a lower joint objective in all ten folds. Pressure error remains higher; the gain is driven by saturation. Thus POD-E is preferred for existing joint wells and pressure accuracy, while TBMD offers a conditional accuracy--storage trade-off (Fig.~\ref{fig:opt_pareto}). Corrected cluster-constrained placement and all candidate baselines remain in the supplementary registry; clustering does not improve the 30-channel comparison.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{../../../studies/brugge_sparse_sensing/figures/fig14_pareto.pdf}
+\caption{Accuracy--storage--well-budget map. Marker size increases with well budget; the dashed envelope contains nondominated mean points within the joint-well regime.}
+\label{fig:opt_pareto}
+\end{figure}

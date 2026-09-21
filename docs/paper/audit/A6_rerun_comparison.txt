@@ -1,0 +1,15 @@
+macros compared: 873; identical: 868; timing macros differing: 5; non-timing differing: 0
+  timing CostBlockDg: manuscript=3.2 rerun=3.0
+  timing CostPodSvd: manuscript=1.18 rerun=1.22
+  timing CostQr: manuscript=2.1 rerun=2.0
+  timing CostSynth: manuscript=4.8 rerun=4.7
+  timing CostTucker: manuscript=8.9 rerun=8.7
+e2_summary.csv: rows=98240, numeric cols=12, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+e1_representation.csv: rows=420, numeric cols=9, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+e3_noise.csv: rows=16820, numeric cols=6, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+e4_l1_sensitivity.csv: rows=900, numeric cols=5, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+e5_stability.csv: rows=60, numeric cols=7, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+e7_spatial_structure.csv: rows=10, numeric cols=7, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+stats_wilcoxon.csv: rows=64, numeric cols=6, max rel diff=0.00e+00, entries rel diff>1e-9: 0
+e0_cluster_table.csv: rows=5, numeric cols=7, max rel diff=5.66e-02, entries rel diff>1e-9: 9
+e0_archived_pressure_wells.csv: rows=30, numeric cols=15, max rel diff=6.62e-03, entries rel diff>1e-9: 360

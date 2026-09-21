@@ -2,7 +2,7 @@
 
 Selected designs: grid QR (per basis) at N = 30 channels, wells-joint DG (per basis) and the
 configured order at N = 10 and N = 30 wells. Gaussian noise with standard deviation
-(sigma_p [bar], sigma_So [-]) in {(0,0), (0.1,0.005), (0.5,0.01), (1,0.02), (2,0.05)} is added to
+(sigma_p [u_p], sigma_So [-]) in {(0,0), (0.1,0.005), (0.5,0.01), (1,0.02), (2,0.05)} is added to
 pressure and oil-saturation measurements respectively; 10 draws per level.
 Output: outputs/e3_noise.csv
 """

@@ -1,5 +1,6 @@
 """E0b -- Provenance check of Supplementary Table S1 (cluster diagnostic) and of the
-joint-tensor Tucker ranks, re-executing exp_tbmd_2.3_probability.ipynb logic with the
+joint-tensor Tucker ranks, re-executing archived exp_tbmd_2.3_probability.ipynb configuration
+(docs/paper/audit/historical_notebooks.zip; hashes in MANIFEST.json) with the
 public TBMD library. Output: outputs/e0_cluster_table.csv, outputs/e0_joint_ranks.json"""
 import json
 from pathlib import Path

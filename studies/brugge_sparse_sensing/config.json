@@ -1,6 +1,12 @@
 {
   "dataset": "data_exp_4_.h5",
   "wells": "all_wells_exp_4.json",
+  "provenance": {
+    "simulator": "t-Navigator",
+    "simulator_version": null,
+    "simulator_to_hdf5_exporter": null,
+    "vertical_reduction_rule": null
+  },
   "train_fraction_p1": 0.8,
   "energy_threshold": 0.999999,
   "tbmd_spatial_ranks": [48, 48, 2],
@@ -11,10 +17,49 @@
   "grid_budgets": [2, 5, 10, 16, 20, 30, 50, 75, 100, 150, 200, 300],
   "well_budgets": [1, 2, 3, 5, 7, 10, 15, 20, 25, 30],
   "random_seeds": 20,
-  "noise_pressure_bar": [0.0, 0.1, 0.5, 1.0, 2.0],
+  "noise_pressure_export_units": [0.0, 0.1, 0.5, 1.0, 2.0],
   "noise_draws": 10,
   "rank_sweep": [2, 5, 10, 16, 20, 30, 50],
   "spatial_rank_sweep": [12, 24, 48, 96, 139],
   "l1_epsilon_sweep": [0.0001, 0.001, 0.01, 0.1],
-  "master_seed": 20260917
+  "master_seed": 20260917,
+  "optimization": {
+    "protocol": "leave-one-scenario-out",
+    "inner_splits": 3,
+    "selection_objective": "equal_property_rmse_relative_to_training_ensemble_prior",
+    "compression_tolerance": 0.05,
+    "scaling_methods": ["none", "minmax", "standard", "rms"],
+    "property_weights": [0.25, 0.5, 1.0, 2.0, 4.0],
+    "joint_spatial_ranks": [[32, 24], [48, 32], [48, 48], [64, 48], [80, 48], [96, 48], [139, 48]],
+    "modal_ranks": [8, 16, 24, 32],
+    "property_ranks": [1, 2],
+    "independent_spatial_ranks": [[48, 48], [64, 48], [80, 48]],
+    "property_modal_ranks": [[8, 8], [12, 12], [16, 16]],
+    "residual_ranks": [4, 8],
+    "energy_candidates": [0.99, 0.999, 0.9999],
+    "max_modal_rank": 64,
+    "well_budgets": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    "grid_budgets": [2, 5, 10, 16, 20, 30, 50, 75, 100, 150, 200, 300],
+    "solver_candidates": [
+      {"name": "least_squares", "rcond": 1e-10},
+      {"name": "ridge", "alpha_relative": 1e-8},
+      {"name": "ridge", "alpha_relative": 1e-6},
+      {"name": "ridge", "alpha_relative": 1e-4},
+      {"name": "ridge", "alpha_relative": 1e-2},
+      {"name": "lasso", "l1": 0.0001},
+      {"name": "lasso", "l1": 0.001},
+      {"name": "lasso", "l1": 0.01},
+      {"name": "elastic_net", "l1": 0.001, "l2_relative": 1e-6},
+      {"name": "elastic_net", "l1": 0.001, "l2_relative": 0.0001}
+    ],
+    "placement_candidates": {
+      "well": ["configured", "dg_joint", "condition_joint", "dg_pressure", "condition_pressure"],
+      "grid": ["qr_joint", "qr_whitened", "condition_joint", "cluster_constrained", "well_region"]
+    },
+    "cluster_k": [2, 3, 4, 5, 6],
+    "cluster_seeds": [20260917, 20260918, 20260919],
+    "random_placement_seeds": 20,
+    "condition_weight": 0.1,
+    "randomized_svd_iterations": 6
+  }
 }

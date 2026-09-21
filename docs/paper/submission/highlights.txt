@@ -1,0 +1,5 @@
+Nested tuning separates tensor truncation from sparse-recovery error
+Shared spatial factors help when property coefficients remain independent
+Matched 3D–4D comparisons retain negative and metric-dependent results
+POD-E retains the lowest errors at all existing joint-property wells
+Tensor models offer conditional accuracy and storage trade-offs

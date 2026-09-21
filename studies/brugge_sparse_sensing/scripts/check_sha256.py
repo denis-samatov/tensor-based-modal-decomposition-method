@@ -5,7 +5,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-listing = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "SHA256SUMS")
+if "--write" in sys.argv:
+    paths = [p for p in (ROOT / "outputs").rglob("*") if p.is_file()
+             and not any(part in {"parts", "reproduction", "e9_reproduction", "__pycache__"} for part in p.relative_to(ROOT / "outputs").parts)
+             and p.suffix in {".csv", ".gz", ".json", ".npz", ".tex"}]
+    paths += list((ROOT / "figures").glob("*.pdf"))
+    (ROOT / "SHA256SUMS").write_text("".join(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(ROOT)}\n" for p in sorted(paths)))
+listing = ROOT / (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] != "--write" else "SHA256SUMS")
 n_ok, bad = 0, []
 for line in listing.read_text().splitlines():
     expected, name = line.split(maxsplit=1)

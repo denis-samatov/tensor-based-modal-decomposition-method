@@ -1,7 +1,7 @@
 """All manuscript and supplementary figures, generated from outputs/*.csv and the raw data.
 Palette (validated for CVD separation and contrast): blue #0072B2, vermillion #D55E00,
 green #009E73, magenta #AA3377, olive #8C6D00; no-measurement references in dashed grey.
-Output: figures/*.pdf (vector) and figures/*.png (300 dpi previews)."""
+Output: figures/*.pdf (vector text/lines, 600 dpi raster maps) and 300 dpi PNG previews."""
 import json
 import sys
 from pathlib import Path
@@ -38,7 +38,7 @@ def logx_ticks(a, ticks):
 
 
 def save(fig, name):
-    fig.savefig(FIG / f"{name}.pdf")
+    fig.savefig(FIG / f"{name}.pdf", dpi=600)
     fig.savefig(FIG / f"{name}.png", dpi=300)
     plt.close(fig)
     print("wrote", name)
@@ -65,11 +65,11 @@ for r in range(b.n_runs):
     ax[0].plot(t, P[r].mean(0), color="#0072B2", lw=0.8, alpha=0.7)
 ax[0].axvline(man["p1_train_snapshots"] - 0.5, color=GREY, ls="--", lw=0.8)
 ax[0].text(man["p1_train_snapshots"] - 2, 168.5, "P1 hold-out", fontsize=6.5, color=GREY, ha="right")
-ax[0].set(xlabel="Snapshot index", ylabel="Field-mean pressure (bar)", title="(a) Ten control scenarios")
+ax[0].set(xlabel="Snapshot index", ylabel="Field-mean pressure ($u_p$)", title="(a) Ten control scenarios")
 ax[1].plot(t, man["cross_run_pressure_sd_bar_mean_over_cells_by_time"], color="#0072B2", label="Cross-scenario SD")
 lead = np.arange(man["p1_train_snapshots"], b.T)
 ax[1].plot(lead, man["p1_persistence_pressure_rmse_bar_mean_over_runs_by_lead"], color="#D55E00", ls="-", label="P1 persistence RMSE")
-ax[1].set(xlabel="Snapshot index", ylabel="Pressure (bar)", title="(b) Scenario spread vs. persistence")
+ax[1].set(xlabel="Snapshot index", ylabel="Pressure ($u_p$)", title="(b) Scenario spread vs. persistence")
 ax[1].legend(frameon=False, loc="center right")
 im = ax[2].imshow(grid_img(P[0].std(axis=1)), origin="lower", cmap="cividis", aspect="auto")
 ax[2].scatter(b.wells[:, 0], b.wells[:, 1], s=10, facecolor="white", edgecolor="black", lw=0.5)
@@ -77,7 +77,7 @@ for q, (i, j) in enumerate(b.wells):
     ax[2].annotate(str(q + 1), (i, j), xytext=(2, 2), textcoords="offset points", fontsize=5)
 ax[2].set(xlabel="Grid index i", ylabel="Grid index j", title="(c) Temporal SD of pressure, scenario 1")
 ax[2].grid(False)
-fig.colorbar(im, ax=ax[2], label="bar", fraction=0.04, pad=0.02)
+fig.colorbar(im, ax=ax[2], label="$u_p$", fraction=0.04, pad=0.02)
 fig.tight_layout()
 save(fig, "fig2_data_context")
 
@@ -92,7 +92,7 @@ for k, p in enumerate(("P1", "P2")):
                        label="POD / POD-E" if basis == "POD" else "TBMD, $R_1{=}R_2{=}48$")
     pr = q[q.basis == "prior"].rmse_p.mean()
     ax[k].axhline(pr, color=GREY, ls="--", lw=1, label="persistence" if p == "P1" else "ensemble mean")
-    ax[k].set(xscale="log", yscale="log", xlabel="Dictionary depth r", ylabel="Oracle pressure RMSE (bar)",
+    ax[k].set(xscale="log", yscale="log", xlabel="Dictionary depth r", ylabel="Oracle pressure RMSE ($u_p$)",
               title=f"({'ab'[k]}) Full-field projection, {p}")
     logx_ticks(ax[k], [2, 5, 10, 20, 50])
     ax[k].legend(frameon=False, loc="lower left")
@@ -103,7 +103,7 @@ for p, col, mk in (("P1", "#009E73", "^"), ("P2", "#AA3377", "D")):
     pod = pod[pod.r == pod.r_energy].rmse_p.mean()
     ax[2].axhline(pod, color=col, ls=":", lw=1)
 ax[2].set(xscale="log", yscale="log", xlabel="Spatial Tucker rank $R_1$ ($R_2=\\min(R_1,48)$)",
-          ylabel="Oracle pressure RMSE (bar)", title="(c) Effect of spatial truncation, $r=r_E$")
+          ylabel="Oracle pressure RMSE ($u_p$)", title="(c) Effect of spatial truncation, $r=r_E$")
 logx_ticks(ax[2], [12, 24, 48, 96, 139])
 ax[2].legend(frameon=False, title="dotted: POD at $r_E$", title_fontsize=6.5, loc="upper right")
 fig.tight_layout()
@@ -148,7 +148,7 @@ for row, p in enumerate(("P2", "P1")):
             a.annotate(f"r = {r}", (r, 0.011), xytext=(3, 0), textcoords="offset points", fontsize=6.5, color=GREY)
         a.set(xscale="log", yscale="log", ylim=(0.008, 60),
               xlabel="Selected channels N" if sensing == "grid" else "Instrumented wells N (p and $S_o$)",
-              ylabel="Pressure RMSE (bar)", title=f"({'abcd'[2*row+col]}) {p}, {'grid-wide channels' if sensing=='grid' else 'existing wells'}")
+              ylabel="Pressure RMSE ($u_p$)", title=f"({'abcd'[2*row+col]}) {p}, {'grid-wide channels' if sensing=='grid' else 'existing wells'}")
 fig.tight_layout(rect=(0, 0.13, 1, 1))
 fig.legend(list(handles.values()), list(handles.keys()), loc="lower center", ncol=2, frameon=False, fontsize=7)
 save(fig, "fig4_budget_curves")
@@ -157,14 +157,16 @@ save(fig, "fig4_budget_curves")
 s = pd.read_csv(OUT / "e2_snapshots.csv.gz")
 s = s[(s.protocol == "P2")]
 fig, ax = plt.subplots(1, 2, figsize=(7.2, 2.3))
-for k, (metric, lab) in enumerate((("rmse_p", "Pressure RMSE (bar)"), ("rmse_so", "Oil-saturation RMSE (–)"))):
+for k, (metric, lab) in enumerate((("rmse_p", "Pressure RMSE ($u_p$)"), ("rmse_so", "Oil-saturation RMSE (–)"))):
     for sel, colr, ls, name in (((s.estimator == "prior"), GREY, "--", "ensemble mean (no data)"),
                                 ((s.sensing == "wells-joint") & (s.N == 10) & (s.placement == "DG-POD-E") & (s.estimator == "L1"), "#009E73", "-", "10 wells, POD-E $\\ell_1$"),
                                 ((s.sensing == "wells-joint") & (s.N == 10) & (s.placement == "DG-POD-E") & (s.estimator == "LS") & (s.basis == "POD-E"), "#0072B2", ":", "10 wells, POD-E LS"),
                                 ((s.sensing == "wells-joint") & (s.N == 10) & (s.placement == "DG-POD-E") & (s.estimator == "IDW"), "#AA3377", "-.", "10 wells, prior + IDW"),
                                 ((s.sensing == "wells-joint") & (s.N == 10) & (s.placement == "DG-TBMD") & (s.estimator == "L1"), "#D55E00", "-", "10 wells, TBMD $\\ell_1$")):
         g = s[sel].groupby("time_index")[metric].median()
-        ax[k].plot(g.index, g.values, color=colr, ls=ls, label=name)
+        ax[k].plot(g.index, g.values, color=colr, ls=ls, label=name,
+                   marker=("s" if "TBMD" in name else "o") if ls == "-" else None,
+                   markevery=12, markersize=3)
     ax[k].set(yscale="log", xlabel="Snapshot index", ylabel=lab, title=f"({'ab'[k]}) P2, median over held-out scenarios",
               ylim=((0.05, 3) if metric == "rmse_p" else (1e-4, 2e-2)), xlim=(-2, 134))
 h, l = ax[0].get_legend_handles_labels()
@@ -187,8 +189,8 @@ for k, N in enumerate((10, 30)):
         x = m.index.to_numpy() + 0.02
         ax[k].errorbar(x, m, yerr=[m - lo, hi - m], color=colr, marker=mk, capsize=2, label=lab)
     ax[k].axhline(e3[e3.estimator == "prior"].rmse_p.median(), color=GREY, ls="--", lw=1, label="ensemble mean")
-    ax[k].set(xscale="log", yscale="log", xlabel="Pressure noise SD $\\sigma_p$ (bar), offset +0.02",
-              ylabel="Pressure RMSE (bar)", title=f"({'ab'[k]}) {N} DG-selected wells, P2")
+    ax[k].set(xscale="log", yscale="log", xlabel="Pressure noise SD $\\sigma_p$ ($u_p$), offset +0.02",
+              ylabel="Pressure RMSE ($u_p$)", title=f"({'ab'[k]}) {N} DG-selected wells, P2")
 ax[0].legend(frameon=False, fontsize=6)
 fig.tight_layout()
 save(fig, "fig6_noise")
@@ -197,8 +199,8 @@ save(fig, "fig6_noise")
 z = np.load(OUT / "e5_selection_frequency.npz")
 wr = pd.read_csv(OUT / "e5_well_ranks.csv")
 fig, ax = plt.subplots(2, 1, figsize=(7.2, 5.0))
-tsd_bar = b.fields[:, 0].std(axis=2).mean(axis=0)  # temporal SD of pressure (bar), mean over scenarios
-im = ax[0].imshow(grid_img(tsd_bar), origin="lower", cmap="Greys", aspect="auto", alpha=0.8)
+tsd_p = b.fields[:, 0].std(axis=2).mean(axis=0)  # pressure temporal SD in supplied export units
+im = ax[0].imshow(grid_img(tsd_p), origin="lower", cmap="Greys", aspect="auto", alpha=0.8)
 F = z["POD_E"]
 for k, (mk, colr, lab) in enumerate((("o", "#0072B2", "pressure channel"), ("^", "#D55E00", "$S_o$ channel"))):
     idx = np.flatnonzero(F[k] > 0)
@@ -209,10 +211,10 @@ ax[0].set(xlabel="Grid index i", ylabel="Grid index j",
           title="(a) QR selections (POD-E, N=50); marker size = selection frequency over 10 leave-one-out bases")
 ax[0].legend(frameon=False, fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.22), ncol=3)
 ax[0].grid(False)
-fig.colorbar(im, ax=ax[0], label="pressure temporal SD (bar)", fraction=0.03, pad=0.01)
+fig.colorbar(im, ax=ax[0], label="pressure temporal SD ($u_p$)", fraction=0.03, pad=0.01)
 R = wr[wr.basis == "POD-E"][[f"rank_w{i+1}" for i in range(30)]].to_numpy() + 1
 med = np.median(R, axis=0)
-im2 = ax[1].imshow(grid_img(tsd_bar), origin="lower", cmap="Greys", aspect="auto", alpha=0.8)
+im2 = ax[1].imshow(grid_img(tsd_p), origin="lower", cmap="Greys", aspect="auto", alpha=0.8)
 sc = ax[1].scatter(b.wells[:, 0], b.wells[:, 1], c=med, cmap="viridis_r", s=40, edgecolor="black", lw=0.4, vmin=1, vmax=30)
 for q, (i, j) in enumerate(b.wells):
     ax[1].annotate(f"{q+1}", (i, j), xytext=(3, 3), textcoords="offset points", fontsize=5.5)
@@ -234,7 +236,7 @@ for k, sensing in enumerate(("grid", "wells-joint")):
             g = q[(q.basis == basis) & (q.N == N) & (q.epsilon > 0)].groupby("epsilon").rmse_p.mean()
             ax[k].plot(g.index, g.values, color=colr, marker=mk, ls=ls, label=f"{basis}, N={N}")
     ax[k].axvline(cfg["l1"]["epsilon"], color=GREY, lw=0.6)
-    ax[k].set(xscale="log", yscale="log", xlabel="$\\ell_1$ weight $\\varepsilon$", ylabel="Pressure RMSE (bar)",
+    ax[k].set(xscale="log", yscale="log", xlabel="$\\ell_1$ weight $\\varepsilon$", ylabel="Pressure RMSE ($u_p$)",
               title=f"({'ab'[k]}) P2, {'grid-wide QR' if sensing=='grid' else 'DG-selected wells'}")
 for a in ax:
     a.legend(frameon=False, fontsize=5.5, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.36))
@@ -261,13 +263,13 @@ fig, ax = plt.subplots(len(panels) + 1, 1, figsize=(7.2, 7.0))
 vmin, vmax = np.percentile(truth, [1, 99])
 im = ax[0].imshow(grid_img(truth), origin="lower", cmap="cividis", vmin=vmin, vmax=vmax, aspect="auto")
 ax[0].set_title(f"Reference pressure, held-out scenario 1, snapshot {tsel}")
-fig.colorbar(im, ax=ax[0], label="pressure (bar)", fraction=0.03, pad=0.01)
+fig.colorbar(im, ax=ax[0], label="pressure ($u_p$)", fraction=0.03, pad=0.01)
 lim = 3.0
 for k, (name, E) in enumerate(panels, start=1):
     err = E - truth
     im = ax[k].imshow(grid_img(err), origin="lower", cmap="RdBu_r", vmin=-lim, vmax=lim, aspect="auto")
-    ax[k].set_title(f"Error (estimate − reference): {name}; RMSE = {np.sqrt(np.mean(err**2)):.3f} bar")
-    fig.colorbar(im, ax=ax[k], label="bar", fraction=0.03, pad=0.01)
+    ax[k].set_title(f"Error (estimate − reference): {name}; RMSE = {np.sqrt(np.mean(err**2)):.3f} $u_p$")
+    fig.colorbar(im, ax=ax[k], label="$u_p$", fraction=0.03, pad=0.01)
 for a in ax:
     a.grid(False); a.set_xticks([]); a.set_yticks([])
 fig.tight_layout()

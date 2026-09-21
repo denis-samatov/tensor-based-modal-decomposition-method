@@ -1,0 +1,25 @@
+\section{Comparison with closest related work}
+\label{sec:S_novelty}
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{Closest related work and differences from this study. Descriptions of prior work are limited to information stated in the cited articles' abstracts or journal records.}
+\label{tab:S_novelty}
+\begin{tabular}{@{}p{0.15\linewidth}p{0.15\linewidth}p{0.16\linewidth}p{0.13\linewidth}p{0.27\linewidth}@{}}
+\toprule
+Work & Data & Method / placement & Validation & Difference from this study \\
+\midrule
+Zhong et al.\ \cite{zhong2024tbmd} & Flow, SST, image data & Third-order Tucker modes; mode-3 fibre QR; $\ell_1$ & vs POD, DMD, POD-based reconstruction & Fourth-order joint-property TBMD; mode-4 fibre QR; property-model and channel ablations; TBMD--POD relation (Prop.~1); references, wells and two protocols \\
+Farazmand and Saibaba \cite{farazmand2023} & Kolmogorov flow, SST, 3-D ship flow & Tensor-based reconstruction and placement & vs vectorised methods & On Brugge states, truncated Tucker modes give a floor rather than a gain; storage gain confirmed \\
+Zhang et al.\ \cite{zhang2022wind} & 3-D wind fields & Tucker reconstruction; greedy condition-based placement & vs random placement & Confirms that Tucker sparse sensing predates this study outside reservoirs; the present work tests joint properties, well blocks and independent-property controls \\
+Manohar et al.\ \cite{manohar2018} & Faces, SST, flows & POD + pivoted QR, LS & vs random sensors & Applied with reservoir wells, IDW and prior references, fold statistics \\
+Saito et al.\ \cite{saito2021,saito2020vector} & Synthetic, PIV, climate & POD + determinant greedy (scalar/vector) & accuracy, speed & Block (well) selection vs configured and random orders on reservoir data \\
+Peherstorfer et al.\ \cite{peherstorfer2020} & PDE snapshots & DEIM / gappy POD with oversampling & stability analysis & Empirical ill-conditioning with existing wells; $\ell_1$ and energy weighting as remedies \\
+Callaham et al.\ \cite{callaham2019} & Flows, geophysical flows & Sparse representation vs LS & noise, corruption & Modal (not example) libraries; $\ell_1$ benefit limited to $m\approx r$ and depends on atom scaling \\
+Zou et al.\ \cite{zou2025prosnet} & High-speed-train surface pressure & Neural decoder with differentiable placement & unseen simulated pressure fields & Jointly learns a nonlinear estimator and locations; different domain and data demand, so it is not a fair baseline for the ten-scenario Brugge ensemble \\
+Crain et al.\ \cite{crain2023} & CO$_2$ storage models & Monitoring-well optimisation for history matching & synthetic cases & Direct state estimation from point data with learned bases \\
+Cardoso and Durlofsky \cite{cardoso2010}; van Doren et al.\ \cite{vandoren2006}; Jansen and Durlofsky \cite{jansen2017rom} & Reservoir simulation & POD-based ROMs & forward prediction, optimisation & No state estimation from sparse measurements \\
+\bottomrule
+\end{tabular}
+\end{table}
+The Tucker, QR and sparse-estimation primitives are established. The implementation here is a dimensional generalisation of the published TBMD sensing chain from third- to fourth-order input with an explicit property mode; it does not establish a new decomposition family or priority. The independently assessable contribution is the explicit measurement mapping, the controlled joint-versus-independent property comparison, the separation of energy weighting from spatial truncation, and leakage-controlled reservoir validation. The full text and a reference implementation of Zhong et al.\ were unavailable to this study, so component-level correspondence beyond the publisher-described method is not claimed.

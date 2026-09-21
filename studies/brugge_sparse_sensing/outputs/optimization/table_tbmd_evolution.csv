@@ -1,0 +1,7 @@
+version,key_change,validation_gain,outer_pressure_rmse,outer_saturation_rmse,storage_floats
+Original TBMD,"Fixed HOOI ranks (48,48,2), fixed L1",0.0,0.4323187181504916,0.004250744974190941,101860.0
+Original basis + optimized sensing,Nested placement/recovery,0.0,0.42887296224693056,0.004234502831590799,101860.0
+Rank-optimized joint TBMD,Spatial/modal rank expansion,0.8984081413250002,0.0891685620779109,0.0006427652950720799,259188.0
+TBMD + residual,Low-rank POD residual,0.8683701304161218,0.21172923915891242,0.0007876449677104401,188708.0
+Compressed independent TBMD,Independent properties; 5% validation tolerance,0.9308059017294147,0.17535106919925286,0.0006512128397160499,120704.0
+Accuracy-selected independent TBMD,Independent properties; minimum validation loss,0.9317735242142783,0.1787447173101422,0.00064433977860039,149728.0

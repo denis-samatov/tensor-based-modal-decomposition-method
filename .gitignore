@@ -107,3 +107,23 @@ docs/superpowers/
 /.agents/
 /.codex/
 /graphify-out/
+
+# Rebuildable paper upload/build products
+/docs/paper/submission_ready/
+/docs/paper/arxiv_v2/
+/docs/paper/arxiv_v2.tar.gz
+/docs/paper/supplementary_build/
+/docs/paper/arxiv_build_check/
+*.aux
+*.blg
+*.bbl
+*.out
+*.toc
+*.synctex.gz
+*.spl
+
+# Local release verification and manuscript builds
+/docs/paper/audit/final_submission_2026-09-21/
+/docs/paper/manuscript/*.pdf
+/docs/paper/manuscript/supplementary/*.pdf
+/docs/paper/SUBMISSION_RECEIPT.json

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tbmd"
-version = "2.1.0"
+version = "2.2.0"
 description = "Tensor-Based Modal Decomposition Method for reduced-order modeling, sensor placement, and field reconstruction"
 readme = "README.md"
 license = "MIT"

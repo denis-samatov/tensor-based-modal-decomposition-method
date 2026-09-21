@@ -9,6 +9,12 @@
       "bytes": 3151
     }
   },
+  "simulator": "t-Navigator",
+  "simulator_version": null,
+  "simulator_to_hdf5_exporter": null,
+  "vertical_reduction_rule": null,
+  "pressure_unit_status": "unconfirmed; HDF5 stores no unit attribute",
+  "pressure_value_unit_label": "u_p (supplied export unit; no conversion applied)",
   "runs": 10,
   "grid": [
     139,
@@ -497,11 +503,11 @@
   ],
   "initial_mean_pressure_bar": 170.5426525422854,
   "git_commit": {
-    "head": "35c910aa090e232ff948329f4f8eabfcd5b026ff",
+    "head": "6c4e7b3dc5dec7bd622b7f224db27190df2f89fe",
     "study_dir_uncommitted_changes": true
   },
   "platform": {
-    "python": "3.12.12",
+    "python": "3.12.13",
     "machine": "arm64",
     "system": "macOS-26.6.2-arm64-arm-64bit"
   }

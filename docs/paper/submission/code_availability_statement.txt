@@ -1,0 +1,14 @@
+Computer code availability
+
+Name of code: TBMD library with the Brugge sparse-sensing study package (studies/brugge_sparse_sensing), prepared release v2.2.0
+Developer: Denis Samatov, National Research Tomsk Polytechnic University, 30 Lenina Avenue, Tomsk 634050, Russia; dss53@tpu.ru
+Year first available: 2026
+Hardware required: general-purpose CPU; about 2 GB of memory per parallel job; no GPU
+Software required: Python 3.12; NumPy, SciPy, TensorLy, PyTorch, pandas, h5py, Matplotlib (exact versions pinned in requirements-lock.txt)
+Program language: Python
+Program size: recorded in the local release-candidate receipt and to be confirmed for the final archive
+Licence: MIT for code; not a licence for TNO-derived data
+Source code: https://github.com/denis-samatov/tensor-based-modal-decomposition-method (current public release tag v2.1.0; not the reviewed revision)
+Previous archive: https://doi.org/10.5281/zenodo.22814377 (v2.1.0; predates final E8/V3, nested-optimization and E9 additions)
+Current revision: prepared locally for tag v2.2.0; the final tag and archival DOI have not yet been created
+How to reproduce (from studies/brugge_sparse_sensing): run_all.sh retains the legacy benchmark; run_tbmd_optimization.sh runs the broad nested study and frozen refits; run_e9_property_mode.sh --reproduce independently refits the frozen E9 selections (--full also repeats inner selection). Set TBMD_DATA_DIR to the directory containing both checksummed transformed inputs. verify_outputs.sh rebuilds tables, statistics and macros from retained outputs; field maps additionally require the inputs. scripts/check_claims.py checks the manuscript's generated numbers.

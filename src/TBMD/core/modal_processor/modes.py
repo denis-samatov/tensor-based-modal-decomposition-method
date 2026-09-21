@@ -1,7 +1,12 @@
 """
 Time-Insensitive Modal Tensor Processing Module
 
-This module implements the computation of time-insensitive modes according to the formula:
+This module implements time-insensitive modes for the original third-order
+space-space-time TBMD construction and its higher-order generalisation. For a
+fourth-order space-space-property-time tensor, the property factor is applied
+as a third non-temporal contraction and each mode retains the property axis.
+
+The original formula is:
 M_{:,n} = A × G_{:,n} × B  (Equation 12)
 
 Where:

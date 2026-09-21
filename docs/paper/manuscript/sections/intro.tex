@@ -1,0 +1,15 @@
+\section{Introduction}
+\label{sec:intro}
+Reservoir management decisions are made on the basis of a pressure and saturation state that is observed only at a few wells. Numerical simulation supplies the full gridded state, but a simulation run with an operating schedule different from the actual one drifts away from reality, and history matching or ensemble data assimilation to correct it is computationally demanding \cite{oliver2008,evensen2009,jansen2011}. A lighter-weight alternative, widely used in fluid mechanics and increasingly in subsurface applications, is to learn a low-dimensional basis from simulated states and to estimate the current state from a small number of point measurements, choosing the measurement locations so that the estimate is well conditioned \cite{everson1995,willcox2006,manohar2018}.
+
+Reduced bases for reservoir states have mostly been obtained by proper orthogonal decomposition (POD) of vectorised snapshots \cite{vandoren2006,cardoso2010,he2014,jansen2017rom}. Tensor decompositions preserve mode structure \cite{kolda2009,delathauwer2000}, and tensor-based modal decomposition (TBMD) combines a third-order Tucker model, mode-3 fibre QR and $\ell_1$ reconstruction \cite{zhong2024tbmd}. We extend that chain to a fourth-order space--space--property--time tensor with joint spatial--property modes and mode-4 fibre placement. This is a higher-order TBMD extension, not a new decomposition family; its value still requires controlled evidence.
+
+Fixed-rank results leave two questions unresolved: whether spatial truncation rather than tensor structure causes the error floor, and whether sharing spatial factors without forcing shared property coefficients helps sparse observations. Physical-unit RMSE alone cannot distinguish absolute error from recovery of scenario anomalies and spatial structure. We test these mechanisms under nested scenario validation, retaining negative results and the strongest matrix baselines.
+
+We address these questions with a controlled computational study on the Brugge benchmark model \cite{peters2010brugge}, using ten simulated control scenarios. The contributions are:
+\begin{enumerate}[label=(\arabic*),leftmargin=*]
+\item A nested, matched-capacity comparison that separates rigid joint coefficients from shared spatial factors with property-specific coefficients, using property-wise anomaly error and mask-aware SSIM.
+\item A mathematical and numerical separation of energy weighting from spatial truncation: untruncated optimal TBMD is rotated energy-weighted POD (Proposition~\ref{prop:tbmd_pod}).
+\item Accuracy--storage evidence that preserves POD-E's advantage at existing joint wells while identifying conditional tensor gains under sparse partial sharing and high-channel saturation-aware sensing.
+\item A checksummed benchmark workflow with train-only selection, frozen outer refitting and automatically generated numerical claims. Its reproduction boundary begins at the supplied transformed reservoir states.
+\end{enumerate}

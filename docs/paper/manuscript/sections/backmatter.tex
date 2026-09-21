@@ -1,0 +1,21 @@
+\section*{Computer code availability}
+\label{sec:availability}
+\noindent\emph{Name:} TBMD library with the Brugge sparse-sensing study package (\texttt{studies/brugge\_sparse\_sensing}). \emph{Developer and contact:} Denis Samatov, National Research Tomsk Polytechnic University, dss53@tpu.ru. \emph{Year first available:} 2026. \emph{Hardware:} CPU, about 2\,GB per parallel job; no GPU. \emph{Software:} Python~3.12, exact packages in \texttt{requirements-lock.txt}. \emph{Language:} Python. \emph{Code licence:} MIT, excluding third-party data. \emph{Access:} \url{https://github.com/denis-samatov/tensor-based-modal-decomposition-method}. The previous release v2.1.0 (\CodeArchiveDOI{}) predates the final E8/V3, nested-optimization and E9 additions. The present revision is prepared for release as v2.2.0; public tag creation and archival DOI assignment remain pending. \emph{Reproduction:} \texttt{run\_tbmd\_optimization.sh} validates the checksummed HDF5/JSON inputs, runs the broad nested optimization and independently refits frozen configurations; \texttt{run\_e9\_property\_mode.sh} performs or independently reproduces the frozen third- versus fourth-order study and regenerates its metrics, tables and figures; \texttt{run\_all.sh} retains the earlier benchmark chain and \texttt{verify\_outputs.sh} checks stored legacy, nested-optimization and E9 outputs. None reconstructs the input exports from the original t-Navigator deck.
+
+\section*{Data availability}
+The t-Navigator simulations analysed in this study are represented by two supplied, transformed inputs for ten Brugge well-control scenarios: \path{data_exp_4_.h5} (pressure and oil-saturation arrays) and \path{all_wells_exp_4.json} (well coordinates). The archive contains neither the original deck nor the exporter and vertical-reduction configuration, so original model-to-HDF5 reproduction is unavailable. The transformed data supporting the findings of this study are available from the corresponding author upon reasonable request, subject to the applicable data-use and access conditions. The transformed input files cannot be deposited publicly because of institutional access conditions. Requests should be directed to the corresponding author and will be considered under those conditions. They are not distributed under the code repository's MIT licence. Their SHA-256 checksums are given in Supplementary Table~S1 and verified before computation. The release candidate contains the derived performance metrics, statistics, tables, number macros and figures required to check the article.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Denis Samatov:} Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Visualization, Writing -- original draft. \textbf{Boris Merzlikin:} Supervision, Methodology, Writing -- review \& editing. \textbf{Gleb Shishaev:} Data curation, Validation, Writing -- review \& editing.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+The research was supported by the program of the National Research Tomsk Polytechnic University (Prioritet-2030-ISP-032-090-2026). The funder participated in data collection, interpretation of the results, and the decision to submit the manuscript for publication.
+
+\section*{Acknowledgements}
+The authors acknowledge TNO for making the Brugge benchmark data set available.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work, the authors used OpenAI GPT-4o and OpenAI GPT-5-Codex to assist with manuscript drafting, language and text editing, and submission-package consistency checks. After using these tools, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication. AI assistance also supported source-code review and corrections to publication generators and validation scripts; it is not an independent scientific validation. Reported numerical results were produced by the documented Python workflow on the checksummed inputs, and the figures were rendered by repository scripts rather than a generative image model.

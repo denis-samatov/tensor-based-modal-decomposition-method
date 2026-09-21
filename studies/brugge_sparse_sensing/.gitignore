@@ -9,3 +9,6 @@ rerun_verification/
 outputs/parts/
 *.pkl
 .claude/
+
+# PNG previews are regenerated from canonical figures; publication PDFs remain tracked.
+figures/*.png

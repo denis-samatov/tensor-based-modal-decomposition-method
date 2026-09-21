@@ -1,0 +1,10 @@
+\section{Fixed-rank benchmark and representation limits}
+\label{sec:results}
+\label{sec:res_representation}
+The original benchmark establishes the controls for the nested studies. Complete budget curves, fold comparisons, noise tests, temporal errors, sensor maps and timings are retained in Supplementary Section~S9. In the temporal hold-out protocol P1, persistence already achieves pressure RMSE \POnePriorGridTenP{} $u_p$, and no original TBMD configuration improves on it. We therefore emphasize P2, where the ensemble prior has pressure RMSE \PTwoPriorGridTenP{} $u_p$ and the held-out control scenario differs from the training ensemble.
+
+With all active channels observed at the training-selected depth $r=\RankPTwoMin$, POD/POD-E reaches \EOnePTwoPodOracle{} $u_p$, whereas the original $(48,48,2)$ TBMD reaches \EOnePTwoTbmdOracle{} $u_p$. Increasing depth cannot remove this spatial-truncation floor. With full spatial ranks, the TBMD and POD-E subspaces agree to numerical precision, supporting Proposition~\ref{prop:tbmd_pod}.
+
+Under sparse sensing, energy weighting and regularization matter independently of tensor order. At 30 grid channels, POD-E LS reaches \PTwoPodeLsGridThirtyP{} $u_p$. At all 30 existing joint wells, POD-E $\ell_1$ reaches \PTwoPodeLoneWellThirtyP{} $u_p$, versus \PTwoIdwWellThirtyP{} $u_p$ for prior plus interpolation and \PTwoTbmdLoneWellThirtyP{} $u_p$ for original TBMD. Least squares becomes unstable near the modal depth; regularization reduces this sensitivity. These stronger matrix and non-modal references are retained in the nested comparison below.
+
+The matched E8 ablation also favours independent third-order property models over the original rigid joint model for both properties and both estimators at all wells (Supplementary Section~S4). E9 tests whether that negative result persists with partial sharing and structural metrics; it does not replace the E8 evidence.

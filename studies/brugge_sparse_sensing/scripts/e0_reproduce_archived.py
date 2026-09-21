@@ -1,7 +1,8 @@
 """E0 -- Provenance check of the archived CAGEO-D-26-01439 numbers.
 
 Re-executes the configuration found in
-notebooks/experiments/exp_tbmd_2.1&2.2.ipynb with the public TBMD library
+the archived original notebooks/experiments/exp_tbmd_2.1&2.2.ipynb
+(docs/paper/audit/historical_notebooks.zip; hashes in MANIFEST.json) with the public TBMD library
 (no modification of library code):
 
 * data_exp_4_.h5, sequential 80/20 split, min-max fitted on the training part

@@ -1,0 +1,17 @@
+\begin{table}[htbp]\centering\small
+\caption{Nested P2 reconstruction from all 30 existing joint-property wells (60 scalar channels); the prior uses no observations. Values are mean $\pm$ sample standard deviation over ten scenarios. Pressure uses export unit $u_p$ and saturation is dimensionless. Compression is the POD-E/TBMD factor-storage ratio. Bold marks the automatically determined smallest mean; method labels denote train-selected configurations.}
+\label{tab:optimization_main}
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrr}\toprule
+Method & Pressure RMSE & $S_o$ RMSE & Compression \\ \midrule
+POD-E random & \textbf{0.084 $\pm$ 0.027} & \textbf{0.00057 $\pm$ 0.00013} & 1.00$\times$ \\
+POD-E & \textbf{0.084 $\pm$ 0.027} & \textbf{0.00057 $\pm$ 0.00013} & 1.00$\times$ \\
+Joint TBMD (tuned ranks) & 0.089 $\pm$ 0.023 & 0.00064 $\pm$ 0.00013 & 1.22$\times$ \\
+TBMD compression & 0.175 $\pm$ 0.083 & 0.00065 $\pm$ 0.00012 & 2.62$\times$ \\
+TBMD optimized & 0.179 $\pm$ 0.046 & 0.00064 $\pm$ 0.00013 & 2.12$\times$ \\
+POD & 0.216 $\pm$ 0.123 & 0.00076 $\pm$ 0.00026 & 1.00$\times$ \\
+Prior + IDW & 0.313 $\pm$ 0.165 & 0.00078 $\pm$ 0.00020 & -- \\
+Original TBMD + tuning & 0.429 $\pm$ 0.051 & 0.00423 $\pm$ 0.00003 & 3.11$\times$ \\
+Prior & 1.148 $\pm$ 0.558 & 0.00084 $\pm$ 0.00021 & -- \\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}

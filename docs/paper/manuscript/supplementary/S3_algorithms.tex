@@ -1,0 +1,92 @@
+\section{Algorithms and implementation details}
+\label{sec:S_algorithms}
+
+\subsection{Tensor order and shape contract}
+For third-order input $\mathcal{X}^{[3]}\in\mathbb{R}^{I\times J\times L_{\rm tr}}$, the time-insensitive construction is $\mathcal{M}^{[3]}_w=\mathcal{G}^{[3]}_{:,:,w}\times_1\mathbf{U}^{(1)}\times_2\mathbf{U}^{(2)}$. Its fourth-order counterpart adds the property contraction in Eq.~(1) of the main text:
+\[
+ (\mathcal{M}_w)_{ijk}=\sum_{a=1}^{R_1}\sum_{b=1}^{R_2}\sum_{c=1}^{R_3}
+ G_{abcw}U^{(1)}_{ia}U^{(2)}_{jb}U^{(3)}_{kc},\qquad
+ \hat{X}_{ijk\ell}=\sum_{w=1}^r(\mathcal{M}_w)_{ijk}U^{(4)}_{\ell w}.
+\]
+The core has shape $(R_1,R_2,R_3,r)$; contracted modes have shape $(I,J,K,r)$. With active-cell index $a_c=(i_c,j_c)$ in raster order, the matrix used by the code satisfies $B_{kn+c,w}=(\mathcal{M}_w)_{i_cj_ck}$, using zero-based $k,c$ here. This property-major mapping is not an unspecified vectorisation. In P1 the training tensor is $(139,48,2,106)$; in P2 it is $(139,48,2,1197)$, where the last mode concatenates nine scenario trajectories, not one continuous time sequence. The restricted basis is $(9900,r)$; observations, sampled basis and coefficient matrices have shapes $(m,T)$, $(m,r)$ and $(r,T)$, respectively. Physical outputs are two $(4950,T)$ fields.
+
+With $K=R_3=1$ and $U^{(3)}=[1]$, the fourth-order contraction reduces exactly to the third-order expression. With $K=R_3=2$, the square orthogonal property factor can be absorbed into the core; joint modelling instead constrains properties to shared spatial factors and temporal coefficients. Independent models in E8 have separate factors and coefficients. The study loader is specialised to two properties, although the contraction in the authors' public library accepts arbitrary non-temporal modes.
+
+QR operates on $\mathbf{B}^\top\in\mathbb{R}^{r\times9900}$: columns correspond to mode-4 fibres of the mode tensor. It is standard matrix column-pivoted QR, with no new pivot objective. Orthogonal-rotation invariance holds in exact arithmetic with consistent tie-breaking; finite-precision ties can change selections. In contrast, replacing POD by POD-E preserves the LS state only for the same measurement rows and a full-column-rank sampled basis; separately optimised placements need not agree. The $\ell_1$ penalty is coordinate dependent. Script V3 checks these shape and measurement contracts against explicit contractions and checks training-only scaling in all 20 folds; its synthetic checks are not reservoir performance evidence.
+
+\subsection{Continuity with the previous formulation}
+The fourth-order state, spatial--property atoms, mode-4 fibre interpretation, scalar/grid versus joint/well measurement distinction, and relaxed sparse-reconstruction objective are retained. Several numerical details are deliberately not retained. The previous text described truncated HOSVD; this benchmark uses SVD-initialised HOOI. Its previously unresolved dictionary depths are replaced by the explicit contraction above, with depth equal to the selected temporal rank. Matrix unfolding is an invertible indexing operation, not an information-losing approximation.
+
+The previous main text described Euclidean QR residuals, whereas its supplement specified an $\ell_1$ residual pivot. The verified implementation uses Euclidean CPQR; budgets beyond the basis rank use the separately specified determinant-greedy rule. Existing-well block selection is an additional comparator, not the previous grid-to-well overlap diagnostic. For any fixed selected rows, the previous measurement operator $\mathcal{M}_N$ is $\mathbf{H}$ applied to the vectorised state, and its relaxed objective is the current $\ell_1$ objective. Joint E2 well observations are ordered by well, pressure then saturation; E8 groups them by property. Applying the same row permutation to observations and sampled basis leaves both objectives unchanged.
+
+The previous declared single-scenario split did not match its pooled notebook fit. P1 now implements the declared split, using the actual snapshot count, while P2 is a new scenario hold-out. Physical property-wise errors replace the archived normalised image metrics. Thus the present results validate the stated reconstruction framework, not an exact replay of every archived numerical setting.
+
+\subsection{Placement and estimation}
+E3 uses noise standard deviations $(\sigma_p,\sigma_{S_o})\in\{(0,0),\allowbreak(0.1,0.005),\allowbreak(0.5,0.01),\allowbreak(1,0.02),\allowbreak(2,0.05)\}$ ($u_p$, dimensionless), ten draws per level. Noise amplitudes are divided by the training-fold property spans and added to normalised observations; zero noise is evaluated once.
+
+\paragraph{Metric aggregation} For property $k$, active cell $c$, and snapshot $t$, define $e_{kct}=\hat{x}_{kct}-x_{kct}$ after inverse scaling. Each fold reports $E_k=T^{-1}\sum_{t=1}^{T}\sqrt{n^{-1}\sum_{c=1}^{n}e_{kct}^2}$; this is a mean of snapshot RMSEs, not a pooled space--time RMSE. Reported uncertainty is the sample standard deviation of the ten fold values (denominator nine), not a confidence interval. E2 random-placement summaries take a within-fold median across seeds before fold aggregation. E8 uses deterministic configured well sets and no stochastic repeats.
+
+\paragraph{Geometry boundary} The active mask is inferred from the pressure zero pattern and checked for invariance across all scenarios and times before splitting. It is treated as fixed known geometry, not a feature selected by validation error. No evaluated nonzero state values determine scaler bounds, ranks, factors or placement. A setting with unknown or changing active geometry would require a separate mask and missing-data protocol.
+
+\begin{algorithm}[htbp]
+\caption{QR--DG grid-wide placement (study script \texttt{bss/placement.py::qr\_dg})}
+\label{alg:S_qrdg}
+\small
+\begin{algorithmic}[1]
+\Require basis $\mathbf{B}\in\mathbb{R}^{M\times r}$, candidate rows $\mathcal{C}$, budget $N$
+\State $k\gets\min(N,r,|\mathcal{C}|)$
+\State $\pi\gets$ pivot order of column-pivoted QR of $\mathbf{B}_{\mathcal{C}}^\top$ (LAPACK \texttt{geqp3}); $S\gets(\mathcal{C}_{\pi_1},\dots,\mathcal{C}_{\pi_k})$
+\If{$N>k$}
+  \State $\mathbf{C}\gets(\mathbf{B}_S^\top\mathbf{B}_S)^{-1}$
+  \For{$t=k+1,\dots,N$}
+    \State $j\gets\arg\max_{i\in\mathcal{C}\setminus S}\mathbf{b}_i^\top\mathbf{C}\mathbf{b}_i$ \Comment{maximises $\det(\mathbf{B}_{S\cup i}^\top\mathbf{B}_{S\cup i})$}
+    \State $\mathbf{C}\gets\mathbf{C}-\mathbf{C}\mathbf{b}_j\mathbf{b}_j^\top\mathbf{C}/(1+\mathbf{b}_j^\top\mathbf{C}\mathbf{b}_j)$; \quad $S\gets S\cup\{j\}$
+  \EndFor
+\EndIf
+\State \Return ordered $S$ (budgets are prefixes)
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[htbp]
+\caption{Block determinant-greedy selection of existing wells (\texttt{block\_dg})}
+\label{alg:S_blockdg}
+\small
+\begin{algorithmic}[1]
+\Require basis $\mathbf{B}$, blocks $\{\mathcal{R}_w\}_{w=1}^{30}$ (rows of well $w$: pressure and $S_o$, or pressure only), budget $N$
+\State $\gamma\gets10^{-6}\operatorname{tr}(\mathbf{B}^\top\mathbf{B})/M$; \quad $\mathbf{C}\gets\gamma^{-1}\mathbf{I}_r$; \quad $S\gets\varnothing$
+\For{$t=1,\dots,N$}
+  \State $w^\ast\gets\arg\max_{w\notin S}\log\det(\mathbf{I}+\mathbf{B}_{\mathcal{R}_w}\mathbf{C}\mathbf{B}_{\mathcal{R}_w}^\top)$
+  \State $\mathbf{C}\gets\mathbf{C}-\mathbf{C}\mathbf{B}_{\mathcal{R}_{w^\ast}}^\top(\mathbf{I}+\mathbf{B}_{\mathcal{R}_{w^\ast}}\mathbf{C}\mathbf{B}_{\mathcal{R}_{w^\ast}}^\top)^{-1}\mathbf{B}_{\mathcal{R}_{w^\ast}}\mathbf{C}$; \quad $S\gets S\cup\{w^\ast\}$
+\EndFor
+\State \Return ordered $S$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[htbp]
+\caption{Vectorised relaxed ADMM for the $\ell_1$ estimator (\texttt{l1\_admm})}
+\label{alg:S_admm}
+\small
+\begin{algorithmic}[1]
+\Require $\mathbf{B}_S\in\mathbb{R}^{m\times r}$, $\mathbf{Y}\in\mathbb{R}^{m\times T}$ (one column per snapshot), $\varepsilon=10^{-2}$, $\delta=1$, $\lambda=0.95$, tol $=10^{-7}$, $n_{\max}=5000$
+\State factorise $\mathbf{L}\mathbf{L}^\top=\mathbf{B}_S^\top\mathbf{B}_S+\delta\mathbf{I}$; \quad $\mathbf{X},\mathbf{D},\mathbf{P}\gets\mathbf{0}_{r\times T}$
+\For{$n=1,\dots,n_{\max}$}
+  \State $\mathbf{X}\gets(\mathbf{L}\mathbf{L}^\top)^{-1}\bigl(\mathbf{B}_S^\top\mathbf{Y}+\delta(\mathbf{D}-\mathbf{P})\bigr)$
+  \State $\bar{\mathbf{X}}\gets\lambda\mathbf{X}+(1-\lambda)\mathbf{D}$; \quad $\mathbf{D}^{\mathrm{old}}\gets\mathbf{D}$
+  \State $\mathbf{D}\gets\operatorname{soft}(\bar{\mathbf{X}}+\mathbf{P},\varepsilon/\delta)$; \quad $\mathbf{P}\gets\mathbf{P}+\bar{\mathbf{X}}-\mathbf{D}$
+  \If{$n\bmod 10=0$ \textbf{and} $\max_t\max(\|\mathbf{x}_t-\mathbf{d}_t\|_2,\ \delta\|\mathbf{d}_t-\mathbf{d}_t^{\mathrm{old}}\|_2)<\mathrm{tol}$} \State \textbf{break} \EndIf
+\EndFor
+\State \Return $\mathbf{D}$ (coefficients; state $=\mathbf{B}\mathbf{D}$)
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Differences from the reviewed version} The archived experiment runner used an adaptive penalty (residual balancing) with $\delta_0=0.1$, $\delta_{\max}=1$ and a tolerance of $10^{-7}$; the previous PDF instead reported $\delta_0=1$ and tolerance $10^{-4}$. A fixed penalty is used here. The convex objective is unchanged, but finite-iteration solutions need not coincide: the previous pseudocode returned the primal iterate, whereas Algorithm~\ref{alg:S_admm} returns the shrinkage iterate. Selected-case agreement with our public solver is reported in Section~4.5 of the main text, not claimed for all archived runs. ADMM reached the iteration cap in \VTwoCapPodPTwo\,\% (P2) and \VTwoCapPodPOne\,\% (P1) of the $\ell_1$ solves with the orthonormal POD basis, and in at most \VTwoCapOtherMax\,\% of the solves with POD-E or TBMD. For POD, capped solutions were compared with a tightly converged ADMM run and with coordinate-descent LASSO on P2 fold~1 (QR placements with $N=10,30,100$; \texttt{scripts/v2\_admm\_convergence.py}). The relative objective gap was at most \VTwoObjGapMax{} and the pressure RMSE changed by at most \VTwoRmseDiffMax{} $u_p$. In these tested cases, incomplete convergence does not explain the poor accuracy of POD with $\ell_1$; this is not an exhaustive convergence certificate.
+
+\paragraph{Prior + IDW} For property $k$, let $S_k$ be the measured cells of that property and $\mathbf{e}=\mathbf{y}_{S_k}-\mathbf{x}^{\mathrm{prior}}_{S_k}$ the residuals. The estimate at active cell $c$ is $x^{\mathrm{prior}}_c+\sum_{s\in S_k}w_{cs}e_s$ with $w_{cs}\propto\|\mathbf{p}_c-\mathbf{p}_s\|_2^{-2}$ normalised to unit sum ($w_{cs}=1$ at a measured cell), where $\mathbf{p}$ are grid-index coordinates. Properties without measurements keep the prior.
+
+\paragraph{Normalisation} Bounds are $a_k=\min$ and $b_k=\max$ of property $k$ over active cells and training snapshots of the fold. The previous implementation included inactive zeros in the bounds, so that normalised pressures occupied only the interval $[0.76,1]$.
+
+\subsection{Untruncated TBMD and energy-weighted POD}
+\paragraph{Proof of main Proposition 1.}
+With square orthogonal $\mathbf{U}^{(1)},\mathbf{U}^{(2)},\mathbf{U}^{(3)}$ the optimal core is $\mathcal{G}=\mathcal{X}_{\mathrm{tr}}\times_1\mathbf{U}^{(1)\top}\times_2\mathbf{U}^{(2)\top}\times_3\mathbf{U}^{(3)\top}\times_4\mathbf{U}^{(4)\top}$, so the modal definition in the main manuscript gives $\mathcal{M}_w=(\mathcal{X}_{\mathrm{tr}}\times_4\mathbf{U}^{(4)\top})_{:,:,:,w}$ and, in matrix form, $\mathbf{B}_{\mathrm{TBMD}}=\mathbf{S}\mathbf{U}^{(4)}$. The Tucker fit $\|\mathcal{X}_{\mathrm{tr}}\|_F^2-\|\mathbf{S}\mathbf{U}^{(4)}\|_F^2$ is minimised over orthonormal $\mathbf{U}^{(4)}$ by $\mathbf{U}^{(4)}=\mathbf{V}_r\mathbf{Q}$, hence $\mathbf{S}\mathbf{U}^{(4)}=\mathbf{U}_r\boldsymbol{\Sigma}_r\mathbf{Q}$.
+
+Two consequences are used below. First, under the proposition's untruncated, optimal-fit and subspace-selection assumptions, column-pivoted QR selections are invariant to the rotation $\mathbf{Q}$ in exact arithmetic when ties are resolved consistently. For the same measurement rows, the Moore--Penrose identity $(\mathbf{A}\mathbf{Q})^+=\mathbf{Q}^\top\mathbf{A}^+$ then makes the minimum-norm least-squares state invariant even when the sampled matrix is rank deficient. Thus untruncated TBMD and POD-E have identical QR sets and least-squares reconstructions subject to those assumptions; finite-precision pivot ties can change the selected set, and the $\ell_1$ estimator is not rotation invariant. POD and POD-E instead differ by non-orthogonal diagonal scaling and give the same least-squares state only when the sampled basis has full column rank (or in a special rank-deficient case yielding the same projector). Second, truncating $R_1,R_2$ confines the modes to the subspace spanned by $\mathbf{U}^{(1)}\otimes\mathbf{U}^{(2)}\otimes\mathbf{U}^{(3)}$ and therefore imposes a representation error that no sensing design can remove. Energy weighting, in contrast, changes how coefficients are regularised: the minimum-norm solution for $\mathbf{U}_r\boldsymbol{\Sigma}_r$ minimises $\|\boldsymbol{\Sigma}_r^{-1}\boldsymbol{\alpha}\|_2$ over POD coefficients $\boldsymbol{\alpha}$, i.e. it shrinks low-energy directions, whereas the orthonormal basis weights all directions equally.

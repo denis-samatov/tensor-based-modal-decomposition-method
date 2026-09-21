@@ -12,10 +12,11 @@ This index covers the library. Forecasting is maintained in
 | `src/TBMD/config/` | Public configuration dataclasses |
 | `src/TBMD/experiments/`, `src/TBMD/visualization/` | Experiment and plotting helpers |
 | `src/TBMD/modules/`, `src/TBMD/utils/` | Compatibility import paths |
-| `examples/`, `notebooks/` | Synthetic examples, geometry demonstrations and historical notebooks |
+| `examples/` | Synthetic examples and geometry demonstrations |
 | `studies/brugge_sparse_sensing/` | Revised manuscript benchmark and curated outputs |
 | `docs/` | Current guides and a separate captured synthetic-run record |
-| `data/`, `outputs/`, `results/`, `dist/` | Local datasets and artifact/build directories |
+| `docs/paper/` | Canonical manuscript, submission sources and scientific provenance |
+| `data/`, `results/` | Ignored local datasets and exploratory artifacts |
 
 ## Guides
 
@@ -63,10 +64,16 @@ This index covers the library. Forecasting is maintained in
 - [Release Process](development/release-process.md)
 - [Testing](development/testing.md)
 
+## Paper
+
+- [Current manuscript and submission build](paper/README.md)
+- Repository audit (local audit material, not distributed)
+- Cleanup and validation (local audit material, not distributed)
+
 ## Examples and evidence
 
 - [Example catalogue](../examples/README.md)
-- [Notebook status](../notebooks/README.md)
+- [Historical notebook provenance](paper/audit/README.md)
 - [Captured synthetic run](examples/synthetic-run.md) — dated execution evidence, not a new benchmark
 - [Brugge study](../studies/brugge_sparse_sensing/README.md)
 - [Reproducibility matrix](../REPRODUCIBILITY.md)
@@ -76,7 +83,7 @@ This index covers the library. Forecasting is maintained in
 - [Contribution policy](../CONTRIBUTING.md)
 - [Security policy](../SECURITY.md)
 - [Changelog](../CHANGELOG.md)
-- [Codex instructions](../AGENTS.md)
+Local agent instructions and shared knowledge-graph tooling are optional workspace files, not public library dependencies.
 
 Optional local Claude and Gemini instructions are not distributed with the repository.
 

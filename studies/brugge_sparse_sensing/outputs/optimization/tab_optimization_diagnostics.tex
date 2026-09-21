@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{Untouched leave-one-scenario-out reconstruction from all 30 existing wells, with the no-measurement prior shown at zero wells. Values are mean $\pm$ standard deviation across ten outer folds. Bold entries are selected automatically as the smallest column mean.}
+\label{tab:optimization_diagnostics}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Method & Wells & Pressure RMSE & $S_o$ RMSE & Compression & Storage & Online ms \\
+\midrule
+POD-E random & 30 & \textbf{0.0840 $\pm$ 0.0273} & \textbf{0.000575 $\pm$ 0.000130} & 1.00$\times$ & 316.8k & -- \\
+POD-E & 30 & \textbf{0.0840 $\pm$ 0.0273} & \textbf{0.000575 $\pm$ 0.000130} & 1.00$\times$ & 316.8k & 0.596 \\
+TBMD joint rank-optimized & 30 & 0.0892 $\pm$ 0.0234 & 0.000643 $\pm$ 0.000132 & 1.22$\times$ & 259.2k & 1.447 \\
+TBMD compression & 30 & 0.1754 $\pm$ 0.0835 & 0.000651 $\pm$ 0.000118 & 2.62$\times$ & 120.7k & 1.476 \\
+TBMD optimized & 30 & 0.1787 $\pm$ 0.0463 & 0.000644 $\pm$ 0.000129 & 2.12$\times$ & 149.7k & 1.196 \\
+POD & 30 & 0.2164 $\pm$ 0.1231 & 0.000756 $\pm$ 0.000258 & 1.00$\times$ & 316.8k & 0.001 \\
+Prior + IDW & 30 & 0.3127 $\pm$ 0.1647 & 0.000780 $\pm$ 0.000197 & -- & 0.0k & -- \\
+Original TBMD + tuning & 30 & 0.4289 $\pm$ 0.0506 & 0.004235 $\pm$ 0.000027 & 3.11$\times$ & 101.9k & 0.132 \\
+Prior & 0 & 1.1481 $\pm$ 0.5580 & 0.000839 $\pm$ 0.000213 & -- & 0.0k & 0.000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

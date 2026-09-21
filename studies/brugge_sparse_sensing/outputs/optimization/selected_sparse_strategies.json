@@ -1,0 +1,5423 @@
+{
+  "1": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2100.564725387615,
+          "validation_score": 36.33110703662012
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 12.379786398495359,
+          "validation_score": 0.33207550526151347
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 16.521189653989417,
+          "validation_score": 13.815849144470471
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8.095994486417965,
+          "validation_score": 0.2948029173797128
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.442692047172463,
+          "validation_score": 167.91879707010915
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 165.33729065745354
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 29.281187081493695
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 258.76545232152466,
+          "validation_score": 0.9891489094832931
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 140.28166426721637
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 102.84928981045361,
+          "validation_score": 0.5993755922841512
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 7.594681123428645e+30,
+          "validation_score": 127.03795018358318
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 72.34804585253484,
+          "validation_score": 144.0175633354365
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 6608.090325594655,
+          "validation_score": 76.37085378462614
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 31.3178275778237,
+          "validation_score": 160.74064415019055
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 189.8842547612481,
+          "validation_score": 0.7884805167890487
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8172.281787009369,
+          "validation_score": 0.3224540509185729
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4810.193759163369,
+          "validation_score": 0.3982135984409476
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8459.209657866852,
+          "validation_score": 0.2921652898657638
+        },
+        "5": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 68.00935978742007,
+          "validation_score": 0.9762481974450572
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.638868179624396,
+          "validation_score": 2.5701636288918537
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.526521546013078
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 109839.42332707191,
+          "validation_score": 0.42906240411060265
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 368.55163119641537,
+          "validation_score": 0.8028844273491992
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 42406.610630566436,
+          "validation_score": 0.413404417686223
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 841.9851908413808,
+          "validation_score": 0.6527307742549487
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12055.573672369335,
+          "validation_score": 6.865614902584279
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 894765.2887654421,
+          "validation_score": 6.614544336288204
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 69.20200930349611,
+          "validation_score": 6.245105471763181
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1142.0789216197877,
+          "validation_score": 0.5739462135044607
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8701.142520202446,
+          "validation_score": 0.2807550925775287
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 11065.150820765812,
+          "validation_score": 0.37895385424402867
+        },
+        "300": {
+          "placement": "qr_whitened",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14512.12467788498,
+          "validation_score": 0.259296710759386
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 175.3099285629466,
+          "validation_score": 0.7390161111963636
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2.2527658321319017,
+          "validation_score": 2.579599555901907
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5535848983.7134495,
+          "validation_score": 0.5772062485558366
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 153228.0500001182,
+          "validation_score": 0.48260510870298085
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 622.0205552744633,
+          "validation_score": 0.9975925906141683
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 74161.44063013555,
+          "validation_score": 0.4392475920527472
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 409434.39553245273,
+          "validation_score": 0.7365663210185668
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1629.2934781680697,
+          "validation_score": 154.0991757164586
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 154.072231447772
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13572.883452230259,
+          "validation_score": 154.18211608531612
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 308462.443873978,
+          "validation_score": 1.5300318654129017
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2577949.252362343,
+          "validation_score": 0.2880692623449128
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1606219.751789047,
+          "validation_score": 0.37817861797362307
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1964323.803416609,
+          "validation_score": 0.2642151002039103
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 38465.8725774313,
+          "validation_score": 4.712072574784893
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.70578704280075,
+          "validation_score": 2.5795846127157294
+        },
+        "10": {
+          "placement": "dg_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 15394016.541361393,
+          "validation_score": 0.5957202843453552
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 29241650.49989799,
+          "validation_score": 0.5246400325731849
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 116682.6986693855,
+          "validation_score": 0.9273311641949947
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 22719265.25408465,
+          "validation_score": 0.5111233101071323
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 5569918.5070864875,
+          "validation_score": 0.7563321194232625
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 1811.1243143328265,
+          "validation_score": 154.0955196308415
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 154.07784989095217
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 542.5638748457585,
+          "validation_score": 154.16524698653788
+        }
+      }
+    }
+  },
+  "10": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2028.94370494038,
+          "validation_score": 35.94130539254901
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 7.393720802660771,
+          "validation_score": 0.3430333434787964
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "l1": 0.001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15.73625512484328,
+          "validation_score": 16.690635497486024
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 8.099935712496567,
+          "validation_score": 0.3076453874091161
+        },
+        "5": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13.592817613177825,
+          "validation_score": 126.68396816986699
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 162.05262034892428
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 28.921084147096185
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1734.6980841578693,
+          "validation_score": 1.241669205957259
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 137.61515783623722
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 106.45759330401852,
+          "validation_score": 0.6431402044897295
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 5.492202333663193e+31,
+          "validation_score": 122.03389424805891
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 69.6795375521753,
+          "validation_score": 151.07405266366166
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 6229.800306226188,
+          "validation_score": 83.1520974673204
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 29.584325734287304,
+          "validation_score": 158.1414445369019
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 195.0254617868536,
+          "validation_score": 0.9031629832594966
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8179.876725292573,
+          "validation_score": 0.33376785326148145
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 3941.099289752854,
+          "validation_score": 0.3974244543212417
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8396.939791143277,
+          "validation_score": 0.30617310567156825
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 67.00526226573608,
+          "validation_score": 1.0786857126260059
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.586948805121881,
+          "validation_score": 2.5852469886563183
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.6911664470947249
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 135331.4505398947,
+          "validation_score": 0.46160709155547885
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 300.3369127918662,
+          "validation_score": 0.8427346123827529
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 36353.528283661326,
+          "validation_score": 0.44448251632668007
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 997.4753780859999,
+          "validation_score": 0.669279455719889
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12540.0022547594,
+          "validation_score": 6.607644079357818
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1556992.550269179,
+          "validation_score": 6.3277350537225345
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 2117.538858276375,
+          "validation_score": 6.580977719228938
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "well_region",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1238.601570758446,
+          "validation_score": 2.4229147293441287
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2778910.8187561547,
+          "validation_score": 0.257286851666893
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1602991.0789628588,
+          "validation_score": 0.41705671002194666
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2276125.8257443476,
+          "validation_score": 0.23169765640535153
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 722.5784052390301,
+          "validation_score": 56.00069915611351
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.25976234267216,
+          "validation_score": 2.750204255696683
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 356965995.0866811,
+          "validation_score": 0.6367001059414051
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 21519889.733952064,
+          "validation_score": 0.5933576461929196
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 128122.87740718965,
+          "validation_score": 0.8973196321234643
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13167234.396638254,
+          "validation_score": 0.5538690679566054
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 106206817.7312354,
+          "validation_score": 0.742097433148413
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1721.6939303024913,
+          "validation_score": 150.04708947189638
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 149.99527248489332
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 504.9143475922513,
+          "validation_score": 150.12260558869107
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 168220.9749843274,
+          "validation_score": 2.2658762073366105
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2999360.101354722,
+          "validation_score": 0.26066245327508136
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1634439.0565656403,
+          "validation_score": 0.4038449610498876
+        },
+        "300": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2301563.6852699425,
+          "validation_score": 0.2346555963825976
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 725.6796741846366,
+          "validation_score": 55.91692722444426
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.25879180235535,
+          "validation_score": 2.7519262216531986
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 26912512.07895047,
+          "validation_score": 0.6828371721561267
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 16646588.83992371,
+          "validation_score": 0.5737097558248104
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 128161.93578340816,
+          "validation_score": 0.9019301018568555
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 12110645.23000587,
+          "validation_score": 0.5546345104354408
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6374555.530314379,
+          "validation_score": 0.7618694157464655
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 1882.8532398411649,
+          "validation_score": 150.05739688805554
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 149.99414794916981
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 556.1359058815798,
+          "validation_score": 150.1258653099928
+        }
+      }
+    }
+  },
+  "2": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 1733.0943498531346,
+          "validation_score": 36.07501251767119
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 12.384010449098772,
+          "validation_score": 0.35341889523376957
+        },
+        "30": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2275473.534785511,
+          "validation_score": 16.61326222930303
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8.095994486417965,
+          "validation_score": 0.3103413983285583
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.4712230151887509,
+          "validation_score": 168.09494372696938
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 166.10771826083
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 28.465281833864882
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1327.8401561407284,
+          "validation_score": 1.0747403004927365
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 139.34596406673774
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 83.0904530504092,
+          "validation_score": 0.6867716226428838
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 7.594681123428645e+30,
+          "validation_score": 130.80648449705427
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 73.01680254842249,
+          "validation_score": 139.5075003926756
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2509.313563325592,
+          "validation_score": 84.29912479641547
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 31.212633042886164,
+          "validation_score": 161.85638713551262
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 61694.896807188874,
+          "validation_score": 0.7114091743581695
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8172.281787009369,
+          "validation_score": 0.3336236932900228
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4810.193759163369,
+          "validation_score": 0.43121398634683944
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8459.20965786685,
+          "validation_score": 0.30219091834869966
+        },
+        "5": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 68.00935978742007,
+          "validation_score": 1.0510672830055963
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.674830169948141,
+          "validation_score": 2.6148244014223763
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.5382783213512319
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 126200.30162978532,
+          "validation_score": 0.47725871079919097
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 281.82083722878775,
+          "validation_score": 0.6882875446077534
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 33667.833518797124,
+          "validation_score": 0.45024719420535897
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 923.5764837759212,
+          "validation_score": 0.5935095833000594
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12010.98103008976,
+          "validation_score": 7.127257182382926
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 946164.6210581512,
+          "validation_score": 6.698787014345361
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 69.20200930349611,
+          "validation_score": 6.696930576423026
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 253353.70118327322,
+          "validation_score": 1.6192092614288354
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2561385.2054541404,
+          "validation_score": 0.2900517734192698
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1574893.7670559145,
+          "validation_score": 0.3823319949568551
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2059304.1922524604,
+          "validation_score": 0.26400162805478106
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 41308.92226497571,
+          "validation_score": 32.10798244268376
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 256.88358590773737,
+          "validation_score": 2.7047101069842996
+        },
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 10379217.815054173,
+          "validation_score": 0.67632731625775
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 20939422.127514645,
+          "validation_score": 0.5158004051849266
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 85583.02882364595,
+          "validation_score": 0.9006480990783429
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 18534376.45374612,
+          "validation_score": 0.5007703722130388
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 84462714.18136449,
+          "validation_score": 0.8249895122393275
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 1764.5969950857636,
+          "validation_score": 154.77500928720002
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 154.7426615310709
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 509.25076203016476,
+          "validation_score": 154.83737380374546
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "well_region",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1011.2700960696268,
+          "validation_score": 0.5577596621857174
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12770.619963599926,
+          "validation_score": 0.30504716875134225
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 11656.67301445579,
+          "validation_score": 0.367187061305319
+        },
+        "300": {
+          "placement": "qr_whitened",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 17163.020548933924,
+          "validation_score": 0.2633389869796254
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 178.9045161478826,
+          "validation_score": 0.7063845276079341
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2.2527947494994347,
+          "validation_score": 2.5756996461660644
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 293636038.2005318,
+          "validation_score": 0.5762049500141263
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 77523.12793205041,
+          "validation_score": 0.5249805842577614
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 797.7672122459225,
+          "validation_score": 1.0243611658315361
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 55248.28899422459,
+          "validation_score": 0.4841764916217978
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1803.6002757236722,
+          "validation_score": 0.736880395422713
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1845.4850168354883,
+          "validation_score": 154.77095690256428
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 154.73598945848101
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 12932.861316801216,
+          "validation_score": 154.85817347781403
+        }
+      }
+    }
+  },
+  "3": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2107.194533405386,
+          "validation_score": 37.08488006073625
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12.333744955196657,
+          "validation_score": 0.3435245761772389
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15.536959693624693,
+          "validation_score": 14.472019412992701
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8.055425767887677,
+          "validation_score": 0.3129064798226095
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.4712544007438355,
+          "validation_score": 168.94610181545747
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 3.5527470110776127,
+          "validation_score": 164.45423539527013
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 23.710530467190466
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 168.47657493301887,
+          "validation_score": 0.913907179674181
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 136.86586995577093
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 70.10330139785862,
+          "validation_score": 0.7810486392501876
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 7.594681123428645e+30,
+          "validation_score": 128.4165977704521
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 74.32070111674159,
+          "validation_score": 155.86283766725128
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 5720.035156280761,
+          "validation_score": 83.68882010136873
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 32.19653371005453,
+          "validation_score": 162.67590611725961
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 198.67924522012166,
+          "validation_score": 0.8653407763407609
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8172.281787009369,
+          "validation_score": 0.32447106554651256
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4810.193759163369,
+          "validation_score": 0.4145540489884034
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8459.209657866848,
+          "validation_score": 0.30465579746067367
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 68.00935978742007,
+          "validation_score": 0.9442979228146982
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.676630311973687,
+          "validation_score": 2.6570700823624307
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.544953009009027
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 109839.42332707188,
+          "validation_score": 0.4772113266378008
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 281.6767976911008,
+          "validation_score": 0.7611866350204101
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 24319.795876413038,
+          "validation_score": 0.44828622763416553
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 766.6512852078852,
+          "validation_score": 0.6501158778625516
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12670.905220886048,
+          "validation_score": 7.090729228350946
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1149987.249846241,
+          "validation_score": 6.68003104744217
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 2590.930053156998,
+          "validation_score": 6.860432774032328
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1106.7285317925512,
+          "validation_score": 0.5771174945469354
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 9214.228611802831,
+          "validation_score": 0.30082943184067884
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 11571.888421074776,
+          "validation_score": 0.3880574016575906
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13254.208271010948,
+          "validation_score": 0.2675197707748065
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 171.02957006435176,
+          "validation_score": 0.7463807069113465
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2.252532399687522,
+          "validation_score": 2.6088124178905843
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 7103450267.925446,
+          "validation_score": 0.5727738692802015
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 115010.6967947654,
+          "validation_score": 0.49578665290974105
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 647.9970123838218,
+          "validation_score": 1.054627164739948
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 74794.44355207663,
+          "validation_score": 0.45924481605270423
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1589.1085696128678,
+          "validation_score": 0.7978808120522457
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1668.7959265623276,
+          "validation_score": 155.19807356870976
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 155.15826374550545
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 489.40013274622623,
+          "validation_score": 155.26413941328704
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 308462.443873978,
+          "validation_score": 1.4838612415370918
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1707380.0402227482,
+          "validation_score": 0.31706414921510645
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 1606219.751789047,
+          "validation_score": 0.38550648114320724
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1931574.8078794512,
+          "validation_score": 0.2720265430878826
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 38465.8725774313,
+          "validation_score": 29.889554451419684
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.5603380655439,
+          "validation_score": 2.6086782888739233
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 17130903.73042773,
+          "validation_score": 0.6974679789920689
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 32863740.76817436,
+          "validation_score": 0.5410292284765358
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 119353.25864255482,
+          "validation_score": 0.8821425367333974
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 25242520.77923984,
+          "validation_score": 0.5073411963907143
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6033737.834991815,
+          "validation_score": 0.8377024866200826
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1779.7633892090532,
+          "validation_score": 155.20271668332367
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 155.16630272871225
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 507.6766563372344,
+          "validation_score": 155.2624805717324
+        }
+      }
+    }
+  },
+  "4": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2227.30661837872,
+          "validation_score": 37.10058676434808
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 12.43898055607389,
+          "validation_score": 0.3247273720270085
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14.792455932155377,
+          "validation_score": 13.96034060324277
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8.095994486417965,
+          "validation_score": 0.28045339772523126
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.3582693918207946,
+          "validation_score": 166.52610190101225
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 164.28690835292312
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 26.93816491388668
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 372.9710320673655,
+          "validation_score": 1.2130391856286253
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 137.4184538239484
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 120.86459088880481,
+          "validation_score": 0.7247478410317441
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 7.594681123428645e+30,
+          "validation_score": 123.60761732054955
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 72.34804585253484,
+          "validation_score": 139.95682640310497
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2348.9104964058424,
+          "validation_score": 82.57602556205428
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 30.311779534614075,
+          "validation_score": 160.44870374830188
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 66848.71255455563,
+          "validation_score": 0.7333771617833044
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8963.013850092893,
+          "validation_score": 0.30351626061830805
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4928.6600793029265,
+          "validation_score": 0.3830826985444174
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 9139.290423881639,
+          "validation_score": 0.2763067660300686
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 68.00935978742007,
+          "validation_score": 1.070429614295301
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.595243923345053,
+          "validation_score": 2.5906898367361877
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.5338962475200041
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 109839.42332707191,
+          "validation_score": 0.45749760981719945
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 361.71205620138034,
+          "validation_score": 0.7927118484149306
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 42406.61063056646,
+          "validation_score": 0.4294993841245802
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 716.343641492439,
+          "validation_score": 0.6319133145803199
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 13294.954099708906,
+          "validation_score": 6.9348925439579086
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1016632.2947428849,
+          "validation_score": 6.620140038905458
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 69.20200930349611,
+          "validation_score": 6.551529704415852
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "well_region",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1315.496380567146,
+          "validation_score": 2.4419237802954528
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2033109.0801215305,
+          "validation_score": 0.2656317863366867
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1574893.7670559145,
+          "validation_score": 0.36561178335053385
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2354045.846006035,
+          "validation_score": 0.23213859432301062
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 48265.60187888312,
+          "validation_score": 4.286548706679931
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 256.86299858097266,
+          "validation_score": 2.6934513016171038
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 429362453.4783054,
+          "validation_score": 0.6658552551715157
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 37796535.41074731,
+          "validation_score": 0.5144528513897989
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 85583.02882364595,
+          "validation_score": 0.9394542052193081
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 17336067.6198923,
+          "validation_score": 0.5167704910280871
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 122696169.44341077,
+          "validation_score": 0.7951260463188445
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 1668.795920202506,
+          "validation_score": 153.22722906928877
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 153.19032046018495
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 509.25076203016476,
+          "validation_score": 153.29691423279613
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1663.9883969691734,
+          "validation_score": 2.438063852693932
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2304614.099441252,
+          "validation_score": 0.26863754646724175
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 1606219.751789047,
+          "validation_score": 0.3594023307641905
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2373482.080732441,
+          "validation_score": 0.23480076202470898
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 48483.21125880105,
+          "validation_score": 4.697599963046424
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 256.8946341261668,
+          "validation_score": 2.6937579292230205
+        },
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 18723418.191650946,
+          "validation_score": 0.6720281684361687
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 31913169.15083583,
+          "validation_score": 0.5066055588268557
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 85401.42771791735,
+          "validation_score": 0.9389701022115582
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15723070.234614508,
+          "validation_score": 0.5146326195054576
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6501462.749106019,
+          "validation_score": 0.8053979223151994
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 1967.8934334719834,
+          "validation_score": 153.21521628346997
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 153.1882673075313
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 507.6766563372344,
+          "validation_score": 153.29501787021061
+        }
+      }
+    }
+  },
+  "5": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2106.336279623588,
+          "validation_score": 38.10031803903876
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 12.225521419932932,
+          "validation_score": 0.3833595945313654
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15.39366286013455,
+          "validation_score": 14.706110515915517
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 8.136019733828075,
+          "validation_score": 0.3340204346936691
+        },
+        "5": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13.384489115653738,
+          "validation_score": 145.95968194165667
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 165.15133910873692
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 30.68502677977176
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 314.2633368418658,
+          "validation_score": 1.299643570864245
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 139.31544962886196
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 79.95654792325331,
+          "validation_score": 0.943776864229279
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 5.777730192398834e+30,
+          "validation_score": 126.84690056616203
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 73.29023338815833,
+          "validation_score": 139.6211278402743
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 5137.24198339567,
+          "validation_score": 86.70167114913137
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 32.3223358025224,
+          "validation_score": 160.739297986332
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 65873.63718294415,
+          "validation_score": 0.7251122034345824
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8515.565042194994,
+          "validation_score": 0.34829225574706024
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 5629.361834618141,
+          "validation_score": 0.4874624712305895
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8701.31495142106,
+          "validation_score": 0.326029703278139
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 67.33949696509106,
+          "validation_score": 1.1082729347090943
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.548606365378778,
+          "validation_score": 2.632373491863522
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.622685765773437
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1248290.0682674218,
+          "validation_score": 0.5333020464934274
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 361.71205620138034,
+          "validation_score": 0.8344373976112318
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 28430.377468110975,
+          "validation_score": 0.5083528305666839
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 703.1432220481164,
+          "validation_score": 0.6865805838019576
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 228.77641842288853,
+          "validation_score": 6.197640682369387
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 938112.026942513,
+          "validation_score": 6.0334218798685795
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 70.43880066542799,
+          "validation_score": 6.07798100875868
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 148484.2239682022,
+          "validation_score": 1.9333224394188526
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1900496.6652189451,
+          "validation_score": 0.29796883223785725
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1617811.7603245103,
+          "validation_score": 0.4577734716549573
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2354045.846006035,
+          "validation_score": 0.2637221022778747
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 46742.66089801556,
+          "validation_score": 4.191812908748353
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.95493047116406,
+          "validation_score": 2.743419102956011
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 328439175.40407306,
+          "validation_score": 0.683624311753216
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 16799590.71870459,
+          "validation_score": 0.5892190380401062
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 119441.81819693068,
+          "validation_score": 0.9362232840201322
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 17336067.619892307,
+          "validation_score": 0.543384931976136
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 154826479.1414636,
+          "validation_score": 0.872067881992852
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1772.9232250697817,
+          "validation_score": 150.8445498893481
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 150.8066893935385
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 479.69019661389274,
+          "validation_score": 150.88863657858582
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 151980.17451121894,
+          "validation_score": 1.8874087793475904
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2094763.3308625242,
+          "validation_score": 0.3026746469854628
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1584517.027812293,
+          "validation_score": 0.47728683634744756
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2373482.080732441,
+          "validation_score": 0.26799763352720457
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 46876.59872925674,
+          "validation_score": 4.362903251751207
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.95434628213343,
+          "validation_score": 2.743566999521766
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 18688571.31290813,
+          "validation_score": 0.7034309855848276
+        },
+        "20": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 18035121.01378572,
+          "validation_score": 0.5809786837574883
+        },
+        "3": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 4196828.938043912,
+          "validation_score": 1.0838338823915217
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15119889.680924699,
+          "validation_score": 0.5403250772706204
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6846867.229452517,
+          "validation_score": 0.839528619310112
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 1896.300601675357,
+          "validation_score": 150.84795968587102
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 150.8034214344909
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 504.54665685643636,
+          "validation_score": 150.9242093218863
+        }
+      }
+    }
+  },
+  "6": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2106.336279623588,
+          "validation_score": 38.92539322850382
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 11.923696812250675,
+          "validation_score": 0.3798307514055945
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14.390073733808396,
+          "validation_score": 13.486299735916162
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 7.947579012152219,
+          "validation_score": 0.3284128449463896
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.3352696556768477,
+          "validation_score": 170.59612473806428
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 168.17828435323165
+        },
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 20.765335787317806,
+          "validation_score": 19.75891648114381
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 317.4053298730952,
+          "validation_score": 1.3199593573620525
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 141.99091887081025
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 57.471826248026524,
+          "validation_score": 0.8139713985305761
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2.877660234066507e+30,
+          "validation_score": 129.44822688833895
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 73.29023338815833,
+          "validation_score": 145.59934943425324
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 5729.665575976776,
+          "validation_score": 79.08027464014431
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 32.3223358025224,
+          "validation_score": 163.74769325992762
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 272816.93538801314,
+          "validation_score": 0.6884838907970758
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8379.35772400159,
+          "validation_score": 0.35668888729192966
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4134.779449054039,
+          "validation_score": 0.42470955161408647
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8663.315181717004,
+          "validation_score": 0.3246385045428921
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 72.66778946247776,
+          "validation_score": 1.0460845044497495
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.642765719045487,
+          "validation_score": 2.662586869779482
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.5795758213997023
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 99688.41187261743,
+          "validation_score": 0.47655376577248526
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 309.0212265700277,
+          "validation_score": 0.7055958938721525
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 22469.004647551283,
+          "validation_score": 0.44108559806573705
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 823.1232460182329,
+          "validation_score": 0.6358489874656446
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12874.345738117152,
+          "validation_score": 6.972857130757845
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1121554.9101746513,
+          "validation_score": 6.671751691845887
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 74.82787407337389,
+          "validation_score": 6.406283265430485
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 928.8593481151729,
+          "validation_score": 0.5457591072238649
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 13788.640882794589,
+          "validation_score": 0.2979183506382242
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 12191.766437552278,
+          "validation_score": 0.3722179513244725
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14254.184076872261,
+          "validation_score": 0.261009146660352
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 173.64772543793822,
+          "validation_score": 0.7564086503431896
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2.2523240992726437,
+          "validation_score": 2.595034445932169
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 3413835143.2541647,
+          "validation_score": 0.5797880000521313
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 633082.0435513622,
+          "validation_score": 0.6166256280806288
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 681.249845746802,
+          "validation_score": 0.9594774046936826
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 49485.65630218108,
+          "validation_score": 0.5305168022785187
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1696.936220377696,
+          "validation_score": 0.7632359051258213
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1919.4271053229104,
+          "validation_score": 156.4002244534395
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 156.3565422730436
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 534.8828059933873,
+          "validation_score": 156.42152498654664
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 254886.10680725743,
+          "validation_score": 1.9492269047471809
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2120084.9482493796,
+          "validation_score": 0.2948460947234353
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1584517.027812293,
+          "validation_score": 0.40771997220132966
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2373482.0807324382,
+          "validation_score": 0.2655929398244739
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 59040.842575781746,
+          "validation_score": 5.028373148860642
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.19404996842223,
+          "validation_score": 2.754873587410767
+        },
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 19126739.66924264,
+          "validation_score": 0.7151898398028281
+        },
+        "20": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 31913169.150835887,
+          "validation_score": 0.5176183737156487
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 122497.47317247956,
+          "validation_score": 1.0295077504934003
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13696474.77603397,
+          "validation_score": 0.5040717334699728
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 7150499.943939573,
+          "validation_score": 0.8422321012146549
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 2202.490887203421,
+          "validation_score": 156.38728914182875
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 156.35024828489483
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 561.1127103445938,
+          "validation_score": 156.4205098171868
+        }
+      }
+    }
+  },
+  "7": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2106.336279623588,
+          "validation_score": 38.65487741177832
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 11.779493069681545,
+          "validation_score": 0.35048037608118005
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14.497931045169908,
+          "validation_score": 13.646757534221612
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8.099935712496569,
+          "validation_score": 0.31579386972755435
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.4422368529286462,
+          "validation_score": 172.1882935580447
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 169.95668509289226
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 31.210322037721628
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 277.5546341577797,
+          "validation_score": 1.0842508442460443
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 143.78227099573525
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 110.13387352894482,
+          "validation_score": 0.7946626601714616
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 5.777730192398834e+30,
+          "validation_score": 129.370692427455
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 73.29023338815833,
+          "validation_score": 157.7585000535464
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 3826.5166623792293,
+          "validation_score": 87.40820640676053
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 31.505145651674532,
+          "validation_score": 165.92618974641348
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 62875.94848477499,
+          "validation_score": 0.7555848012673984
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 9112.776859324103,
+          "validation_score": 0.3446214974377359
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 3987.2945456505736,
+          "validation_score": 0.45328593182519356
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 9309.97637875765,
+          "validation_score": 0.3149163901418153
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 63.69796909346736,
+          "validation_score": 1.0681348493063725
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.548606365378778,
+          "validation_score": 2.6634458115432382
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.656824177488529
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 721866.559117636,
+          "validation_score": 0.5281507067941748
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 361.71205620138034,
+          "validation_score": 0.8593692480143126
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 40046.87693024884,
+          "validation_score": 0.49779724407662657
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 716.0216818361312,
+          "validation_score": 0.6742743014415865
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 13642.268658620751,
+          "validation_score": 7.132405592726406
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1200744.7316832184,
+          "validation_score": 6.810760149049526
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 2398.00829555506,
+          "validation_score": 6.875407228692581
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 181040.4947571295,
+          "validation_score": 1.9025524753275864
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2778910.8187561547,
+          "validation_score": 0.2898820212924567
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1479985.6501746885,
+          "validation_score": 0.4971879118390081
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2354045.846006035,
+          "validation_score": 0.2601475165282918
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 722.5784052390301,
+          "validation_score": 50.95839684659734
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.41779725290024,
+          "validation_score": 2.743702696192589
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 356965995.0866811,
+          "validation_score": 0.6751350472549055
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 37796535.41074731,
+          "validation_score": 0.5769762561225559
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 119785.372209964,
+          "validation_score": 0.9151976641662455
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 17336067.6198923,
+          "validation_score": 0.5677607259215924
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 106206817.7312354,
+          "validation_score": 0.7184315397006372
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1721.6939303024913,
+          "validation_score": 158.50561126413865
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 158.4703394733982
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 534.8828075078068,
+          "validation_score": 158.54748351457167
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1663.9883969691734,
+          "validation_score": 2.5322558571997855
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2999360.101354722,
+          "validation_score": 0.2903610124559618
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1584517.027812293,
+          "validation_score": 0.48165726231746536
+        },
+        "300": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2377675.0461321613,
+          "validation_score": 0.2623986466015307
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 725.6796741846366,
+          "validation_score": 51.1060462650454
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.417320515245,
+          "validation_score": 2.745437059639354
+        },
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 19126739.66924264,
+          "validation_score": 0.7105549604952208
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 31913169.15083583,
+          "validation_score": 0.5769560926172524
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 119606.91958979456,
+          "validation_score": 0.9196679036338353
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15723070.234614503,
+          "validation_score": 0.5632878090607484
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6374555.530314379,
+          "validation_score": 0.7614435259551326
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1871.2980876053446,
+          "validation_score": 158.51409571310617
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 158.46622131702114
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 570.3662727057849,
+          "validation_score": 158.5499298908497
+        }
+      }
+    }
+  },
+  "8": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2195.220614892641,
+          "validation_score": 41.980755117296574
+        },
+        "100": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 12.560134000335935,
+          "validation_score": 0.4028451765868391
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15.74891165174289,
+          "validation_score": 20.716161352829033
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 8.099935712496569,
+          "validation_score": 0.3600382925918389
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1.4422368529286462,
+          "validation_score": 177.87410760012995
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 175.4064442903583
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 32.02747960511774
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 316.2643191858977,
+          "validation_score": 1.4787684877785352
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 149.81019483280744
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 83.73655724038186,
+          "validation_score": 0.7128174247271445
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 9.684567546536895e+30,
+          "validation_score": 132.92286296519404
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 71.9696161107986,
+          "validation_score": 159.28930157069175
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 4029.053796229376,
+          "validation_score": 86.03030577177913
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 30.72998726052783,
+          "validation_score": 171.1967708740508
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 61262.871319760845,
+          "validation_score": 0.8430739502230483
+        },
+        "100": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 8328.878624683219,
+          "validation_score": 0.3980182917468193
+        },
+        "30": {
+          "placement": "well_region",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4061.302571347516,
+          "validation_score": 0.4958221009147436
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 8525.328238324046,
+          "validation_score": 0.35663165185968054
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 63.69796909346736,
+          "validation_score": 1.227030926479423
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 6.071089603644048,
+          "validation_score": 2.8385871410440866
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 0.73285539713544
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 135331.4505398947,
+          "validation_score": 0.5135709418952547
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 347.78057223603196,
+          "validation_score": 0.9457778804210483
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 29527.165716786538,
+          "validation_score": 0.49961137179203113
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 716.0216818361312,
+          "validation_score": 0.7627234067015304
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 13545.8395924259,
+          "validation_score": 7.184229997050802
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1200744.7316829197,
+          "validation_score": 6.229633192254879
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 69.34870299692372,
+          "validation_score": 6.548829468188863
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 302970.0992184137,
+          "validation_score": 2.3252400809793783
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2731865.3889728617,
+          "validation_score": 0.2962977153077087
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1765559.8577375282,
+          "validation_score": 0.49802960064162316
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2181780.1753109545,
+          "validation_score": 0.28357010969626467
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 41681.32255427596,
+          "validation_score": 35.11972456015193
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.8466878195799,
+          "validation_score": 2.8089619843509825
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 356965995.0866811,
+          "validation_score": 0.7428696206662044
+        },
+        "20": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 21519889.733952064,
+          "validation_score": 0.6522706530796608
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 117656.86120741125,
+          "validation_score": 1.0205213079822273
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 18511330.75838203,
+          "validation_score": 0.6243134347739501
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 106206817.7312354,
+          "validation_score": 0.9145218236167492
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 2186.5034644083285,
+          "validation_score": 160.11194275184184
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 160.04673674403423
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 494.9917144955295,
+          "validation_score": 160.18061518116798
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 248933.38885829793,
+          "validation_score": 2.125911543643691
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2647224.1177275367,
+          "validation_score": 0.30995592234501096
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1780341.1302757396,
+          "validation_score": 0.5036199439115818
+        },
+        "300": {
+          "placement": "qr_whitened",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2254251.994651946,
+          "validation_score": 0.28295185084835883
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 1401.4396959568448,
+          "validation_score": 70.14474709963103
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.8460230471612,
+          "validation_score": 2.8090380936478794
+        },
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 19022468.740697958,
+          "validation_score": 0.7964553334806509
+        },
+        "20": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 17948361.168630965,
+          "validation_score": 0.6383440399463002
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 117715.09043892087,
+          "validation_score": 1.026058019519937
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 17289002.01278015,
+          "validation_score": 0.6289795214620667
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6374555.530314379,
+          "validation_score": 0.9207918435691589
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 2540.194786912702,
+          "validation_score": 160.12105528278417
+        },
+        "30": {
+          "placement": "dg_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 160.0491334423584
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 525.1883486631081,
+          "validation_score": 160.1817912735768
+        }
+      }
+    }
+  },
+  "9": {
+    "POD": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2045.3101210282628,
+          "validation_score": 40.78479721908786
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 12.050200423328477,
+          "validation_score": 0.43205435600133324
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14.497931045169908,
+          "validation_score": 18.648845482484777
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 8.099935712496569,
+          "validation_score": 0.37196084950803443
+        },
+        "5": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13.519079971723947,
+          "validation_score": 135.86616962271606
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 192.4288908819201
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 35.731065533885015,
+          "validation_score": 28.90406737938365
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1984.1223826655928,
+          "validation_score": 1.282783381677983
+        },
+        "3": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 165.30348583930297
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 83.45736678361959,
+          "validation_score": 0.7252058460976475
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 9.684567546536895e+30,
+          "validation_score": 146.19708309279665
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 76.33078748484353,
+          "validation_score": 174.2959588228355
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.01,
+            "name": "lasso"
+          },
+          "validation_condition_median": 14274.332946700093,
+          "validation_score": 90.43665472814332
+        },
+        "5": {
+          "placement": "configured",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 0.0001,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 31.52020845490223,
+          "validation_score": 188.36232656119645
+        }
+      }
+    },
+    "POD-E": {
+      "grid": {
+        "10": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 67571.96797532261,
+          "validation_score": 0.8275538850994265
+        },
+        "100": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 9045.392066897832,
+          "validation_score": 0.42016713621573337
+        },
+        "30": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4325.207060257221,
+          "validation_score": 0.5061457718824215
+        },
+        "300": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 9861.817288885251,
+          "validation_score": 0.36846622566977993
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 63.89067785896736,
+          "validation_score": 1.1731272275254858
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 5.89505777925904,
+          "validation_score": 2.9993495556769267
+        },
+        "10": {
+          "placement": "dg_pressure",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 4.51329999823973e+18,
+          "validation_score": 0.7260524312653885
+        },
+        "20": {
+          "placement": "dg_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 131378.62583663446,
+          "validation_score": 0.5689485412135012
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 430.4261396958601,
+          "validation_score": 0.9397481381891422
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 29527.16571678669,
+          "validation_score": 0.5275336090412136
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 848.5551668710463,
+          "validation_score": 0.7729711503361242
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 13627.926379519824,
+          "validation_score": 7.663559274346189
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1200744.7316832244,
+          "validation_score": 7.40621163177556
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 0.01,
+            "name": "ridge"
+          },
+          "validation_condition_median": 67.80225944360262,
+          "validation_score": 7.240474551714404
+        }
+      }
+    },
+    "final_accuracy": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 1348.6449440131228,
+          "validation_score": 2.799818531072035
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2778910.8187561547,
+          "validation_score": 0.3550239338396533
+        },
+        "30": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 1730779.0654051085,
+          "validation_score": 0.5129230711641896
+        },
+        "300": {
+          "placement": "qr_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 2415271.16525326,
+          "validation_score": 0.3248316686653478
+        },
+        "5": {
+          "placement": "qr_whitened",
+          "solver": {
+            "alpha_relative": 1e-08,
+            "name": "ridge"
+          },
+          "validation_condition_median": 46181.30631223981,
+          "validation_score": 32.53911825019991
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 263.61827196816944,
+          "validation_score": 2.941750604700356
+        },
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 385236122.6844222,
+          "validation_score": 0.7944286031889899
+        },
+        "20": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 20384539.155919746,
+          "validation_score": 0.6694409824874685
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 128122.87740718965,
+          "validation_score": 1.0507003831635708
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 16637175.234907303,
+          "validation_score": 0.6291077226668366
+        },
+        "5": {
+          "placement": "dg_joint",
+          "solver": {
+            "name": "least_squares",
+            "rcond": 1e-10
+          },
+          "validation_condition_median": 6233512.1741060335,
+          "validation_score": 0.8919631800455964
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 2066.122951563891,
+          "validation_score": 176.3842230194381
+        },
+        "30": {
+          "placement": "dg_joint",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 176.30949794051284
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 515.7647441789487,
+          "validation_score": 176.41581487879435
+        }
+      }
+    },
+    "final_pareto": {
+      "grid": {
+        "10": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 975.39269768168,
+          "validation_score": 0.7327196623169558
+        },
+        "100": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 13249.541026585579,
+          "validation_score": 0.35358903601465935
+        },
+        "30": {
+          "placement": "well_region",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 13387.218939666498,
+          "validation_score": 0.46401786822347196
+        },
+        "300": {
+          "placement": "cluster_constrained",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 15108.96705058683,
+          "validation_score": 0.3226668950441362
+        },
+        "5": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 212.5857915532474,
+          "validation_score": 0.8579780139452536
+        }
+      },
+      "well_joint": {
+        "1": {
+          "placement": "condition_joint",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2.252697448901307,
+          "validation_score": 2.9420517193335236
+        },
+        "10": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 348897402.08848846,
+          "validation_score": 0.7249711014033003
+        },
+        "20": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 474611.2047452752,
+          "validation_score": 0.6429954267130168
+        },
+        "3": {
+          "placement": "condition_joint",
+          "solver": {
+            "alpha_relative": 0.0001,
+            "name": "ridge"
+          },
+          "validation_condition_median": 707.9961397779136,
+          "validation_score": 1.178860968781254
+        },
+        "30": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.001,
+            "l2_relative": 1e-06,
+            "name": "elastic_net"
+          },
+          "validation_condition_median": 48046.349110976924,
+          "validation_score": 0.6480191847109724
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 23094.343758539002,
+          "validation_score": 0.8814011993222618
+        }
+      },
+      "well_pressure": {
+        "10": {
+          "placement": "condition_pressure",
+          "solver": {
+            "l1": 0.0001,
+            "name": "lasso"
+          },
+          "validation_condition_median": 2227.3604260017905,
+          "validation_score": 176.3823029164163
+        },
+        "30": {
+          "placement": "configured",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": Infinity,
+          "validation_score": 176.30420888115745
+        },
+        "5": {
+          "placement": "condition_pressure",
+          "solver": {
+            "alpha_relative": 1e-06,
+            "name": "ridge"
+          },
+          "validation_condition_median": 517.4390681861391,
+          "validation_score": 176.41624501980883
+        }
+      }
+    }
+  }
+}
