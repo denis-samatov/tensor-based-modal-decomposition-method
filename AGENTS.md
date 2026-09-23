@@ -24,7 +24,7 @@ The TBMD project is a Python research library for reduced-order modeling of spat
 ## Testing and Validation
 After making changes, run the following to ensure syntax and structural hygiene:
 ```bash
-python -m compileall src tests examples scripts
+python -m compileall src tests examples studies/brugge_sparse_sensing/scripts
 pytest tests/audit -q
 pytest tests/unit -q
 ```

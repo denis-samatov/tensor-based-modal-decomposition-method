@@ -102,7 +102,7 @@ Build success verifies the local package but does not perform or authorise an up
 
 Cite this software using [CITATION.cff](CITATION.cff). The recorded software release v2.1.0
 is identified by [Zenodo DOI 10.5281/zenodo.22814377](https://doi.org/10.5281/zenodo.22814377).
-The prepared v2.2.0 code includes nested optimization and E9. Its version-specific DOI is pending; the old DOI does not identify this revision. The current paper title is above;
+The [v2.2.0 GitHub release](https://github.com/denis-samatov/tensor-based-modal-decomposition-method/releases/tag/v2.2.0) includes nested optimization and E9. Its version-specific archival DOI is pending; the old DOI does not identify this revision. The current paper title is above;
 the earlier arXiv entry retains its original title until the authors replace it.
 Code is MIT licensed ([LICENSE](LICENSE)); TNO data rights are separate.
 [Contribution guide](CONTRIBUTING.md).
