@@ -1,10 +1,10 @@
 """Pairing and aggregation contracts for the internal exhaustive E2 audit."""
 import importlib.util
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import sys
+from pathlib import Path
 
 import pandas as pd
 import pytest
