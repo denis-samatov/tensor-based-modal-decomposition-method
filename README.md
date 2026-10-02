@@ -6,6 +6,16 @@ sparse reconstruction of spatiotemporal fields. The current reservoir benchmark 
 Physical URANS forecasting is maintained in the separate
 [tbmd-forecasting repository](https://github.com/denis-samatov/tbmd-forecasting).
 
+## At a glance
+
+| | |
+|---|---|
+| **What** | Python/PyTorch library for Tucker/HOSVD modal decomposition, tensor QR sensor placement and sparse (ADMM / compressive) reconstruction of spatiotemporal fields. |
+| **Benchmark** | Ten Brugge reservoir control scenarios, leave-one-scenario-out testing with three-fold inner model selection ([study](studies/brugge_sparse_sensing/README.md)). |
+| **Main finding** | Shared spatial factors with property-specific coefficients beat a rigid joint formulation: at 30 common grid channels, pressure/saturation anomaly-relative error falls from 1.167/0.844 to 0.350/0.465. Energy-weighted POD remains strongest at existing joint-property wells. |
+| **Reproducibility** | Committed results are verified by `studies/brugge_sparse_sensing/verify_outputs.sh`; CI runs tests, ruff and mypy on Python 3.10–3.12. The quantitative results of arXiv v1 are not reproducible and are superseded — see [REPRODUCIBILITY.md](REPRODUCIBILITY.md) and Supplementary S2. |
+| **Status** | Revised manuscript in preparation; software v2.2.0; v2.1.0 archived on Zenodo. |
+
 ## Paper
 
 *Nested optimization of tensor-based modal decomposition for sparse reservoir-state reconstruction: accuracy–compression regimes on Brugge* — D. Samatov, B. Merzlikin, G. Shishaev.
