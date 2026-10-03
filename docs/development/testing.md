@@ -28,7 +28,7 @@ Compileall checks syntax rather than numerical behavior.
 The software suite uses synthetic fixtures. Run Brugge-specific verification using the
 [study instructions](../../studies/brugge_sparse_sensing/README.md).
 Dataset-specific URANS/forecasting tests belong to
-[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting).
+the private `tbmd-forecasting` repository.
 Software PASS does not establish physical forecast skill, field qualification or article readiness.
 
 [Contribution guide](contribution-guide.md) · [Code style](code-style.md) ·

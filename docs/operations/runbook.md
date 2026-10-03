@@ -22,7 +22,7 @@ subset of verification; they do not imply that a clean clone includes all simula
 ## Forecasting
 
 Physical URANS and `t+1` experiment commands belong to
-[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting) and its output/provenance contract.
+the private `tbmd-forecasting` repository and its output/provenance contract.
 
 ## Validation
 

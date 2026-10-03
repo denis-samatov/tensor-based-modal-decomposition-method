@@ -5,7 +5,7 @@
 Reusable algorithms live in `src/TBMD/core/`. Synthetic examples and the Brugge study compose these
 algorithms without treating a dataset-specific workflow as a universal API. Physical URANS and
 `t+1` forecasting live in the separate
-[tbmd-forecasting repository](https://github.com/denis-samatov/tbmd-forecasting).
+private `tbmd-forecasting` repository.
 
 ## Explicit tensor representation
 

@@ -2,7 +2,7 @@
 
 Start with the [repository README](../README.md) for installation and the complete synthetic example.
 This index covers the library. Forecasting is maintained in
-[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting).
+the private `tbmd-forecasting` repository.
 
 ## Directory responsibilities
 

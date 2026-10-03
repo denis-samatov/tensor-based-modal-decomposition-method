@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Name the private `tbmd-forecasting` repository in boundary statements instead of linking to it.
+
 ## 2.2.0 - prepared, not published
 
 - Record the revised Brugge nested-optimization and E9 property-mode benchmark, frozen selections and reproducibility tooling.

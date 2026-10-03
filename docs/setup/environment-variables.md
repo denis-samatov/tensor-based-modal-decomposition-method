@@ -12,7 +12,7 @@ passed through Python configuration objects.
 
 These variables belong to tools and experiment execution, not an implicit core configuration
 service. Physical URANS configuration belongs to
-[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting).
+the private `tbmd-forecasting` repository.
 
 ## Validation
 

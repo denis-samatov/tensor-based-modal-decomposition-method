@@ -2,7 +2,7 @@
 
 TBMD is a Python research library for decomposition, modal-basis construction, sensor placement and
 sparse-field reconstruction. Dataset-specific forecasting belongs to the separate
-[tbmd-forecasting repository](https://github.com/denis-samatov/tbmd-forecasting).
+private `tbmd-forecasting` repository.
 
 | Layer | Source | Responsibility |
 |---|---|---|

@@ -4,7 +4,7 @@ A Python research library for Tucker/HOSVD decomposition, tensor QR sensor place
 sparse reconstruction of spatiotemporal fields. The current reservoir benchmark lives in
 [`studies/brugge_sparse_sensing`](studies/brugge_sparse_sensing/README.md).
 Physical URANS forecasting is maintained in the separate
-[tbmd-forecasting repository](https://github.com/denis-samatov/tbmd-forecasting).
+private `tbmd-forecasting` repository.
 
 ## At a glance
 

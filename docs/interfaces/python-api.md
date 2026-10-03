@@ -59,7 +59,7 @@ Geometry-aware constructors have additional configuration contracts; see
 [components](../architecture/components.md) and [geometry examples](../../examples/geometry_aware/README.md).
 The [complete synthetic example](../../examples/basic/04_complete_pipeline.py) shows the composed workflow.
 Forecasting-specific APIs belong to
-[tbmd-forecasting](https://github.com/denis-samatov/tbmd-forecasting).
+the private `tbmd-forecasting` repository.
 
 ## Validation
 

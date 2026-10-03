@@ -151,9 +151,9 @@ def test_relative_markdown_links_resolve():
     assert broken == []
 
 
-def test_forecasting_boundary_docs_link_canonical_repository():
-    """Keep every forecasting boundary statement actionable and unambiguous."""
-    canonical = "https://github.com/denis-samatov/tbmd-forecasting"
+def test_forecasting_boundary_docs_name_private_repository():
+    """Name the forecasting repository without linking to its private URL."""
+    private_url = "https://github.com/denis-samatov/tbmd-forecasting"
     boundary_docs = (
         "README.md",
         "docs/architecture/decisions.md",
@@ -164,14 +164,15 @@ def test_forecasting_boundary_docs_link_canonical_repository():
         "examples/README.md",
     )
 
-    missing = [
-        relative_path
+    texts = {
+        relative_path: (PROJECT_ROOT / relative_path).read_text(encoding="utf-8")
         for relative_path in boundary_docs
-        if canonical
-        not in (PROJECT_ROOT / relative_path).read_text(encoding="utf-8")
-    ]
+    }
+    missing = [path for path, text in texts.items() if "`tbmd-forecasting`" not in text]
+    linked = [path for path, text in texts.items() if private_url in text]
 
     assert missing == []
+    assert linked == []
 
 
 def test_reproducibility_guide_has_no_unverified_data_instructions():
