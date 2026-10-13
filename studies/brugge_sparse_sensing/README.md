@@ -207,6 +207,10 @@ information only.
 
 Scratch verification outputs are removed on success or failure. This command never overwrites the canonical result files.
 
+The graphical abstract plots E9 results, which `run_e9_property_mode.sh` produces. A `run_all.sh` rerun into a
+separate `BSS_OUT` therefore skips it and logs `graphical abstract skipped`; `verify_outputs.sh` regenerates it from
+the committed E9 outputs.
+
 `check_claims.py` fails if a generated number source referenced by the manuscript differs from the
 canonical output, if a manuscript macro is not generated, or if a result-like decimal is typed
 directly into the text. The nested studies add `outputs/optimization/optimization_numbers.tex` and

@@ -3,6 +3,8 @@
 ## Unreleased
 
 - Name the private `tbmd-forecasting` repository in boundary statements instead of linking to it.
+- Let `run_all.sh` finish when rerunning into a separate `BSS_OUT`: the graphical abstract needs E9 outputs
+  produced by `run_e9_property_mode.sh`, so it is skipped with a log message when they are absent.
 
 ## 2.2.0 - prepared, not published
 
