@@ -44,7 +44,12 @@ $PY scripts/make_tables.py                       > "$LOG/tables.log" 2>&1
 $PY scripts/make_numbers_tex.py                  > "$LOG/numbers.log" 2>&1
 $PY scripts/make_latex_tables.py                 >> "$LOG/numbers.log" 2>&1
 $PY scripts/make_figures.py                      > "$LOG/figures.log" 2>&1
-$PY scripts/make_graphical_abstract.py           >> "$LOG/figures.log" 2>&1
+# The graphical abstract plots E9 results, which run_e9_property_mode.sh produces, not this driver.
+if [ -f "$OUTDIR/e9_property_mode/outer_summary.csv" ]; then
+  $PY scripts/make_graphical_abstract.py         >> "$LOG/figures.log" 2>&1
+else
+  echo "graphical abstract skipped: $OUTDIR has no E9 results (run_e9_property_mode.sh)" | tee -a "$LOG/figures.log"
+fi
 if [ -n "${MANUSCRIPT_DIR:-}" ]; then
   $PY scripts/check_claims.py "$MANUSCRIPT_DIR"  > "$LOG/claims.log" 2>&1 || { cat "$LOG/claims.log"; exit 1; }
 elif [ "$OUTDIR" = outputs ] && [ -f ../../docs/paper/manuscript/main.tex ]; then

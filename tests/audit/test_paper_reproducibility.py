@@ -311,3 +311,38 @@ def test_full_driver_propagates_claim_failure_and_cleans_successful_parts(tmp_pa
     else:
         assert "run_all finished" in result.stdout
         assert not (outputs / "parts").exists()
+
+
+@pytest.mark.parametrize("has_e9", [False, True])
+def test_full_driver_into_separate_directory_handles_missing_e9_outputs(tmp_path, has_e9):
+    """An E0-E8 rerun into BSS_OUT has no E9 results; the graphical abstract needs them."""
+    script = tmp_path / "run_all.sh"
+    script.write_text((STUDY / "run_all.sh").read_text())
+    calls = tmp_path / "calls.txt"
+    fake = tmp_path / "python"
+    fake.write_text(
+        '#!/usr/bin/env python3\n'
+        'import os, pathlib, sys\n'
+        'stage = pathlib.Path(sys.argv[1]).name\n'
+        'with open(os.environ["CALLS"], "a") as handle: handle.write(stage + "\\n")\n'
+        'out = pathlib.Path(os.environ["BSS_OUT"])\n'
+        'if stage == "make_graphical_abstract.py" and not '
+        '(out / "e9_property_mode/outer_summary.csv").exists():\n'
+        '    sys.exit("FileNotFoundError: outer_summary.csv")\n'
+    )
+    fake.chmod(0o755)
+    outputs = tmp_path / "outputs"
+    if has_e9:
+        (outputs / "e9_property_mode").mkdir(parents=True)
+        (outputs / "e9_property_mode/outer_summary.csv").write_text("fixture\n")
+    env = {**os.environ, "PYTHON": str(fake), "BSS_OUT": str(outputs),
+           "BSS_FIG": str(tmp_path / "figures"), "BSS_LOG": str(tmp_path / "logs"),
+           "CALLS": str(calls)}
+    env.pop("MANUSCRIPT_DIR", None)
+    result = subprocess.run(["bash", str(script), "1"], env=env, capture_output=True, text=True)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "run_all finished" in result.stdout
+    invoked = "make_graphical_abstract.py" in calls.read_text().split()
+    assert invoked is has_e9
+    if not has_e9:
+        assert "graphical abstract skipped" in result.stdout
