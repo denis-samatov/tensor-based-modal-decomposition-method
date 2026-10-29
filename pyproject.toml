@@ -68,7 +68,6 @@ module = [
     "TBMD.core.data.loaders",
     "TBMD.core.data.processors",
     "TBMD.core.decomposition.geometry_aware",
-    "TBMD.core.decomposition.hosvd",
     "TBMD.core.geometry.graph",
     "TBMD.core.modal_processor.modes",
     "TBMD.core.reconstruction.geometry_aware",

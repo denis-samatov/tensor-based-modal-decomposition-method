@@ -100,10 +100,14 @@ class BaseDataLoader:
 
     def _load_pytorch(self, key: Optional[str] = None, **kwargs) -> torch.Tensor:
         """Load from PyTorch."""
-        data = torch.load(self.data_path, map_location=self.device)
+        data = torch.load(self.data_path, map_location=self.device, weights_only=True)
 
-        if isinstance(data, dict) and key is not None:
+        if isinstance(data, dict):
+            if key is None:
+                raise ValueError("A tensor dictionary requires an explicit key")
             data = data[key]
+        if not isinstance(data, torch.Tensor):
+            raise TypeError("PyTorch data must contain a tensor")
 
         return data.to(device=self.device, dtype=self.dtype)
 

@@ -50,3 +50,14 @@ jobs:
       if: matrix.python-version == '3.12'
       run: |
         python -m mypy src/TBMD/core
+
+    - name: Build wheel and verify installation outside checkout
+      run: |
+        python -m pip install build
+        python -m build --wheel
+        python -m venv --system-site-packages /tmp/tbmd-wheel-smoke
+        /tmp/tbmd-wheel-smoke/bin/python -m pip install --ignore-installed --no-deps dist/*.whl
+        cp examples/basic/04_complete_pipeline.py /tmp/tbmd-complete-pipeline.py
+        cd /tmp
+        /tmp/tbmd-wheel-smoke/bin/python -c "import TBMD, sys; from pathlib import Path; print(TBMD.__file__); assert Path(TBMD.__file__).is_relative_to(Path(sys.prefix)); from TBMD.core.decomposition.hosvd import TuckerDecomposer; import torch; model = TuckerDecomposer(torch.zeros(2, 2, 2), ranks=[1, 1, 1]); model.decompose(); model.reconstruct(); assert model.reconstruction_errors == 0.0"
+        MPLBACKEND=Agg OMP_NUM_THREADS=1 /tmp/tbmd-wheel-smoke/bin/python /tmp/tbmd-complete-pipeline.py --solver least_squares --spatial-points 20 --time-steps 12 --n-modes 4 --n-sensors 3
