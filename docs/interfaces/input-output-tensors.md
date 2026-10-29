@@ -26,3 +26,30 @@ MPLBACKEND=Agg python -m pytest tests/unit/test_decomposition.py tests/unit/test
 ```
 
 [Data flow](../architecture/data-flow.md) · [Brugge study](../../studies/brugge_sparse_sensing/README.md)
+
+
+## Zero-reference reconstruction and file loading
+
+An exactly reconstructed zero tensor has relative error 0 in single, CPU collection and GPU
+collection paths. A nonzero residual against a zero reference norm raises `ValidationError`;
+its relative error is mathematically undefined. This does not change nonzero-reference errors.
+
+`BaseDataLoader` loads `.pt`/`.pth` files with `weights_only=True`. The payload must be a tensor,
+or a dictionary with an explicit tensor key. Arbitrary Python objects are not accepted.
+This is a deserialization contract, not a memory quota for untrusted large files.
+
+Validation: `MPLBACKEND=Agg pytest tests/unit/test_audit_boundaries.py -q`.
+
+## Separate execution profile (2026-10-29)
+
+`requirements-execution.in` is the maintained input; `requirements-execution.txt` is generated
+with `uv pip compile requirements-execution.in --python-version 3.13 --generate-hashes --output-file requirements-execution.txt`.
+It is a new Python 3.13 software-validation environment, not the historical scientific environment.
+Create a local venv, then install with `python -m pip install --require-hashes -r requirements-execution.txt`.
+Do not edit the generated lock by hand. OSV exact-version scanning covers the resolved public
+packages; it does not establish exploit reachability or guarantee that undisclosed issues are absent.
+Historical locks, predictions and numerical results remain unchanged. A new experimental result
+requires its own inputs, source revision, environment and numerical qualification.
+
+This profile was resolved on macOS arm64 for Python 3.13. It is not a universal lock for
+all operating systems, Python versions or accelerators; regenerate and qualify another target.

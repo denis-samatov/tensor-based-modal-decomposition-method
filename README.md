@@ -26,16 +26,22 @@ The revised manuscript supersedes the unreproduced quantitative results of
 
 ## Installation
 
-The library supports Python 3.10–3.12. The recorded study environment uses Python 3.12:
+The library supports Python 3.10–3.12. The maintained software-validation profile
+uses Python3.12 on macOS ARM64; other platforms need separate resolution/acceptance:
 
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r studies/brugge_sparse_sensing/requirements-lock.txt
+python -m pip install --require-hashes -r requirements-execution.txt
 python -m pip install --no-deps -e .
 ```
 
-For library development, use `python -m pip install -e ".[dev]"` instead of the study lock.
+`requirements-execution.txt` is generated from `requirements-execution.in`; do not
+hand-edit it. The old `studies/brugge_sparse_sensing/requirements-lock.txt` remains
+a historical study snapshot and is not the default fresh-install command.
+A new software environment does not reproduce the paper by itself; follow the
+[reproducibility guide](REPRODUCIBILITY.md) with permitted raw inputs and compare
+raw numerical artifacts before making new scientific claims.
 
 ## Reproducibility
 

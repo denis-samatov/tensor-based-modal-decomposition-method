@@ -15,7 +15,7 @@ import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional, Protocol, Tuple, TypeVar, Union
+from typing import Dict, List, Optional, Protocol, Tuple, TypeVar, Union, cast
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -63,6 +63,16 @@ class ValidationError(TensorDecompositionError):
 
 # Constants
 DEFAULT_EPSILON = 1e-2
+
+
+def _relative_reconstruction_error(residual_norm: float, reference_norm: float) -> float:
+    """Exact zero has zero error; a nonzero residual against zero is undefined."""
+    if reference_norm == 0.0:
+        if residual_norm == 0.0:
+            return 0.0
+        raise ValidationError("Relative reconstruction error has a zero reference norm")
+    return residual_norm / reference_norm
+
 
 
 def DEFAULT_MIDDLE_SLICE_INDEX(shape):
@@ -185,7 +195,7 @@ class CPUStrategy(ProcessingStrategy):
             unique_tensors[tid] = tensor
             key_to_id[key] = tid
 
-        id_to_norm = {}
+        id_to_norm: Dict[int, float] = {}
 
         def compute_norm(t):
             return float(tl.norm(t))
@@ -193,7 +203,9 @@ class CPUStrategy(ProcessingStrategy):
         def reconstruct_single(key: str) -> Tuple[str, ReconstructionResult]:
             reconstructed = tucker_to_tensor((cores[key], factors[key]))
             norm_val = id_to_norm[key_to_id[key]]
-            error = float(tl.norm(original_tensors[key] - reconstructed) / norm_val)
+            error = _relative_reconstruction_error(
+                float(tl.norm(original_tensors[key] - reconstructed)), norm_val
+            )
             return key, ReconstructionResult(tensor=reconstructed, error=error)
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -349,8 +361,9 @@ class GPUStrategy(ProcessingStrategy):
                 # Clear memory before processing
                 self._clear_gpu_memory()
                 reconstructed = tucker_to_tensor((cores[key], factors[key]))
-                error = float(
-                    tl.norm(original_tensors[key] - reconstructed) / tl.norm(original_tensors[key])
+                error = _relative_reconstruction_error(
+                    float(tl.norm(original_tensors[key] - reconstructed)),
+                    float(tl.norm(original_tensors[key])),
                 )
                 results[key] = ReconstructionResult(tensor=reconstructed, error=error)
             except Exception as e:
@@ -364,7 +377,9 @@ class GPUStrategy(ProcessingStrategy):
                         cpu_original = original_tensors[key].cpu()
 
                         reconstructed = tucker_to_tensor((cpu_core, cpu_factors))
-                        error = float(tl.norm(cpu_original - reconstructed) / tl.norm(cpu_original))
+                        error = _relative_reconstruction_error(
+                            float(tl.norm(cpu_original - reconstructed)), float(tl.norm(cpu_original))
+                        )
                         results[key] = ReconstructionResult(tensor=reconstructed, error=error)
                     except Exception as cpu_e:
                         logger.error(f"CPU fallback also failed for tensor {key}: {cpu_e}")
@@ -610,7 +625,9 @@ class TensorReconstructor:
         """
         try:
             reconstructed = tucker_to_tensor((core, factors))
-            error = float(tl.norm(original - reconstructed) / tl.norm(original))
+            error = _relative_reconstruction_error(
+                float(tl.norm(original - reconstructed)), float(tl.norm(original))
+            )
             return ReconstructionResult(tensor=reconstructed, error=error)
         except Exception as e:
             raise TensorDecompositionError(f"Reconstruction failed: {e}")
@@ -701,7 +718,7 @@ class TensorVisualizer:
         subjects : Optional[List[str]], optional
             A list of subjects to visualize, by default None.
         """
-        subjects = subjects or original_tensors
+        subjects = subjects or list(original_tensors)
 
         for subject in subjects:
             if subject not in original_tensors or subject not in reconstructed_tensors:
@@ -757,6 +774,8 @@ class TuckerDecomposerInterface:
             ranks = config.ranks
             epsilon = config.epsilon
             random_state = config.random_state
+            # BaseConfig.__post_init__ resolves automatic device selection.
+            assert config.device is not None
             device = config.device
             dtype = torch.float64 if config.dtype == "float64" else torch.float32
             max_workers = config.max_workers
@@ -784,6 +803,7 @@ class TuckerDecomposerInterface:
         self.state = DecomposerState.INITIALIZED
 
         # Choose processing strategy
+        self.strategy: ProcessingStrategy
         if self.processor.device.type == "cpu":
             self.strategy = CPUStrategy(max_workers)
         else:
@@ -831,13 +851,14 @@ class TuckerDecomposerInterface:
         try:
             if self.is_collection:
                 results = TensorReconstructor.reconstruct_collection(
-                    self._cores, self._factors, self.tensors, self.strategy
+                    cast(Dict[str, torch.Tensor], self._cores),
+                    cast(Dict[str, List[torch.Tensor]], self._factors), self.tensors, self.strategy
                 )
                 self._reconstructed = {k: v.tensor for k, v in results.items()}
                 self._errors = {k: v.error for k, v in results.items()}
             else:
                 result = TensorReconstructor.reconstruct_single(
-                    self._cores, self._factors, self.tensors
+                    self._cores, cast(List[torch.Tensor], self._factors), self.tensors
                 )
                 self._reconstructed = result.tensor
                 self._errors = result.error
@@ -863,7 +884,9 @@ class TuckerDecomposerInterface:
 
         try:
             if self.is_collection:
-                TensorVisualizer.visualize_collection(self.tensors, self._reconstructed, subjects)
+                TensorVisualizer.visualize_collection(
+                    self.tensors, cast(Dict[str, torch.Tensor], self._reconstructed), subjects
+                )
             else:
                 TensorVisualizer.visualize_single(self.tensors, self._reconstructed)
 
@@ -889,7 +912,7 @@ class TuckerDecomposerInterface:
         """Get the decomposition factors."""
         if self.state == DecomposerState.INITIALIZED:
             raise StateError("Call decompose() first")
-        return self._factors
+        return cast(Union[List[torch.Tensor], Dict[str, List[torch.Tensor]]], self._factors)
 
     @property
     def reconstructed_tensors(self) -> Union[torch.Tensor, Dict[str, torch.Tensor]]:
@@ -903,7 +926,7 @@ class TuckerDecomposerInterface:
         """Get the reconstruction errors."""
         if self.state != DecomposerState.RECONSTRUCTED:
             raise StateError("Call reconstruct() first")
-        return self._errors
+        return cast(Union[float, Dict[str, float]], self._errors)
 
     def set_ranks(self, ranks: Optional[Union[int, List[int]]]) -> None:
         """Updates the ranks for the decomposition.
