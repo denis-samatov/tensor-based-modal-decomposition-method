@@ -10,6 +10,31 @@ permissions:
   contents: read
 
 jobs:
+  statistics-only-replay:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+    - name: Set up isolated statistics Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+        cache-dependency-path: studies/brugge_sparse_sensing/requirements-statistics.txt
+    - name: Install only hash-locked statistics dependencies
+      run: python -m pip install --require-hashes -r studies/brugge_sparse_sensing/requirements-statistics.txt
+    - name: Replay twelve core artifacts from stored rows
+      run: python studies/brugge_sparse_sensing/scripts/verify_statistics.py --output-dir "$RUNNER_TEMP/tbmd-statistics-replay"
+    - name: Retain bounded replay receipt and logs
+      if: always()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      with:
+        name: statistics-only-replay
+        path: |
+          ${{ runner.temp }}/tbmd-statistics-replay/receipt.json
+          ${{ runner.temp }}/tbmd-statistics-replay/logs/
+        if-no-files-found: error
+
   build-and-test:
     runs-on: ubuntu-latest
     strategy:

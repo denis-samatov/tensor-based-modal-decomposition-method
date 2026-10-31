@@ -87,6 +87,28 @@ reported comparisons, and it does not qualify a new significance or equivalence
 protocol. Historical artifacts and locks have been preserved. No rounding rule,
 tolerance or statistic was chosen to recover the stored p-values.
 
+## Dedicated statistics-only gate
+
+The [isolated replay instructions](../REPRODUCIBILITY.md#statistics-only-replay-twelve-core-artifacts)
+now provide a generated hash lock for Python 3.13 with NumPy 2.5.2, pandas 3.0.5
+and SciPy 1.18.1. `verify_statistics.py` checks a fixed twelve-file set after
+running the same three unchanged generators over fifteen committed input files
+in a new directory outside the checkout. Required missing files, byte drift,
+runtime drift, subprocess failures and changed source hashes fail the gate;
+receipts and logs remain available for inspection.
+
+Fresh local acceptance on 2026-10-31 used Python 3.13.13 on macOS ARM64 and
+installed all six packages from the generated hash lock in a new environment.
+The checksum check and three generators exited zero, all twelve required files
+matched byte for byte, and all 134 recorded source hashes were unchanged.
+The dedicated boundary tests passed all fifteen cases. These are local results.
+
+The independent Linux CI job is named `statistics-only-replay`. Its execution
+and receipt, rather than its presence in YAML, determine hosted qualification.
+This narrow gate does not replace `verify_outputs.sh` or its historical Python
+3.12 environment guard. It excludes E8, optimization/E9, figures and raw-input
+recomputation. The modern-profile 6/12 failure above is preserved unchanged.
+
 ## Validation
 
 From a source checkout with the maintained execution environment installed:
