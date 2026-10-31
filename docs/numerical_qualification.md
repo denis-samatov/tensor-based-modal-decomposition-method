@@ -164,6 +164,25 @@ rounding or acceptance tolerance has changed. The original exact failure remains
 blocking. Choosing a portable numeric ingestion contract is a separate versioned
 scientific decision; this diagnosis does not silently replace historical results.
 
+### Cross-platform statistics diagnosis (2026-10-31)
+A read-only arithmetic control covered all 23 floating columns (957080 values) in the four fixed
+public input CSVs. Canonical little-endian binary64 column hashes matched the observed Mac arrays
+for fused accumulation (23/23) and the observed Linux arrays for separate accumulation (23/23); 12
+columns and 13088 values differed between hosts. This identifies an input-reading arithmetic
+boundary without changing the study reader. A separately frozen diagnostic intervention on Mac
+substituted only those four input arrays while running the three unchanged generators on 15 original
+input copies. The prediction of 12/12 historical Linux output hashes was **not supported**: 9/12
+matched, including the complete `stats_wilcoxon.csv` and `key_numbers.json`; the remaining 116
+numeric differences were confined to `*_std` fields in three groupby tables (25 representation, 61
+noise, 30 l1; maximum absolute binary64 delta 7.105427357601002e-15). All 134 source hashes and 15
+input copies remained unchanged. Static inspection of the installed Mac pandas 3.0.5 float64
+`group_var` symbol found fused multiply-add instructions; [the versioned upstream
+function](https://github.com/pandas-dev/pandas/blob/v3.0.5/pandas/_libs/groupby.pyx#L844-L938)
+performs running second-moment updates and square-root finalization. Linux instructions/compiler
+flags and the cause of every residual standard-deviation difference remain unverified. These
+controls are diagnostics, not a parser replacement or scientific qualification; the strict replay
+gate, canonical outputs and tolerances are unchanged.
+
 ## Validation
 
 From a source checkout with the maintained execution environment installed:
