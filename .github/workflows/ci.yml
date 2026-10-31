@@ -33,6 +33,9 @@ jobs:
         path: |
           ${{ runner.temp }}/tbmd-statistics-replay/receipt.json
           ${{ runner.temp }}/tbmd-statistics-replay/logs/
+          ${{ runner.temp }}/tbmd-statistics-replay/outputs/table_*.csv
+          ${{ runner.temp }}/tbmd-statistics-replay/outputs/stats_wilcoxon.csv
+          ${{ runner.temp }}/tbmd-statistics-replay/outputs/key_numbers.json
         if-no-files-found: error
 
   build-and-test:
