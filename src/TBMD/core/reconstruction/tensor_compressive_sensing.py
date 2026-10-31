@@ -21,6 +21,7 @@
 
 from __future__ import annotations
 
+import math
 import time
 from dataclasses import dataclass
 from typing import Callable, List, Optional, Protocol, Tuple, Union
@@ -640,11 +641,43 @@ class TensorCompressiveSensing:
                 vector, with shape (W,) or (W, 1).
 
         Returns:
-            float: The relative reconstruction error.
+            float: The relative reconstruction error. Exact reconstruction of zero
+                measurements has error zero.
+
+        Raises:
+            ValueError: Zero measurements have a nonzero reconstruction residual;
+                a relative error is undefined in this case.
         """
         x_t = to_torch_tensor(x, device=self.device, dtype=self.dtype).view(-1, 1)
         res = self.As @ x_t - self.Ys
-        return (torch.norm(res) / torch.norm(self.Ys)).item()
+        residual_norm = torch.norm(res)
+        measurement_norm = torch.norm(self.Ys)
+        if torch.count_nonzero(self.Ys).item() == 0:
+            if torch.count_nonzero(res).item() == 0:
+                return 0.0
+            raise ValueError("Relative reconstruction error is undefined for zero measurements")
+        if measurement_norm.item() == 0.0:
+            # A nonzero vector can have a norm that underflows in its dtype.
+            # Normalize each vector independently before squaring. Combine scale
+            # exponents last to avoid overflowing a representable norm ratio.
+            residual_scale = res.abs().max().double().item()
+            if residual_scale == 0.0:
+                return 0.0
+            measurement_scale = self.Ys.abs().max().double().item()
+            norm_ratio = (
+                torch.norm(res.double() / residual_scale)
+                / torch.norm(self.Ys.double() / measurement_scale)
+            ).item()
+            residual_mantissa, residual_exponent = math.frexp(residual_scale)
+            measurement_mantissa, measurement_exponent = math.frexp(measurement_scale)
+            try:
+                return math.ldexp(
+                    residual_mantissa / measurement_mantissa * norm_ratio,
+                    residual_exponent - measurement_exponent,
+                )
+            except OverflowError:
+                return math.inf
+        return (residual_norm / measurement_norm).item()
 
 
 # Alias for backward compatibility
