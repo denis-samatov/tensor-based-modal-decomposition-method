@@ -122,3 +122,13 @@ The [v2.2.0 GitHub release](https://github.com/denis-samatov/tensor-based-modal-
 the earlier arXiv entry retains its original title until the authors replace it.
 Code is MIT licensed ([LICENSE](LICENSE)); TNO data rights are separate.
 [Contribution guide](CONTRIBUTING.md).
+
+### CPU numerical qualification
+
+The [2026-10-31 numerical qualification](docs/numerical_qualification.md) checks
+Tucker subspaces and masked Lasso against independent analytic oracles, and
+fixes a zero-measurement error metric. The maintained software profile passed
+these checks but failed exact stored-table replay: two near-tied Wilcoxon
+p-values depend on CSV floating-point parsing. Historical artifacts and the
+separate scientific environment are preserved; software success is not a full
+Brugge scientific replay or independent physical validation.

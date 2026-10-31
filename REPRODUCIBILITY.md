@@ -6,6 +6,11 @@ intentional: passing the synthetic checks verifies the public TBMD
 implementation, but it does not reproduce the manuscript's Brugge metrics or
 figures.
 
+See [the 2026-10-31 numerical qualification](docs/numerical_qualification.md) for
+independent analytic checks and a failed exact table replay in the maintained
+software profile. Passing software tests does not qualify scientific replay; use
+the historical study profile for its separate acceptance gate.
+
 ## Public reproducibility scope
 
 | Item | Public status | Verification |
