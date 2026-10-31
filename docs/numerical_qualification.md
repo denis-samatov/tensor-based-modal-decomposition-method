@@ -130,6 +130,40 @@ Matching source bytes alone do not establish identical parsed numbers. The
 cross-platform diagnostic must identify the earliest differing boundary before
 any change to the scientific execution profile is proposed.
 
+### First divergent boundary identified (2026-10-31)
+
+[Linux CI run 41206927831](https://github.com/denis-samatov/tensor-based-modal-decomposition-method/actions/runs/41206927831)
+retained a successful diagnostic after the strict replay failed 7/12. Across four
+identical raw CSV files and identical shapes, 12 of 23 floating-column binary64
+hashes differ between macOS ARM64 and Linux x86_64. All 23 independent
+builtin-float column hashes match. Thus divergence already exists during the
+unchanged pandas CSV parsing, before the statistical reductions.
+
+In the preselected ten-row P2/grid/N10/POD-LS group, a middle element changes
+from `0x1.d5165e86b84f8p+4` on macOS to `0x1.d5165e86b84f9p+4` on Linux.
+The two middle values then reproduce the observed median change from
+`0x1.d4f2fb174798fp+4` to `0x1.d4f2fb1747990p+4` with plain binary64 arithmetic.
+Using the independent builtin-float inputs gives the same median on both hosts.
+That is a diagnostic control, not an adopted replacement parser.
+
+A bounded reference of pandas 3.0.5's
+[`precise_xstrtod` decimal accumulation](https://github.com/pandas-dev/pandas/blob/v3.0.5/pandas/_libs/src/parser/tokenizer.c)
+compared fused multiply-add with separate multiply/add over the retained example
+tokens and the fixed median inputs. All 130 observed macOS values match the
+fused reference (8 only that reference); all 130 observed Linux values match the
+separate reference (12 only that reference). The union contains 136 tokens,
+not every input cell. All ten median inputs and the resulting one-ULP median
+difference are reproduced. Static inspection of the installed macOS parser
+also finds `fmadd` in `precise_xstrtod`. Linux wheel compiler flags/instructions
+and causality for every derived difference have not been independently established.
+The differing `longdouble` widths in the diagnostic are not attributed as cause:
+this source function uses `double` accumulation.
+
+No scientific generator, CSV parser option, numerical method, expected artifact,
+rounding or acceptance tolerance has changed. The original exact failure remains
+blocking. Choosing a portable numeric ingestion contract is a separate versioned
+scientific decision; this diagnosis does not silently replace historical results.
+
 ## Validation
 
 From a source checkout with the maintained execution environment installed:
