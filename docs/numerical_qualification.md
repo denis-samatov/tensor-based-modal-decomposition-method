@@ -109,6 +109,27 @@ This narrow gate does not replace `verify_outputs.sh` or its historical Python
 3.12 environment guard. It excludes E8, optimization/E9, figures and raw-input
 recomputation. The modern-profile 6/12 failure above is preserved unchanged.
 
+## Cross-platform parsing diagnosis
+
+The locked profile passed 12/12 files on macOS ARM64 but reproduced only 7/12
+byte-identical files on Linux x86_64, including with the same Python 3.13.13
+patch version. PR #135 therefore remains unqualified for merge. Scientific
+outputs and exact-match acceptance remain unchanged.
+
+`diagnose_statistics.py` records raw input hashes, little-endian binary64 column
+hashes from the unchanged pandas reader, an independent builtin-float parsing
+reference, and the inputs/intermediate pair of one preselected differing median.
+It writes a new JSON file outside the checkout and runs after the strict CI gate,
+even on failure. Its diagnostic reference does not replace the study parser.
+
+```bash
+python studies/brugge_sparse_sensing/scripts/diagnose_statistics.py --output-file /tmp/tbmd-statistics-inputs.json
+```
+
+Matching source bytes alone do not establish identical parsed numbers. The
+cross-platform diagnostic must identify the earliest differing boundary before
+any change to the scientific execution profile is proposed.
+
 ## Validation
 
 From a source checkout with the maintained execution environment installed:

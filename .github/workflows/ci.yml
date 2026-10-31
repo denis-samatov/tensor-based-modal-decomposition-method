@@ -25,12 +25,16 @@ jobs:
       run: python -m pip install --require-hashes -r studies/brugge_sparse_sensing/requirements-statistics.txt
     - name: Replay twelve core artifacts from stored rows
       run: python studies/brugge_sparse_sensing/scripts/verify_statistics.py --output-dir "$RUNNER_TEMP/tbmd-statistics-replay"
+    - name: Diagnose input bit patterns without changing acceptance
+      if: always()
+      run: python studies/brugge_sparse_sensing/scripts/diagnose_statistics.py --output-file "$RUNNER_TEMP/tbmd-statistics-inputs.json"
     - name: Retain bounded replay receipt and logs
       if: always()
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
       with:
         name: statistics-only-replay
         path: |
+          ${{ runner.temp }}/tbmd-statistics-inputs.json
           ${{ runner.temp }}/tbmd-statistics-replay/receipt.json
           ${{ runner.temp }}/tbmd-statistics-replay/logs/
           ${{ runner.temp }}/tbmd-statistics-replay/outputs/table_*.csv
