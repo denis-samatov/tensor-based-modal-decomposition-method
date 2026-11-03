@@ -87,6 +87,102 @@ reported comparisons, and it does not qualify a new significance or equivalence
 protocol. Historical artifacts and locks have been preserved. No rounding rule,
 tolerance or statistic was chosen to recover the stored p-values.
 
+## Dedicated statistics-only gate
+
+The [isolated replay instructions](../REPRODUCIBILITY.md#statistics-only-replay-twelve-core-artifacts)
+now provide a generated hash lock for Python 3.13 with NumPy 2.5.2, pandas 3.0.5
+and SciPy 1.18.1. `verify_statistics.py` checks a fixed twelve-file set after
+running the same three unchanged generators over fifteen committed input files
+in a new directory outside the checkout. Required missing files, byte drift,
+runtime drift, subprocess failures and changed source hashes fail the gate;
+receipts and logs remain available for inspection.
+
+Fresh local acceptance on 2026-10-31 used Python 3.13.13 on macOS ARM64 and
+installed all six packages from the generated hash lock in a new environment.
+The checksum check and three generators exited zero, all twelve required files
+matched byte for byte, and all 134 recorded source hashes were unchanged.
+The dedicated boundary tests passed all fifteen cases. These are local results.
+
+The independent Linux CI job is named `statistics-only-replay`. Its execution
+and receipt, rather than its presence in YAML, determine hosted qualification.
+This narrow gate does not replace `verify_outputs.sh` or its historical Python
+3.12 environment guard. It excludes E8, optimization/E9, figures and raw-input
+recomputation. The modern-profile 6/12 failure above is preserved unchanged.
+
+## Cross-platform parsing diagnosis
+
+The locked profile passed 12/12 files on macOS ARM64 but reproduced only 7/12
+byte-identical files on Linux x86_64, including with the same Python 3.13.13
+patch version. PR #135 therefore remains unqualified for merge. Scientific
+outputs and exact-match acceptance remain unchanged.
+
+`diagnose_statistics.py` records raw input hashes, little-endian binary64 column
+hashes from the unchanged pandas reader, an independent builtin-float parsing
+reference, and the inputs/intermediate pair of one preselected differing median.
+It writes a new JSON file outside the checkout and runs after the strict CI gate,
+even on failure. Its diagnostic reference does not replace the study parser.
+
+```bash
+python studies/brugge_sparse_sensing/scripts/diagnose_statistics.py --output-file /tmp/tbmd-statistics-inputs.json
+```
+
+Matching source bytes alone do not establish identical parsed numbers. The
+cross-platform diagnostic must identify the earliest differing boundary before
+any change to the scientific execution profile is proposed.
+
+### First divergent boundary identified (2026-10-31)
+
+[Linux CI run 41206927831](https://github.com/denis-samatov/tensor-based-modal-decomposition-method/actions/runs/41206927831)
+retained a successful diagnostic after the strict replay failed 7/12. Across four
+identical raw CSV files and identical shapes, 12 of 23 floating-column binary64
+hashes differ between macOS ARM64 and Linux x86_64. All 23 independent
+builtin-float column hashes match. Thus divergence already exists during the
+unchanged pandas CSV parsing, before the statistical reductions.
+
+In the preselected ten-row P2/grid/N10/POD-LS group, a middle element changes
+from `0x1.d5165e86b84f8p+4` on macOS to `0x1.d5165e86b84f9p+4` on Linux.
+The two middle values then reproduce the observed median change from
+`0x1.d4f2fb174798fp+4` to `0x1.d4f2fb1747990p+4` with plain binary64 arithmetic.
+Using the independent builtin-float inputs gives the same median on both hosts.
+That is a diagnostic control, not an adopted replacement parser.
+
+A bounded reference of pandas 3.0.5's
+[`precise_xstrtod` decimal accumulation](https://github.com/pandas-dev/pandas/blob/v3.0.5/pandas/_libs/src/parser/tokenizer.c)
+compared fused multiply-add with separate multiply/add over the retained example
+tokens and the fixed median inputs. All 130 observed macOS values match the
+fused reference (8 only that reference); all 130 observed Linux values match the
+separate reference (12 only that reference). The union contains 136 tokens,
+not every input cell. All ten median inputs and the resulting one-ULP median
+difference are reproduced. Static inspection of the installed macOS parser
+also finds `fmadd` in `precise_xstrtod`. Linux wheel compiler flags/instructions
+and causality for every derived difference have not been independently established.
+The differing `longdouble` widths in the diagnostic are not attributed as cause:
+this source function uses `double` accumulation.
+
+No scientific generator, CSV parser option, numerical method, expected artifact,
+rounding or acceptance tolerance has changed. The original exact failure remains
+blocking. Choosing a portable numeric ingestion contract is a separate versioned
+scientific decision; this diagnosis does not silently replace historical results.
+
+### Cross-platform statistics diagnosis (2026-10-31)
+A read-only arithmetic control covered all 23 floating columns (957080 values) in the four fixed
+public input CSVs. Canonical little-endian binary64 column hashes matched the observed Mac arrays
+for fused accumulation (23/23) and the observed Linux arrays for separate accumulation (23/23); 12
+columns and 13088 values differed between hosts. This identifies an input-reading arithmetic
+boundary without changing the study reader. A separately frozen diagnostic intervention on Mac
+substituted only those four input arrays while running the three unchanged generators on 15 original
+input copies. The prediction of 12/12 historical Linux output hashes was **not supported**: 9/12
+matched, including the complete `stats_wilcoxon.csv` and `key_numbers.json`; the remaining 116
+numeric differences were confined to `*_std` fields in three groupby tables (25 representation, 61
+noise, 30 l1; maximum absolute binary64 delta 7.105427357601002e-15). All 134 source hashes and 15
+input copies remained unchanged. Static inspection of the installed Mac pandas 3.0.5 float64
+`group_var` symbol found fused multiply-add instructions; [the versioned upstream
+function](https://github.com/pandas-dev/pandas/blob/v3.0.5/pandas/_libs/groupby.pyx#L844-L938)
+performs running second-moment updates and square-root finalization. Linux instructions/compiler
+flags and the cause of every residual standard-deviation difference remain unverified. These
+controls are diagnostics, not a parser replacement or scientific qualification; the strict replay
+gate, canonical outputs and tolerances are unchanged.
+
 ## Validation
 
 From a source checkout with the maintained execution environment installed:

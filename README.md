@@ -45,9 +45,17 @@ raw numerical artifacts before making new scientific claims.
 
 ## Reproducibility
 
-From the checkout root, verify committed results without restricted raw data:
+The [statistics-only profile](REPRODUCIBILITY.md#statistics-only-replay-twelve-core-artifacts)
+uses an isolated Python 3.13 environment and three pinned numerical packages to
+rerender exactly twelve core tables, statistics and macros from committed rows.
+It has its own Linux CI job. It does not install TBMD, reproduce the complete
+historical environment, rerun simulations, regenerate E8/E9 or qualify figures.
+
+The broader historical stored-result gate remains separate. From the checkout
+root, first satisfy its historical environment, then run:
 
 ```bash
+python studies/brugge_sparse_sensing/scripts/verify_environment.py
 studies/brugge_sparse_sensing/verify_outputs.sh
 MPLBACKEND=Agg python -m pytest
 ```
