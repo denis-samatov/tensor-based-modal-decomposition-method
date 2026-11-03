@@ -1,5 +1,7 @@
 # Agent Instructions
 
+If repository documentation conflicts with the existing code, follow the conventions established in the code and report each discrepancy you find between the documentation and the code in your final response.
+
 ## Purpose
 This document provides guidelines for any autonomous coding agent assisting with the Tensor-Based Modal Decomposition Method (TBMD) repository.
 
