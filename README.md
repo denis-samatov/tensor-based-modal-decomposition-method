@@ -6,6 +6,21 @@ sparse reconstruction of spatiotemporal fields. The current reservoir benchmark 
 Physical URANS forecasting is maintained in the separate
 private `tbmd-forecasting` repository.
 
+<p align="center">
+  <a href="docs/examples/synthetic-run.md"><img alt="Synthetic example" src="https://img.shields.io/badge/Synthetic%20example-0F766E?style=for-the-badge" height="32"></a>
+  <a href="studies/brugge_sparse_sensing/README.md"><img alt="Brugge benchmark" src="https://img.shields.io/badge/Brugge%20benchmark-1D4ED8?style=for-the-badge" height="32"></a>
+  <a href="REPRODUCIBILITY.md"><img alt="Verify results" src="https://img.shields.io/badge/Verify%20results-6D28D9?style=for-the-badge" height="32"></a>
+</p>
+
+<details>
+<summary>Inspect a synthetic reconstruction</summary>
+
+[Open the complete example](examples/basic/04_complete_pipeline.py) to see how a tensor basis, sparse locations, and observations are combined to reconstruct a field. The plot below comes from the [recorded synthetic run](docs/examples/synthetic-run.md). To check the reservoir numbers, follow the separate [Brugge reproducibility guide](REPRODUCIBILITY.md).
+
+![Synthetic TBMD pipeline output](docs/examples/synthetic-pipeline.png)
+
+</details>
+
 ## At a glance
 
 | | |
