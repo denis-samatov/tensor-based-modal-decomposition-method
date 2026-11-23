@@ -1,0 +1,5 @@
+# Statistics-only replay of committed result rows, not the historical full study.
+# Python 3.13; do not install the TBMD package into this isolated environment.
+numpy==2.5.2
+pandas==3.0.5
+scipy==1.18.1

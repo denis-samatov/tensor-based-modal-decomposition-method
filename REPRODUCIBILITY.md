@@ -18,7 +18,8 @@ the historical study profile for its separate acceptance gate.
 | Package installation and imports | Reproducible from a clean clone | Install the package and run `pytest tests/audit -q`. |
 | Tucker decomposition | Reproducible with generated data | Run `examples/basic/01_tucker_decomposition.py`. |
 | Decomposition → modal basis → Tensor Tube QR → sparse reconstruction | Reproducible with generated data | Run `examples/basic/04_complete_pipeline.py` as shown below. |
-| Revised-manuscript Brugge tables, statistics and number macros | Verifiable from committed result files | Run `studies/brugge_sparse_sensing/verify_outputs.sh`. |
+| Twelve core Brugge tables, statistics and number macros | Statistics-only replay from committed rows | Use the isolated Python 3.13 profile below; byte comparison of a fixed twelve-file set. |
+| Broader revised-manuscript stored-result gate, including E8/E9 | Requires the historical full environment | Run `verify_environment.py`, then `studies/brugge_sparse_sensing/verify_outputs.sh`. |
 | Revised-manuscript Brugge experiments from simulation outputs | Requires the two input files, which are not redistributed | Obtain the files (study README, section 2), then run `studies/brugge_sparse_sensing/run_all.sh`. |
 | Brugge results of the earlier version (arXiv:2607.09687) | Not reproducible | Audited in `studies/brugge_sparse_sensing/scripts/e0_*` and Supplementary Section S2 of the revised manuscript. |
 
@@ -109,6 +110,52 @@ pytest tests/unit -q
 The audit suite includes a regression test that executes the synthetic
 decomposition, modal-processing, QR-placement, and reconstruction path against
 the current public API.
+
+## Statistics-only replay: twelve core artifacts
+
+This separate profile uses Python 3.13, NumPy 2.5.2, pandas 3.0.5 and SciPy 1.18.1.
+The generated hash lock also fixes their transitive dependencies. It reruns the
+unchanged `make_tables.py`, `make_numbers_tex.py` and `make_latex_tables.py` over
+fifteen explicitly selected committed input files. It never copies a canonical
+expected output into the scratch directory. All twelve required outputs must
+exist and match byte for byte; missing files fail the gate. The committed
+`SHA256SUMS` is checked before generation, and source hashes before/after must agree.
+
+Run from the repository root, using new environment/output paths outside the
+checkout (the output path must not already exist):
+
+```bash
+python3.13 -m venv /tmp/tbmd-statistics-env
+/tmp/tbmd-statistics-env/bin/python -m pip install --require-hashes \
+  -r studies/brugge_sparse_sensing/requirements-statistics.txt
+/tmp/tbmd-statistics-env/bin/python studies/brugge_sparse_sensing/scripts/verify_statistics.py \
+  --output-dir /tmp/tbmd-statistics-replay
+```
+
+The runner records interpreter/platform/package versions, source/output hashes,
+generator exit codes and exact comparisons in `receipt.json`; `logs/` and scratch
+outputs remain available on failure. A successful result prints `12/12 exact
+artifacts`. `tests/audit/test_statistics_replay.py` exercises missing/mutated
+outputs, runtime drift, subprocess failures and source/output isolation. The
+independent `statistics-only-replay` CI job runs this same hash-locked profile on
+Ubuntu 24.04; consult its actual workflow run before claiming hosted acceptance.
+
+The lock is generated, not edited manually:
+
+```bash
+uv pip compile studies/brugge_sparse_sensing/requirements-statistics.in \
+  --python-version 3.13 --universal --generate-hashes \
+  --output-file studies/brugge_sparse_sensing/requirements-statistics.txt
+```
+
+This is **statistics-only stored-row rendering**, not the historical Python 3.12
+study environment or Python 3.13 library-support qualification. It excludes E8,
+optimization/E9, figures, manuscript claim checks and raw-input experiments.
+Committed rows, their original timings and provenance are reused; no model is
+refitted, parser/tolerance/statistic altered or scientific claim newly validated.
+The isolated older numerical pins are for trusted committed data, not a general
+deployment recommendation. The failed modern-profile 6/12 replay remains recorded
+in [numerical qualification](docs/numerical_qualification.md).
 
 ## Brugge data and manuscript-result boundary
 
